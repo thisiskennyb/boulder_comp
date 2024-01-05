@@ -1,0 +1,5728 @@
+[
+  {
+    "model": "coin.coin",
+    "pk": 1,
+    "fields": {
+      "year": 1856,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2134,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "Pattern"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 2,
+    "fields": {
+      "year": 1856,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1500,
+      "point_value": 110,
+      "pcgs_cert_num": null,
+      "comment": "Proof Pattern"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 3,
+    "fields": {
+      "year": 1857,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 17450000,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 4,
+    "fields": {
+      "year": 1857,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 485,
+      "point_value": 110,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 5,
+    "fields": {
+      "year": 1858,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 24600000,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "large letters"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 6,
+    "fields": {
+      "year": 1858,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 100,
+      "point_value": 110,
+      "pcgs_cert_num": null,
+      "comment": "large letters;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 7,
+    "fields": {
+      "year": 1858,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "overdate 8/7"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 8,
+    "fields": {
+      "year": 1858,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "small letters"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 9,
+    "fields": {
+      "year": 1858,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 200,
+      "point_value": 110,
+      "pcgs_cert_num": null,
+      "comment": "small letters;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 10,
+    "fields": {
+      "year": 1864,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 39233714,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "With \"L\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 11,
+    "fields": {
+      "year": 1864,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "With \"L\" overdate 18/18"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 12,
+    "fields": {
+      "year": 1864,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 35,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "With \"L\";Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 13,
+    "fields": {
+      "year": 1864,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Without \"L\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 14,
+    "fields": {
+      "year": 1864,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 150,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Without \"L\";Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 15,
+    "fields": {
+      "year": 1865,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Fancy \"5\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 16,
+    "fields": {
+      "year": 1865,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Plain \"5\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 17,
+    "fields": {
+      "year": 1865,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 35429286,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Plain \"5\";Fancy \"5\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 18,
+    "fields": {
+      "year": 1865,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 500,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 19,
+    "fields": {
+      "year": 1866,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 9826500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 20,
+    "fields": {
+      "year": 1866,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 725,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 21,
+    "fields": {
+      "year": 1867,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 9821000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 22,
+    "fields": {
+      "year": 1867,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 625,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 23,
+    "fields": {
+      "year": 1868,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 10266500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 24,
+    "fields": {
+      "year": 1868,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 600,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 25,
+    "fields": {
+      "year": 1869,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 6420000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 26,
+    "fields": {
+      "year": 1869,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Overdate 69/69"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 27,
+    "fields": {
+      "year": 1869,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 600,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 28,
+    "fields": {
+      "year": 1870,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 5275000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Bold \"N\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 29,
+    "fields": {
+      "year": 1870,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Shallow \"N\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 30,
+    "fields": {
+      "year": 1870,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1000,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Shallow \"N\";Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 31,
+    "fields": {
+      "year": 1871,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3929500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Bold \"N\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 32,
+    "fields": {
+      "year": 1871,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Shallow \"N\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 33,
+    "fields": {
+      "year": 1871,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 960,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Shallow \"N\";Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 34,
+    "fields": {
+      "year": 1872,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 4042000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Bold \"N\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 35,
+    "fields": {
+      "year": 1872,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 950,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Bold \"N\";Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 36,
+    "fields": {
+      "year": 1872,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Shallow \"N\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 37,
+    "fields": {
+      "year": 1873,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 11676500,
+      "point_value": 50,
+      "pcgs_cert_num": 27491915,
+      "comment": "Closed \"3\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 38,
+    "fields": {
+      "year": 1873,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1100,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Closed \"3\";Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 39,
+    "fields": {
+      "year": 1873,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Doubled \"LIBERTY\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 40,
+    "fields": {
+      "year": 1873,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Open \"3\""
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 41,
+    "fields": {
+      "year": 1874,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 14187500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 42,
+    "fields": {
+      "year": 1874,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 700,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 43,
+    "fields": {
+      "year": 1875,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 13528000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 44,
+    "fields": {
+      "year": 1875,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Dot on N reverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 45,
+    "fields": {
+      "year": 1875,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 700,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 46,
+    "fields": {
+      "year": 1876,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 7944000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 47,
+    "fields": {
+      "year": 1876,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1150,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 48,
+    "fields": {
+      "year": 1877,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 852500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 49,
+    "fields": {
+      "year": 1877,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 900,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 50,
+    "fields": {
+      "year": 1878,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 5797500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 51,
+    "fields": {
+      "year": 1878,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2350,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 52,
+    "fields": {
+      "year": 1879,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 16228000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 53,
+    "fields": {
+      "year": 1879,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3200,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 54,
+    "fields": {
+      "year": 1880,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 38961000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 55,
+    "fields": {
+      "year": 1880,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3955,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 56,
+    "fields": {
+      "year": 1881,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 39208000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 57,
+    "fields": {
+      "year": 1881,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3575,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 58,
+    "fields": {
+      "year": 1882,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 38578000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 59,
+    "fields": {
+      "year": 1882,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3100,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 60,
+    "fields": {
+      "year": 1883,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 45591500,
+      "point_value": 50,
+      "pcgs_cert_num": "06124349",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 61,
+    "fields": {
+      "year": 1883,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 6609,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 62,
+    "fields": {
+      "year": 1884,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 23257800,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 63,
+    "fields": {
+      "year": 1884,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3942,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 64,
+    "fields": {
+      "year": 1885,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 11761594,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 65,
+    "fields": {
+      "year": 1885,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3790,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 66,
+    "fields": {
+      "year": 1886,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 17650000,
+      "point_value": 50,
+      "pcgs_cert_num": 40935594,
+      "comment": "Variety 1"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 67,
+    "fields": {
+      "year": 1886,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 4290,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Variety 1;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 68,
+    "fields": {
+      "year": 1886,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Variety 2"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 69,
+    "fields": {
+      "year": 1886,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Variety 2;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 70,
+    "fields": {
+      "year": 1887,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 45223523,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 71,
+    "fields": {
+      "year": 1887,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2960,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 72,
+    "fields": {
+      "year": 1888,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 37489832,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 73,
+    "fields": {
+      "year": 1888,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Overdate 8/7"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 74,
+    "fields": {
+      "year": 1888,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 4582,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 75,
+    "fields": {
+      "year": 1889,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 48866025,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 76,
+    "fields": {
+      "year": 1889,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 3336,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 77,
+    "fields": {
+      "year": 1890,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 57180114,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 78,
+    "fields": {
+      "year": 1890,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2740,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 79,
+    "fields": {
+      "year": 1891,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 47070000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 80,
+    "fields": {
+      "year": 1891,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2350,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 81,
+    "fields": {
+      "year": 1892,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 37647087,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 82,
+    "fields": {
+      "year": 1892,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2745,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 83,
+    "fields": {
+      "year": 1893,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 46640000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 84,
+    "fields": {
+      "year": 1893,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2195,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 85,
+    "fields": {
+      "year": 1894,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 16749500,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 86,
+    "fields": {
+      "year": 1894,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Double date"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 87,
+    "fields": {
+      "year": 1894,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2632,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 88,
+    "fields": {
+      "year": 1895,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 38341574,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 89,
+    "fields": {
+      "year": 1895,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2062,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 90,
+    "fields": {
+      "year": 1896,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 39055431,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 91,
+    "fields": {
+      "year": 1896,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1862,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 92,
+    "fields": {
+      "year": 1897,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 50464392,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 93,
+    "fields": {
+      "year": 1897,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1938,
+      "point_value": 60,
+      "pcgs_cert_num": 4323778,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 94,
+    "fields": {
+      "year": 1898,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 49821284,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 95,
+    "fields": {
+      "year": 1898,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1795,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 96,
+    "fields": {
+      "year": 1899,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 53598000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 97,
+    "fields": {
+      "year": 1899,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2031,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 98,
+    "fields": {
+      "year": 1900,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 66831502,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 99,
+    "fields": {
+      "year": 1900,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2262,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 100,
+    "fields": {
+      "year": 1901,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 79609158,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 101,
+    "fields": {
+      "year": 1901,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1985,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 102,
+    "fields": {
+      "year": 1902,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 87374704,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 103,
+    "fields": {
+      "year": 1902,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2018,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 104,
+    "fields": {
+      "year": 1903,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 85092703,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 105,
+    "fields": {
+      "year": 1903,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1790,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 106,
+    "fields": {
+      "year": 1904,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 61326198,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 107,
+    "fields": {
+      "year": 1904,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1817,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 108,
+    "fields": {
+      "year": 1905,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 80717011,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 109,
+    "fields": {
+      "year": 1905,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2152,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 110,
+    "fields": {
+      "year": 1906,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 96020530,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 111,
+    "fields": {
+      "year": 1906,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1725,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 112,
+    "fields": {
+      "year": 1907,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 108137143,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 113,
+    "fields": {
+      "year": 1907,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1475,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 114,
+    "fields": {
+      "year": 1908,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 32326367,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 115,
+    "fields": {
+      "year": 1908,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1620,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 116,
+    "fields": {
+      "year": 1908,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1115000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 117,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 14368470,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 118,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2175,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 119,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 309000,
+      "point_value": 50,
+      "pcgs_cert_num": 32616240,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 120,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 27995000,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "With initials VDB"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 121,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001;WDDO-002",
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "With initials VDB;Double Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 122,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1194,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "With initials VDB; Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 123,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 72702618,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Without initials VDB"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 124,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2618,
+      "point_value": 60,
+      "pcgs_cert_num": null,
+      "comment": "Without initials VDB; Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 125,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 484000,
+      "point_value": 1000,
+      "pcgs_cert_num": null,
+      "comment": "With initials VDB"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 126,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1825000,
+      "point_value": 150,
+      "pcgs_cert_num": 21978851,
+      "comment": "Without initials VDB"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 127,
+    "fields": {
+      "year": 1909,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": null,
+      "comment": "Without initials VDB;repunched mintmark (S over horizontal S)"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 128,
+    "fields": {
+      "year": 1910,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 146801218,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 129,
+    "fields": {
+      "year": 1910,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 4118,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 130,
+    "fields": {
+      "year": 1910,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 6045000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 131,
+    "fields": {
+      "year": 1911,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 101177787,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 132,
+    "fields": {
+      "year": 1911,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1725,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 133,
+    "fields": {
+      "year": 1911,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 12672000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 134,
+    "fields": {
+      "year": 1911,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4026000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 135,
+    "fields": {
+      "year": 1912,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 68153060,
+      "point_value": 10,
+      "pcgs_cert_num": 35758375,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 136,
+    "fields": {
+      "year": 1912,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2172,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 137,
+    "fields": {
+      "year": 1912,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 10411000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 138,
+    "fields": {
+      "year": 1912,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4431000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 139,
+    "fields": {
+      "year": 1913,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 76532352,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 140,
+    "fields": {
+      "year": 1913,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 2983,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 141,
+    "fields": {
+      "year": 1913,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 15804000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 142,
+    "fields": {
+      "year": 1913,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 6101000,
+      "point_value": 75,
+      "pcgs_cert_num": 38962848,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 143,
+    "fields": {
+      "year": 1914,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 75238432,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 144,
+    "fields": {
+      "year": 1914,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1365,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 145,
+    "fields": {
+      "year": 1914,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 1193000,
+      "point_value": 150,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 146,
+    "fields": {
+      "year": 1914,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4137000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 147,
+    "fields": {
+      "year": 1915,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 29092120,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 148,
+    "fields": {
+      "year": 1915,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1150,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 149,
+    "fields": {
+      "year": 1915,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 22050000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 150,
+    "fields": {
+      "year": 1915,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4833000,
+      "point_value": 75,
+      "pcgs_cert_num": 41381450,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 151,
+    "fields": {
+      "year": 1916,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 131833677,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 152,
+    "fields": {
+      "year": 1916,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1050,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Matte Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 153,
+    "fields": {
+      "year": 1916,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 35956000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 154,
+    "fields": {
+      "year": 1916,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 22510000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 155,
+    "fields": {
+      "year": 1917,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 196429785,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 156,
+    "fields": {
+      "year": 1917,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 300,
+      "pcgs_cert_num": null,
+      "comment": "Double Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 157,
+    "fields": {
+      "year": 1917,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 55120000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 158,
+    "fields": {
+      "year": 1917,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 32620000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 159,
+    "fields": {
+      "year": 1918,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 288104634,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 160,
+    "fields": {
+      "year": 1918,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 47830000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 161,
+    "fields": {
+      "year": 1918,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 34680000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 162,
+    "fields": {
+      "year": 1919,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 392021000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 163,
+    "fields": {
+      "year": 1919,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 57154000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 164,
+    "fields": {
+      "year": 1919,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 139760000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 165,
+    "fields": {
+      "year": 1920,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 310165000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 166,
+    "fields": {
+      "year": 1920,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 49280000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 167,
+    "fields": {
+      "year": 1920,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 46220000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 168,
+    "fields": {
+      "year": 1921,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 39157000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 169,
+    "fields": {
+      "year": 1921,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 15274000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 170,
+    "fields": {
+      "year": 1922,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "With faint D mintmark"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 171,
+    "fields": {
+      "year": 1922,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Without D mintmark"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 172,
+    "fields": {
+      "year": 1922,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 7160000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 173,
+    "fields": {
+      "year": 1923,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 74723000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 174,
+    "fields": {
+      "year": 1923,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 8700000,
+      "point_value": 10,
+      "pcgs_cert_num": 1331298,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 175,
+    "fields": {
+      "year": 1924,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 75178000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 176,
+    "fields": {
+      "year": 1924,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 2520000,
+      "point_value": 75,
+      "pcgs_cert_num": 33053284,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 177,
+    "fields": {
+      "year": 1924,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 11696000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 178,
+    "fields": {
+      "year": 1925,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 139949000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 179,
+    "fields": {
+      "year": 1925,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 22580000,
+      "point_value": 10,
+      "pcgs_cert_num": 34929265,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 180,
+    "fields": {
+      "year": 1925,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 26380000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 181,
+    "fields": {
+      "year": 1926,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 157088000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 182,
+    "fields": {
+      "year": 1926,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 28020000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 183,
+    "fields": {
+      "year": 1926,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4550000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 184,
+    "fields": {
+      "year": 1927,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 144440000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 185,
+    "fields": {
+      "year": 1927,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 27170000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 186,
+    "fields": {
+      "year": 1927,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 14276000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 187,
+    "fields": {
+      "year": 1928,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 134116000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 188,
+    "fields": {
+      "year": 1928,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 31170000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 189,
+    "fields": {
+      "year": 1928,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Large mintmark"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 190,
+    "fields": {
+      "year": 1928,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 17266000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Small mintmark"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 191,
+    "fields": {
+      "year": 1929,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 185262000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 192,
+    "fields": {
+      "year": 1929,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 41730000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 193,
+    "fields": {
+      "year": 1929,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 50148000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 194,
+    "fields": {
+      "year": 1930,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 157415000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 195,
+    "fields": {
+      "year": 1930,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 40100000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 196,
+    "fields": {
+      "year": 1930,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 24286000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 197,
+    "fields": {
+      "year": 1931,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 19396000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 198,
+    "fields": {
+      "year": 1931,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 4480000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 199,
+    "fields": {
+      "year": 1931,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": "Key Date",
+      "mintage": 866000,
+      "point_value": 150,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 200,
+    "fields": {
+      "year": 1932,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 9062000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 201,
+    "fields": {
+      "year": 1932,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 10500000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 202,
+    "fields": {
+      "year": 1933,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 14360000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 203,
+    "fields": {
+      "year": 1933,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 6200000,
+      "point_value": 75,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 204,
+    "fields": {
+      "year": 1934,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 219080000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 205,
+    "fields": {
+      "year": 1934,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 28446000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 206,
+    "fields": {
+      "year": 1935,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 245388000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 207,
+    "fields": {
+      "year": 1935,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 47000000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 208,
+    "fields": {
+      "year": 1935,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 38702000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 209,
+    "fields": {
+      "year": 1936,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 309632000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 210,
+    "fields": {
+      "year": 1936,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Brilliant Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 211,
+    "fields": {
+      "year": 1936,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001;WDDO-002;WDDO-003",
+      "mintage": null,
+      "point_value": 300,
+      "pcgs_cert_num": null,
+      "comment": "Double Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 212,
+    "fields": {
+      "year": 1936,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 5569,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Proof with Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 213,
+    "fields": {
+      "year": 1936,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 40620000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 214,
+    "fields": {
+      "year": 1936,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 29130000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 215,
+    "fields": {
+      "year": 1937,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 309170000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 216,
+    "fields": {
+      "year": 1937,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 9320,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 217,
+    "fields": {
+      "year": 1937,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 50430000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 218,
+    "fields": {
+      "year": 1937,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 34500000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 219,
+    "fields": {
+      "year": 1938,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 156682000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 220,
+    "fields": {
+      "year": 1938,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 14734,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 221,
+    "fields": {
+      "year": 1938,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 20010000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 222,
+    "fields": {
+      "year": 1938,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 15180000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 223,
+    "fields": {
+      "year": 1939,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 316466000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 224,
+    "fields": {
+      "year": 1939,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 13520,
+      "point_value": 20,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 225,
+    "fields": {
+      "year": 1939,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 15160000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 226,
+    "fields": {
+      "year": 1939,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 52070000,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 227,
+    "fields": {
+      "year": 1940,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 586810000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 228,
+    "fields": {
+      "year": 1940,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 15872,
+      "point_value": 15,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 229,
+    "fields": {
+      "year": 1940,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 81390000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 230,
+    "fields": {
+      "year": 1940,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 112940000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 231,
+    "fields": {
+      "year": 1941,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 887018000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 232,
+    "fields": {
+      "year": 1941,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001;WDDO-002;WDDO-003",
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Double Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 233,
+    "fields": {
+      "year": 1941,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 21100,
+      "point_value": 15,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 234,
+    "fields": {
+      "year": 1941,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 128700000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 235,
+    "fields": {
+      "year": 1941,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 92360000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 236,
+    "fields": {
+      "year": 1942,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 657796000,
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 237,
+    "fields": {
+      "year": 1942,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 32600,
+      "point_value": 15,
+      "pcgs_cert_num": "39412608",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 238,
+    "fields": {
+      "year": 1942,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 206698000,
+      "point_value": 5,
+      "pcgs_cert_num": "46741347",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 239,
+    "fields": {
+      "year": 1942,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 85590000,
+      "point_value": 5,
+      "pcgs_cert_num": "38306022",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 240,
+    "fields": {
+      "year": 1943,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": "43957686",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 241,
+    "fields": {
+      "year": 1943,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": "46524413",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 242,
+    "fields": {
+      "year": 1943,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": "46931747",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 243,
+    "fields": {
+      "year": 1944,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1435400000,
+      "point_value": 5,
+      "pcgs_cert_num": "47079313",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 244,
+    "fields": {
+      "year": 1944,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 430578000,
+      "point_value": 5,
+      "pcgs_cert_num": "36717096",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 245,
+    "fields": {
+      "year": 1944,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": "40244628",
+      "comment": "re-punched mintmark (D over S)"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 246,
+    "fields": {
+      "year": 1944,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 282760000,
+      "point_value": 5,
+      "pcgs_cert_num": "46748473",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 247,
+    "fields": {
+      "year": 1945,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1040515000,
+      "point_value": 5,
+      "pcgs_cert_num": "43677448",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 248,
+    "fields": {
+      "year": 1945,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 266268000,
+      "point_value": 5,
+      "pcgs_cert_num": "43710617",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 249,
+    "fields": {
+      "year": 1945,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 181770000,
+      "point_value": 5,
+      "pcgs_cert_num": "33581790",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 250,
+    "fields": {
+      "year": 1946,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 991655000,
+      "point_value": 5,
+      "pcgs_cert_num": "38187794",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 251,
+    "fields": {
+      "year": 1946,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 315690000,
+      "point_value": 5,
+      "pcgs_cert_num": "46712783",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 252,
+    "fields": {
+      "year": 1946,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 198100000,
+      "point_value": 5,
+      "pcgs_cert_num": "35783379",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 253,
+    "fields": {
+      "year": 1946,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": "34369123",
+      "comment": "re-punched mintmark (S over D)"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 254,
+    "fields": {
+      "year": 1947,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 190555000,
+      "point_value": 5,
+      "pcgs_cert_num": "47079375",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 255,
+    "fields": {
+      "year": 1947,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 194750000,
+      "point_value": 5,
+      "pcgs_cert_num": "18609437",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 256,
+    "fields": {
+      "year": 1947,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 99000000,
+      "point_value": 5,
+      "pcgs_cert_num": "80691641",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 257,
+    "fields": {
+      "year": 1948,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 317570000,
+      "point_value": 5,
+      "pcgs_cert_num": "38167315",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 258,
+    "fields": {
+      "year": 1948,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 172637500,
+      "point_value": 5,
+      "pcgs_cert_num": "81740742",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 259,
+    "fields": {
+      "year": 1948,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 81735000,
+      "point_value": 5,
+      "pcgs_cert_num": "81052101",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 260,
+    "fields": {
+      "year": 1949,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 217775000,
+      "point_value": 5,
+      "pcgs_cert_num": "80451122",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 261,
+    "fields": {
+      "year": 1949,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 153132500,
+      "point_value": 5,
+      "pcgs_cert_num": "47055741",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 262,
+    "fields": {
+      "year": 1949,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 64290000,
+      "point_value": 5,
+      "pcgs_cert_num": "47079432",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 263,
+    "fields": {
+      "year": 1950,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 272635000,
+      "point_value": 5,
+      "pcgs_cert_num": "40667453",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 264,
+    "fields": {
+      "year": 1950,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 51386,
+      "point_value": 15,
+      "pcgs_cert_num": "33672014",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 265,
+    "fields": {
+      "year": 1950,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 334950000,
+      "point_value": 5,
+      "pcgs_cert_num": "3532734",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 266,
+    "fields": {
+      "year": 1950,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 118505000,
+      "point_value": 5,
+      "pcgs_cert_num": "47056079",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 267,
+    "fields": {
+      "year": 1951,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 284576000,
+      "point_value": 5,
+      "pcgs_cert_num": "41320285",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 268,
+    "fields": {
+      "year": 1951,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 57500,
+      "point_value": 15,
+      "pcgs_cert_num": "39152164",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 269,
+    "fields": {
+      "year": 1951,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 625355000,
+      "point_value": 5,
+      "pcgs_cert_num": "10228686",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 270,
+    "fields": {
+      "year": 1951,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 136010000,
+      "point_value": 5,
+      "pcgs_cert_num": "45878179",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 271,
+    "fields": {
+      "year": 1952,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 186775000,
+      "point_value": 5,
+      "pcgs_cert_num": "44784209",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 272,
+    "fields": {
+      "year": 1952,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 81980,
+      "point_value": 15,
+      "pcgs_cert_num": "13036529",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 273,
+    "fields": {
+      "year": 1952,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 746130000,
+      "point_value": 5,
+      "pcgs_cert_num": "38445388",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 274,
+    "fields": {
+      "year": 1952,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 137800004,
+      "point_value": 5,
+      "pcgs_cert_num": "45878178",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 275,
+    "fields": {
+      "year": 1953,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 256755000,
+      "point_value": 5,
+      "pcgs_cert_num": "44648936",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 276,
+    "fields": {
+      "year": 1953,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 128800,
+      "point_value": 15,
+      "pcgs_cert_num": "05802706",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 277,
+    "fields": {
+      "year": 1953,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 700515000,
+      "point_value": 5,
+      "pcgs_cert_num": "35695782",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 278,
+    "fields": {
+      "year": 1953,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 181835000,
+      "point_value": 5,
+      "pcgs_cert_num": "16655048",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 279,
+    "fields": {
+      "year": 1954,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 71640050,
+      "point_value": 5,
+      "pcgs_cert_num": "45661871",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 280,
+    "fields": {
+      "year": 1954,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 233300,
+      "point_value": 15,
+      "pcgs_cert_num": "38102289",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 281,
+    "fields": {
+      "year": 1954,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 251552500,
+      "point_value": 5,
+      "pcgs_cert_num": "40738982",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 282,
+    "fields": {
+      "year": 1954,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 96190000,
+      "point_value": 5,
+      "pcgs_cert_num": "39745766",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 283,
+    "fields": {
+      "year": 1955,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 330958200,
+      "point_value": 5,
+      "pcgs_cert_num": "38412065",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 284,
+    "fields": {
+      "year": 1955,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 750,
+      "pcgs_cert_num": "44549582",
+      "comment": "Double Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 285,
+    "fields": {
+      "year": 1955,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 378200,
+      "point_value": 15,
+      "pcgs_cert_num": "45431326",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 286,
+    "fields": {
+      "year": 1955,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 563257500,
+      "point_value": 5,
+      "pcgs_cert_num": "46192402",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 287,
+    "fields": {
+      "year": 1955,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 44610000,
+      "point_value": 5,
+      "pcgs_cert_num": "30114142",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 288,
+    "fields": {
+      "year": 1956,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 420745000,
+      "point_value": 5,
+      "pcgs_cert_num": "18518024",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 289,
+    "fields": {
+      "year": 1956,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 669384,
+      "point_value": 15,
+      "pcgs_cert_num": "37895906",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 290,
+    "fields": {
+      "year": 1956,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 1098201100,
+      "point_value": 5,
+      "pcgs_cert_num": "25145834",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 291,
+    "fields": {
+      "year": 1956,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 5,
+      "pcgs_cert_num": "40244631",
+      "comment": "Re-punched mintmark (D over D)"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 292,
+    "fields": {
+      "year": 1957,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 282540000,
+      "point_value": 5,
+      "pcgs_cert_num": "45997808",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 293,
+    "fields": {
+      "year": 1957,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 1247952,
+      "point_value": 15,
+      "pcgs_cert_num": "47462214",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 294,
+    "fields": {
+      "year": 1957,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 1051342000,
+      "point_value": 5,
+      "pcgs_cert_num": "46802237",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 295,
+    "fields": {
+      "year": 1958,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 252525000,
+      "point_value": 5,
+      "pcgs_cert_num": "81684416",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 297,
+    "fields": {
+      "year": 1958,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 875652,
+      "point_value": 15,
+      "pcgs_cert_num": "43989712",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 298,
+    "fields": {
+      "year": 1958,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": "800953300",
+      "point_value": 5,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 299,
+    "fields": {
+      "year": 1968,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 258270001,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 420,
+    "fields": {
+      "year": 1968,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "32704975",
+      "comment": "Doubled Die"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 300,
+    "fields": {
+      "year": 1968,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3041506,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 301,
+    "fields": {
+      "year": 1969,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 544375000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 302,
+    "fields": {
+      "year": 1969,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "3578083",
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 303,
+    "fields": {
+      "year": 1969,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2934631,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 304,
+    "fields": {
+      "year": 1970,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "14594590",
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 305,
+    "fields": {
+      "year": 1970,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 690560004,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Large date"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 306,
+    "fields": {
+      "year": 1970,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2632810,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 307,
+    "fields": {
+      "year": 1970,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 15,
+      "pcgs_cert_num": "28792707",
+      "comment": "Small date"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 308,
+    "fields": {
+      "year": 1971,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": "525133459",
+      "point_value": 0,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 309,
+    "fields": {
+      "year": 1971,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3220733,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 310,
+    "fields": {
+      "year": 1971,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "35848137",
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 310,
+    "fields": {
+      "year": 1971,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 311,
+    "fields": {
+      "year": 1972,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001;WDDO-002;WDDO-003",
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "3599635",
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 312,
+    "fields": {
+      "year": 1972,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 376939108,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 313,
+    "fields": {
+      "year": 1972,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3260996,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 314,
+    "fields": {
+      "year": 1973,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 317177295,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 315,
+    "fields": {
+      "year": 1973,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2760339,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 316,
+    "fields": {
+      "year": 1974,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 409426660,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 317,
+    "fields": {
+      "year": 1974,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2612568,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 318,
+    "fields": {
+      "year": 1975,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2845450,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 319,
+    "fields": {
+      "year": 1976,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4149730,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 320,
+    "fields": {
+      "year": 1977,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3251152,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 321,
+    "fields": {
+      "year": 1978,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3127781,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 322,
+    "fields": {
+      "year": 1979,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3677175,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 324,
+    "fields": {
+      "year": 1980,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3554806,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 326,
+    "fields": {
+      "year": 1981,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 327,
+    "fields": {
+      "year": 1982,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3857479,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof;Large Date"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 328,
+    "fields": {
+      "year": 1982,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 3857479,
+      "point_value": 1000,
+      "pcgs_cert_num": "21594857",
+      "comment": "Small Date;Copper"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 329,
+    "fields": {
+      "year": 1983,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDR-001",
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "15574045",
+      "comment": "Doubled Die Reverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 330,
+    "fields": {
+      "year": 1983,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3279126,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 331,
+    "fields": {
+      "year": 1984,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 200,
+      "pcgs_cert_num": "37933297",
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 332,
+    "fields": {
+      "year": 1984,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3065110,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 333,
+    "fields": {
+      "year": 1985,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3362821,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 334,
+    "fields": {
+      "year": 1986,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3010497,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 335,
+    "fields": {
+      "year": 1987,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4227728,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 336,
+    "fields": {
+      "year": 1988,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3262948,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 337,
+    "fields": {
+      "year": 1988,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 1000,
+      "pcgs_cert_num": "46679529",
+      "comment": "Flared G"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 338,
+    "fields": {
+      "year": 1988,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 1000,
+      "pcgs_cert_num": "47461631",
+      "comment": "Flared G"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 339,
+    "fields": {
+      "year": 1989,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3220194,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 340,
+    "fields": {
+      "year": 1990,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3299559,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 341,
+    "fields": {
+      "year": 1991,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2867787,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 342,
+    "fields": {
+      "year": 1992,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4176560,
+      "point_value": 10,
+      "pcgs_cert_num": 20703261,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 343,
+    "fields": {
+      "year": 1992,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "Transitional",
+      "mintage": null,
+      "point_value": 1000,
+      "pcgs_cert_num": 26169466,
+      "comment": "Close AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 344,
+    "fields": {
+      "year": 1992,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": null,
+      "point_value": 1000,
+      "pcgs_cert_num": 47758551,
+      "comment": "Close AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 345,
+    "fields": {
+      "year": 1993,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3394792,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 346,
+    "fields": {
+      "year": 1994,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDR-002",
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": 32024379,
+      "comment": "Doubled Die Reverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 347,
+    "fields": {
+      "year": 1994,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3269923,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 348,
+    "fields": {
+      "year": 1995,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001;WDDO-002",
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": 47248390,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 349,
+    "fields": {
+      "year": 1995,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": "WDDO-003",
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 350,
+    "fields": {
+      "year": 1995,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2797481,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 351,
+    "fields": {
+      "year": 1996,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2525265,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 352,
+    "fields": {
+      "year": 1997,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": "13795457",
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 353,
+    "fields": {
+      "year": 1997,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2796678,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 354,
+    "fields": {
+      "year": 1998,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Wide AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 355,
+    "fields": {
+      "year": 1998,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 100,
+      "pcgs_cert_num": null,
+      "comment": "Proof;Close AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 356,
+    "fields": {
+      "year": 1998,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2086507,
+      "point_value": 10,
+      "pcgs_cert_num": "46019621",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 357,
+    "fields": {
+      "year": 1999,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 75,
+      "pcgs_cert_num": "21909727",
+      "comment": "Wide AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 358,
+    "fields": {
+      "year": 1999,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 359,
+    "fields": {
+      "year": 1999,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3347966,
+      "point_value": 100,
+      "pcgs_cert_num": 47475333,
+      "comment": "Proof;Close AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 360,
+    "fields": {
+      "year": 2000,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 4047993,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 361,
+    "fields": {
+      "year": 2000,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": "43811237",
+      "comment": "Wide AM"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 362,
+    "fields": {
+      "year": 2001,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3184606,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 363,
+    "fields": {
+      "year": 2002,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3211995,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 364,
+    "fields": {
+      "year": 2003,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3298439,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 365,
+    "fields": {
+      "year": 2004,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2965522,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 366,
+    "fields": {
+      "year": 2005,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3344679,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 367,
+    "fields": {
+      "year": 2006,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 3054436,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 368,
+    "fields": {
+      "year": 2007,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2062793,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 369,
+    "fields": {
+      "year": 2008,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2169561,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 370,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 284400000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Early Childhood"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 371,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 350400000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Early Childhood"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 372,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Early Childhood;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 373,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Early Childhood;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 374,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2995615,
+      "point_value": 11,
+      "pcgs_cert_num": null,
+      "comment": "Early Childhood;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 375,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 376000000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Formitive Years"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 376,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 363600000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Formitive Years"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 377,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Formitive Years;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 378,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Formitive Years;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 379,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2995615,
+      "point_value": 11,
+      "pcgs_cert_num": null,
+      "comment": "Formitive Years;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 380,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 316000000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Professional Life"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 381,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 336000000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Professional Life"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 382,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Professional Life;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 383,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Professional Life;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 384,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2995615,
+      "point_value": 11,
+      "pcgs_cert_num": null,
+      "comment": "Professional Life;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 385,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 129600000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Presidency"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 386,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 198000000,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Presidency"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 387,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Presidency;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 388,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "D",
+      "variety": null,
+      "mintage": 784614,
+      "point_value": 1,
+      "pcgs_cert_num": null,
+      "comment": "Presidency;Satin Finish"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 389,
+    "fields": {
+      "year": 2009,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 2995615,
+      "point_value": 11,
+      "pcgs_cert_num": null,
+      "comment": "Presidency;Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 390,
+    "fields": {
+      "year": 2010,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1689216,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 391,
+    "fields": {
+      "year": 2011,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1673010,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 392,
+    "fields": {
+      "year": 2011,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-002",
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 393,
+    "fields": {
+      "year": 2012,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1239148,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 394,
+    "fields": {
+      "year": 2013,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1274505,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 395,
+    "fields": {
+      "year": 2014,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1190369,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 396,
+    "fields": {
+      "year": 2014,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-002",
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 397,
+    "fields": {
+      "year": 2015,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 1099412,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 398,
+    "fields": {
+      "year": 2015,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-006;WDDO-007",
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 399,
+    "fields": {
+      "year": 2016,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 977355,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 401,
+    "fields": {
+      "year": 2017,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 979477,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 402,
+    "fields": {
+      "year": 2018,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 898986,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 403,
+    "fields": {
+      "year": 2018,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 199177,
+      "point_value": 10,
+      "pcgs_cert_num": null,
+      "comment": "Reverse Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 404,
+    "fields": {
+      "year": 2018,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-001",
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 405,
+    "fields": {
+      "year": 2019,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": 989862,
+      "point_value": 10,
+      "pcgs_cert_num": "38752934",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 406,
+    "fields": {
+      "year": 2019,
+      "denomination": "0.01",
+      "mint_mark": "P",
+      "variety": "WDDO-011",
+      "mintage": null,
+      "point_value": 50,
+      "pcgs_cert_num": null,
+      "comment": "Doubled Die Obverse"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 407,
+    "fields": {
+      "year": 2019,
+      "denomination": "0.01",
+      "mint_mark": "W",
+      "variety": null,
+      "mintage": 346117,
+      "point_value": 75,
+      "pcgs_cert_num": "37560749",
+      "comment": "Business Strike"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 408,
+    "fields": {
+      "year": 2020,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": "40915732",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 409,
+    "fields": {
+      "year": 2021,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": "42484437",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 410,
+    "fields": {
+      "year": 2022,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": "45430632",
+      "comment": "Proof"
+    }
+  },
+  {
+    "model": "coin.coin",
+    "pk": 411,
+    "fields": {
+      "year": 2023,
+      "denomination": "0.01",
+      "mint_mark": "S",
+      "variety": null,
+      "mintage": null,
+      "point_value": 10,
+      "pcgs_cert_num": "47218682",
+      "comment": "Proof"
+    }
+  }
+]
