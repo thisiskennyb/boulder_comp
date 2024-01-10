@@ -9,6 +9,7 @@ import './App.css'
 import Header from './components/Header';
 import Signup from './routes/Signup'
 import ResetPassword from './routes/ResetPassword'
+import SignupMessage from './routes/SignupMessage'
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
       <Route path="/email-reset" element={<EmailReset />} />
       <Route path="/email-verification" element={<EmailVerification />} />
       <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/signup-message" element={<SignupMessage />} />
      </Routes>
      </Router>
      </div>

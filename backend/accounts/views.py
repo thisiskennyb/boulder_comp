@@ -24,6 +24,11 @@ from django.contrib.auth import update_session_auth_hash
 from .serializers import ChangePasswordSerializer
 
 
+from rest_framework import serializers, status
+from rest_framework.response import Response
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
+
 class SignupView(CreateAPIView):
     queryset = User.objects.all()
     serializer_class = SignupSerializer
@@ -34,6 +39,10 @@ class SignupView(CreateAPIView):
         username = validated_data["username"]
         email = validated_data["email"]
         password = validated_data["password"]
+
+        # Check if the username already exists
+        if User.objects.filter(username=username).exists():
+            raise serializers.ValidationError({'unavailable': ['Sorry, that username is already in use. Please choose another one.']})
 
         # Validate the password using Django's password validators
         try:
@@ -49,6 +58,7 @@ class SignupView(CreateAPIView):
         self._send_email_verification(user)
 
         return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
+
 
     def _send_email_verification(self, user):
         current_site = get_current_site(self.request)

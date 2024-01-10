@@ -18,6 +18,7 @@ async function basicFetch(url, payload) {
       },
       body: JSON.stringify(context)
     }
-    const body = await basicFetch(`http://${host}/api/accounts/register/signup`,payload)
-    return body
+    const response = await basicFetch(`http://${host}/api/v1/accounts/register/signup`,payload)
+    console.log(response.status, "body")
+    return response
   }
