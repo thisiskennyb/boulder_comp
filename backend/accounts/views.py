@@ -77,11 +77,31 @@ class SignupView(CreateAPIView):
     #     )
     #     EmailMessage(to=[user.email], subject=subject, body=body).send()
 
+    # def _send_email_verification(self, user):
+    #     current_site = get_current_site(self.request)
+    #     verification_token = email_verification_token.make_token(user)
+    #     verification_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': verification_token})
+    #     email_plaintext_message = f"Click the following link to activate your account: {current_site.domain}{verification_url}"
+
+    #     send_mail(
+    #         # title:
+    #         "Activate Your Account",
+    #         # message:
+    #         email_plaintext_message,
+    #         # from:
+    #         "info@yourcompany.com",
+    #         # to:
+    #         [user.email],
+    #         fail_silently=False,
+    #     )
+
+
     def _send_email_verification(self, user):
         current_site = get_current_site(self.request)
         verification_token = email_verification_token.make_token(user)
         verification_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': verification_token})
-        email_plaintext_message = f"Click the following link to activate your account: {current_site.domain}{verification_url}"
+        absolute_verification_url = self.request.build_absolute_uri(verification_url)
+        email_plaintext_message = f"Click the following link to activate your account: {absolute_verification_url}"
 
         send_mail(
             # title:
