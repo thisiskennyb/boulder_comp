@@ -14,7 +14,8 @@ export default function Signup() {
   const [specialCharValid, setSpecialCharValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [responseMsg, setResponseMsg] = useState('')
+  const [responseMsg, setResponseMsg] = useState(null)
+
 
   const navigate = useNavigate();
 
@@ -70,26 +71,44 @@ export default function Signup() {
     if (response.username) {
       navigate("/signup-message")
     }
+    else if (response.non_field_errors) {
+      setResponseMsg(response.non_field_errors)
+    }
+    else if (response.unavailable) {
+      setResponseMsg(response.unavailable)
+    }
   };
 
 
 
   return (
     <>
-      <div className="flex mx-auto">
-        <div className="flex flex-col items-start justify-center mt-15 md:mt-20 mx-auto">
+      {/* <div className="flex mx-auto">
+        <div className="flex flex-col items-start justify-center mt-15 md:mt-20 mx-auto"> */}
+<div className="mt-5">
+<div className="flex items-center justify-center mx-auto">
+    <div className="flex flex-col items-start">
           <div className="font-nunito">{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
           <div className="font-nunito">{capitalValid ? '✅' : '❌'} At least one capital letter</div>
           <div className="font-nunito">{numberValid ? '✅' : '❌'} At least one number</div>
           <div className="font-nunito">{specialCharValid ? '✅' : '❌'} At least one special character</div>
         </div>
       </div>
-
-      <div className="flex items-center text-red justify-center border-solid">
-        <p className="font-nunito"><span><AlertCircle /></span>Sorry, that username is already in use. Please choose another one.</p>
       </div>
 
-      <div className="flex items-center justify-center md:mt-10 mt-20">
+      <div className="flex items-center justify-center mt-4 h-12">
+    {responseMsg ? (
+        <div className="font-nunito flex items-center max-w-xs">
+            <span className="mr-2"><AlertCircle /></span>
+            <span className="text-center text-red-600">{responseMsg}</span>
+        </div>
+    ) : (
+        <div></div>
+    )}
+      </div>
+
+
+      <div className="flex items-center justify-center md:mt-10 mt-7">
         <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-gray-100 rounded-md">
           <label className="font-rubik font-black text-4xl">Sign Up</label>
           <input

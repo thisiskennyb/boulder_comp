@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './routes/Login'
 import Home from './routes/Home'
@@ -14,6 +14,20 @@ import SignupMessage from './routes/SignupMessage'
 function App() {
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userToken, setUserToken] = useState(null)
+  
+  useEffect( () => {
+    const token = localStorage.getItem("token")
+    if(token) {
+      setUserToken(token)
+    }
+
+  }, [])
+
+  const handleToken = (token) => {
+    localStorage.setItem("token", token)
+    setUserToken(token)
+  }
 
   const handleToggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
@@ -29,7 +43,7 @@ function App() {
     <Router>
      <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />} />
+      <Route path="/login" element={<Login handleToken={handleToken} />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/email-reset" element={<EmailReset />} />

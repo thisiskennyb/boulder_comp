@@ -22,3 +22,27 @@ async function basicFetch(url, payload) {
     console.log(response.status, "body")
     return response
   }
+
+  export async function login(context) {
+    const payload = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(context)
+    }
+    const body = await basicFetch(`http://${host}/api/v1/accounts/register/get-token`, payload)
+    return body.token
+  }
+
+  export async function emailResetLink(context) {
+    const payload = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(context)
+    }
+    const response = await basicFetch(`http://${host}/api/v1/password_reset/`, payload)
+    return response
+  }

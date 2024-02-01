@@ -1,12 +1,6 @@
+
 {% autoescape off %}
 Hi {{ user.username }},
 Please click on the link to confirm your registration,
 <a href="http://{{ domain }}{% url 'account_confirm_email' key=user.emailconfirmation.key %}">Confirm Registration</a>
 {% endautoescape %}
-
-
-<div>
-    <a href=
-    "http://{{ domain }}{% url 'activate' uidb64=uid token=token %}">
-    Please activate your account</a>
-</div>

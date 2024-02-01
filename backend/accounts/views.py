@@ -16,6 +16,9 @@ from django.utils.http import urlsafe_base64_encode
 from django.utils.http import urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.shortcuts import render
+from django.urls import reverse
+from django.core.mail import send_mail
+
 
 #changong password imports
 from rest_framework.decorators import api_view, permission_classes
@@ -28,6 +31,7 @@ from rest_framework import serializers, status
 from rest_framework.response import Response
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
+
 
 class SignupView(CreateAPIView):
     queryset = User.objects.all()
@@ -60,18 +64,37 @@ class SignupView(CreateAPIView):
         return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
 
 
+    # def _send_email_verification(self, user):
+    #     current_site = get_current_site(self.request)
+    #     subject = 'Activate Your Account'
+    #     body = render_to_string(
+    #         'email_verification.html',
+    #         {
+    #             'domain': current_site.domain,
+    #             'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+    #             'token': email_verification_token.make_token(user),
+    #         }
+    #     )
+    #     EmailMessage(to=[user.email], subject=subject, body=body).send()
+
     def _send_email_verification(self, user):
         current_site = get_current_site(self.request)
-        subject = 'Activate Your Account'
-        body = render_to_string(
-            'email_verification.html',
-            {
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': email_verification_token.make_token(user),
-            }
+        verification_token = email_verification_token.make_token(user)
+        verification_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': verification_token})
+        email_plaintext_message = f"Click the following link to activate your account: {current_site.domain}{verification_url}"
+
+        send_mail(
+            # title:
+            "Activate Your Account",
+            # message:
+            email_plaintext_message,
+            # from:
+            "info@yourcompany.com",
+            # to:
+            [user.email],
+            fail_silently=False,
         )
-        EmailMessage(to=[user.email], subject=subject, body=body).send()
+
 
 # view for changing password
         
