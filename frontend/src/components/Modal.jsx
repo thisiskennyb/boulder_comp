@@ -3,7 +3,7 @@ import { XSquare } from 'lucide-react';
 
 
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children }) =>  {
   const modalClasses = isOpen
     ? 'fixed inset-0 overflow-y-auto flex items-center justify-center'
     : 'hidden';
