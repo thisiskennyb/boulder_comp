@@ -12,6 +12,7 @@ export default function Login({handleToken})  {
     const [password, setPassword] = useState('')
     const [token, setToken] = useState('')
     const [resetEmail, setResestEmail] = useState('')
+    const [test, setTest] = useState('')
 
     const openModal = (event) => {
         event.preventDefault(); 
