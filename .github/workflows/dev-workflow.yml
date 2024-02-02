@@ -41,7 +41,10 @@ jobs:
       working-directory: ./backend
     - name: Run tests
       run: python manage.py test
-      working-directory: ./backend    
+      working-directory: ./backend  
+    env:
+      EMAIL: ${{ secrets.EMAIL }}
+      GMAIL_APP_PASSWORD: ${{secrets.GMAIL_APP_PASSWORD}}  
       
   # react-tests:
   #   runs-on: ubuntu-latest
