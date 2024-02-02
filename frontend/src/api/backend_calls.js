@@ -1,6 +1,7 @@
 // const base_url = import.meta.env.VITE_BASE_URL || "http://localhost:8000/api/";
 
-const host = "localhost:8000"
+
+const host = import.meta.env.VITE_BASE_URL || "localhost:8000";
 
 async function basicFetch(url, payload) {
     const res = await fetch(url, payload)
