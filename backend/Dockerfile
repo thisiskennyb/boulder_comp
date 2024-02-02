@@ -19,4 +19,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD gunicorn --bind 0.0.0.0:8000 --workers 3 chapter_chat.wsgi:application
+CMD gunicorn --bind 0.0.0.0:8000 --workers 3 roll_tracker.wsgi:application
