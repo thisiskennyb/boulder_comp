@@ -4,7 +4,7 @@ import { XSquare } from 'lucide-react';
 import { login, emailResetLink } from '../api/backend_calls';
 
 
-export default function Login({handleToken}) {
+export default function Login({handleToken})  {
 
     const [isModalOpen, setModalOpen] = useState(false);
     const [responseMsg, setResponseMsg] = useState('')
