@@ -94,7 +94,7 @@ DATABASES = {
 "NAME": "roll_track", 
 "USER": "postgres",
 "PASSWORD": "postgres",
-"HOST": "db",
+"HOST": "db" if os.getenv("DB_NAME") else "localhost",
 "PORT": 5432, 
 }
 }
