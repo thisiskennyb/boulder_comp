@@ -2,7 +2,7 @@
 
 export SECRET_KEY=abc123
 export DEBUG=True
-export POSTGRES_DB=roll_track
+export POSTGRES_DB=boulder_comp
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=postgres
 export EMAIL=kendbonnette@gmail.com
@@ -10,6 +10,8 @@ export GMAIL_APP_PASSWORD="vnhx rzwo owhq retc"
 export DB_NAME=db
 # export VITE_HOST=$1
 # export DJANGO_HOST=$2
+
+export DB_PORT=5432
 
 
 

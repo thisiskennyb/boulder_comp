@@ -15,6 +15,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import email_verification_token
 from rest_framework.authtoken.models import Token
+# from .models import UserDashboard
 
 
 
@@ -22,6 +23,13 @@ from rest_framework.authtoken.models import Token
 class SignupViewTest(TestCase):
     def setUp(self):
         self.client = APIClient()
+        # self.user = User.objects.create_user(
+        #     username='testuser',
+        #     email='testuser@example.com',
+        #     password='Testpassword123!',
+        #     confirm_password="Testpassword123!"
+        # )
+        
 
     def test_signup_view(self):
         # Define test data
@@ -135,3 +143,22 @@ class SignupViewTest(TestCase):
 
         # Check if the user's password has been updated correctly
         self.assertTrue(self.user.check_password("Newpassword321!"))
+
+    # def test_create_dashboard_w_null_values_view(self):
+
+    #     # Define test data
+    #     data = {
+    #         "highest_boulder_grade": "v7"
+    #     }
+
+    #     # Authenticate the user
+        
+
+    #     # Make a POST request to the DashboardView
+    #     response = self.client.post("/api/v1/accounts/register/create_dashboard/", data, format="json")
+
+    #     # Check if the response status code is 200 (OK)
+    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+   
+

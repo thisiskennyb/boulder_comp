@@ -18,6 +18,12 @@ from django.template.loader import render_to_string
 from django.shortcuts import render
 from django.urls import reverse
 from django.core.mail import send_mail
+from rest_framework.views import APIView
+from .models import UserDashboard
+from django.shortcuts import get_object_or_404
+from datetime import datetime
+from .serializers import UserDashboardSerializer
+
 
 
 #changong password imports
@@ -64,37 +70,6 @@ class SignupView(CreateAPIView):
         return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
 
 
-    # def _send_email_verification(self, user):
-    #     current_site = get_current_site(self.request)
-    #     subject = 'Activate Your Account'
-    #     body = render_to_string(
-    #         'email_verification.html',
-    #         {
-    #             'domain': current_site.domain,
-    #             'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-    #             'token': email_verification_token.make_token(user),
-    #         }
-    #     )
-    #     EmailMessage(to=[user.email], subject=subject, body=body).send()
-
-    # def _send_email_verification(self, user):
-    #     current_site = get_current_site(self.request)
-    #     verification_token = email_verification_token.make_token(user)
-    #     verification_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': verification_token})
-    #     email_plaintext_message = f"Click the following link to activate your account: {current_site.domain}{verification_url}"
-
-    #     send_mail(
-    #         # title:
-    #         "Activate Your Account",
-    #         # message:
-    #         email_plaintext_message,
-    #         # from:
-    #         "info@yourcompany.com",
-    #         # to:
-    #         [user.email],
-    #         fail_silently=False,
-    #     )
-
 
     def _send_email_verification(self, user):
         current_site = get_current_site(self.request)
@@ -132,3 +107,41 @@ def change_password(request):
                 return Response({'message': 'Password changed successfully.'}, status=status.HTTP_200_OK)
             return Response({'error': 'Incorrect old password.'}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+
+class DashboardView(APIView):
+
+    def get(self, request, pk=None):
+        myid = request.user.id
+        user_dashboard = get_object_or_404(UserDashboard, user=request.user)
+        username = user_dashboard.user.username
+        date_joined = user_dashboard.user.date_joined
+        weight = user_dashboard.weight
+        height = user_dashboard.height
+        ape_index = user_dashboard.ape_index
+        highest_boulder_grade = user_dashboard.highest_boulder_grade
+        highest_route_grade = user_dashboard.highest_route_grade
+
+        return Response({
+            'username': username,
+            'member_since': date_joined, 
+            'weight': weight, 
+            'height' : height,
+            'ape_index' : ape_index,
+            'highest_boulder_grade' : highest_boulder_grade,
+            'highest_route_grade' : highest_route_grade,            
+            })
+
+
+
+    def post(self, request):
+        dashboard_data = request.data
+        # Set the user field to the current user
+        dashboard_data['user'] = request.user.pk  # Assuming request.user is the authenticated user
+        serializer = UserDashboardSerializer(data=dashboard_data)
+        if serializer.is_valid(raise_exception=True):
+            dashboard_saved = serializer.save()
+            return Response({"result": f"{dashboard_saved.highest_boulder_grade} saved"})
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

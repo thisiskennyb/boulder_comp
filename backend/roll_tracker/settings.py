@@ -91,11 +91,14 @@ WSGI_APPLICATION = 'roll_tracker.wsgi.application'
 DATABASES = {
 "default": {
 "ENGINE": "django.db.backends.postgresql",
-"NAME": "roll_track", 
+"NAME": "boulder_comp", 
 "USER": "postgres",
 "PASSWORD": "postgres",
+
 "HOST": "db" if os.getenv("DB_NAME") else "localhost",
-"PORT": 5432, 
+"PORT": os.getenv("DB_PORT") if os.getenv("DB_PORT") else 5454, 
+
+
 }
 }
 
@@ -158,6 +161,7 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_CLASSES = [
+
     # ...
     'allauth.account.auth_backends.AuthenticationBackend',
     # ...
