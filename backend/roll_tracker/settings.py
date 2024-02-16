@@ -158,6 +158,7 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_CLASSES = [
+    
     # ...
     'allauth.account.auth_backends.AuthenticationBackend',
     # ...
