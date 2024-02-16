@@ -23,12 +23,12 @@ from rest_framework.authtoken.models import Token
 class SignupViewTest(TestCase):
     def setUp(self):
         self.client = APIClient()
-        self.user = User.objects.create_user(
-            username='testuser',
-            email='testuser@example.com',
-            password='Testpassword123!',
-            confirm_password="Testpassword123!"
-        )
+        # self.user = User.objects.create_user(
+        #     username='testuser',
+        #     email='testuser@example.com',
+        #     password='Testpassword123!',
+        #     confirm_password="Testpassword123!"
+        # )
         
 
     def test_signup_view(self):
