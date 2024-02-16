@@ -4,6 +4,7 @@ from rest_framework import serializers
 from django.core.validators import EmailValidator
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
+from .models import UserDashboard
 
 class SignupSerializer(serializers.ModelSerializer):
     username = serializers.CharField()
@@ -35,3 +36,11 @@ class ChangePasswordSerializer(serializers.Serializer):
         except ValidationError as e:
             raise serializers.ValidationError(detail=e.messages)
         return value
+    
+
+
+class UserDashboardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UserDashboard
+        fields = ['user', 'height', 'weight', 'ape_index', 'highest_boulder_grade', 'highest_route_grade']
+        

@@ -13,7 +13,7 @@ RUN pip install -r requirements.txt
 
 # ENV SECRET_KEY=abc123
 # ENV DEBUG=True
-# ENV DB_NAME=cars_db
+# ENV DB_NAME=boulder_comp
 # ENV DB_USER=postgres
 # ENV DB_PASS=postgres
 

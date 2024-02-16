@@ -3,6 +3,26 @@ from django.dispatch import receiver
 from django.urls import reverse
 from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail, EmailMessage
+from django.db import models
+from django.contrib.auth.models import User
+
+
+class UserDashboard(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    height = models.CharField(null=True)
+    weight = models.IntegerField(null=True)
+    ape_index = models.FloatField(null=True)
+    highest_boulder_grade = models.CharField()
+    highest_route_grade = models.CharField(null=True)
+
+
+
+
+
+
+
+
+
 
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
