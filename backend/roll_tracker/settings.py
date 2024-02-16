@@ -95,7 +95,7 @@ DATABASES = {
 "USER": "postgres",
 "PASSWORD": "postgres",
 "HOST": "localhost",
-"PORT": 5432 if os.getenv("DB_PORT") else 5454, 
+"PORT": os.getenv("DB_PORT") if os.getenv("DB_PORT") else 5454, 
 }
 }
 
@@ -158,7 +158,7 @@ REST_FRAMEWORK = {
 }
 
 AUTHENTICATION_CLASSES = [
-    
+
     # ...
     'allauth.account.auth_backends.AuthenticationBackend',
     # ...
