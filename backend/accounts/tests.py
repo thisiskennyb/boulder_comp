@@ -15,7 +15,7 @@ from django.utils.http import urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import email_verification_token
 from rest_framework.authtoken.models import Token
-from .models import UserDashboard
+# from .models import UserDashboard
 
 
 
