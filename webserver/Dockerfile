@@ -4,18 +4,18 @@
 # You could also skip this part and just run "npm run build" and copy over the output manually like some kind of barbarian
 ###########################
 
-FROM node:lts-alpine as builder
+FROM node:16 as builder
 
 WORKDIR /frontend
 
 # These two lines will allow us to pass in an environment
 # variable when the image is *built* (not run).  For local
 # development, localhost; for production, your EC2's IP address
-ARG VITE_BASE_URL=localhost
+ARG VITE_BASE_URL=localhost:8000
 ENV VITE_BASE_URL=$VITE_BASE_URL
 
 COPY ./frontend/package.json .
-RUN npm install
+RUN npm install && npm update
 COPY ./frontend .
 RUN npm run build
 

@@ -94,8 +94,11 @@ DATABASES = {
 "NAME": "boulder_comp", 
 "USER": "postgres",
 "PASSWORD": "postgres",
-"HOST": "localhost",
+
+"HOST": "db" if os.getenv("DB_NAME") else "localhost",
 "PORT": os.getenv("DB_PORT") if os.getenv("DB_PORT") else 5454, 
+
+
 }
 }
 
