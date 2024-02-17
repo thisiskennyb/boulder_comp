@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # The Dockerhub account where the images are stored
-export DOCKERHUB_UNAME=$7
+
 
 # These environment variables come from command line arguments.
 # They are consumed by the docker-compose file.
@@ -10,7 +10,8 @@ export DEBUG=$2
 # export POSTGRES_DB=$3
 # export POSTGRES_USER=$4
 # export POSTGRES_PASSWORD=$5
-export NEW_VERSION=$6
+export NEW_VERSION=$3
+export DOCKERHUB_UNAME=$4
 
 
 docker-compose -f docker-compose.prod.yml build --no-cache
