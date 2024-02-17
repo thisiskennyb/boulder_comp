@@ -7,9 +7,9 @@ export DOCKERHUB_UNAME=$7
 # They are consumed by the docker-compose file.
 export SECRET_KEY=$1
 export DEBUG=$2
-export POSTGRES_DB=$3
-export POSTGRES_USER=$4
-export POSTGRES_PASSWORD=$5
+# export POSTGRES_DB=$3
+# export POSTGRES_USER=$4
+# export POSTGRES_PASSWORD=$5
 export NEW_VERSION=$6
 
 

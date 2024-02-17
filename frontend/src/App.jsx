@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom"
 import Login from './routes/Login'
 import Home from './routes/Home'
 import UserProfile from './routes/UserProfile'
@@ -15,6 +15,8 @@ function App() {
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userToken, setUserToken] = useState(null)
+
+  let { reset_token } = useParams()
   
   useEffect( () => {
     const token = localStorage.getItem("token")
@@ -48,7 +50,7 @@ function App() {
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/email-reset" element={<EmailReset />} />
       <Route path="/email-verification" element={<EmailVerification />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
       <Route path="/signup-message" element={<SignupMessage />} />
      </Routes>
      </Router>

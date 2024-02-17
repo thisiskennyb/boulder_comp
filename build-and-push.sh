@@ -15,6 +15,13 @@
 BASE_URL=$1
 NEW_VERSION=$2
 DOCKERHUB_UNAME=$3
+POSTGRES_DB=$4
+POSTGRES_USER=$5
+POSTGRES_PASSWORD=$6
+EMAIL=$7
+GMAIL_APP_PASSWORD=$8
+DB_PORT=$9
+HOST=$10
 
 
 docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/book_club_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
