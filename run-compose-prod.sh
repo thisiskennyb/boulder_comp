@@ -9,6 +9,10 @@ export SECRET_KEY=$1
 export DEBUG=$2
 export NEW_VERSION=$3
 export DOCKERHUB_UNAME=$4
+export POSTGRES_DB=$5
+export POSTGRES_USER=$6
+export POSTGRES_PASSWORD=$7
+
 
 
 docker-compose -f docker-compose.prod.yml build --no-cache
