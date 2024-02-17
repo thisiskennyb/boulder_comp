@@ -81,6 +81,7 @@ class SignupView(CreateAPIView):
         absolute_verification_url = f'http://{domain}{verification_url}'
         email_plaintext_message = f"Click the following link to activate your account: {absolute_verification_url}"
 
+        
         send_mail(
             # title:
             "Activate Your Account",
