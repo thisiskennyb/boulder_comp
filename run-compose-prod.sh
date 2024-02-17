@@ -14,8 +14,8 @@ export GMAIL_APP_PASSWORD=$6
 export DB_PORT=$7
 export HOST=$8
 export POSTGRES_DB=$9
-export POSTGRES_USER=$10
-export POSTGRES_PASSWORD=$11
+export POSTGRES_USER=${10}
+export POSTGRES_PASSWORD=${11}
 
 
 docker-compose -f docker-compose.prod.yml build --no-cache

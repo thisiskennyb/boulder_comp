@@ -21,7 +21,7 @@ POSTGRES_PASSWORD=$6
 EMAIL=$7
 GMAIL_APP_PASSWORD=$8
 DB_PORT=$9
-HOST=$10
+HOST=${10}
 
 
 docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
