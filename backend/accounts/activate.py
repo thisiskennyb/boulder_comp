@@ -6,6 +6,8 @@ from django.shortcuts import redirect
 from django.views import View
 from .tokens import email_verification_token
 from rest_framework.response import Response
+from dotenv import load_dotenv
+import os
 
 class ActivateView(View):
 
@@ -24,12 +26,13 @@ class ActivateView(View):
 
     def get(self, request, uidb64, token):
         user = self.get_user_from_email_verification(uidb64, token)
+        host = os.getenv("HOST") if os.getenv("HOST") else "localhost:5173"
         if user is not None:
             user.is_active = True
             user.save()
             login(request, user)
             success_message = {"success": "registration successful"}
-            return redirect('http://localhost:5173/email-verification')
+            return redirect(f'http://{host}/email-verification')
         else:
             # Handle the case when the user is not found or the token is invalid
-            return redirect('http://localhost:5173/email-verification')
+            return redirect(f'http://{host}/email-verification')

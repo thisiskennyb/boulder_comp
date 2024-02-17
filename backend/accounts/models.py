@@ -5,6 +5,8 @@ from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail, EmailMessage
 from django.db import models
 from django.contrib.auth.models import User
+from dotenv import load_dotenv
+import os
 
 
 class UserDashboard(models.Model):
@@ -27,8 +29,10 @@ class UserDashboard(models.Model):
 @receiver(reset_password_token_created)
 def password_reset_token_created(sender, instance, reset_password_token, *args, **kwargs):
 
+    host = os.getenv("HOST") if os.getenv("HOST") else "localhost:5173"
+
     # the below like concatinates your websites reset password url and the reset email token which will be required at a later stage
-    email_plaintext_message = "Open the link to reset your password" + " " + "{}{}".format(instance.request.build_absolute_uri("http://localhost:5173/reset-password"), reset_password_token.key)
+    email_plaintext_message = "Open the link to reset your password" + " " + "{}{}".format(instance.request.build_absolute_uri(f'http://{host}/reset-password/'), reset_password_token.key)
     
     """
         this below line is the django default sending email function, 

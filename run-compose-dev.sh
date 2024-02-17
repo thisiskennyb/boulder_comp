@@ -8,10 +8,12 @@ export POSTGRES_PASSWORD=postgres
 export EMAIL=kendbonnette@gmail.com
 export GMAIL_APP_PASSWORD="vnhx rzwo owhq retc"
 export DB_NAME=db
+export DB_PORT=5432
+export HOST=localhost:80
 # export VITE_HOST=$1
 # export DJANGO_HOST=$2
 
-export DB_PORT=5432
+
 
 
 
