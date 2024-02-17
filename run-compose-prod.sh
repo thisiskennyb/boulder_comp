@@ -18,6 +18,7 @@ export POSTGRES_USER=${10}
 export POSTGRES_PASSWORD=${11}
 
 
+
 docker-compose -f docker-compose.prod.yml build --no-cache
 docker-compose -f docker-compose.prod.yml up -d
 
