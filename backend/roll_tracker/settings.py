@@ -48,6 +48,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts',
     'django_rest_passwordreset',
+    'boulder',
+    'team',
+    'league',
+    'send',
 ]
 
 
