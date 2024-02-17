@@ -23,6 +23,8 @@ from .models import UserDashboard
 from django.shortcuts import get_object_or_404
 from datetime import datetime
 from .serializers import UserDashboardSerializer
+from dotenv import load_dotenv
+import os
 
 
 
@@ -72,12 +74,14 @@ class SignupView(CreateAPIView):
 
 
     def _send_email_verification(self, user):
+        domain = os.getenv("HOST") if os.getenv("HOST") else "localhost:8000"
         current_site = get_current_site(self.request)
         verification_token = email_verification_token.make_token(user)
         verification_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': verification_token})
-        absolute_verification_url = self.request.build_absolute_uri(verification_url)
+        absolute_verification_url = f'http://{domain}{verification_url}'
         email_plaintext_message = f"Click the following link to activate your account: {absolute_verification_url}"
 
+        
         send_mail(
             # title:
             "Activate Your Account",
