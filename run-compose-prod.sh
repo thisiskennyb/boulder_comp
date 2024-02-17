@@ -9,9 +9,13 @@ export SECRET_KEY=$1
 export DEBUG=$2
 export NEW_VERSION=$3
 export DOCKERHUB_UNAME=$4
-export POSTGRES_DB=$5
-export POSTGRES_USER=$6
-export POSTGRES_PASSWORD=$7
+export EMAIL=$5
+export GMAIL_APP_PASSWORD=$6
+export DB_PORT=$7
+export HOST=$8
+export POSTGRES_DB=$9
+export POSTGRES_USER=${10}
+export POSTGRES_PASSWORD=${11}
 
 
 
