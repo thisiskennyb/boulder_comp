@@ -47,3 +47,15 @@ async function basicFetch(url, payload) {
     const response = await basicFetch(`http://${host}/api/v1/password_reset/`, payload)
     return response
   }
+
+  export async function emailResetConfirm(context) {
+    const payload = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(context)
+    }
+    const response = await basicFetch(`http://${host}/api/v1/password_reset/confirm/`, payload)
+    return response
+  }

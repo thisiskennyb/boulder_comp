@@ -1,8 +1,12 @@
 import { Eye, AlertCircle } from 'lucide-react';
 import { useState } from "react";
+import { emailResetConfirm } from '../api/backend_calls';
+import { useParams, useNavigate } from 'react-router-dom'
 
 
 export default function (){
+    const {reset_token} = useParams()
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [lengthValid, setLengthValid] = useState(false);
@@ -10,6 +14,10 @@ export default function (){
     const [numberValid, setNumberValid] = useState(false);
     const [specialCharValid, setSpecialCharValid] = useState(false);
     const [password, setPassword] = useState('');
+
+    console.log(reset_token, 'These are useParams')
+
+    
 
     
     const handlePasswordChange = (event) => {
@@ -26,6 +34,23 @@ export default function (){
         setSpecialCharValid(/[!@#$%^&*(),.?":{}|<>]/.test(newPassword));
       }
     
+
+  const handleConfirmPassword = async (e) => {
+    e.preventDefault();
+
+    const context = {
+      "password": password,
+      "token": reset_token,
+    }
+    const response = await emailResetConfirm(context)
+
+    // Logic for navigating depending on result
+    if (response.status == 'OK'){
+      navigate('/login')
+    }
+
+
+  }
     const toggleShowPassword = () => {
         setShowPassword(!showPassword);
       }
@@ -80,7 +105,7 @@ export default function (){
             </div>
           </div>
 
-          <button className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+          <button onClick={handleConfirmPassword} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
             Submit
           </button>
         </div>
