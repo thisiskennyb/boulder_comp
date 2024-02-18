@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Signup from './routes/Signup'
 import ResetPassword from './routes/ResetPassword'
 import SignupMessage from './routes/SignupMessage'
+import Dashboard from './routes/Dashboard'
 import UserContext from './contexts/UserContext'
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
       <Route path="/email-verification" element={<EmailVerification />} />
       <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
       <Route path="/signup-message" element={<SignupMessage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
      </Routes>
      </Router>
      </UserContext.Provider>
