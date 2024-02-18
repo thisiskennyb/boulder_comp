@@ -1,14 +1,22 @@
 // import { NavLink } from "react-router-dom"
 import { useState } from "react"
 import { Menu, X} from "lucide-react";
+import { Link } from 'react-router-dom'
 
+
+// Finish Links when League and Rules / Scoring Page is done
 const NavLinks = () => {
     return (
         <>
-            {/* <NavLink to="/">Home</NavLink>
-            <NavLink to="/login">Login</NavLink> */}
+            <Link to='/' style={{ textDecoration: 'none'}}>
             <span className="font-nunito">Home</span>
+            </Link>
+
+            <Link to='/profile' style={{ textDecoration: 'none'}}>
             <span className="font-nunito">Profile</span>
+            </Link>
+
+            
             <span className="font-nunito">League</span>
             <span className="font-nunito">Rules/Scoring</span>
         </>
