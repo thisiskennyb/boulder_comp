@@ -4,12 +4,13 @@ import { XSquare } from 'lucide-react';
 import { login, emailResetLink } from '../api/backend_calls';
 import { useNavigate} from 'react-router-dom'
 
+import { toast } from "react-toastify";
+
 
 export default function Login({handleToken}) {
     const navigate = useNavigate()
 
     const [isModalOpen, setModalOpen] = useState(false);
-    const [responseMsg, setResponseMsg] = useState('') // Not being used, may not be needed?
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [resetEmail, setResestEmail] = useState('')
@@ -20,16 +21,27 @@ export default function Login({handleToken}) {
       };
 
       const handleLogin = async(e) =>{
+        e.preventDefault();
+
         const context = {username: username, password: password}
-        const token = await login(context)
-        console.log("yo son")
-        if(!token) {
-          setResponseMsg("Error logging in") // Not sure if this is needed, may be able to do toast notifications
-        } else {
-        
-          handleToken(token)
-          navigate("/dashboard")
+        try {
+            const token = await login(context)
+            if (token) {
+
+                toast.success(`Welcome, ${username}!`)
+                
+                handleToken(token)
+                
+                navigate("/dashboard")
+            } else {
+                toast.error('Something went wrong, please double check your information')
+
+            }
+
+        } catch (error) {
+            console.error('User Login failed:', error.response?.data || 'An error occurred')
         }
+        
     }
     
     const handleUsernameChange = (event) => {

@@ -1,8 +1,36 @@
-# React + Vite
+# React Toastify Setup
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To get started, you will need to install:
+```
+npm install --save react-toastify
+```
 
-Currently, two official plugins are available:
+Inside App.jsx we want to import ToastContainer and css styling from react-toastify:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+```
+
+Then inside App.jsx, use ToastContainer within Router
+
+
+
+Now within a component that we want to use a toast in:
+
+Import toast
+
+```
+import { toast } from "react-toastify";
+```
+
+An east way to use toast inside your component is to wrap your async fetches in a try catch block.
+
+You can then put something like:
+
+```
+toast.success('This will be a green notification with this message')
+```
+
+and inside the catch you can similarly put a message, with perhaps toast.error to make it easier to distinguish
