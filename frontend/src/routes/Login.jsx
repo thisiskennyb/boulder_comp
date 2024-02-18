@@ -28,7 +28,7 @@ export default function Login({handleToken}) {
         } else {
         
           handleToken(token)
-          navigate("/profile")
+          navigate("/dashboard")
         }
     }
     
