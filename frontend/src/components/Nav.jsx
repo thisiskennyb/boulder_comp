@@ -16,8 +16,10 @@ const NavLinks = () => {
             <span className="font-nunito">Profile</span>
             </Link>
 
+            <Link to='/leagues' style={{ textDecoration: 'none'}}>
+            <span className="font-nunito">Leagues</span>
+            </Link>
             
-            <span className="font-nunito">League</span>
             <span className="font-nunito">Rules/Scoring</span>
         </>
     )
