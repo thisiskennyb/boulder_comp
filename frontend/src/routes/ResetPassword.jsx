@@ -3,6 +3,9 @@ import { useState } from "react";
 import { emailResetConfirm } from '../api/backend_calls';
 import { useParams, useNavigate } from 'react-router-dom'
 
+import { toast } from "react-toastify";
+
+
 
 export default function (){
     const {reset_token} = useParams()
@@ -44,12 +47,21 @@ export default function (){
       "password": password,
       "token": reset_token,
     }
-    const response = await emailResetConfirm(context)
 
-    // Logic for navigating depending on result
-    if (response.status == 'OK'){
-      navigate('/login')
+    try {
+      const response = await emailResetConfirm(context)
+      if (response.status == 'OK'){
+        toast.success('Your password has been changed! Go ahead and try to login')
+        navigate('/login')
+      } else {
+        toast.error('Whoops something went wrong')
+      }
+      
+    } catch (error) {
+      console.error('Error confirming email reset', error.response?.data || 'An error occurred')
     }
+    
+    // Logic for navigating depending on result
 
 
   }

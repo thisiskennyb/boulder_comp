@@ -15,6 +15,9 @@ import Leagues from './routes/Leagues'
 import RulesScoring from './routes/RulesScoring'
 import UserContext from './contexts/UserContext'
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,6 +47,7 @@ function App() {
     <div>
     <UserContext.Provider value={{userToken}}>
     <Router>
+      <ToastContainer />
     <Header />
      <Routes>
       <Route path="/" element={<Home />} />
