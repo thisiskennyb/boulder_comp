@@ -15,7 +15,9 @@ export default function (){
     const [specialCharValid, setSpecialCharValid] = useState(false);
     const [password, setPassword] = useState('');
 
-    console.log(reset_token, 'These are useParams')
+
+    // comment in to check useParams
+    // console.log(reset_token, 'These are useParams')
 
     
 

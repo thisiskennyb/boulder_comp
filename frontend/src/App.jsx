@@ -48,7 +48,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login handleToken={handleToken} />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/profile" element={<UserProfile userToken={userToken} />} />
+      <Route path="/profile" element={<UserProfile />} />
       <Route path="/email-reset" element={<EmailReset />} />
       <Route path="/email-verification" element={<EmailVerification />} />
       <Route path="/reset-password/:reset_token" element={<ResetPassword />} />

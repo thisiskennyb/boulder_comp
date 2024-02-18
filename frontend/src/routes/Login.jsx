@@ -2,15 +2,16 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import { XSquare } from 'lucide-react';
 import { login, emailResetLink } from '../api/backend_calls';
+import { useNavigate} from 'react-router-dom'
 
 
 export default function Login({handleToken}) {
+    const navigate = useNavigate()
 
     const [isModalOpen, setModalOpen] = useState(false);
-    const [responseMsg, setResponseMsg] = useState('')
+    const [responseMsg, setResponseMsg] = useState('') // Not being used, may not be needed?
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [token, setToken] = useState('')
     const [resetEmail, setResestEmail] = useState('')
 
     const openModal = (event) => {
@@ -23,11 +24,11 @@ export default function Login({handleToken}) {
         const token = await login(context)
         console.log("yo son")
         if(!token) {
-          setResponseMsg("Error logging in")
+          setResponseMsg("Error logging in") // Not sure if this is needed, may be able to do toast notifications
         } else {
         
           handleToken(token)
-        //   navigate("/")
+          navigate("/profile")
         }
     }
     
