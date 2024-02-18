@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './routes/Login'
 import Home from './routes/Home'
 import UserProfile from './routes/UserProfile'
@@ -10,13 +10,14 @@ import Header from './components/Header';
 import Signup from './routes/Signup'
 import ResetPassword from './routes/ResetPassword'
 import SignupMessage from './routes/SignupMessage'
+import UserContext from './contexts/UserContext'
 
 function App() {
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userToken, setUserToken] = useState(null)
 
-  let { reset_token } = useParams()
+  console.log(userToken, "State of userToken in App")
   
   useEffect( () => {
     const token = localStorage.getItem("token")
@@ -39,7 +40,7 @@ function App() {
   return (
     <div>
 
-
+    <UserContext.Provider value={{userToken}}>
     <Header />
 
     <Router>
@@ -47,13 +48,14 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login handleToken={handleToken} />} />
       <Route path="/signup" element={<Signup />} />
-      <Route path="/profile" element={<UserProfile />} />
+      <Route path="/profile" element={<UserProfile userToken={userToken} />} />
       <Route path="/email-reset" element={<EmailReset />} />
       <Route path="/email-verification" element={<EmailVerification />} />
       <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
       <Route path="/signup-message" element={<SignupMessage />} />
      </Routes>
      </Router>
+     </UserContext.Provider>
      </div>
   )
 }
