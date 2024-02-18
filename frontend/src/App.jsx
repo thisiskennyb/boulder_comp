@@ -39,11 +39,9 @@ function App() {
 
   return (
     <div>
-
     <UserContext.Provider value={{userToken}}>
-    <Header />
-
     <Router>
+    <Header />
      <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login handleToken={handleToken} />} />
