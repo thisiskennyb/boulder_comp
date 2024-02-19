@@ -8,6 +8,7 @@ class Send(models.Model):
     boulder = models.ForeignKey(Boulder, on_delete=models.CASCADE)
     send_date = models.DateField()
     flash = models.BooleanField(default=False)
+    score = models.IntegerField(default=0)
 
 
     def __str__(self):
