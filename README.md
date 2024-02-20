@@ -76,7 +76,7 @@ python manage.py runserver
 	"username": "maintest1",
 	"password": "fishings1F!",
 	"confirm_password": "fishings1F!",
-	"email": "example@yahoo.com"
+	"email": "example@yahoo.com" // Use a valid email, you need the code from the email
 
 }
 ```
@@ -133,4 +133,124 @@ ex. link:`http://localhost:5173/reset-password/63baecd2474b730f7e55e1` reset_pas
 	"new_password": "jimboB99!"
 }
 ```
+
+
+### Create User Dashboard
+- Make a POST request to `localhost:8000/api/v1/accounts/register/create_dashboard/` with the folowing data:
+
+Don't forget to put Authorization Header with Token
+
+```json
+{
+    "highest_boulder_grade": "V7"
+}
+```
+
+### Retrieve User Dashboard
+
+- Make a GET request to `localhost:8000/api/v1/accounts/register/create_dashboard/` with the folowing data:
+
+Don't forget to put Authorization Header with Token
+
+No body to pass for GET
+
+Returns something like:
+```json
+{
+    "user": 6,
+    "height": null,
+    "weight": null,
+    "ape_index": null,
+    "highest_boulder_grade": "V7",
+    "highest_route_grade": null
+}
+```
+
+
+### Make Changes to User Dashboard
+
+- Make PUT request to `localhost:8000/api/v1/accounts/register/create_dashboard/` with the following data:
+
+Don't forget Auth Header
+
+(All fields are optional, so send the fields you wish to update) -- Will handle logic for updating boulder grades later
+Body:
+```json
+	{
+    "height": "80",
+    "weight": 400,
+    "ape_index": 3.2
+}
+```
+
+Returns: Updated User Dashboard Info
+
+```json
+{
+    "id": 1,
+    "height": "80",
+    "weight": 400,
+    "ape_index": 3.2,
+    "highest_boulder_grade": "V7",
+    "highest_route_grade": null,
+    "user": 6
+}
+```
+
+### Log a Send
+
+- Make POST request to `localhost:8000/api/v1/send/` with the following data:
+
+```json
+{
+    "name": "Curls for the girls",
+    "grade": "v5",
+    "crag": "rocktown",
+    "flash": false,
+    "send_date": "2024-02-19"
+}
+
+```
+
+Which should return something like:
+
+```json
+{
+    "id": 8,
+    "boulder": {
+        "id": 2,
+        "name": "Curls for the girl",
+        "grade": "v5",
+        "crag": "rocktown"
+    },
+    "send_date": "2024-02-19",
+    "flash": false,
+    "score": 1,
+    "user": 6
+}
+```
+
+### View all sends for a user
+
+- Make GET request to `localhost:8000/api/v1/send/` , no data needed for GET
+
+Returns something like:
+```json
+[
+    {
+        "id": 3,
+        "boulder": {
+            "id": 1,
+            "name": "Curls for the girls",
+            "grade": "v7",
+            "crag": "rocktown"
+        },
+        "send_date": "2024-02-19",
+        "flash": true,
+        "score": 0,
+        "user": 6
+    },]
+```
+
+
 

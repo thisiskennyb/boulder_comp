@@ -28,6 +28,8 @@ urlpatterns = [
     path('api/v1/accounts/send-reset-password-link/', send_reset_password_link),
     path('api/v1/accounts/reset-password/', reset_password),
     path('api/v1/accounts/register/', include("accounts.urls")),
+    path('api/v1/send/', include("send.urls")),
+    path('api/v1/league/', include("league.urls")),
 
 ]
 

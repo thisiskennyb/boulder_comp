@@ -17,6 +17,9 @@ class UserDashboard(models.Model):
     highest_boulder_grade = models.CharField()
     highest_route_grade = models.CharField(null=True)
 
+    def __str__(self):
+        return f"{self.user}"
+
 
 
 
