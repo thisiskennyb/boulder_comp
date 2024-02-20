@@ -51,11 +51,11 @@ class CreateLeagueTeamView(APIView):
         # Filter leagues based on the user
         # league = League.objects.get(id=pk)
         teams = Team.objects.filter(league_id=pk)
-        print(teams, "charles dickenss")
+       
 
         serializer = TeamSerializer(teams, many=True)
 
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
         # serializer = LeagueSerializer(user_leagues, many=True)
