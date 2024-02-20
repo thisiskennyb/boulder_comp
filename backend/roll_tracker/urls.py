@@ -30,6 +30,7 @@ urlpatterns = [
     path('api/v1/accounts/register/', include("accounts.urls")),
     path('api/v1/send/', include("send.urls")),
     path('api/v1/league/', include("league.urls")),
+    path('api/v1/team/', include("team.urls")),
 
 ]
 

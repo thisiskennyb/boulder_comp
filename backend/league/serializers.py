@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Team, League
+from .models import League
+from team.models import Team
 
 class TeamSerializer(serializers.ModelSerializer):
     class Meta:
@@ -7,7 +8,7 @@ class TeamSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class LeagueSerializer(serializers.ModelSerializer):
-    team = TeamSerializer(many=True, required=False)  # Nested serializer for Boulder
+    # team = TeamSerializer(many=True, required=False)  # Nested serializer for Boulder
 
     class Meta:
         model = League
