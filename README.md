@@ -252,5 +252,19 @@ Returns something like:
     },]
 ```
 
+### Create a League
+
+- Make a post request to `localhost:8000/api/v1/league/` with the following data:
+
+```json
+{
+    "league_name": "Testing Team E",
+    "start_date": "2024-02-28",
+    "end_date": "2024-04-28",
+    "team_size": 4,
+    "location": "Chattanooga"
+}
+```
+
 
 

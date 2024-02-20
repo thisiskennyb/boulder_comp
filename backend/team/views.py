@@ -1,4 +1,34 @@
 from django.shortcuts import render
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .models import Team
+from league.serializers import TeamSerializer
+
+
+
+class TeamView(APIView):
+    def post(self, request):
+        user = request.user
+        data = request.data
+
+        # league = League.objects.get(id=data['league_id'])
+
+        team = Team.objects.get(id=data['team_id'], league_id=data['league_id'])
+
+        team.add_team_member(user)
+        # print(team)
+        serializer = TeamSerializer(team)
+        return Response(serializer.data)
+
+
+        # {
+        #     team_id
+        #     league_id
+        # }
+
+
+
 
 # Create your views here.
 
