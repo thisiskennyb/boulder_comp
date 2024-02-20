@@ -12,9 +12,6 @@ class League(models.Model):
     team_size = models.IntegerField()
     location = models.CharField(null=True, blank=True)
 
-    def create_team(self, user, team_name):
-        new_team = Team(members=user, captain=user, team_name=team_name)
-        new_team.save()
 
     def __str__(self):
         return f'{self.league_name} ends on {self.end_date}'

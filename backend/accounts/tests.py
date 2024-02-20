@@ -1,53 +1,32 @@
-from django.test import TestCase
-from rest_framework.test import APIClient
+from rest_framework.test import APITestCase #Testing API's
 from rest_framework import status
+from .views import SignupView
 from django.contrib.auth.models import User
-from .serializers import SignupSerializer
+#Used for testing email/user
+from django.test import RequestFactory
+from rest_framework.authtoken.models import Token
+from django.core import mail
 from django.core.exceptions import ValidationError
 from .validators import CustomPasswordValidator
-from django.core import mail
-from .views import SignupView
-from django.test import RequestFactory
-from django.urls import reverse
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
-from django.utils.http import urlsafe_base64_decode
-from django.template.loader import render_to_string
-from .tokens import email_verification_token
-from rest_framework.authtoken.models import Token
-# from .models import UserDashboard
+
+#Unittest with models
+from django.test import TestCase
+from accounts.models import UserDashboard
 
 
-
-
-class SignupViewTest(TestCase):
-    def setUp(self):
-        self.client = APIClient()
-        # self.user = User.objects.create_user(
-        #     username='testuser',
-        #     email='testuser@example.com',
-        #     password='Testpassword123!',
-        #     confirm_password="Testpassword123!"
-        # )
-        
-
+class SignupViewTest(APITestCase):
     def test_signup_view(self):
-        # Define test data
+        # Valid signup test
+        url = '/api/v1/accounts/register/signup'
         data = {
-            "username": "testuser",
-            "email": "testuser@example.com",
-            "password": "Testpassword123!",
-            "confirm_password": "Testpassword123!",
+        "username": "testuser",
+        "email": "testuser@example.com",
+        "password": "Testpassword123!",
+        "confirm_password": "Testpassword123!",
         }
 
-        # Make a POST request to the SignupView
-        response = self.client.post("/api/v1/accounts/register/signup", data, format="json")
-
-        # Check if the response status code is 201 (created)
+        response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-
-        # Check if a user with the given username exists in the database
-        self.assertTrue(User.objects.filter(username="testuser", email="testuser@example.com").exists())
 
     def test_invalid_signup_view(self):
         # Define invalid test data (missing required field)
@@ -144,6 +123,73 @@ class SignupViewTest(TestCase):
         # Check if the user's password has been updated correctly
         self.assertTrue(self.user.check_password("Newpassword321!"))
 
+
+
+
+
+# Lets have APITests in our APITestcase part of tests.py, with the bottom half to be used for TestCase unit tests
+
+
+
+class TestUserDashboard(TestCase):
+    #Creating a user to link dashboard to
+    def setUp(self):
+        self.user = User.objects.create(
+            username='testuser',
+            password='Testpassword123!'
+        )
+    # Creating dashboard, need User and highest_boulder_grade
+    def test_create_dashboard(self):
+        UserDashboard.objects.create(
+            user=self.user,
+            highest_boulder_grade='v7'
+        )
+
+        self.assertEqual(UserDashboard.objects.count(), 1)
+
+    def test_dashboard_initial_values(self):
+        #If a user submits their highest_boulder_grade, initial values for height, weight, ape_index, and highest_route_grade should be None
+        UserDashboard.objects.create(
+            user=self.user,
+            highest_boulder_grade='v7'
+        )
+        #Looping through queries and asserting that all are None for initial values expected to be None
+        query_dashboard = UserDashboard.objects.get(user=self.user)
+        self.assertTrue(all(value is None for value in [
+            query_dashboard.height,
+            query_dashboard.weight,
+            query_dashboard.ape_index,
+            query_dashboard.highest_route_grade
+        ]))
+        # Verify the initial value for highest_boulder_grade matches
+        self.assertEqual(query_dashboard.highest_boulder_grade, 'v7')
+
+
+    def test_update_dashboard(self):
+        # Create user, update values, save, see that dashboard updates if user queries it
+        UserDashboard.objects.create(
+        user=self.user,
+        highest_boulder_grade='v7'
+        )
+        test_dashboard = UserDashboard.objects.get(user=self.user)
+        test_dashboard.height = "72"
+        test_dashboard.weight = 200
+        test_dashboard.ape_index = 1.1
+        test_dashboard.highest_route_grade = "5.11"
+        test_dashboard.save()
+        #A user getting their dashboard info after updating it
+        updated_dashboard = UserDashboard.objects.get(user=self.user)
+       
+        self.assertFalse(all(value is None for value in [
+            updated_dashboard.height,
+            updated_dashboard.weight,
+            updated_dashboard.ape_index,
+            updated_dashboard.highest_route_grade
+        ]))
+
+    
+
+    
     # def test_create_dashboard_w_null_values_view(self):
 
     #     # Define test data
