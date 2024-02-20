@@ -5,3 +5,6 @@ class Boulder(models.Model):
     grade = models.CharField()
     crag = models.CharField()
 
+    def __str__(self):
+        return f'{self.name} {self.grade} {self.crag}'
+

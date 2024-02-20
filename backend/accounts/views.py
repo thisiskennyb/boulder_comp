@@ -119,25 +119,47 @@ class DashboardView(APIView):
     def get(self, request, pk=None):
         myid = request.user.id
         user_dashboard = get_object_or_404(UserDashboard, user=request.user)
-        username = user_dashboard.user.username
-        date_joined = user_dashboard.user.date_joined
-        weight = user_dashboard.weight
-        height = user_dashboard.height
-        ape_index = user_dashboard.ape_index
-        highest_boulder_grade = user_dashboard.highest_boulder_grade
-        highest_route_grade = user_dashboard.highest_route_grade
+        serializer = UserDashboardSerializer(user_dashboard)
+        # username = user_dashboard.user.username
+        # date_joined = user_dashboard.user.date_joined
+        # weight = user_dashboard.weight
+        # height = user_dashboard.height
+        # ape_index = user_dashboard.ape_index
+        # highest_boulder_grade = user_dashboard.highest_boulder_grade
+        # highest_route_grade = user_dashboard.highest_route_grade
 
-        return Response({
-            'username': username,
-            'member_since': date_joined, 
-            'weight': weight, 
-            'height' : height,
-            'ape_index' : ape_index,
-            'highest_boulder_grade' : highest_boulder_grade,
-            'highest_route_grade' : highest_route_grade,            
-            })
+        # {
+        #     'username': username,
+        #     'member_since': date_joined, 
+        #     'weight': weight, 
+        #     'height' : height,
+        #     'ape_index' : ape_index,
+        #     'highest_boulder_grade' : highest_boulder_grade,
+        #     'highest_route_grade' : highest_route_grade,            
+        #     })
 
+        return Response(serializer.data)
 
+    def put(self, request, *args, **kwargs):
+        user = request.user
+        data = request.data
+        print(user)
+        print('above is user, below is data')
+        print(data)
+        try:
+            user_dashboard = UserDashboard.objects.get(user=user.id)
+        except UserDashboard.DoesNotExist:
+            return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
+        
+        # Update only the fields provided in the request body
+        for field, value in data.items():
+            setattr(user_dashboard, field, value)
+        
+        user_dashboard.save()
+        serializer = UserDashboardSerializer(user_dashboard)
+
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
         dashboard_data = request.data

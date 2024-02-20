@@ -12,6 +12,6 @@ class Send(models.Model):
 
 
     def __str__(self):
-        return f"Send by {self.user.username}"
+        return f"Send by {self.user.username}, date was {self.send_date}"
 
 

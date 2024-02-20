@@ -42,5 +42,5 @@ class ChangePasswordSerializer(serializers.Serializer):
 class UserDashboardSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserDashboard
-        fields = ['user', 'height', 'weight', 'ape_index', 'highest_boulder_grade', 'highest_route_grade']
+        fields = '__all__'
         

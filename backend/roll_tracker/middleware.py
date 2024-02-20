@@ -6,7 +6,7 @@ class CorsMiddleware:
 		response = self.get_response(request)
 		response['Access-Control-Allow-Origin'] = "*"
 		response['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
-		response["Access-Control-Allow-Methods"] = "DELETE, POST, GET, OPTIONS"
+		response["Access-Control-Allow-Methods"] = "DELETE, POST, GET, PUT, OPTIONS"
 		if request.method == "OPTIONS":
 			response.status_code = 200
 		return response
