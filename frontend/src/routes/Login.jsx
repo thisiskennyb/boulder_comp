@@ -56,13 +56,16 @@ export default function Login({handleToken}) {
     }
 
     const handleResetPassword = async() => {
+        closeModal()
         const response = await emailResetLink({email: resetEmail})
         console.log(response)
+        
     }
 
     const handleResetEmailChange = (event) => {
         const userResetEmail = event.target.value
         setResestEmail(userResetEmail)
+        
     }
 
 

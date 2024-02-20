@@ -72,7 +72,7 @@ class SendView(APIView):
         user_highest_grade = user_dashboard.highest_boulder_grade #For getting users highest grade
         boulder_grade = boulder.grade
         score = grade_scoring[boulder_grade] - (grade_scoring[user_highest_grade.lower()] - 3)
-        print(score, "Checking score before send object made, and before flash checked")
+        # print(score, "Checking score before send object made, and before flash checked")
         if flash:
             score *= 2
         

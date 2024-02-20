@@ -8,6 +8,7 @@ from rest_framework.authtoken.models import Token
 from django.core import mail
 from django.core.exceptions import ValidationError
 from .validators import CustomPasswordValidator
+from django.urls import reverse
 
 #Unittest with models
 from django.test import TestCase
@@ -190,21 +191,7 @@ class TestUserDashboard(TestCase):
     
 
     
-    # def test_create_dashboard_w_null_values_view(self):
 
-    #     # Define test data
-    #     data = {
-    #         "highest_boulder_grade": "v7"
-    #     }
-
-    #     # Authenticate the user
-        
-
-    #     # Make a POST request to the DashboardView
-    #     response = self.client.post("/api/v1/accounts/register/create_dashboard/", data, format="json")
-
-    #     # Check if the response status code is 200 (OK)
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
 
    
 
