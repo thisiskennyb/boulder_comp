@@ -2,6 +2,105 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from league.models import League
 from team.models import Team
+from accounts.models import UserDashboard
+from rest_framework.test import APITestCase
+from rest_framework.authtoken.models import Token
+from rest_framework import status
+
+
+class LeagueViewTest(APITestCase):
+    def setUp(self):
+        # create user
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+
+        # Initialize user dashboard
+        UserDashboard.objects.create(
+            user=self.user,
+            highest_boulder_grade='v7'
+        )
+        
+        # Activate the user's account
+        self.user.is_active = True
+        self.user.save()
+        self.token = Token.objects.create(user=self.user)
+
+    def test_create_league(self):
+        url = '/api/v1/league/'
+        data = {
+            "league_name": "kens league",
+            "start_date": "2024-02-28",
+            "end_date": "2024-04-28",
+            "team_size": 4,
+            "location": "Chattanooga"
+        }   
+
+        # Include the token in the request headers
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['league_name'], data['league_name'])
+
+    def test_create_team(self):
+
+        league = League.objects.create(moderator=self.user, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
+
+        league_id = league.id
+
+        create_team_url = '/api/v1/league/create_team/'
+        team_data = {
+            "league_id": league_id,
+            "team_name": "cyber punks"
+        }
+        
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        response = self.client.post(create_team_url, team_data, format='json')
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['team_name'], team_data['team_name'])
+
+    def test_get_teams_by_league(self):
+
+        league = League.objects.create(moderator=self.user, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
+
+        league_id = league.id
+
+        team1 = Team.objects.create(captain=self.user, league_id=league_id, team_name="buccaneers")
+        
+        url = f"/api/v1/league/create_team/{league_id}"
+ 
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        response = self.client.get(url, format='json')
+        
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['team_name'], "buccaneers")
+
+
+    def test_get_team_with_multiple_teams(self):
+
+        league = League.objects.create(moderator=self.user, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
+
+        league_id = league.id
+
+        
+        
+
+        url = f"/api/v1/league/create_team/{league_id}"
+ 
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        response = self.client.get(url, format='json')
+        print(response.data)
+        # self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # self.assertEqual(len(response.data), 0)
+       
+
+
+
+
+
+
+
 
 class TestLeague(TestCase):
     def setUp(self):
