@@ -59,3 +59,17 @@ async function basicFetch(url, payload) {
     const response = await basicFetch(`http://${host}/api/v1/password_reset/confirm/`, payload)
     return response
   }
+
+// No context, no body, just a GET request
+export async function leaguesUserIsIn() {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem('token')}`
+    },
+    // no body
+  }
+  const response = await basicFetch(`http://${host}/api/v1/league/`, payload)
+  return response
+}
