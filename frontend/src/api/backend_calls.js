@@ -89,3 +89,15 @@ export async function leaguesUserIsIn() {
   return response
 }
 
+export async function teamsUserIsIn() {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem('token')}`
+    },
+    // no body
+  }
+  const response = await basicFetch(`http://${host}/api/v1/league/create_team/`, payload)
+  return response
+}
