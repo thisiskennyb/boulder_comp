@@ -11,13 +11,17 @@ import Signup from './routes/Signup'
 import ResetPassword from './routes/ResetPassword'
 import SignupMessage from './routes/SignupMessage'
 import Dashboard from './routes/Dashboard'
-import Leagues from './routes/Leagues'
+import LeaguesHome from './routes/LeaguesHome'
 import RulesScoring from './routes/RulesScoring'
 import UserContext from './contexts/UserContext'
+import JoinLeague from './routes/JoinLeague'
+import CreateLeague from './routes/CreateLeague'
+import League from './routes/League'
 
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
 
@@ -26,7 +30,7 @@ function App() {
 
   
 
-  console.log(userToken, "State of userToken in App")
+  // console.log(userToken, "State of userToken in App")
   
   useEffect( () => {
     const token = localStorage.getItem("token")
@@ -61,10 +65,13 @@ function App() {
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/email-reset" element={<EmailReset />} />
       <Route path="/email-verification" element={<EmailVerification />} />
+      <Route path="/join-league" element={<JoinLeague />} />
+      <Route path="/create-league" element={<CreateLeague />} />
       <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
       <Route path="/signup-message" element={<SignupMessage />} />
+      <Route path="/league" element={<League />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/leagues" element={<Leagues />} />
+      <Route path="/leagues-home" element={<LeaguesHome />} />
       <Route path="/rules-and-scoring" element={<RulesScoring />} />
      </Routes>
      </Router>

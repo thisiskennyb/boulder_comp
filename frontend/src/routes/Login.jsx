@@ -109,7 +109,7 @@ export default function Login({handleToken}) {
 
             <input
                 id="example-input"
-                type="text"
+                type="password"
                 className="p-2 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500"
                 placeholder="Password"
                 onChange={handlePasswordChange}
