@@ -1,4 +1,4 @@
-// import { NavLink } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 import { useState } from "react"
 import { Menu, X} from "lucide-react";
 import { Link } from 'react-router-dom'
@@ -6,6 +6,24 @@ import { Link } from 'react-router-dom'
 
 // Finish Links when League and Rules / Scoring Page is done
 const NavLinks = () => {
+
+    const navigate = useNavigate();
+
+
+    const handleLogout = () => {
+        var keyToRemove = 'token';
+        localStorage.removeItem(keyToRemove);
+        // setUserToken(false)
+        navigate("/login");
+        
+    
+      }
+
+
+
+
+
+
     return (
         <>
             <Link to='/' style={{ textDecoration: 'none'}}>
@@ -13,7 +31,7 @@ const NavLinks = () => {
             </Link>
 
             <Link to='/profile' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Profile</span>
+            <span className="font-nunito">Dashboard</span>
             </Link>
 
             <Link to='/leagues' style={{ textDecoration: 'none'}}>
@@ -23,6 +41,12 @@ const NavLinks = () => {
             <Link to='/rules-and-scoring' style={{ textDecoration: 'none'}}>
             <span className="font-nunito">Rules/Scoring</span>
             </Link>
+            <Link to='/login' style={{ textDecoration: 'none'}}>
+            <span className="font-nunito">Login</span>
+            </Link>
+            {/* <Link to='/login' style={{ textDecoration: 'none'}}> */}
+            <span onClick={handleLogout} className="font-nunito">Logout</span>
+            {/* </Link> */}
         </>
     )
 }

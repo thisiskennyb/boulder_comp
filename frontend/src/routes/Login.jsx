@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import { XSquare } from 'lucide-react';
 import { login, emailResetLink } from '../api/backend_calls';
-import { useNavigate} from 'react-router-dom'
+import { useNavigate, Link} from 'react-router-dom'
 
 import { toast } from "react-toastify";
 
@@ -75,7 +75,7 @@ export default function Login({handleToken}) {
     return (
 
         <>
-        <div className="flex items-center justify-center mt-20">
+        <div className="flex flex-col items-center justify-center mt-20">
         <Modal isOpen={isModalOpen} onClose={closeModal}>
             <div className='font-nunito text-center'>
                 Please enter your email address below, and we'll send you a link to reset your password
@@ -119,7 +119,9 @@ export default function Login({handleToken}) {
                 Submit
             </button>
         </div>
+        <div className="border-black width-3 font-nunito">Don't have and account? <Link to='/signup'>Sign Up</Link></div>
         </div>
+        
         </>    
     )
 }

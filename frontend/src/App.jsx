@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
 import Login from './routes/Login'
 import Home from './routes/Home'
 import UserProfile from './routes/UserProfile'
@@ -15,6 +15,7 @@ import Leagues from './routes/Leagues'
 import RulesScoring from './routes/RulesScoring'
 import UserContext from './contexts/UserContext'
 
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,6 +23,8 @@ function App() {
 
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userToken, setUserToken] = useState(null)
+
+  
 
   console.log(userToken, "State of userToken in App")
   
@@ -41,6 +44,8 @@ function App() {
   const handleToggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
+
+
 
 
   return (

@@ -66,16 +66,20 @@ class LeagueViewTest(APITestCase):
     #     league_id = league.id
 
     #     team1 = Team.objects.create(captain=self.user, league_id=league_id, team_name="buccaneers")
+
+    #     data = {
+    #         "league_id": league_id
+    #     }
         
-    #     url = f"/api/v1/league/{league_id}"
+    #     url = f"/api/v1/team/league/"
  
     #     self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
-    #     response = self.client.get(url, format='json')
+    #     response = self.client.get(url, data, format='json')
         
-
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.data), 1)
-        self.assertEqual(response.data[0]['team_name'], "buccaneers")
+    #     print(response.data)
+        # self.assertEqual(response.status_code, status.HTTP_200_OK)
+        # self.assertEqual(response.data['team_size'], 4)
+        # self.assertEqual(response.data['league_name'], "buccaneers")
 
        
 
