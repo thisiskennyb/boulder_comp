@@ -266,6 +266,8 @@ Returns something like:
 }
 ```
 
+
+
 ### Get all Leagues
 
 - Make a GET request to `localhost:8000/api/v1/league/all/` no data needed.
@@ -324,6 +326,7 @@ Returns something like:
     "team_id": 1
 }
 ```
+
 
 
 

@@ -72,27 +72,11 @@ class LeagueViewTest(APITestCase):
     #     self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
     #     response = self.client.get(url, format='json')
         
-    #     self.assertEqual(response.status_code, status.HTTP_200_OK)
-    #     self.assertEqual(len(response.data), 1)
-    #     self.assertEqual(response.data[0]['team_name'], "buccaneers")
 
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.data), 1)
+        self.assertEqual(response.data[0]['team_name'], "buccaneers")
 
-    # def test_get_team_with_multiple_teams(self):
-
-    #     league = League.objects.create(moderator=self.user, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
-
-    #     league_id = league.id
-
-        
-        
-
-    #     url = f"/api/v1/league/{league_id}"
- 
-    #     self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
-    #     response = self.client.get(url, format='json')
-    #     print(response.data)
-        # self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(len(response.data), 0)
        
 
 
@@ -100,7 +84,7 @@ class LeagueViewTest(APITestCase):
 
 
 
-
+# Unit Testing
 
 class TestLeague(TestCase):
     def setUp(self):
