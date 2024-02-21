@@ -48,9 +48,9 @@ class LeagueView(APIView):
 
 class AllLeagueView(APIView):
     #Returns all leagues
-    def get(self):
+    def get(self, request):
         all_leagues = League.objects.all()
-        serializer = LeagueSerializer(all_leagues)
+        serializer = LeagueSerializer(all_leagues, many=True)
         return Response(serializer.data)
     
 class CreateLeagueTeamView(APIView):
