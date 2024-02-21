@@ -8,22 +8,22 @@ from team.models import Team
 class LeagueView(APIView):
 
     def get(self, request, pk=None):
-
-        if pk == None:
-            all_leagues = League.objects.all()
+        #Gets a specific league, if league id is in url
+        if pk:
+            league = League.objects.get(id=pk)
             
-            serializer = LeagueSerializer(all_leagues, many=True)
+            serializer = LeagueSerializer(league)
             return Response(serializer.data, status=status.HTTP_200_OK)
+        #Gets all the leagues the user is part of
         else:
-            #Works for now, still need to verify with Teams being made, currently returns []
             user = request.user
             # Filter leagues based on the user
-            print("We executed the else block")
-            user_leagues = League.objects.filter(teams__users=user)
+            # We want Team where members = user
+            user_leagues = League.objects.filter(team__members=user)
             serializer = LeagueSerializer(user_leagues, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+    #Creates a league, requires league_name, start_date, end_date, team_size, location
     def post(self, request):
         user = request.user
         league_data = request.data
@@ -43,29 +43,27 @@ class LeagueView(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 
+
+class AllLeagueView(APIView):
+    #Returns all leagues
+    def get(self):
+        all_leagues = League.objects.all()
+        serializer = LeagueSerializer(all_leagues)
+        return Response(serializer.data)
+    
 class CreateLeagueTeamView(APIView):
-    def get(self, request, pk):
+    def get(self, request):
 
-        #Works for now, still need to verify with Teams being made, currently returns []
+        # Get the teams a user is on
         user = request.user
-        # Filter leagues based on the user
-        # league = League.objects.get(id=pk)
-        teams = Team.objects.filter(league_id=pk)
-       
-
+        teams = Team.objects.filter(members=user)
         serializer = TeamSerializer(teams, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-
-        # serializer = LeagueSerializer(user_leagues, many=True)
-        # return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-
-
     def post(self, request):
-        # need user, league_id, team_name
+    #Create a team in a league, requires league_id, team name
+       
         user = request.user
         team_data = request.data
         

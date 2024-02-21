@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 
 
 class Send(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    boulder = models.ForeignKey(Boulder, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sends')
+    boulder = models.ForeignKey(Boulder, on_delete=models.CASCADE, related_name='boulder')
     send_date = models.DateField()
     flash = models.BooleanField(default=False)
     score = models.IntegerField(default=0)

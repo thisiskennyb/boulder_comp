@@ -266,6 +266,67 @@ Returns something like:
 }
 ```
 
-### Add a team to league
-- make a post request to 
+
+
+### Get all Leagues
+
+- Make a GET request to `localhost:8000/api/v1/league/all/` no data needed.
+
+
+### Get all leagues that a user is in
+
+- Make a GET request to `localhost:8000/api/v1/league/` no data is needed
+
+### Get a specific league
+
+- Make a GET request to `localhost:8000/api/v1/league/1` where the number after league/ is the league_id you wish to retrieve
+
+### Create a Team in a league
+
+- Make a POST request `localhost:8000/api/v1/league/create_team/` with the following data:
+
+```json
+{
+    "league_id": 3,
+    "team_name": "chiparroo"
+}
+```
+
+### Get all of a Users Teams
+- Make a GET request to `localhost:8000/api/v1/league/create_team/`
+
+
+### Get all Teams in a League
+
+- Make a GET request to `localhost:8000/api/v1/team/league/` with the following data:
+
+```json
+{
+    "league_id": 4
+}
+```
+
+### Get a specific Team
+
+- Make GET request to `localhost:8000/api/v1/team/` with the following data:
+
+```json
+{
+    "team_id": 1
+}
+```
+
+### Add user to a Team in a league
+
+- Make a POST request `localhost:8000/api/v1/team/` with the following data:
+
+```json
+{
+    "league_id": 1,
+    "team_id": 1
+}
+```
+
+
+
 
