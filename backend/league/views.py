@@ -19,7 +19,7 @@ class LeagueView(APIView):
             user = request.user
             # Filter leagues based on the user
             # We want Team where members = user
-            user_leagues = League.objects.filter(team__members=user)
+            user_leagues = League.objects.filter(participants=user)
             serializer = LeagueSerializer(user_leagues, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -37,6 +37,8 @@ class LeagueView(APIView):
 
         new_league = League.objects.create(moderator=user, league_name=league_name, start_date=start_date, end_date=end_date, team_size=team_size, location=location)
         new_league.save()
+
+        new_league.participants.add(user)
 
         serializer = LeagueSerializer(new_league)
 

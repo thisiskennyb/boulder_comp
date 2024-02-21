@@ -19,4 +19,8 @@ class League(models.Model):
 
     def add_team(self, user, team_name, league_object):
         from team.models import Team
-        Team.objects.create(captain=user, team_name=team_name, league=league_object)
+        team = Team.objects.create(captain=user, team_name=team_name, league=league_object)
+        team.add_team_member(user)
+
+
+
