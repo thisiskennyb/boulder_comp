@@ -60,6 +60,7 @@ async function basicFetch(url, payload) {
     return response
   }
 
+
   export async function createLeague(context) {
     const payload = {
       method: "POST",
@@ -73,3 +74,18 @@ async function basicFetch(url, payload) {
     console.log(body)
     // return body
   }
+
+// No context, no body, just a GET request
+export async function leaguesUserIsIn() {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem('token')}`
+    },
+    // no body
+  }
+  const response = await basicFetch(`http://${host}/api/v1/league/`, payload)
+  return response
+}
+
