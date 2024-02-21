@@ -266,5 +266,6 @@ Returns something like:
 }
 ```
 
-
+### Add a team to league
+- make a post request to 
 
