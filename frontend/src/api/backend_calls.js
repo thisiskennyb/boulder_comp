@@ -59,3 +59,17 @@ async function basicFetch(url, payload) {
     const response = await basicFetch(`http://${host}/api/v1/password_reset/confirm/`, payload)
     return response
   }
+
+  export async function createLeague(context) {
+    const payload = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("token")}`
+      },
+      body: JSON.stringify(context)
+    }
+    const body = await basicFetch(`http://${host}/api/v1/league/`, payload)
+    console.log(body)
+    // return body
+  }

@@ -34,7 +34,7 @@ const NavLinks = () => {
             <span className="font-nunito">Dashboard</span>
             </Link>
 
-            <Link to='/leagues' style={{ textDecoration: 'none'}}>
+            <Link to='/leagues-home' style={{ textDecoration: 'none'}}>
             <span className="font-nunito">Leagues</span>
             </Link>
             
