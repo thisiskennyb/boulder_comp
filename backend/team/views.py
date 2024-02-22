@@ -30,7 +30,7 @@ class TeamView(APIView):
         team = Team.objects.get(id=pk)
         serializer = TeamSerializer(team)
 
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 ##### Needs some validation or logic in add_team_member method
@@ -52,7 +52,7 @@ class TeamView(APIView):
 
         # Return the serialized team
         serializer = TeamSerializer(team)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 

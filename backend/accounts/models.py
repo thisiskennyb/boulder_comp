@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from dotenv import load_dotenv
 import os
 
+## Should maybe have League and Team for user
+
 
 class UserDashboard(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

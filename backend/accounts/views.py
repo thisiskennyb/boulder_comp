@@ -113,7 +113,8 @@ def change_password(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
-
+## Not really being used for now
+## Might be useful with relation to League and Team
 class DashboardView(APIView):
 
     def get(self, request, pk=None):

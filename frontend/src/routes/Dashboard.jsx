@@ -1,4 +1,4 @@
-import { leaguesUserIsIn, teamsUserIsIn } from "../api/backend_calls"
+import { leaguesUserIsIn, teamsUserIsIn, getValidUserSends } from "../api/backend_calls"
 import { useEffect, useState } from "react"
 import DashboardTeamCard from "../components/DashboardTeamCard"
 
@@ -23,12 +23,18 @@ export default function Dashboard() {
         }
     }
 
+
+
     // Use effect to run once.
     useEffect(()=>{
         userLeagues() // Will update state if it changes
         userTeams()
     }, [])
 
+
+    // dashboard leagues is a list of league objects, so we want to access start_date and end_date
+
+    // want to get total score
 
     // For now just console logging state is being grabbed when we navigate to dashboard.
     // Currently getting all the leagues a user is in

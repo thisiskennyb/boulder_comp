@@ -17,3 +17,4 @@ class TeamSerializer(serializers.ModelSerializer):
         # Serialize basic information about each member
         serialized_members = UserSerializer(members, many=True).data
         return serialized_members
+    
