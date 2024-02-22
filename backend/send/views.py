@@ -85,8 +85,27 @@ class SendView(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED) #Update status later
 
 
-        
+class ValidSendView(APIView):
+    ## Going to start_date and end_date in request
+    def post(self, request):
+        user = request.user
+        data = request.data
+        print(request.data, 'this is data')
 
+        print(Send.objects.filter(user=user), 'original list of send objects before filter')
+        
+        start_date = data['start_date']
+        end_date = data['end_date']
+        print(start_date, 'this is start')
+        print(end_date, 'this is end')
+
+        filtered_user_sends = Send.objects.filter(user=user, send_date__range=[start_date, end_date])
+        print(filtered_user_sends, 'THIS IS OUR NEW VIEW')
+
+        # Convert start and end dates to datetime objects and make them timezone-aware
+        print(filtered_user_sends, 'if something did not break')
+        serializer = SendSerializer(filtered_user_sends, many=True)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 

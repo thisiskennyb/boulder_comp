@@ -30,7 +30,7 @@ const NavLinks = () => {
             <span className="font-nunito">Home</span>
             </Link>
 
-            <Link to='/profile' style={{ textDecoration: 'none'}}>
+            <Link to='/dashboard' style={{ textDecoration: 'none'}}>
             <span className="font-nunito">Dashboard</span>
             </Link>
 
