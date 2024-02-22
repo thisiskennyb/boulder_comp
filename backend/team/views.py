@@ -24,10 +24,10 @@ class AllTeamsView(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 class TeamView(APIView):
     #Get specific team with team_id
-    def get(self, request):
+    def get(self, request, pk):
         #Get a specific team, requires id
         data = request.data
-        team = Team.objects.get(id=data['team_id'])
+        team = Team.objects.get(id=pk)
         serializer = TeamSerializer(team)
 
         return Response(serializer.data)

@@ -145,6 +145,20 @@ export async function getTeamsByLeague(league_id) {
   return response;
 }
 
-export async function teamUserIsIn(){}
+export async function getTeam(team_id) {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("token")}`
+    }
+  };
+
+  const response = await basicFetch(`http://${host}/api/v1/team/${team_id}`, payload);
+  // const body = await response.json();
+  return response;
+}
+
+
 
 
