@@ -89,7 +89,10 @@ export async function leaguesUserIsIn() {
   return response
 }
 
+
 export async function getSingleLeague(league_id) {
+
+
   const payload = {
     method: "GET",
     headers: {
@@ -98,6 +101,7 @@ export async function getSingleLeague(league_id) {
     },
     // no body
   }
+
   const response = await basicFetch(`http://${host}/api/v1/league/${league_id}`, payload)
   return response
 }
@@ -128,4 +132,5 @@ export async function getTeamsByLeague(league_id) {
   // const body = await response.json();
   return response;
 }
+
 
