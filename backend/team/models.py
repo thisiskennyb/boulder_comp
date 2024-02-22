@@ -12,10 +12,6 @@ class Team(models.Model):
     def __str__(self):
         return f'Captain: {self.captain}, Team: {self.team_name}'
 
-    #  = models.PrimaryKey(Boulder, on_delete=models.CASCADE)
-    # send_date = models.DateField()
-    # flash = models.BooleanField(default=False)
-
     def add_team_member(self, user):
         self.members.add(user)
         return 'user added'
