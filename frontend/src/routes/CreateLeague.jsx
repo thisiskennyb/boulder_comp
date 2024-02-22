@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom"
 
 export default function CreateLeague() {
 
-    const navigate = useNavigate();
+    
+  const navigate = useNavigate();
 
     // "league_name": "Testing Team E",
     // "start_date": "2024-02-28",
