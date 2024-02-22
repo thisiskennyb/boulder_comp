@@ -1,6 +1,5 @@
 // const base_url = import.meta.env.VITE_BASE_URL || "http://localhost:8000/api/";
 
-
 const host = import.meta.env.VITE_BASE_URL || "localhost:8000";
 
 async function basicFetch(url, payload) {
@@ -89,6 +88,19 @@ export async function leaguesUserIsIn() {
   return response
 }
 
+export async function teamsUserIsIn() {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem('token')}`
+    },
+    // no body
+  }
+  const response = await basicFetch(`http://${host}/api/v1/league/create_team/`, payload)
+  return response
+}
+
 
 export async function getSingleLeague(league_id) {
 
@@ -132,5 +144,7 @@ export async function getTeamsByLeague(league_id) {
   // const body = await response.json();
   return response;
 }
+
+export async function teamUserIsIn(){}
 
 
