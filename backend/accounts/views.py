@@ -120,23 +120,6 @@ class DashboardView(APIView):
         myid = request.user.id
         user_dashboard = get_object_or_404(UserDashboard, user=request.user)
         serializer = UserDashboardSerializer(user_dashboard)
-        # username = user_dashboard.user.username
-        # date_joined = user_dashboard.user.date_joined
-        # weight = user_dashboard.weight
-        # height = user_dashboard.height
-        # ape_index = user_dashboard.ape_index
-        # highest_boulder_grade = user_dashboard.highest_boulder_grade
-        # highest_route_grade = user_dashboard.highest_route_grade
-
-        # {
-        #     'username': username,
-        #     'member_since': date_joined, 
-        #     'weight': weight, 
-        #     'height' : height,
-        #     'ape_index' : ape_index,
-        #     'highest_boulder_grade' : highest_boulder_grade,
-        #     'highest_route_grade' : highest_route_grade,            
-        #     })
 
         return Response(serializer.data)
 

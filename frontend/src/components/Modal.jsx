@@ -4,10 +4,16 @@ import { XSquare } from 'lucide-react';
 
 
 const Modal = ({ isOpen, onClose, children }) => {
+```
+This is a blank customizable modal
+current components using this component:
+Login, League
+
+```
+
   const modalClasses = isOpen
     ? 'fixed inset-0 overflow-y-auto flex items-center justify-center'
     : 'hidden';
-
 
 
   return (
@@ -19,9 +25,6 @@ const Modal = ({ isOpen, onClose, children }) => {
             <XSquare onClick={onClose} />
         </div>
         {children}
-        {/* <button onClick={onClose} className="absolute top-0 right-0 m-4">
-          Close
-        </button> */}
       </div>
     </div>
   );
