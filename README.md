@@ -23,6 +23,42 @@ This project will be designed to use as a starting point for future projects tha
 ---
 
 ### Configuration/Setup
+
+#### To run local
+All from the backend directory
+```
+python -m venv venv
+```
+```
+source venv/bin/activate
+```
+```
+pip install -r requirements.txt
+```
+```
+docker compose up -d
+```
+```
+python manage.py makemigrations
+```
+```
+python manage.py migrate
+```
+```
+python manage.py runserver
+```
+From the frontend directory
+```
+npm install
+```
+```
+npm run dev
+```
+
+
+
+
+
 This project has an integrated dockerized Postgres database and will require `Docker Desktop` to be installed
 - Click [here](https://www.docker.com/products/docker-desktop/) to download docker desktop
 
