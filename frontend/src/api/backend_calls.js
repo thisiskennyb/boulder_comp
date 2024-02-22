@@ -160,5 +160,20 @@ export async function getTeam(team_id) {
 }
 
 
+export async function createTeam(context) {
+  const payload = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("token")}`
+    },
+    body: JSON.stringify(context)
+  }
+  const body = await basicFetch(`http://${host}/api/v1/league/create_team/`, payload)
+  return body
+
+}
+
+
 
 
