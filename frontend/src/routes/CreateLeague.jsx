@@ -44,8 +44,9 @@ export default function CreateLeague() {
     const createLeagueHandler = async() => {
         
         const response = await createLeague({league_name: leagueName, location: location, team_size: parseInt(teamSize), start_date: startDate, end_date: endDate })
-        navigate("/league");
-        console.log(response)
+        console.log(response.id)
+        navigate(`/league/${response.id}`);
+        
         
     }
 

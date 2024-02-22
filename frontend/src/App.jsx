@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from "react-router-dom"
 import Login from './routes/Login'
 import Home from './routes/Home'
 import UserProfile from './routes/UserProfile'
@@ -28,7 +28,7 @@ function App() {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userToken, setUserToken] = useState(null)
 
-  
+  let { leagueId } = useParams();
 
   // console.log(userToken, "State of userToken in App")
   
@@ -69,7 +69,7 @@ function App() {
       <Route path="/create-league" element={<CreateLeague />} />
       <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
       <Route path="/signup-message" element={<SignupMessage />} />
-      <Route path="/league" element={<League />} />
+      <Route path="/league/:leagueId" element={<League />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/leagues-home" element={<LeaguesHome />} />
       <Route path="/rules-and-scoring" element={<RulesScoring />} />
