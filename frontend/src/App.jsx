@@ -17,6 +17,8 @@ import UserContext from './contexts/UserContext'
 import JoinLeague from './routes/JoinLeague'
 import CreateLeague from './routes/CreateLeague'
 import League from './routes/League'
+import Team from './routes/Team'
+
 
 
 import { ToastContainer } from 'react-toastify';
@@ -29,6 +31,7 @@ function App() {
   const [userToken, setUserToken] = useState(null)
 
   let { leagueId } = useParams();
+  let { teamId } = useParams();
 
   // console.log(userToken, "State of userToken in App")
   
@@ -70,6 +73,7 @@ function App() {
       <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
       <Route path="/signup-message" element={<SignupMessage />} />
       <Route path="/league/:leagueId" element={<League />} />
+      <Route path="/team/:teamId" element={<Team />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/leagues-home" element={<LeaguesHome />} />
       <Route path="/rules-and-scoring" element={<RulesScoring />} />

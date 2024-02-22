@@ -304,13 +304,8 @@ Returns something like:
 
 ### Get a specific Team
 
-- Make GET request to `localhost:8000/api/v1/team/` with the following data:
+- Make GET request to `localhost:8000/api/v1/team/7` include team pk:
 
-```json
-{
-    "team_id": 1
-}
-```
 
 ### Add user to a Team in a league
 
