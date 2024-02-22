@@ -298,13 +298,9 @@ Returns something like:
 
 ### Get all Teams in a League
 
-- Make a GET request to `localhost:8000/api/v1/team/league/` with the following data:
+- Make a GET request to `localhost:8000/api/v1/team/league/1` include league pk
 
-```json
-{
-    "league_id": 4
-}
-```
+
 
 ### Get a specific Team
 

@@ -71,7 +71,7 @@ async function basicFetch(url, payload) {
       body: JSON.stringify(context)
     }
     const body = await basicFetch(`http://${host}/api/v1/league/`, payload)
-    console.log(body)
+    return body
     // return body
   }
 
@@ -87,5 +87,45 @@ export async function leaguesUserIsIn() {
   }
   const response = await basicFetch(`http://${host}/api/v1/league/`, payload)
   return response
+}
+
+export async function getSingleLeague(league_id) {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem('token')}`
+    },
+    // no body
+  }
+  const response = await basicFetch(`http://${host}/api/v1/league/${league_id}`, payload)
+  return response
+}
+
+export async function getAllLeagues() {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem('token')}`
+    },
+    // no body
+  }
+  const response = await basicFetch(`http://${host}/api/v1/league/all/`, payload)
+  return response
+}
+
+export async function getTeamsByLeague(league_id) {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("token")}`
+    }
+  };
+
+  const response = await basicFetch(`http://${host}/api/v1/team/league/${league_id}`, payload);
+  // const body = await response.json();
+  return response;
 }
 

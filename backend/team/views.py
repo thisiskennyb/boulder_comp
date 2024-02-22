@@ -9,10 +9,10 @@ from league.models import League
 
 class TeamsInLeagueView(APIView):
     #Gets all teams for a specific league, requires league_id
-    def get(self, request):
+    def get(self, request, pk):
         data = request.data
 
-        league_teams = Team.objects.filter(league=data['league_id'])
+        league_teams = Team.objects.filter(league=pk)
         serializer = TeamSerializer(league_teams, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
