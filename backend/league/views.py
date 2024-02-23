@@ -57,11 +57,51 @@ class AllLeagueView(APIView):
         return Response(serializer.data)
     
 class CreateLeagueTeamView(APIView):
+
     def get(self, request):
 
         # Get the teams a user is on
         user = request.user
         teams = Team.objects.filter(members=user)
+        
+        #loop through all of the teams that the user belongs to
+        for team in teams:
+            # for each league the team is in get all of the teams in that league
+            all_teams_in_league = Team.objects.filter(league=team.league)           
+            #loop through all of the teams for each league
+            for t in all_teams_in_league:
+                # get all of the members in each team
+                members= t.members.all()
+                # initialize a list with all member id's
+                member_id_list = [member.id for member in members]
+                # initialize variables to store the leagues start date and end date
+                start_date = t.league.start_date
+                end_date = t.league.end_date
+                # call the Team method to calculate each teams score
+                team_score = t.calculate_team_score(start_date, end_date, member_id_list)
+                # update and save each teams score
+                t.score = team_score
+                t.save()
+
+        # query all leagues that the user is in
+        users_leagues = League.objects.filter(participants=user)
+        # loop through the leagues queryset
+        for league in users_leagues:
+            # get the number of teams per league
+            num_of_teams = Team.objects.filter(league=league).count()
+            # update the league field with the number of teams and save
+            league.number_of_teams = num_of_teams
+            league.save()
+            # query all teams for a given league
+            all_teams = Team.objects.filter(league=league)
+            # update each teams rank by calling the league method 'update_team_ranks' and save
+            league.update_team_ranks(all_teams)
+            league.save()
+              
+        
+                
+
+        # serialize the output
         serializer = TeamSerializer(teams, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
