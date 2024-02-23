@@ -1,63 +1,31 @@
-## Django Authentication Boilerplate
+## Boulder Comp
 
-Current features:
-- Password validator (requires 8+ characters, 1+ numbers, 1+ special characters)
-- Unit testing
-- Email account activation on signup
-- Reset/forgot password through email
-- Change password
-
-In The Works:
-- Single sign-on using Google and Facebook
-- CI/CD pipeline through GitHub actions
-- Containerization for deployment
+Visit: [here](https://www.google.com/search?q=google&oq=google++&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIMCAEQIxgnGIAEGIoFMg4IAhBFGCcYOxiABBiKBTIGCAMQRRg8MgYIBBBFGDwyBggFEEUYQTIGCAYQRRhBMgYIBxBFGEHSAQg1MDc3ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8)
 
 ---
 
 ### Purpose
-This project will be designed to use as a starting point for future projects that require authentication and is equiped with the following features:
-- full authentication with the features listed above
-- CI/CD pipline
-- Containerized and ready to deploy
+The purpose for this project is to serve my friends in the rock climbing community to help organize bouldering competitions
+
+#### Pages
+Dashboard - displays users stats along with all of the leagues they are a participant in along with their place and team name for the given league
+Leagues - gives the user the option to join or create a league
+	- Leagues will require a start and end date along with a name
+ 	- Users can join a league by either creating a team within the league or joining an already existing team
+
+The rules are simple:
+- Scoring is based on the grade of the hardest boulder the user has sent
+- Only the user's three hardest grades count for points towards the competition
+- If the user completes a climb on their first try the score is doubled
+  - Example: users highes boulder grade: v7
+    - grade/points: v7/3points v6/2points v5/1point
+    - v7 flash = 6points
+  
+
 
 ---
 
-### Configuration/Setup
-
-#### To run local
-All from the backend directory
-```
-python -m venv venv
-```
-```
-source venv/bin/activate
-```
-```
-pip install -r requirements.txt
-```
-```
-docker compose up -d
-```
-```
-python manage.py makemigrations
-```
-```
-python manage.py migrate
-```
-```
-python manage.py runserver
-```
-From the frontend directory
-```
-npm install
-```
-```
-npm run dev
-```
-
-
-
-
+### Quick Start
 
 This project has an integrated dockerized Postgres database and will require `Docker Desktop` to be installed
 - Click [here](https://www.docker.com/products/docker-desktop/) to download docker desktop
@@ -354,6 +322,40 @@ Returns something like:
 }
 ```
 change
+
+
+### Contributions
+
+#### To run local
+All from the backend directory
+```
+python -m venv venv
+```
+```
+source venv/bin/activate
+```
+```
+pip install -r requirements.txt
+```
+```
+docker compose up -d
+```
+```
+python manage.py makemigrations
+```
+```
+python manage.py migrate
+```
+```
+python manage.py runserver
+```
+From the frontend directory
+```
+npm install
+```
+```
+npm run dev
+```
 
 
 
