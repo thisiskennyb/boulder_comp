@@ -1,10 +1,33 @@
+import { useEffect } from "react"
+import { getValidUserSends } from "../api/backend_calls"
 
 // Creates a Card for each team
 export function TeamCard({team}){
-        console.log(team, 'what do we have in team')
-        console.log(team[0].members, 'SHAPE OF MEMBERS IN TEAM')
+        // console.log(team, 'what do we have in team')
+        // console.log(team[0].members, 'SHAPE OF MEMBERS IN TEAM')
+        const startDate = team[0].league.start_date
+        const endDate = team[0].league.end_date
+
+        console.log('startdate', startDate)
+        console.log('endDate', endDate)
+
+        const context = {
+            "start_date": startDate,
+            "end_date": endDate
+        }
         // team[0].members is a list of user objects that have a list of send objects
         // If a team member has no sends the list will be empty
+
+        const getUserSends = async () => {
+            const response = await getValidUserSends(context)
+            console.log(response[0]['score'], 'from use effect get userSends call')
+        }
+
+
+
+        useEffect(()=> {
+            getUserSends()
+        },[])
 
         // Need to decide what we would like to display, individual usuer score? Team Rank?
 
