@@ -5,6 +5,7 @@ from accounts.models import UserDashboard
 from send.models import Send
 from boulder.models import Boulder
 from send.serializers import SendSerializer
+from django.contrib.auth.models import User
 
 
 class SendView(APIView):
@@ -87,15 +88,37 @@ class SendView(APIView):
 
 class ValidSendView(APIView):
     ## Going to start_date and end_date in request
+    """
+    This function takes in a start_date, end_date, and a list of member ids.
+    We loop through the member ids, to query valid send objects for each member
+    Each time our inner loop ends we update our total score which will be
+    the total score for a team once both loops have finished
+    """
     def post(self, request):
         user = request.user
         data = request.data
         print(request.data, 'this is data')
-
-        print(Send.objects.filter(user=user), 'original list of send objects before filter')
         
         start_date = data['start_date']
         end_date = data['end_date']
+
+        ## For each id we are trying to query first the user the id belongs to, then the filtered list of sends that belong to that user
+        total = 0
+        for member_id in data['member_ids']:
+            member_user = User.objects.get(id=member_id)
+            print(member_user, 'THIS IS A MEMBER OR SOMETHING')
+            member_sends = Send.objects.filter(user=member_user, send_date__range=[start_date, end_date])
+            score = 0
+            for send in member_sends:
+                 score += send.score
+            total += score
+
+            print(total, 'THIS IS A TOTAL')
+            
+        ##
+
+
+        print(Send.objects.filter(user=user), 'original list of send objects before filter')
         print(start_date, 'this is start')
         print(end_date, 'this is end')
 
