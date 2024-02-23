@@ -3,18 +3,33 @@ import { getValidUserSends } from "../api/backend_calls"
 
 // Creates a Card for each team
 export function TeamCard({team}){
-        // console.log(team, 'what do we have in team')
-        // console.log(team[0].members, 'SHAPE OF MEMBERS IN TEAM')
+        // First we need to get the start date and end date of the league
         const startDate = team[0].league.start_date
         const endDate = team[0].league.end_date
+        // Get team members and map over them
+        const teamMembers = team[0]['members']
+
+        // use let
+        let memberIDs
+
+        if (teamMembers){
+            //map over Member objects and create a list of member ID's
+            memberIDs = teamMembers.map((member) => {
+                return member.id
+            })
+        }
+        console.log(memberIDs, 'This is a list of IDs to use for send queries')
+
 
         console.log('startdate', startDate)
         console.log('endDate', endDate)
 
         const context = {
             "start_date": startDate,
-            "end_date": endDate
+            "end_date": endDate,
+            "member_ids": memberIDs
         }
+
         // team[0].members is a list of user objects that have a list of send objects
         // If a team member has no sends the list will be empty
 

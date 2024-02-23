@@ -32,7 +32,7 @@ export default function Dashboard() {
 
     // For now just console logging state is being grabbed when we navigate to dashboard.
     // Currently getting all the leagues a user is in
-    
+    console.log(dashboardLeagues, 'league data yo')
 
     return (
     <>
