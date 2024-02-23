@@ -12,7 +12,66 @@ class TeamsInLeagueView(APIView):
     def get(self, request, pk):
         data = request.data
 
+        ################
+#     def post(self, request):
+#         user = request.user
+#         data = request.data
+#         print(request.data, 'this is data')
+        
+#         start_date = data['start_date']
+#         end_date = data['end_date']
+
+#         # get all of the leagues the user is in
+#         leagues = League.objects.filter(user=user)
+
+#         league_dict = {}
+
+#         # Loop through each league
+#         for league in leagues:
+#              # Get the teams for each league
+#             teams = Team.objects.filter(leage=league)
+#             # keep track of each teams score
+#             team_score = 0
+#             team_name = ''
+#             team_score_arr = []
+#             for team in teams:
+#                  print(team)
+#                  # get league start date, and end date
+#                  # get the array of member_ids from team
+#                  # call the send model method 'calculate_team_score'
+#                  # team_score += member score
+#                  # team_name = team name
+#             # update league dict
+#             league_dict['league.league_name'] = [team_name, team_score]
+#             # reset team_score and team_name variables
+#             team_score = 0
+    
+
+# # this is the method to be used in the above method
+# def calculate_team_score(self, start_date, end_date, member_ids):
+
+#         team_total_score = 0
+
+#         # loop through members
+#         for member_id in member_ids:
+#             member_user = User.objects.get(id=member_id)
+#             print(member_user, 'THIS IS A MEMBER OR SOMETHING')
+#             member_sends = Send.objects.filter(user=member_user, send_date__range=[start_date, end_date])
+            
+#             member_score = 0
+#         # For each member loop through their sends and add up the members score
+#             for send in member_sends:
+                
+#                  score += send.score
+
+#         # add each members score to the total score for the team
+#             team_total_score += member_score
+
+#         return team_total_score
+##############################
+
         league_teams = Team.objects.filter(league=pk)
+        print(league_teams)
         serializer = TeamSerializer(league_teams, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
