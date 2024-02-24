@@ -174,21 +174,6 @@ export async function createTeam(context) {
 
 }
 
-
-export async function getValidUserSends(context){
-  const payload = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem("token")}`
-    },
-    body: JSON.stringify(context)
-  }
-  const response = await basicFetch(`http://${host}/api/v1/send/valid/`, payload)
-  return response
-}
-
-
 export async function logSend(context){
   const payload = {
     method: "POST",

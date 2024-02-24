@@ -1,7 +1,8 @@
 import { teamsUserIsIn, logSend } from "../api/backend_calls";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import DashboardTeamCard from "../components/DashboardTeamCard";
+
+import { toast } from "react-toastify";
 import Modal from '../components/Modal';
 
 export default function Dashboard() {
@@ -13,19 +14,8 @@ export default function Dashboard() {
     const [areaName, setAreaName] = useState('');
     const [boulderGrade, setBoulderGrade] = useState('');
     const [sendDate, setSendDate] = useState('');
+   
     const navigate = useNavigate();
-
-    useEffect(() => {
-        const fetchUserTeams = async () => {
-            try {
-                const data = await teamsUserIsIn();
-                setUsersTeams(data);
-            } catch (error) {
-                console.error("Error fetching leagues:", error);
-            }
-        };
-        fetchUserTeams();
-    }, []);
 
     const openModal = (event) => {
         event.preventDefault();
@@ -33,6 +23,24 @@ export default function Dashboard() {
     };
 
     const closeModal = () => setModalOpen(false);
+
+    useEffect(() => {
+            // Gets all the teams user is on
+            fetchUserTeams()
+    
+    }, [isModalOpen]); 
+
+    const fetchUserTeams = async () => {
+        const token = localStorage.getItem('token')
+        if (token){
+            try {
+                const teamData = await teamsUserIsIn();
+                setUsersTeams(teamData);
+            } catch (error) {
+                console.error("Error fetching leagues:", error)
+            }
+        }
+    }
 
     const handleViewLeague = (league_id) => {
         navigate(`/league/${league_id}`);
@@ -50,12 +58,30 @@ export default function Dashboard() {
         setSelectedVersion(event.target.value);
     };
 
+
+
     const handleSubmitLog = async () => {
         closeModal()
-        const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
-        console.log(response);
-        window.location.reload();
+        try {
+            const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
+        
+            if (response){
+                toast.success('Cool you logged a boulder')
+                //Update usersTeams when a Send is submitted
+                fetchUserTeams()
+                console.log('WE PROBABLY CALLED IT')
+            }
+        }
+        catch (error) {
+            //Error messages for if fetch fails
+            toast.error('Thats not a good send, check your data again!')
+            console.error('User Login failed:', error.response?.data || 'An error occurred')
+        }
+
     };
+
+
+
 
     const handleBoulderNameInput = (e) => {
         setBoulderName(e.target.value);
