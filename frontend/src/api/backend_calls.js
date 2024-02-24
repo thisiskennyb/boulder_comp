@@ -203,6 +203,19 @@ export async function logSend(context){
 }
 
 
+export async function joinTeam(context){
+  const payload = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("token")}`
+    },
+    body: JSON.stringify(context)
+  }
+  const response = await basicFetch(`http://${host}/api/v1/team/`, payload)
+  return response
+}
+
 
 
 
