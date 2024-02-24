@@ -1,4 +1,4 @@
-import { teamsUserIsIn } from "../api/backend_calls";
+import { teamsUserIsIn, logSend } from "../api/backend_calls";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardTeamCard from "../components/DashboardTeamCard";
@@ -8,6 +8,11 @@ export default function Dashboard() {
     const [usersTeams, setUsersTeams] = useState([]);
     const [isModalOpen, setModalOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const [selectedVersion, setSelectedVersion] = useState("v1"); // Set initial state to v1
+    const [boulderName, setBoulderName] = useState('');
+    const [areaName, setAreaName] = useState('');
+    const [boulderGrade, setBoulderGrade] = useState('');
+    const [sendDate, setSendDate] = useState('');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -41,27 +46,64 @@ export default function Dashboard() {
         setIsChecked(!isChecked);
     };
 
+    const handleVersionChange = (event) => {
+        setSelectedVersion(event.target.value);
+    };
+
+    const handleSubmitLog = async () => {
+        closeModal()
+        const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
+        console.log(response);
+        window.location.reload();
+    };
+
+    const handleBoulderNameInput = (e) => {
+        setBoulderName(e.target.value);
+    };
+
+    const handleAreaNameInput = (e) => {
+        setAreaName(e.target.value);
+    };
+
+    const handleBoulderGradeInput = (e) => {
+        setBoulderGrade(e.target.value);
+    };
+
+    const handleSendDateInput = (e) => {
+        setSendDate(e.target.value);
+    };
+
+    // Generating options for the selector
+    const versionOptions = [];
+    for (let i = 1; i <= 17; i++) {
+        versionOptions.push(<option key={`v${i}`} value={`v${i}`}>v{i}</option>);
+    }
+
+    // console.log(boulderGrade)
+
     return (
         <>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <div className='font-nunito text-center'>
-                    Please enter your email address below, and we'll send you a link to reset your password
+                    Please enter send information below
                 </div>
                 <div className="flex flex-col items-center">
-                    <input type="text" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Name" />
-                    <input type="text" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Area" />
-                    <select></select>
-                    <input type="date" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" />
+                    <input type="text" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Name" onChange={handleBoulderNameInput}/>
+                    <input type="text" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Area" onChange={handleAreaNameInput}/>
+                    <select value={boulderGrade} onChange={handleBoulderGradeInput} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500">
+                        {versionOptions}
+                    </select>
+                    <input type="date" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
+                    <span className='font-nunito'>Flash</span>
                     <input
                         id="example-input"
-                        type="radio"
+                        type="checkbox"
                         className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500"
-                        placeholder="Email"
                         checked={isChecked}
                         onChange={handleInputChange}
                     />
                     <div>
-                        <button onClick={closeModal} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+                        <button onClick={handleSubmitLog} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
                             Submit
                         </button>
                     </div>
