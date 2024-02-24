@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-import { getSingleLeague, getTeamsByLeague, createTeam } from "../api/backend_calls";
+import { getSingleLeague, getTeamsByLeague, createTeam, joinTeam } from "../api/backend_calls";
 import Modal from '../components/Modal';
 
 
@@ -48,6 +48,14 @@ export default function League() {
         closeModal()
       }
 
+      const handleJoinTeam = async (teamId, leagueId) => {
+        
+        const response = await joinTeam({league_id:leagueId, team_id:teamId})
+        console.log(response)
+        // need toast notification that team was succesfully joined
+
+      }
+
 
       const closeModal = () => setModalOpen(false);
 
@@ -88,7 +96,7 @@ export default function League() {
         <h2>Teams:</h2>
                 <ul>
                     {teamsData.map((team, index) => (
-                        <li key={index}>{team.team_name} <button onClick={() => handleViewTeam(team.id)}>view</button></li>
+                        <li key={index}>{team.team_name} <button onClick={() => handleViewTeam(team.id)}>view</button><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></li>
                     ))}
                 </ul>
         </div>
