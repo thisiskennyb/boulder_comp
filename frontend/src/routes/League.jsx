@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom"
 import { getSingleLeague, getTeamsByLeague, createTeam, joinTeam } from "../api/backend_calls";
 import Modal from '../components/Modal';
 
+import { toast } from "react-toastify";
+
 
 export default function League() {
 
@@ -49,9 +51,16 @@ export default function League() {
       }
 
       const handleJoinTeam = async (teamId, leagueId) => {
-        
-        const response = await joinTeam({league_id:leagueId, team_id:teamId})
-        console.log(response)
+        try {
+          const response = await joinTeam({league_id:leagueId, team_id:teamId})
+          if (response.status == 200) {
+            toast.success('You have joined the team!')
+          }
+
+        } catch (error) {
+          console.error('Something went wrong', error.response.status)
+          toast.error('You are already on this team!')
+        }
         // need toast notification that team was succesfully joined
 
       }

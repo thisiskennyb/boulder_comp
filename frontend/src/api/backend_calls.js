@@ -1,5 +1,5 @@
 // const base_url = import.meta.env.VITE_BASE_URL || "http://localhost:8000/api/";
-
+import axios from 'axios'
 const host = import.meta.env.VITE_BASE_URL || "localhost:8000";
 
 async function basicFetch(url, payload) {
@@ -200,18 +200,58 @@ export async function logSend(context){
 }
 
 
+// export async function joinTeam(context){
+//   const payload = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Authorization": `Token ${localStorage.getItem("token")}`
+//     },
+//     body: JSON.stringify(context)
+//   }
+//   try {
+//     const response = await basicFetch(`http://${host}/api/v1/team/`, payload)
+//     if (response){
+//       return response
+
+//     }
+
+//   } catch (error) {
+//     console.error("Error fetching in joinTeam: ", error.status)
+//   }
+// }
+
+
+/////// Example of using axios to easily get status in responses ////////////////////
+
 export async function joinTeam(context){
-  const payload = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem("token")}`
-    },
-    body: JSON.stringify(context)
+  try {
+    const response = await axios.post(`http://${host}/api/v1/team/`, context, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("token")}`
+
+      }
+    })
+    return response
+  } catch (error) {
+    console.error('Error in join team')
+    throw error
   }
-  const response = await basicFetch(`http://${host}/api/v1/team/`, payload)
-  return response
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export async function createUserDashboard(context){
   const payload = {
