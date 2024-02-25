@@ -11,8 +11,8 @@ export default function Dashboard() {
     const navigate = useNavigate();
     // usersTeams --> all of the teams a user is on
     // fetchUserTeams --> async function that fetches all of the teams a user is on, and updates state of usersTeams
-    // const [ highestBoulderGrade, setHighestBoulderGrade ] = useState(null)
-    const [ selectDashboardGrade, setSelectDashboardGrade ] = useState(null)
+    const [ selectDashboardGrade, setSelectDashboardGrade ] = useState("v5")
+    // Will get used if highestBoulderGrade is not available in context
     
     const [isModalOpen, setModalOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);

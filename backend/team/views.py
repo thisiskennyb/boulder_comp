@@ -99,19 +99,39 @@ class TeamView(APIView):
         user = request.user
         data = request.data
 
+
+        #Query inside of try
+
+        try:
+
+
         # Get the team and league objects
-        team = Team.objects.get(id=data['team_id'], league_id=data['league_id'])
-        league = League.objects.get(id=data['league_id'])
-        print(league.team_size)
-        # Add the user to the team
-        team.add_team_member(user)
+            team = Team.objects.get(id=data['team_id'], league_id=data['league_id'])
+            league = League.objects.get(id=data['league_id'])
+            print(league.team_size)
 
-        # Add the user to the league's participants
-        league.participants.add(user)
+            ## Check if user is in team
+            if user in team.members.all():
+                return Response({"message": "You are already a member of this team"}, status=status.HTTP_400_BAD_REQUEST)
+            
+            ## Check if the team has room
+            if team.members.count() >= league.team_size:
+                return Response({"message": "This team is full"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Return the serialized team
-        serializer = TeamSerializer(team)
-        return Response(serializer.data)
+
+            # Add the user to the team
+            team.add_team_member(user)
+
+            # Add the user to the league's participants
+            league.participants.add(user)
+
+            # Return the serialized team
+            serializer = TeamSerializer(team)
+            return Response(serializer.data)
+        except Team.DoesNotExist:
+            return Response({"message": "Team not found"}, status=status.HTTP_404_NOT_FOUND)
+        except League.DoesNotExist:
+            return Response({"message": "League not found"}, status=status.HTTP_404_NOT_FOUND)
 
 
 
