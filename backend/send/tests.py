@@ -97,6 +97,41 @@ class SendViewTest(APITestCase):
 
         self.assertEqual(total_score, 1)
 
+    
+    def test_multiple_sends_too_low(self):
+        url = '/api/v1/send/'
+        boulder1 = {
+            "name": "croc bloc",
+            "grade": "v1",
+            "crag": "rocktown",
+            "flash": False,
+            "send_date": "2024-02-20"
+        }
+
+        boulder2 = {
+            "name": "pocket pool",
+            "grade": "v4",
+            "crag": "little rock city",
+            "flash": False,
+            "send_date": "2024-02-21"
+        }
+
+        # Include the token in the request headers
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        self.client.post(url, boulder1, format='json')
+        self.client.post(url, boulder2, format='json')
+        
+
+        sends = Send.objects.filter(user_id = self.user)
+        self.assertEqual(sends.count(), 2)
+
+        total_score = 0
+        
+        for send in sends:
+            total_score += send.score
+
+        self.assertEqual(total_score, 0)
+
 
     def test_multiple_sends_with_flash(self):
         url = '/api/v1/send/'
