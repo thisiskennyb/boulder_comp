@@ -22,13 +22,22 @@ export default function Dashboard() {
         setModalOpen(true);
     };
 
-    const closeModal = () => setModalOpen(false);
+    const closeModal = () => {
+        setModalOpen(false);
+        //Resets the state for modal on close
+        setBoulderName('');
+        setBoulderGrade('');
+        setAreaName('');
+        setSendDate('');
+        setIsChecked(false);
+        }
 
     useEffect(() => {
             // Gets all the teams user is on
             fetchUserTeams()
     
-    }, [isModalOpen]); 
+    }, [isModalOpen]);
+
 
     const fetchUserTeams = async () => {
         const token = localStorage.getItem('token')
@@ -59,9 +68,9 @@ export default function Dashboard() {
     };
 
 
-
     const handleSubmitLog = async () => {
         closeModal()
+        
         try {
             const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
         
@@ -69,7 +78,7 @@ export default function Dashboard() {
                 toast.success('Cool you logged a boulder')
                 //Update usersTeams when a Send is submitted
                 fetchUserTeams()
-                console.log('WE PROBABLY CALLED IT')
+                
             }
         }
         catch (error) {
@@ -77,11 +86,9 @@ export default function Dashboard() {
             toast.error('Thats not a good send, check your data again!')
             console.error('User Login failed:', error.response?.data || 'An error occurred')
         }
+        
 
     };
-
-
-
 
     const handleBoulderNameInput = (e) => {
         setBoulderName(e.target.value);
@@ -105,7 +112,6 @@ export default function Dashboard() {
         versionOptions.push(<option key={`v${i}`} value={`v${i}`}>v{i}</option>);
     }
 
-    // console.log(boulderGrade)
 
     return (
         <>
@@ -114,12 +120,12 @@ export default function Dashboard() {
                     Please enter send information below
                 </div>
                 <div className="flex flex-col items-center">
-                    <input type="text" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Name" onChange={handleBoulderNameInput}/>
-                    <input type="text" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Area" onChange={handleAreaNameInput}/>
+                    <input type="text" value={boulderName} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Name" onChange={handleBoulderNameInput}/>
+                    <input type="text" value={areaName} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Area" onChange={handleAreaNameInput}/>
                     <select value={boulderGrade} onChange={handleBoulderGradeInput} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500">
                         {versionOptions}
                     </select>
-                    <input type="date" className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
+                    <input type="date" value={sendDate} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
                     <span className='font-nunito'>Flash</span>
                     <input
                         id="example-input"
