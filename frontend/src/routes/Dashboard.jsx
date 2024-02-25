@@ -1,12 +1,19 @@
-import { teamsUserIsIn, logSend } from "../api/backend_calls";
-import { useEffect, useState } from "react";
+import { createUserDashboard, getUserDashboard, logSend } from "../api/backend_calls";
+import { useEffect, useState, useContext } from "react";
+import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 import Modal from '../components/Modal';
 
 export default function Dashboard() {
-    const [usersTeams, setUsersTeams] = useState([]);
+    const { usersTeams, fetchUserTeams, highestBoulderGrade, setHighestBoulderGrade} = useContext(UserContext)
+    const navigate = useNavigate();
+    // usersTeams --> all of the teams a user is on
+    // fetchUserTeams --> async function that fetches all of the teams a user is on, and updates state of usersTeams
+    // const [ highestBoulderGrade, setHighestBoulderGrade ] = useState(null)
+    const [ selectDashboardGrade, setSelectDashboardGrade ] = useState(null)
+    
     const [isModalOpen, setModalOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     const [selectedVersion, setSelectedVersion] = useState("v1"); // Set initial state to v1
@@ -14,8 +21,17 @@ export default function Dashboard() {
     const [areaName, setAreaName] = useState('');
     const [boulderGrade, setBoulderGrade] = useState('');
     const [sendDate, setSendDate] = useState('');
-   
-    const navigate = useNavigate();
+
+  
+    const updateHighestBoulderGrade = async () => {
+        const data = {
+            "highest_boulder_grade": selectDashboardGrade
+        }
+        const response = await createUserDashboard(data)
+        console.log(response, 'resp in updateHighest async')
+        setHighestBoulderGrade(selectDashboardGrade)
+    }
+
 
     const openModal = (event) => {
         event.preventDefault();
@@ -39,17 +55,6 @@ export default function Dashboard() {
     }, [isModalOpen]);
 
 
-    const fetchUserTeams = async () => {
-        const token = localStorage.getItem('token')
-        if (token){
-            try {
-                const teamData = await teamsUserIsIn();
-                setUsersTeams(teamData);
-            } catch (error) {
-                console.error("Error fetching leagues:", error)
-            }
-        }
-    }
 
     const handleViewLeague = (league_id) => {
         navigate(`/league/${league_id}`);
@@ -86,9 +91,12 @@ export default function Dashboard() {
             toast.error('Thats not a good send, check your data again!')
             console.error('User Login failed:', error.response?.data || 'An error occurred')
         }
-        
-
     };
+
+
+    const handleSubmitHighestGrade = async () => {
+        updateHighestBoulderGrade() // This sends a post request with selectDashboardGrade
+    }
 
     const handleBoulderNameInput = (e) => {
         setBoulderName(e.target.value);
@@ -106,6 +114,12 @@ export default function Dashboard() {
         setSendDate(e.target.value);
     };
 
+    const handleHighestBoulderInput = (e) => {
+        setSelectDashboardGrade(e.target.value);
+    }
+
+  
+
     // Generating options for the selector
     const versionOptions = [];
     for (let i = 1; i <= 17; i++) {
@@ -115,6 +129,20 @@ export default function Dashboard() {
 
     return (
         <>
+        {!highestBoulderGrade && (<>
+            <div className="font-nunito text-center">
+                Please Enter your highest boulder grade
+            </div>
+            <div className="flex flex-col items-center">
+                <select value={selectDashboardGrade} onChange={handleHighestBoulderInput} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500">
+                    {versionOptions}
+                </select>
+                <button onClick={handleSubmitHighestGrade} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+                            Submit
+                        </button>
+            </div>
+
+        </>)}
             <Modal isOpen={isModalOpen} onClose={closeModal}>
                 <div className='font-nunito text-center'>
                     Please enter send information below
