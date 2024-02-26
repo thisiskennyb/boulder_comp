@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
 import { getSingleLeague, getTeamsByLeague, createTeam, joinTeam } from "../api/backend_calls";
 import Modal from '../components/Modal';
-
 import { toast } from "react-toastify";
 
 
@@ -40,14 +39,28 @@ export default function League() {
         setTeamNameInput(e.target.value)
       }
 
-      console.log(teamNameInput)
+  
 
       const handleCreateTeam = async () => {
-        const createNewTeam = await createTeam({league_id:leagueId, team_name:teamNameInput})
-        console.log(createNewTeam)
-        const updatedTeams = await getTeamsByLeague(leagueId);
-        setTeamsData(updatedTeams);
-        closeModal()
+        try {
+          const response = await createTeam({league_id:leagueId, team_name:teamNameInput})
+          if (response.status == 201) {
+            toast.success('Team successfully created')
+                const updatedTeams = await getTeamsByLeague(leagueId);
+                setTeamsData(updatedTeams);
+                closeModal()
+          }
+
+        } catch (error) {
+          console.error('Something went wrong', error.response.status)
+          toast.error('You are already a member of a team')
+        }
+        // const createNewTeam = await createTeam({league_id:leagueId, team_name:teamNameInput})
+        // if 
+        // console.log(createNewTeam)
+        // const updatedTeams = await getTeamsByLeague(leagueId);
+        // setTeamsData(updatedTeams);
+        // closeModal()
       }
 
       const handleJoinTeam = async (teamId, leagueId) => {
@@ -59,9 +72,8 @@ export default function League() {
 
         } catch (error) {
           console.error('Something went wrong', error.response.status)
-          toast.error('You are already on this team!')
+          toast.error('You can only join one team per league')
         }
-        // need toast notification that team was succesfully joined
 
       }
 
@@ -100,7 +112,7 @@ export default function League() {
         
         <div>League name {leagueData.league_name}</div>
         <div>This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
-        <div>team size for this league is</div>
+        <div>team size for this league is: {leagueData.team_size}</div>
         <button onClick={openModal}>create team</button>
         <h2>Teams:</h2>
                 <ul>

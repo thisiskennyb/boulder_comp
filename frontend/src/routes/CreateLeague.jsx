@@ -66,7 +66,7 @@ const getNextDay = () => {
       <>
         <div>This is create a league page</div>
         <input onChange={startDateHandler} type="date" id="start_date" name="start_date" min={getNextDay()}/>
-        <input onChange={endDateHandler} type="date" id="end_date" name="end_date" />
+        <input onChange={endDateHandler} type="date" id="end_date" name="end_date" min={startDate}/>
         <input onChange={leagueNameHandler} type="text" id="league_name" placeholder="league name"/>
         <input onChange={locationNameHandler} type="text" id="location" placeholder="location"/>
         <select onChange={teamSizeHandler} id="numbers">

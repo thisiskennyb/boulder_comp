@@ -110,6 +110,13 @@ class TeamView(APIView):
             league = League.objects.get(id=data['league_id'])
             print(league.team_size)
 
+        # Check if the user is already a member of any other team in the league
+            other_teams_in_league = Team.objects.filter(league=league).exclude(id=team.id)
+            for other_team in other_teams_in_league:
+                if user in other_team.members.all():
+                    return Response({"message": "You are already a member of another team in this league"}, status=status.HTTP_400_BAD_REQUEST)
+
+            
             ## Check if user is in team
             if user in team.members.all():
                 return Response({"message": "You are already a member of this team"}, status=status.HTTP_400_BAD_REQUEST)
