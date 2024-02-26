@@ -172,19 +172,19 @@ export async function getTeam(team_id) {
 }
 
 
-export async function createTeam(context) {
-  const payload = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem("token")}`
-    },
-    body: JSON.stringify(context)
-  }
-  const body = await basicFetch(`http://${host}/api/v1/league/create_team/`, payload)
-  return body
+// export async function createTeam(context) {
+//   const payload = {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//       "Authorization": `Token ${localStorage.getItem("token")}`
+//     },
+//     body: JSON.stringify(context)
+//   }
+//   const body = await basicFetch(`http://${host}/api/v1/league/create_team/`, payload)
+//   return body
 
-}
+// }
 
 export async function logSend(context){
   const payload = {
@@ -240,6 +240,22 @@ export async function joinTeam(context){
   }
 }
 
+export async function createTeam(context){
+  try {
+    const response = await axios.post(`http://${host}/api/v1/league/create_team/`, context, {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Token ${localStorage.getItem("token")}`
+
+      }
+    })
+    return response
+  } catch (error) {
+    console.error('Error in join team')
+    throw error
+  }
+}
+
 
 
 
@@ -264,6 +280,21 @@ export async function createUserDashboard(context){
   }
   const response = await basicFetch(`http://${host}/api/v1/accounts/register/create_dashboard/`, payload)
   return response
+}
+
+
+export async function getUserSends(team_id) {
+  const payload = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Token ${localStorage.getItem("token")}`
+    }
+  };
+
+  const response = await basicFetch(`http://${host}/api/v1/send/`, payload);
+  // const body = await response.json();
+  return response;
 }
 
 
