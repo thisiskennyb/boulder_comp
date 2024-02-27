@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Eye, AlertCircle } from 'lucide-react';
-import { signup } from "../api/backend_calls";
+// import { signup } from "../api/backend_calls";
+import { signup } from "../api/Auth/backend_calls";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -67,17 +68,20 @@ export default function Signup() {
 
     try {
       const response = await signup(context);
-      toast.success('Please check your email to activate your account before logging in') // Should notify user to check email
-      console.log(response.username)
-      setResponseMsg(response);
-      if (response.username) {
+      if (response.data == 201){
+        toast.success('Please check your email to activate your account before logging in') // Should notify user to check email
+        console.log(response.username)
+        setResponseMsg(response);
+
+      }
+      if (response.data.username) {
         navigate("/signup-message")
       }
-      else if (response.non_field_errors) { //Not sure if needed? Should be able to handle redirect on success and just notify in case of failure
-        setResponseMsg(response.non_field_errors)
+      else if (response.data.non_field_errors) { //Not sure if needed? Should be able to handle redirect on success and just notify in case of failure
+        setResponseMsg(response.data.non_field_errors)
         toast.error('Oops, something went wrong')
       }
-      else if (response.unavailable) {
+      else if (response.data.unavailable) {
         setResponseMsg(response.unavailable)
         toast.error('Oops, something went wrong')
       }

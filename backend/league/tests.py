@@ -101,33 +101,6 @@ class LeagueViewTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['team_name'], team_data['team_name'])
 
-    # def test_get_teams_by_league(self):
-
-    #     league = League.objects.create(moderator=self.user, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
-
-    #     league_id = league.id
-
-    #     team1 = Team.objects.create(captain=self.user, league_id=league_id, team_name="buccaneers")
-
-    #     data = {
-    #         "league_id": league_id
-    #     }
-        
-    #     url = f"/api/v1/team/league/"
- 
-    #     self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
-    #     response = self.client.get(url, data, format='json')
-        
-    #     print(response.data)
-        # self.assertEqual(response.status_code, status.HTTP_200_OK)
-        # self.assertEqual(response.data['team_size'], 4)
-        # self.assertEqual(response.data['league_name'], "buccaneers")
-
-       
-
-
-
-
 
 
 # Unit Testing

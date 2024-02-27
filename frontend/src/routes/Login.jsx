@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
 import { XSquare } from 'lucide-react';
-import { login, emailResetLink } from '../api/backend_calls';
+// import { emailResetLink } from '../api/backend_calls';
+import { login, emailResetLink } from '../api/Auth/backend_calls';
 import { useNavigate, Link} from 'react-router-dom'
 
 import { toast } from "react-toastify";
@@ -25,12 +26,12 @@ export default function Login({handleToken}) {
 
         const context = {username: username, password: password}
         try {
-            const token = await login(context)
-            if (token) {
+            const response = await login(context)
+            if (response.status == 200) {
 
                 toast.success(`Welcome, ${username}!`)
                 
-                handleToken(token)
+                handleToken(response.data.token)
                 
                 navigate("/dashboard")
             } else {
@@ -58,7 +59,7 @@ export default function Login({handleToken}) {
     const handleResetPassword = async() => {
         closeModal()
         const response = await emailResetLink({email: resetEmail})
-        console.log(response)
+        console.log(response, 'what is this thing')
         
     }
 
