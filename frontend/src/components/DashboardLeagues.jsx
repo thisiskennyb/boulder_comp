@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext"
 import { useNavigate} from 'react-router-dom'
 
@@ -8,6 +9,12 @@ export default function DashboardLeagues(){
     const { usersTeams, fetchUserTeams, highestBoulderGrade, setHighestBoulderGrade} = useContext(UserContext)
     const navigate = useNavigate()
 
+    const handleViewLeague = (league_id) => {
+        navigate(`/league/${league_id}`);
+    };
+
+    const navigate = useNavigate();
+    
     const handleViewLeague = (league_id) => {
         navigate(`/league/${league_id}`);
     };

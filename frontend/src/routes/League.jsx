@@ -117,6 +117,7 @@ export default function League() {
         )}
         <h2>Teams:</h2>
 
+
         {teamsData.map((team, index) => (
             <tr key={team.id}>
               <td>{team.rank}</td>
@@ -129,6 +130,7 @@ export default function League() {
             </tr>
             
           ))}
+
         
         
         
