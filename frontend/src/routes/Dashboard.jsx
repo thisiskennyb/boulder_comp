@@ -1,4 +1,4 @@
-import { createUserDashboard, getUserDashboard, logSend, getUserSends } from "../api/backend_calls";
+import { createUserDashboard, logSend, getUserSends } from "../api/backend_calls";
 import { useEffect, useState, useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";

@@ -1,12 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
-import { getTeam } from "../api/backend_calls";
+import { getTeam } from "../api/Team/backend_calls";
 
 
-// We need each team member, their individual score, and the boulders that were sent during the comp
-// the score is based off of the boulders that are valid in the leagues time range
-
-// 
 
 
 export default function Team() {
@@ -21,7 +17,7 @@ export default function Team() {
     useEffect(() => {
         const fetchTeam = async () => {
             const team =  await getTeam(teamId);
-            setTeam(team);
+            setTeam(team.data);
             setLeagueStartDate(team.league['start_date']);
             setLeagueEndDate(team.league['end_date']);
             setMembers(team.members);
