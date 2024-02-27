@@ -1,44 +1,33 @@
-import { Eye, AlertCircle } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { useState } from "react";
 import { emailResetConfirm } from '../api/Auth/backend_calls';
-import { useParams, useNavigate } from 'react-router-dom'
-
+import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
+export default function ResetPassword() {
+  const { reset_token } = useParams();
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [lengthValid, setLengthValid] = useState(false);
+  const [capitalValid, setCapitalValid] = useState(false);
+  const [numberValid, setNumberValid] = useState(false);
+  const [specialCharValid, setSpecialCharValid] = useState(false);
+  const [password, setPassword] = useState('');
 
+  const handlePasswordChange = (event) => {
+    const newPassword = event.target.value;
+    setPassword(newPassword);
 
-export default function (){
-    const {reset_token} = useParams()
-    const navigate = useNavigate()
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [lengthValid, setLengthValid] = useState(false);
-    const [capitalValid, setCapitalValid] = useState(false);
-    const [numberValid, setNumberValid] = useState(false);
-    const [specialCharValid, setSpecialCharValid] = useState(false);
-    const [password, setPassword] = useState('');
-
-
-    // comment in to check useParams
-    // console.log(reset_token, 'These are useParams')
-
-    
-
-    
-    const handlePasswordChange = (event) => {
-        const newPassword = event.target.value;
-        setPassword(newPassword);
-    
-        // Check password length
-        setLengthValid(newPassword.length >= 8);
-        // Check for at least one capital letter
-        setCapitalValid(/[A-Z]/.test(newPassword));
-        // Check for at least one number
-        setNumberValid(/\d/.test(newPassword));
-        // Check for at least one special character
-        setSpecialCharValid(/[!@#$%^&*(),.?":{}|<>]/.test(newPassword));
-      }
-    
+    // Check password length
+    setLengthValid(newPassword.length >= 8);
+    // Check for at least one capital letter
+    setCapitalValid(/[A-Z]/.test(newPassword));
+    // Check for at least one number
+    setNumberValid(/\d/.test(newPassword));
+    // Check for at least one special character
+    setSpecialCharValid(/[!@#$%^&*(),.?":{}|<>]/.test(newPassword));
+  };
 
   const handleConfirmPassword = async (e) => {
     e.preventDefault();
@@ -46,50 +35,41 @@ export default function (){
     const context = {
       "password": password,
       "token": reset_token,
-    }
+    };
 
     try {
-      const response = await emailResetConfirm(context)
-      console.log(response, 'THIS IS RESPONSE IN RESET PASSWORD')
-      console.log(response.status, 'this is the status')
-      if (response.status == 200){
-        toast.success('Your password has been changed! Go ahead and try to login')
-        navigate('/login')
+      const response = await emailResetConfirm(context);
+      if (response.status === 200) {
+        toast.success('Your password has been changed! Go ahead and try to login');
+        navigate('/login');
       } else {
-        toast.error('Whoops something went wrong')
+        toast.error('Whoops something went wrong');
       }
-      
     } catch (error) {
-      console.error('Error confirming email reset', error.response?.data || 'An error occurred')
+      console.error('Error confirming email reset', error.response?.data || 'An error occurred');
     }
-    
-    // Logic for navigating depending on result
+  };
 
+  const toggleShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
 
-  }
-    const toggleShowPassword = () => {
-        setShowPassword(!showPassword);
-      }
-    
-      const toggleShowConfirmPassword = () => {
-        setShowConfirmPassword(!showConfirmPassword);
-      }
+  const toggleShowConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
 
-
-
-    return (
-        <>
-        <div className="mt-5">
-            <div className="flex items-center justify-center mx-auto">
-                <div className="flex flex-col items-start">
-                    <div className="font-nunito">{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
-                    <div className="font-nunito">{capitalValid ? '✅' : '❌'} At least one capital letter</div>
-                    <div className="font-nunito">{numberValid ? '✅' : '❌'} At least one number</div>
-                    <div className="font-nunito">{specialCharValid ? '✅' : '❌'} At least one special character</div>
-                </div>
-            </div>
+  return (
+    <>
+      <div className="mt-5">
+        <div className="flex items-center justify-center mx-auto">
+          <div className="flex flex-col items-start">
+            <div className="font-nunito">{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
+            <div className="font-nunito">{capitalValid ? '✅' : '❌'} At least one capital letter</div>
+            <div className="font-nunito">{numberValid ? '✅' : '❌'} At least one number</div>
+            <div className="font-nunito">{specialCharValid ? '✅' : '❌'} At least one special character</div>
+          </div>
         </div>
-
+      </div>
 
       <div className="flex items-center justify-center md:mt-10 mt-7">
         <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-gray-100 rounded-md">
@@ -114,7 +94,6 @@ export default function (){
               type={showConfirmPassword ? "text" : "password"}
               className="p-2 border my-2 font-nunito border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Confirm password"
-            //   onChange={handleConfirmPasswordChange}
             />
             <div onClick={toggleShowConfirmPassword} className="absolute right-0 top-0 mt-2 bottom-0 p-2 cursor-pointer">
               <Eye />
@@ -126,6 +105,6 @@ export default function (){
           </button>
         </div>
       </div>
-        </>
-    )
+    </>
+  );
 }

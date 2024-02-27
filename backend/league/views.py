@@ -141,16 +141,6 @@ class CreateLeagueTeamView(APIView):
 
 class LeagueStatsView(APIView):
 
-# Get all leagues the user is in
-    #Initialize hash map
-    # For each league get the teams
-        # hashmap['league_name'] = [store the teams scores in here] #this can be ordered and return the data we need
-        #For each team get the members
-            #calculate team score
-            #For each member get the sends
-            #calculate member score
-            # interate through send and add to the score if valid (within league date range)
-
     def get(self, request):
         user = request.user
         leagues = League.objects.filter(participants=user)

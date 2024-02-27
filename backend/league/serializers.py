@@ -6,16 +6,12 @@ from boulder.models import Boulder
 from django.contrib.auth.models import User
 # from accounts.serializers import UserSerializer
 
-
-##
 ## Dummy serializer
 class DummySerializer(serializers.ModelSerializer):
     class Meta:
         model = League
         fields = '__all__'
 
-
-##
 
 class BoulderSerializer(serializers.ModelSerializer):
     class Meta:

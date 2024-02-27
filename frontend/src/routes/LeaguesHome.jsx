@@ -1,22 +1,20 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
-export default function LeaguesHome(){
+export default function LeaguesHome() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const onCreateHandler = () => {
+    navigate("/create-league");
+  };
 
+  const onJoinHandler = () => {
+    navigate("/join-league");
+  };
 
-
-    const onCreateHandler = () => {
-        navigate("/create-league");
-    }
-
-    const onJoinHanddler = () => {
-        navigate("/join-league");
-    }
-
-    return(
+  return (
     <>
-    <button onClick={onCreateHandler}>create</button>
-    <button onClick={onJoinHanddler}>join</button>
-    </>)
+      <button onClick={onCreateHandler}>create</button>
+      <button onClick={onJoinHandler}>join</button>
+    </>
+  );
 }
