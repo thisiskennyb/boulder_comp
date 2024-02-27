@@ -59,34 +59,58 @@ export default function Team() {
         return totalScore;
     };
 
+    console.log(team)
+
     return(
-        <div>
-            <div>This is the teams page {teamId}</div>
+        // <div>
+        //     <div>This is the teams page {teamId}</div>
         
-            {team && (
-                <>
-                    <h1>Team: {team.team_name}</h1>
-                    <h2>Team Members</h2>
-                    <ul>
-                        {members.map((member, index) => (
-                            <li key={index}>
-                                {member.username}
-                                <ul>
-                                    {member.sends.map((send, sendIndex) => (
-                                        isDateInRange(send.send_date) && (
-                                            <li key={sendIndex}>
-                                                {send.boulder.name} - {send.score}
-                                            </li>
-                                        )
-                                    ))}
-                                </ul>
-                                <div>Total Score: {calculateUserScore(member.sends)}</div>
-                            </li>
-                        ))}
-                    </ul>
-                    <div>Total Team Score: {calculateTotalScore()}</div>
-                </>
-            )}
-        </div>
+        //     {team && (
+        //         <>
+        //             <h1>Team: {team.team_name}</h1>
+        //             <h2>Team Members</h2>
+        //             <ul>
+        //                 {members.map((member, index) => (
+        //                     <li key={index}>
+        //                         {member.username}
+        //                         <ul>
+        //                             {member.sends.map((send, sendIndex) => (
+        //                                 isDateInRange(send.send_date) && (
+        //                                     <li key={sendIndex}>
+        //                                         {send.boulder.name} - {send.score}
+        //                                     </li>
+        //                                 )
+        //                             ))}
+        //                         </ul>
+        //                         <div>Total Score: {calculateUserScore(member.sends)}</div>
+        //                     </li>
+        //                 ))}
+        //             </ul>
+        //             <div>Total Team Score: {calculateTotalScore()}</div>
+        //         </>
+        //     )}
+        // </div>
+        <div>
+            <div>Score: {team.score}</div>
+            <div>Rank: {team.rank}</div>
+        {members.map((member) => (
+          <div key={member.id}>
+            {/* <h2>{member.username}</h2> */}
+            <ul>
+              {member.sends.map((send) => (
+                <li key={send.id}>
+                  <strong>Boulder:</strong> {send.boulder.name}<br />
+                  <strong>Grade:</strong> {send.boulder.grade}<br />
+                  <strong>Area:</strong> {send.boulder.crag}<br />
+                  <strong>Username:</strong> {member.username}<br />
+                  <strong>Date of Send:</strong> {send.send_date}<br />
+                  <strong>Points for Send:</strong> {send.score}<br />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+  
     );
 }

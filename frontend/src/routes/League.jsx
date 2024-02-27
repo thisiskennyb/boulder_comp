@@ -22,8 +22,6 @@ export default function League() {
             const league =  await getSingleLeague(leagueId)
             // returns all team data for the given league
             const teams = await getTeamsByLeague(leagueId)
-            console.log("chips", league)
-            console.log("dope", teams)
             setLeagueData(league)
             setTeamsData(teams)
     }  
@@ -84,6 +82,9 @@ export default function League() {
         event.preventDefault(); 
         setModalOpen(true);
       };
+
+
+      console.log(teamsData)
     
     return (
         <div>
@@ -107,10 +108,27 @@ export default function League() {
                 </div>
             </div>
         </Modal>
-        
-        
-        
+
         <div>League name {leagueData.league_name}</div>
+        <div>This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
+        <div>team size for this league is: {leagueData.team_size}</div>
+        <button onClick={openModal}>create team</button>
+        <h2>Teams:</h2>
+
+        {teamsData.map((team, index) => (
+            <tr key={team.id}>
+              <td>{team.rank}</td>
+              <td>{team.team_name}</td>
+              <td>{team.score}</td>
+              <button onClick={() => handleViewTeam(team.id)}>view</button>
+              <button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button>
+            </tr>
+            
+          ))}
+        
+        
+        
+        {/* <div>League name {leagueData.league_name}</div>
         <div>This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
         <div>team size for this league is: {leagueData.team_size}</div>
         <button onClick={openModal}>create team</button>
@@ -119,7 +137,27 @@ export default function League() {
                     {teamsData.map((team, index) => (
                         <li key={index}>{team.team_name} <button onClick={() => handleViewTeam(team.id)}>view</button><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></li>
                     ))}
-                </ul>
+                </ul> */}
+
+            
+                {/* <ul>
+                        {members.map((member, index) => (
+                            <li key={index}>
+                                {member.username}
+                                <ul>
+                                    {member.sends.map((send, sendIndex) => (
+                                        isDateInRange(send.send_date) && (
+                                            <li key={sendIndex}>
+                                                {send.boulder.name} - {send.score}
+                                            </li>
+                                        )
+                                    ))}
+                                </ul>
+                                <div>Total Score: {calculateUserScore(member.sends)}</div>
+                            </li>
+                        ))}
+                    </ul> */}
+                 
         </div>
     )
 }
