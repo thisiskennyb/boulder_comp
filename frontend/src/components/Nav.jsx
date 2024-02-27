@@ -2,9 +2,9 @@ import { useNavigate} from "react-router-dom"
 import { useState } from "react"
 import { Menu, X} from "lucide-react";
 import { Link } from 'react-router-dom'
+import { toast } from "react-toastify";
 
 
-// Finish Links when League and Rules / Scoring Page is done
 const NavLinks = () => {
 
     const navigate = useNavigate();
@@ -14,13 +14,42 @@ const NavLinks = () => {
     const handleLogout = () => {
         var keyToRemove = 'token';
         localStorage.removeItem(keyToRemove);
-        // setUserToken(false)
         navigate("/login");
-        
-    
       }
 
-      
+
+
+      const handleLeaguesNavigate = () => {
+        if (token) {
+            navigate("/leagues-home")
+        }
+        else {
+            toast.error('You must be logged in')
+            navigate("/login")
+        }
+      }
+
+      const handleDashboardNavigate = () => {
+        if (token) {
+            navigate("/dashboard")
+        }
+        else {
+            toast.error('You must be logged in')
+            navigate("/login")
+        }
+      }
+
+      const handleHomeNavigate = () => {
+        navigate("/")
+      }
+
+      const handleScoringNavigate = () => {
+        navigate("/rules-and-scoring")
+      }
+
+      const handleLoginNavigate = () => {
+        navigate("/login")
+      }
       
 
 
@@ -30,27 +59,13 @@ const NavLinks = () => {
 
     return (
         <>
-            <Link to='/' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Home</span>
-            </Link>
-
-            <Link to='/dashboard' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Dashboard</span>
-            </Link>
-
-            <Link to='/leagues-home' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Leagues</span>
-            </Link>
             
-            <Link to='/rules-and-scoring' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Scoring</span>
-            </Link>
-            <Link to='/login' style={{ textDecoration: 'none'}}>
-                {token ? (<span onClick={handleLogout} className="font-nunito">Logout</span>):(<span className="font-nunito">Login</span>)}
-            </Link>
-            {/* <Link to='/login' style={{ textDecoration: 'none'}}>
-            <span onClick={handleLogout} className="font-nunito">Logout</span>
-            </Link> */}
+            <span onClick={handleHomeNavigate} className="font-nunito">Home</span>
+            <span onClick={handleDashboardNavigate} className="font-nunito">Dashboard</span>
+            <span onClick={handleLeaguesNavigate} className="font-nunito">Leagues</span>
+            <span onClick={handleScoringNavigate} className="font-nunito">Scoring</span>
+            {token ? (<span onClick={handleLogout} className="font-nunito">Logout</span>):(<span onClick={handleLoginNavigate} className="font-nunito">Login</span>)}
+            
         </>
     )
 }
