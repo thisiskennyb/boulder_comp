@@ -1,4 +1,5 @@
-import { createUserDashboard, getUserDashboard, logSend, getUserSends } from "../api/backend_calls";
+import { logSend, getUserSends } from "../api/backend_calls";
+import { createUserDashboard } from "../api/Auth/backend_calls";
 import { useEffect, useState, useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import { useNavigate } from "react-router-dom";
@@ -50,8 +51,9 @@ export default function Dashboard() {
             "highest_boulder_grade": selectDashboardGrade
         }
         const response = await createUserDashboard(data)
-        console.log(response, 'resp in updateHighest async')
-        setHighestBoulderGrade(selectDashboardGrade)
+        if (response.status == 200){
+            setHighestBoulderGrade(selectDashboardGrade)
+        }
     }
 
 

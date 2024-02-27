@@ -26,7 +26,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // For Context
 // Gets teams user is a part of, and dashboard info for user
-import { teamsUserIsIn, getUserDashboard } from './api/backend_calls'
+import { teamsUserIsIn } from './api/backend_calls'
+import { getUserDashboard } from './api/Auth/backend_calls'
 
 
 
@@ -58,11 +59,11 @@ function App() {
 // We use this to send a post request at dashboard
 const getHighestBoulderGrade = async () => {
   const userDashboard = await getUserDashboard()
-  if (userDashboard['highest_boulder_grade']){
-      setHighestBoulderGrade(userDashboard['highest_boulder_grade'])
+  if (userDashboard['data']['highest_boulder_grade']){
+      setHighestBoulderGrade(userDashboard['data']['highest_boulder_grade'])
   }
 }
-  
+  console.log(highestBoulderGrade, 'just checkin')
   useEffect( () => {
     const token = localStorage.getItem("token")
     if(token) {
