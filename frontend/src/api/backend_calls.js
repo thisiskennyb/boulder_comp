@@ -60,21 +60,21 @@ async function basicFetch(url, payload) {
   }
 
 
-  export async function createLeague(context) {
-    const payload = {
-      method: "POST",
+export async function createLeague(context) {
+  try {
+    const response = axios.post(`http://${host}/api/v1/league/`, context, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Token ${localStorage.getItem("token")}`
-      },
-      body: JSON.stringify(context)
-    }
-    const body = await basicFetch(`http://${host}/api/v1/league/`, payload)
-    return body
-    // return body
+        "Authorization": `Token ${localStorage.getItem('token')}`
+      }
+    })
+    return response
+  } catch (error) {
+    console.error('Something went wrong in createLeague')
+    throw error
   }
+}
 
-// No context, no body, just a GET request
 export async function leaguesUserIsIn() {
   const payload = {
     method: "GET",
@@ -172,20 +172,6 @@ export async function getTeam(team_id) {
 }
 
 
-// export async function createTeam(context) {
-//   const payload = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       "Authorization": `Token ${localStorage.getItem("token")}`
-//     },
-//     body: JSON.stringify(context)
-//   }
-//   const body = await basicFetch(`http://${host}/api/v1/league/create_team/`, payload)
-//   return body
-
-// }
-
 export async function logSend(context){
   const payload = {
     method: "POST",
@@ -199,30 +185,6 @@ export async function logSend(context){
   return response
 }
 
-
-// export async function joinTeam(context){
-//   const payload = {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//       "Authorization": `Token ${localStorage.getItem("token")}`
-//     },
-//     body: JSON.stringify(context)
-//   }
-//   try {
-//     const response = await basicFetch(`http://${host}/api/v1/team/`, payload)
-//     if (response){
-//       return response
-
-//     }
-
-//   } catch (error) {
-//     console.error("Error fetching in joinTeam: ", error.status)
-//   }
-// }
-
-
-/////// Example of using axios to easily get status in responses ////////////////////
 
 export async function joinTeam(context){
   try {
@@ -255,17 +217,6 @@ export async function createTeam(context){
     throw error
   }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
