@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllLeagues } from "../api/backend_calls";
+import { getAllLeagues } from "../api/League/backend_calls";
 import { useNavigate } from "react-router-dom";
 
 export default function JoinLeague() {
@@ -11,8 +11,8 @@ export default function JoinLeague() {
     useEffect(() => {
         const fetchAllLeagues = async () => {
             try {
-                const data = await getAllLeagues();
-                setLeaguesData(data);
+                const response = await getAllLeagues();
+                setLeaguesData(response.data);
             } catch (error) {
                 console.error("Error fetching leagues:", error);
             }
