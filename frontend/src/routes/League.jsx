@@ -112,7 +112,9 @@ export default function League() {
         <div>League name {leagueData.league_name}</div>
         <div>This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
         <div>team size for this league is: {leagueData.team_size}</div>
-        <button onClick={openModal}>create team</button>
+        {new Date() < new Date(leagueData.start_date) && (
+          <button onClick={openModal}>create team</button>
+        )}
         <h2>Teams:</h2>
 
         {teamsData.map((team, index) => (
@@ -121,7 +123,9 @@ export default function League() {
               <td>{team.team_name}</td>
               <td>{team.score}</td>
               <button onClick={() => handleViewTeam(team.id)}>view</button>
-              <button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button>
+              {new Date() < new Date(team.league.start_date) && (
+            <button onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
+        )}
             </tr>
             
           ))}
