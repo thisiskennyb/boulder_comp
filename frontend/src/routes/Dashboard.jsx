@@ -196,27 +196,27 @@ export default function Dashboard() {
             //         <h1>Welcome to your dashboard!</h1>
             //         <h4>Here you can see your latest sends and stuff</h4>
             //         <button onClick={handleLogSend}>Log Send</button>
-            //         {usersTeams.length > 0 && (
-            //             usersTeams.map((team) => (
-            //                 <div key={team.id}>
-            //                     <h2>League Name: {team.league.league_name}</h2>
-            //                     <p>team name: {team.team_name}</p>
-            //                     <p>team rank: {team.rank}/{team.league.number_of_teams}</p>
-            //                     <p>team score: {team.score}</p>
-            //                     <button onClick={() => handleViewLeague(team.league.id)}>view</button>
-            //                 </div>
-            //             ))
-            //         )}
+                    // {usersTeams.length > 0 && (
+                    //     usersTeams.map((team) => (
+                    //         <div key={team.id}>
+                    //             <h2>League Name: {team.league.league_name}</h2>
+                    //             <p>team name: {team.team_name}</p>
+                    //             <p>team rank: {team.rank}/{team.league.number_of_teams}</p>
+                    //             <p>team score: {team.score}</p>
+                    //             <button onClick={() => handleViewLeague(team.league.id)}>view</button>
+                    //         </div>
+                    //     ))
+                    // )}
 
-            //         {userSends.length > 0 && (
-            //             userSends.map((send) => (
-            //                 <div key={send.id}>
-            //                     <h2>Boulder: {send.boulder.name}</h2>
-            //                     <p>grade: {send.boulder.grade}</p>
-            //                     <p>date: {send.send_date}</p>
-            //                 </div>
-            //             ))
-            //         )}
+                    // {userSends.length > 0 && (
+                    //     userSends.map((send) => (
+                    //         <div key={send.id}>
+                    //             <h2>Boulder: {send.boulder.name}</h2>
+                    //             <p>grade: {send.boulder.grade}</p>
+                    //             <p>date: {send.send_date}</p>
+                    //         </div>
+                    //     ))
+                    // )}
             //     </>
             // )}
     //     </>
@@ -272,7 +272,7 @@ export default function Dashboard() {
                     <button onClick={handleLogSend}>Log Send</button>
 
                     {selectedComponent === 'DashboardLeagues' && <DashboardLeagues />}
-                    {selectedComponent === 'DashboardSends' && <DashboardSends />}
+                    {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends}/>}
                     {selectedComponent === 'DashboardInfo' && <DashboardInfo />}
 
                 </>
