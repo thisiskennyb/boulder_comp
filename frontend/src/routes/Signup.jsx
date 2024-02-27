@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Eye, AlertCircle } from 'lucide-react';
-// import { signup } from "../api/backend_calls";
 import { signup } from "../api/Auth/backend_calls";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -96,8 +95,6 @@ export default function Signup() {
 
   return (
     <>
-      {/* <div className="flex mx-auto">
-        <div className="flex flex-col items-start justify-center mt-15 md:mt-20 mx-auto"> */}
 <div className="mt-5">
 <div className="flex items-center justify-center mx-auto">
     <div className="flex flex-col items-start">
@@ -175,5 +172,3 @@ export default function Signup() {
   );
 }
 
-
-// {"non_field_errors":["Passwords do not match"]}
