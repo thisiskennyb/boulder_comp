@@ -160,30 +160,7 @@ class LeagueStatsView(APIView):
 
         for team in teams:
             print(team.members)
-        
-        # sends where user = user 
-        # league_data = []
-
-        # for league in leagues:
-        #     print(league)
-        #     teams_in_league = Team.objects.filter(league=league)
-        #     user_team = teams_in_league.filter(members=user).first()
-
-        #     # Get all sends made by members of the user's team
-        #     team_sends = Send.objects.filter(user__in=user_team.members.all())
-
-        #     # Calculate user's team rank
-        #     user_rank = teams_in_league.annotate(num_sends=Count('members__send')).filter(num_sends__gt=user.send.count()).count() + 1
-
-        #     # Calculate user's team score
-        #     team_score = team_sends.aggregate(total_score=Sum('score'))['total_score']
-
-        #     league_info = {
-        #         'league_name': league.league_name,
-        #         'user_rank': user_rank,
-        #         'team_score': team_score
-        #     }
-        #     league_data.append(league_info)
+   
 
         return Response({"message": "you suck"})
 
