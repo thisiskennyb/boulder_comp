@@ -4,16 +4,8 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
 
 
-export default function CreateLeague() {
-
-    
+export default function CreateLeague() {    
   const navigate = useNavigate();
-
-    // "league_name": "Testing Team E",
-    // "start_date": "2024-02-28",
-    // "end_date": "2024-04-28",
-    // "team_size": 4,
-    // "location": "Chattanooga"
 
     const [leagueName, setLeagueName] = useState('')
     const [startDate, setStartDate] = useState('')
@@ -46,7 +38,7 @@ export default function CreateLeague() {
     const createLeagueHandler = async() => {
         try {
           const response = await createLeague({league_name: leagueName, location: location, team_size: parseInt(teamSize), start_date: startDate, end_date: endDate })
-          console.log(response, 'what is this')
+        
           if (response.status == 201){
             toast.success("You have created a league")
             navigate(`/league/${response.data.id}`);
@@ -61,10 +53,7 @@ export default function CreateLeague() {
             toast.error("Check your details for league, something went wrong")
           }
           
-          
         }
-        
-        
     }
 
 
@@ -74,8 +63,6 @@ const getNextDay = () => {
   nextDay.setDate(today.getDate() + 1); // Get tomorrow's date
   return nextDay.toISOString().split('T')[0]; // Format the date as yyyy-mm-dd
 };
-    
-    console.log(teamSize)
     
 
     return (

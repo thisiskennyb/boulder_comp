@@ -1,10 +1,8 @@
 import { useNavigate } from "react-router-dom"
 
-
 export default function Home() {
-
     const navigate = useNavigate();
-
+    
     const handleScoringNavigate = () => {
         navigate("/rules-and-scoring");
     }
@@ -13,10 +11,7 @@ export default function Home() {
         navigate("/signup")
     }
     
-    
-    
     return (
-
         <div>
         <h1>this is Home</h1>
         <button onClick={handleScoringNavigate}>Scoring</button>

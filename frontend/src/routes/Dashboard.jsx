@@ -2,7 +2,6 @@ import { logSend, getUserSends } from "../api/Send/backend_calls";
 import { createUserDashboard } from "../api/Auth/backend_calls";
 import { useEffect, useState, useContext } from "react";
 import UserContext from "../contexts/UserContext";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Modal from '../components/Modal';
 import DashboardLeagues from "../components/DashboardLeagues";
@@ -11,7 +10,7 @@ import DashboardSends from "../components/DashboardSends";
 
 export default function Dashboard() {
     const { usersTeams, fetchUserTeams, highestBoulderGrade, setHighestBoulderGrade} = useContext(UserContext)
-    const navigate = useNavigate();
+   
     // usersTeams --> all of the teams a user is on
     // fetchUserTeams --> async function that fetches all of the teams a user is on, and updates state of usersTeams
     const [ selectDashboardGrade, setSelectDashboardGrade ] = useState("v5")
@@ -19,7 +18,6 @@ export default function Dashboard() {
     
     const [isModalOpen, setModalOpen] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    const [selectedVersion, setSelectedVersion] = useState("v1"); // Set initial state to v1
     const [boulderName, setBoulderName] = useState('');
     const [areaName, setAreaName] = useState('');
     const [boulderGrade, setBoulderGrade] = useState('');
@@ -32,8 +30,6 @@ export default function Dashboard() {
         setSelectedComponent(componentName);
     };
 
-    
-
     useEffect(() => {
         const fetchUserSend = async () => {
             const send_data = await getUserSends()
@@ -42,10 +38,7 @@ export default function Dashboard() {
             }
         }
         fetchUserSend()
-
 }, [usersTeams]);
-    
-    
     
     const updateHighestBoulderGrade = async () => {
         const data = {
@@ -57,12 +50,11 @@ export default function Dashboard() {
         }
     }
 
-
-    const openModal = (event) => {
-        event.preventDefault();
+    // For log send form
+    const openModal = () => {
         setModalOpen(true);
     };
-
+    // For log send form
     const closeModal = () => {
         setModalOpen(false);
         //Resets the state for modal on close
@@ -72,7 +64,7 @@ export default function Dashboard() {
         setSendDate('');
         setIsChecked(false);
         }
-
+    // Updates Teams User is on each time the modal for log send opens/closes
     useEffect(() => {
             // Gets all the teams user is on
             fetchUserTeams()
@@ -84,25 +76,20 @@ export default function Dashboard() {
 
 
     const handleLogSend = () => {
-        setModalOpen(true);
+        openModal()
     };
 
     const handleInputChange = () => {
         setIsChecked(!isChecked);
     };
 
-    const handleVersionChange = (event) => {
-        setSelectedVersion(event.target.value);
-    };
-
-
     const handleSubmitLog = async () => {
         closeModal()
         
         try {
             const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
-        
-            if (response.status == 200){
+            
+            if (response.status == 201){
                 toast.success('Successfully Logged')
                 //Update usersTeams when a Send is submitted
                 fetchUserTeams()
@@ -140,8 +127,6 @@ export default function Dashboard() {
     const handleHighestBoulderInput = (e) => {
         setSelectDashboardGrade(e.target.value);
     }
-
-  
 
     // Generating options for the selector
     const versionOptions = [];
