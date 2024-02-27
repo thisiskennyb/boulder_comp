@@ -36,6 +36,9 @@ class LeagueView(APIView):
         end_date = league_data['end_date']
         team_size = league_data['team_size']
         location = league_data['location']
+        
+        if League.objects.filter(league_name=league_name).exists():
+            return Response({'error': 'This league name has already been used'}, status=status.HTTP_400_BAD_REQUEST)
 
         new_league = League.objects.create(moderator=user, league_name=league_name, start_date=start_date, end_date=end_date, team_size=team_size, location=location)
         

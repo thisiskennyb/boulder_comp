@@ -12,17 +12,29 @@ class LeagueViewTest(APITestCase):
     def setUp(self):
         # create user
         self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.user_two = User.objects.create(
+            username='testuser2',
+            password='Testpassword123!'
+        )
 
         # Initialize user dashboard
         UserDashboard.objects.create(
             user=self.user,
             highest_boulder_grade='v7'
         )
+
+        UserDashboard.objects.create(
+            user=self.user_two,
+            highest_boulder_grade='v5'
+        )
         
         # Activate the user's account
         self.user.is_active = True
+        self.user_two.is_active = True
         self.user.save()
+        self.user_two.save()
         self.token = Token.objects.create(user=self.user)
+        self.token_two = Token.objects.create(user=self.user_two)
 
     def test_create_league(self):
         url = '/api/v1/league/'
@@ -40,6 +52,36 @@ class LeagueViewTest(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['league_name'], data['league_name'])
+
+    def test_duplicate_league_name(self):
+        url = '/api/v1/league/'
+        data = {
+            "league_name": "kens league",
+            "start_date": "2024-02-28",
+            "end_date": "2024-04-28",
+            "team_size": 4,
+            "location": "Chattanooga"
+        }
+        #Second test user data -- same league name
+        data_two = {
+            "league_name": "kens league",
+            "start_date": "2024-03-28",
+            "end_date": "2024-05-24",
+            "team_size": 3,
+            "location": "Brazil"
+        }
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.data['league_name'], data['league_name'])
+        
+
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_two.key)
+        response = self.client.post(url, data_two, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
 
     def test_create_team(self):
 

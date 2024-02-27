@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { createLeague } from "../api/backend_calls"
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
 
 
@@ -43,10 +44,25 @@ export default function CreateLeague() {
     }
 
     const createLeagueHandler = async() => {
-        
-        const response = await createLeague({league_name: leagueName, location: location, team_size: parseInt(teamSize), start_date: startDate, end_date: endDate })
-        console.log(response.id)
-        navigate(`/league/${response.id}`);
+        try {
+          const response = await createLeague({league_name: leagueName, location: location, team_size: parseInt(teamSize), start_date: startDate, end_date: endDate })
+          console.log(response, 'what is this')
+          if (response.status == 201){
+            toast.success("You have created a league")
+            navigate(`/league/${response.data.id}`);
+
+          }
+        } catch (error) {
+          console.error('Something went wrong', error.response.status)
+          console.log(error.response.status, 'this is error')
+          if (error.response.status == 400){
+            toast.error("A league with that name already exists")
+          } else {
+            toast.error("Check your details for league, something went wrong")
+          }
+          
+          
+        }
         
         
     }
