@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 const NavLinks = () => {
 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token')
 
 
     const handleLogout = () => {
@@ -18,6 +19,9 @@ const NavLinks = () => {
         
     
       }
+
+      
+      
 
 
 
@@ -39,14 +43,14 @@ const NavLinks = () => {
             </Link>
             
             <Link to='/rules-and-scoring' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Rules/Scoring</span>
+            <span className="font-nunito">Scoring</span>
             </Link>
             <Link to='/login' style={{ textDecoration: 'none'}}>
-            <span className="font-nunito">Login</span>
+                {token ? (<span onClick={handleLogout} className="font-nunito">Logout</span>):(<span className="font-nunito">Login</span>)}
             </Link>
-            {/* <Link to='/login' style={{ textDecoration: 'none'}}> */}
+            {/* <Link to='/login' style={{ textDecoration: 'none'}}>
             <span onClick={handleLogout} className="font-nunito">Logout</span>
-            {/* </Link> */}
+            </Link> */}
         </>
     )
 }
