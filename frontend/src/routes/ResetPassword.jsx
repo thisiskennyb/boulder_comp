@@ -1,6 +1,6 @@
 import { Eye, AlertCircle } from 'lucide-react';
 import { useState } from "react";
-import { emailResetConfirm } from '../api/backend_calls';
+import { emailResetConfirm } from '../api/Auth/backend_calls';
 import { useParams, useNavigate } from 'react-router-dom'
 
 import { toast } from "react-toastify";
@@ -50,7 +50,9 @@ export default function (){
 
     try {
       const response = await emailResetConfirm(context)
-      if (response.status == 'OK'){
+      console.log(response, 'THIS IS RESPONSE IN RESET PASSWORD')
+      console.log(response.status, 'this is the status')
+      if (response.status == 200){
         toast.success('Your password has been changed! Go ahead and try to login')
         navigate('/login')
       } else {
