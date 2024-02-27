@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom"
-import { getSingleLeague, getTeamsByLeague, createTeam, joinTeam } from "../api/backend_calls";
+import { createTeam } from "../api/Team/backend_calls";
+import { joinTeam } from "../api/Team/backend_calls";
+import { getTeamsByLeague } from "../api/Team/backend_calls";
+import { getSingleLeague } from "../api/League/backend_calls";
 import Modal from '../components/Modal';
 import { toast } from "react-toastify";
 
@@ -9,7 +12,7 @@ export default function League() {
 
     let { leagueId } = useParams();
     const [leagueData, setLeagueData] = useState("")
-    const [teamsData, setTeamsData] = useState([])
+    const [teamsData, setTeamsData] = useState(null)
     const [isModalOpen, setModalOpen] = useState(false);
     const [teamNameInput, setTeamNameInput] = useState("")
 
@@ -22,11 +25,11 @@ export default function League() {
             const league =  await getSingleLeague(leagueId)
             // returns all team data for the given league
             const teams = await getTeamsByLeague(leagueId)
-            setLeagueData(league)
-            setTeamsData(teams)
+            setLeagueData(league.data)
+            setTeamsData(teams.data)
     }  
         fetchLeague()
-      },[]); 
+      },[isModalOpen]); 
 
 
       const handleViewTeam = (team_id) => {
@@ -53,12 +56,6 @@ export default function League() {
           console.error('Something went wrong', error.response.status)
           toast.error('You are already a member of a team')
         }
-        // const createNewTeam = await createTeam({league_id:leagueId, team_name:teamNameInput})
-        // if 
-        // console.log(createNewTeam)
-        // const updatedTeams = await getTeamsByLeague(leagueId);
-        // setTeamsData(updatedTeams);
-        // closeModal()
       }
 
       const handleJoinTeam = async (teamId, leagueId) => {
@@ -118,51 +115,22 @@ export default function League() {
         <h2>Teams:</h2>
 
 
-        {teamsData.map((team, index) => (
-            <tr key={team.id}>
-              <td>{team.rank}</td>
-              <td>{team.team_name}</td>
-              <td>{team.score}</td>
-              <button onClick={() => handleViewTeam(team.id)}>view</button>
-              {new Date() < new Date(team.league.start_date) && (
-            <button onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
-        )}
-            </tr>
-            
-          ))}
+        {Array.isArray(teamsData) && teamsData.map((team, index) => (
+          <div key={team.id}>
+            <span>{team.rank}</span>
+            <span>{team.team_name}</span>
+            <span>{team.score}</span>
+            <span><button onClick={() => handleViewTeam(team.id)}>view</button></span>
+            <span><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></span>
 
-        
-        
-        
-        {/* <div>League name {leagueData.league_name}</div>
-        <div>This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
-        <div>team size for this league is: {leagueData.team_size}</div>
-        <button onClick={openModal}>create team</button>
-        <h2>Teams:</h2>
-                <ul>
-                    {teamsData.map((team, index) => (
-                        <li key={index}>{team.team_name} <button onClick={() => handleViewTeam(team.id)}>view</button><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></li>
-                    ))}
-                </ul> */}
-
-            
-                {/* <ul>
-                        {members.map((member, index) => (
-                            <li key={index}>
-                                {member.username}
-                                <ul>
-                                    {member.sends.map((send, sendIndex) => (
-                                        isDateInRange(send.send_date) && (
-                                            <li key={sendIndex}>
-                                                {send.boulder.name} - {send.score}
-                                            </li>
-                                        )
-                                    ))}
-                                </ul>
-                                <div>Total Score: {calculateUserScore(member.sends)}</div>
-                            </li>
-                        ))}
-                    </ul> */}
+  
+    {/* <td>{team.rank}</td>
+    <td>{team.team_name}</td>
+    <td>{team.score}</td>
+    <td><button onClick={() => handleViewTeam(team.id)}>view</button></td>
+    <td><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></td> */}
+  </div>
+))}
                  
         </div>
     )

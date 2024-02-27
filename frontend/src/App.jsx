@@ -26,8 +26,10 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // For Context
 // Gets teams user is a part of, and dashboard info for user
-import { teamsUserIsIn } from './api/backend_calls'
+
 import { getUserDashboard } from './api/Auth/backend_calls'
+import { teamsUserIsIn } from './api/League/backend_calls'
+
 
 
 
@@ -47,7 +49,7 @@ function App() {
     if (token){
         try {
             const teamData = await teamsUserIsIn();
-            setUsersTeams(teamData);
+            setUsersTeams(teamData.data);
         } catch (error) {
             console.error("Error fetching leagues:", error)
         }
