@@ -108,21 +108,6 @@ export async function getTeam(team_id) {
   return response;
 }
 
-
-export async function logSend(context){
-  const payload = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem("token")}`
-    },
-    body: JSON.stringify(context)
-  }
-  const response = await basicFetch(`http://${host}/api/v1/send/`, payload)
-  return response
-}
-
-
 export async function joinTeam(context){
   try {
     const response = await axios.post(`http://${host}/api/v1/team/`, context, {
@@ -152,22 +137,6 @@ export async function createTeam(context){
     console.error('Error in join team')
     throw error
   }
-}
-
-
-
-export async function getUserSends(team_id) {
-  const payload = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem("token")}`
-    }
-  };
-
-  const response = await basicFetch(`http://${host}/api/v1/send/`, payload);
-  // const body = await response.json();
-  return response;
 }
 
 
