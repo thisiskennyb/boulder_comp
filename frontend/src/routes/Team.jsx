@@ -91,8 +91,8 @@ export default function Team() {
         //     )}
         // </div>
         <div>
-            <div>Score: {team.score}</div>
-            <div>Rank: {team.rank}</div>
+            <div>Score: {team?.score}</div>
+            <div>Rank: {team?.rank}</div>
         {members.map((member) => (
           <div key={member.id}>
             {/* <h2>{member.username}</h2> */}
