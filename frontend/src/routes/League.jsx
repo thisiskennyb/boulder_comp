@@ -115,16 +115,15 @@ export default function League() {
         <button onClick={openModal}>create team</button>
         <h2>Teams:</h2>
 
-        {teamsData.map((team, index) => (
-            <tr key={team.id}>
-              <td>{team.rank}</td>
-              <td>{team.team_name}</td>
-              <td>{team.score}</td>
-              <button onClick={() => handleViewTeam(team.id)}>view</button>
-              <button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button>
-            </tr>
-            
-          ))}
+        {teamsData && teamsData.map((team, index) => (
+  <tr key={team.id}>
+    <td>{team.rank}</td>
+    <td>{team.team_name}</td>
+    <td>{team.score}</td>
+    <td><button onClick={() => handleViewTeam(team.id)}>view</button></td>
+    <td><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></td>
+  </tr>
+))}
         
         
         

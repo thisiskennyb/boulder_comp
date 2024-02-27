@@ -78,9 +78,7 @@ export default function Dashboard() {
 
 
 
-    const handleViewLeague = (league_id) => {
-        navigate(`/league/${league_id}`);
-    };
+
 
     const handleLogSend = () => {
         setModalOpen(true);
