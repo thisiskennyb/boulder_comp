@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate, useParams } from "react-router-dom"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from './routes/Login'
 import Home from './routes/Home'
 import UserProfile from './routes/UserProfile'
 import EmailReset from './routes/EmailReset'
 import EmailVerification from './routes/EmailVerification'
-import './App.css'
 import Header from './components/Header';
 import Signup from './routes/Signup'
 import ResetPassword from './routes/ResetPassword'
@@ -34,14 +33,10 @@ import { teamsUserIsIn } from './api/League/backend_calls'
 
 
 function App() {
-
-  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [userToken, setUserToken] = useState(null)
   const [usersTeams, setUsersTeams] = useState([]);
   const [highestBoulderGrade, setHighestBoulderGrade] = useState(null)
 
-  let { leagueId } = useParams();
-  let { teamId } = useParams();
 
  // This is here to be used in context from dashboard
   const fetchUserTeams = async () => {
@@ -65,7 +60,7 @@ const getHighestBoulderGrade = async () => {
       setHighestBoulderGrade(userDashboard['data']['highest_boulder_grade'])
   }
 }
-  console.log(highestBoulderGrade, 'just checkin')
+  
   useEffect( () => {
     const token = localStorage.getItem("token")
     if(token) {
@@ -80,12 +75,6 @@ const getHighestBoulderGrade = async () => {
     localStorage.setItem("token", token)
     setUserToken(token)
   }
-
-  const handleToggleMobileMenu = () => {
-    setMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-
 
 
   return (
