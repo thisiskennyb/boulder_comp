@@ -45,3 +45,52 @@ export async function emailResetLink(context) {
     }
   }
 
+
+
+export async function emailResetConfirm(context) {
+    try {
+        const response = axios.post(`http://${host}/api/v1/password_reset/confirm/`, context, {
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+        return response
+    } catch (error) {
+        console.error("Something went wrong in emailResetConfirm", error.response.status)
+        throw error
+    }
+  }
+
+
+export async function createUserDashboard(context){
+    try {
+        const response = axios.post(`http://${host}/api/v1/accounts/register/create_dashboard/`, context, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("token")}`
+            }
+        })
+        return response
+
+    } catch (error) {
+        console.error("Something went wrong in createUserDashboard", error.response.status)
+        throw error
+    }
+  }
+
+
+
+export async function getUserDashboard(){
+    try {
+        const response = axios.get(`http://${host}/api/v1/accounts/register/create_dashboard/`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("token")}`
+            }
+        })
+        return response
+    } catch (error) {
+        console.error("Something went wrong in getUserDashboard")
+        throw error
+    }
+  }

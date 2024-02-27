@@ -8,32 +8,7 @@ async function basicFetch(url, payload) {
     return body
   }
 
-  export async function emailResetConfirm(context) {
-    const payload = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(context)
-    }
-    const response = await basicFetch(`http://${host}/api/v1/password_reset/confirm/`, payload)
-    return response
-  }
 
-
-
-
-export async function getUserDashboard(){
-  const payload = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem('token')}`
-    }
-  }
-  const response = await basicFetch(`http://${host}/api/v1/accounts/register/create_dashboard/`, payload)
-  return response
-}
 
 
 
@@ -53,20 +28,6 @@ export async function logSend(context){
 }
 
 
-
-
-export async function createUserDashboard(context){
-  const payload = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": `Token ${localStorage.getItem("token")}`
-    },
-    body: JSON.stringify(context)
-  }
-  const response = await basicFetch(`http://${host}/api/v1/accounts/register/create_dashboard/`, payload)
-  return response
-}
 
 
 export async function getUserSends(team_id) {
