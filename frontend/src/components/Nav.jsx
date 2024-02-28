@@ -59,13 +59,13 @@ const NavLinks = () => {
 
     return (
         <>
-            
+            <div >
             <span onClick={handleHomeNavigate} className="font-nunito">Home</span>
             <span onClick={handleDashboardNavigate} className="font-nunito">Dashboard</span>
             <span onClick={handleLeaguesNavigate} className="font-nunito">Leagues</span>
             <span onClick={handleScoringNavigate} className="font-nunito">Scoring</span>
             {token ? (<span onClick={handleLogout} className="font-nunito">Logout</span>):(<span onClick={handleLoginNavigate} className="font-nunito">Login</span>)}
-            
+            </div>
         </>
     )
 }
@@ -80,7 +80,7 @@ export default function Nav () {
 
     return (
         <>
-        <nav className="flex w-1/3 justify-end ml-auto mr-4">
+        <nav className="flex w-1/3 justify-end ml-auto mr-4 ">
             <div className="hidden w-[75px] md:flex justify-between w-full">
                 <NavLinks />
 

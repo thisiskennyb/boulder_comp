@@ -140,7 +140,7 @@ export default function Dashboard() {
 
 
     return (
-        <div className="bg-night min-h-screen">
+        <div className="bg-lightgray min-h-screen">
                         {!highestBoulderGrade ? (
                 <>
                     <div className="font-nunito text-center">
@@ -183,11 +183,12 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </Modal>
-                    <div className="flex md:justify-around py-4">
-                   <button className="text-nunito bg-linen rounded-lg px-4 py-2 flex items-center justify-center" onClick={() => handleButtonClick('DashboardLeagues')}> <span><img src={dashboardLeagueIcon} alt="League Icon" className="h-12 px-2"/></span>Leagues</button>
-                    <button className="text-nunito bg-linen rounded-lg px-4 py-2 flex items-center justify-center" onClick={() => handleButtonClick('DashboardSends')}><span><img src={dashboardSendBoulder} alt="League Icon" className="h-12 px-2"/></span>Sends</button>
-                    <button className="text-nunito bg-linen rounded-lg px-4 py-2 flex items-center justify-center" onClick={() => handleButtonClick('DashboardInfo')}><span><img src={dashboardProfileIcon} alt="League Icon" className="h-12 px-2"/></span>Info</button>
-                    <button className="text-nunito bg-linen rounded-lg px-4 py-2 flex items-center justify-center" onClick={handleLogSend}><span><img src={dashboardLogSend} alt="League Icon" className="h-12 px-2"/></span>Log Send</button>
+                    <div className="flex justify-around md:justify-around py-4">
+                   <button className="text-nunito bg-linen rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2" onClick={() => handleButtonClick('DashboardLeagues')}> <span><img src={dashboardLeagueIcon} alt="League Icon" className="h-8 md:h12 px-2"/></span>Leagues</button>
+                    <button className="text-nunito bg-linen rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2" onClick={() => handleButtonClick('DashboardSends')}><span><img src={dashboardSendBoulder} alt="League Icon" className="h-8 md:h12 px-2"/></span>Sends</button>
+                    <button className="text-nunito bg-linen rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2"
+ onClick={() => handleButtonClick('DashboardInfo')}><span><img src={dashboardProfileIcon} alt="League Icon" className="h-8 md:h12 px-2"/></span>Info</button>
+                    <button className="text-nunito bg-linen rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2" onClick={handleLogSend}><span><img src={dashboardLogSend} alt="League Icon" className="h-8 md:h12 px-2"/></span>Log Send</button>
                     </div>
 
                     {selectedComponent === 'DashboardLeagues' && <DashboardLeagues />}
