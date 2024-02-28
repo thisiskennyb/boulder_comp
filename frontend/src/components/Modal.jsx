@@ -13,7 +13,7 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className={modalClasses}>
       <div className="fixed rounded inset-0 bg-black opacity-50"></div>
-      <div className="relative rounded bg-white p-3 max-w-md mx-auto">
+      <div className="relative rounded bg-gray-800 text-white p-3 max-w-md mx-auto">
       <div className="flex items-center justify-between mb-3">
             <div></div> {/* Placeholder for left content */}
             <XSquare onClick={onClose} />

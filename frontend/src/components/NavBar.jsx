@@ -2,9 +2,11 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useNavigate } from 'react-router-dom'
+import horizontalLogo from "../assets/horizOption3White.png"
 
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard', current: true },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Dashboard', href: '/dashboard', current: false },
   { name: 'Leagues', href: '/leagues-home', current: false },
   { name: 'Scoring', href: '/rules-and-scoring', current: false },
  
@@ -22,6 +24,12 @@ function classNames(...classes) {
 export default function NavBar() {
 
     const navigate = useNavigate();
+    const token = localStorage.getItem('token')
+    
+    const handleLogout = () => {
+        var keyToRemove = 'token';
+        localStorage.removeItem(keyToRemove);
+      }
 
 
 
@@ -48,8 +56,8 @@ export default function NavBar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    className="h-12 w-auto"
+                    src={horizontalLogo}
                     alt="Your Company"
                   />
                 </div>
@@ -89,7 +97,7 @@ export default function NavBar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                        src="https://placekitten.com/200/200"
                         alt=""
                       />
                     </Menu.Button>
@@ -124,16 +132,39 @@ export default function NavBar() {
                           </a>
                         )}
                       </Menu.Item> */}
+                      
+                      {token ? (
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            onClick={handleLogout}
+                            href="/"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 font-nunito')}
                           >
                             Sign out
                           </a>
+
+                          
                         )}
                       </Menu.Item>
+                        )
+                        :
+                        (                      
+                      
+                      <Menu.Item>
+                        {({ active }) => (
+                          <a
+                            
+                            href="/login"
+                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700 font-nunito')}
+                          >
+                            Login
+                          </a>
+
+                          
+                        )}
+                      </Menu.Item>
+                        )}
                     </Menu.Items>
                   </Transition>
                 </Menu>
