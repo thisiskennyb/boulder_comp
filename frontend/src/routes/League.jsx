@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { createTeam, joinTeam, getTeamsByLeague, getSingleLeague } from "../api";
+// import { createTeam, joinTeam, getTeamsByLeague, getSingleLeague } from "../api";
+import { getSingleLeague } from "../api/League/backend_calls";
+import { createTeam, joinTeam, getTeamsByLeague } from "../api/Team/backend_calls";
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
 

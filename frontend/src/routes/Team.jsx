@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { getTeam } from "../api/Team/backend_calls";
+import TeamSendTable from "../components/TeamSendTable";
 
 export default function Team() {
   let { teamId } = useParams();
@@ -13,13 +14,20 @@ export default function Team() {
   useEffect(() => {
     const fetchTeam = async () => {
       const team = await getTeam(teamId);
-      setTeam(team.data);
-      setLeagueStartDate(team.league['start_date']);
-      setLeagueEndDate(team.league['end_date']);
-      setMembers(team.members);
+      if (team?.status == 200) {
+        const teamInfo = team?.data // stores teamInfo in a variable
+        setTeam(teamInfo); //prevents having to ?. before accessing, as the variable will not be null once it is assigned
+        setLeagueStartDate(teamInfo.league['start_date']);
+        setLeagueEndDate(teamInfo.league['end_date']);
+        const updatedMembers = teamInfo.members.map(member => ({
+          ...member, score: calculateUserScore(member.sends) //When we map over members, we use calculateUserScore to add score to member object
+        }))
+        setMembers(updatedMembers); // updatedMembers have their individual score
+      }
     };
     fetchTeam();
   }, []);
+
 
   function isDateInRange(dateToCheck, startDate = leagueStartDate, endDate = leagueEndDate) {
     const date = new Date(dateToCheck);
@@ -28,6 +36,9 @@ export default function Team() {
 
     return start <= date && date <= end;
   }
+
+
+
 
   const calculateUserScore = (send_arr) => {
     let score = 0;
@@ -41,38 +52,44 @@ export default function Team() {
     return score;
   };
 
-  const calculateTotalScore = () => {
-    let totalScore = 0;
+  const teamSendData = [];
+  members.forEach(member => { // For each member, for each send
+    member.sends.forEach(send => {
+      if (isDateInRange(send.send_date)) { // Check the date of each send
+        teamSendData.push({ //If the dates are in range push new object into teamSendData
+          boulder: send.boulder.name,
+          grade: send.boulder.grade,
+          crag: send.boulder.crag,
+          username: member.username, // We did this to get username, could look at sendSerializer to make this easier in future
+          send_date: send.send_date,
+          score: send.score // Keeping send score, username, and send data together
+        });
+      }
+    });
+  });
 
-    for (let member of members) {
-      totalScore += calculateUserScore(member.sends);
-    }
+  // Sort team send data by send date in descending order
+  const sortedTeamSends = teamSendData.sort((a, b) => new Date(b.send_date) - new Date(a.send_date));
 
-    return totalScore;
-  };
-
-  console.log(team);
 
   return (
-    <div>
-      <div>Score: {team?.score}</div>
-      <div>Rank: {team?.rank}</div>
-      {members.map((member) => (
-        <div key={member.id}>
-          <ul>
-            {member.sends.map((send) => (
-              <li key={send.id}>
-                <strong>Boulder:</strong> {send.boulder.name}<br />
-                <strong>Grade:</strong> {send.boulder.grade}<br />
-                <strong>Area:</strong> {send.boulder.crag}<br />
-                <strong>Username:</strong> {member.username}<br />
-                <strong>Date of Send:</strong> {send.send_date}<br />
-                <strong>Points for Send:</strong> {send.score}<br />
-              </li>
-            ))}
-          </ul>
+    <div className="container mx-auto">
+      {/* Team Information */}
+      <div className="text-center mb-6">
+        <h1 className="text-2xl font-bold">{team?.team_name}</h1>
+        <hr className="border-t-2 border-gray-300 my-2" />
+        <div className="flex justify-around">
+          <div>
+            <p>Team Score: {team?.score}</p>
+          </div>
+          <div>
+            <p>Rank: {team?.rank}</p>
+          </div>
         </div>
-      ))}
+      </div>
+
+      {/* Render TeamSendTable component with sorted team send data */}
+      <TeamSendTable teamSends={sortedTeamSends} />
     </div>
   );
 }
