@@ -140,7 +140,7 @@ export default function Dashboard() {
 
 
     return (
-        <div className="bg-lightgray min-h-screen">
+        <div className="bg-night min-h-screen">
                         {!highestBoulderGrade ? (
                 <>
                     <div className="font-nunito text-center">

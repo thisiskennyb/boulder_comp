@@ -14,7 +14,7 @@ export default function LeaguesHome() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center">
+    <div className="min-h-screen flex flex-col items-center bg-night">
       {/* Text at the top */}
       <h1 className="text-white font-nunito text-3xl my-8">Welcome to Leagues Home</h1>
       

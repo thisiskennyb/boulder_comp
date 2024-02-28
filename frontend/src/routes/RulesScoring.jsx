@@ -1,6 +1,6 @@
 export default function RulesScoring() {
   return (
-    <div className="bg-lightgray font-nunito text-center min-h-screen py-4">
+    <div className="bg-night font-nunito text-center text-white px-2 min-h-screen py-4">
       <h2>Scoring System:</h2>
 
       <div>
