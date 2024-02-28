@@ -70,8 +70,10 @@ export default function League() {
     setModalOpen(true);
   };
 
+  console.log(teamsData, 'what do we have here')
+
   return (
-    <div>
+    <div className="bg-night min-h-screen py-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
         <div className="font-nunito text-center">Please enter team name</div>
         <div className="flex flex-col items-center">
@@ -88,23 +90,45 @@ export default function League() {
         </div>
       </Modal>
 
-      <div>League name {leagueData.league_name}</div>
-      <div>This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
-      <div>team size for this league is: {leagueData.team_size}</div>
+      <div className="flex items-center text-white font-nunito text-3xl justify-center">
+      <img src="https://placekitten.com/200/200" alt='placeholder for league' className="w-20 h-35 rounded-full mb-4 mx-4" />
+      <div className="text-white font-nunito text-base md:text-3xl">{leagueData.league_name}</div>
+      </div>
+      <div className="text-white font-nunito text-xs md:text-xl text-center">This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
+      <div className="text-white font-nunito text-sm md:text-xl text-center">team size for this league is: {leagueData.team_size}</div>
       {new Date() < new Date(leagueData.start_date) && (
         <button onClick={openModal}>create team</button>
       )}
-      <h2>Teams:</h2>
 
-      {Array.isArray(teamsData) && teamsData.map((team, index) => (
-        <div key={team.id}>
-          <span>{team.rank}</span>
-          <span>{team.team_name}</span>
-          <span>{team.score}</span>
-          <span><button onClick={() => handleViewTeam(team.id)}>view</button></span>
-          <span><button onClick={() => handleJoinTeam(team.id, team.league.id)}>join</button></span>
-        </div>
-      ))}
+<div className="flex justify-center mt-4">
+<table className="text-white font-nunito text-xl md:mt-6">
+  <thead>
+    <tr>
+      <th className="text-xs md:text-4xl">Rank</th>
+      <th className="text-xs md:text-4xl">Team Name</th>
+      <th className="text-xs md:text-4xl">Score</th>
+      <th className="text-xs md:text-4xl">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Array.isArray(teamsData) && teamsData.map((team, index) => (
+      <tr key={team.id}>
+        <td className="text-xs md:text-4xl">{team.rank}</td>
+        <td className="text-xs md:text-4xl">{team.team_name}</td>
+        <td className="text-xs md:text-4xl">{team.score}</td>
+        <td>
+          <div className="flex justify-between my-0 py-0 md:my-3 md:py-3">
+          <button className="bg-linen hover:bg-green-200 text-grey font-nunito text-xs mr-2 py-2 px-2 md:text-lg md:px-6 md:py-3  border border-gray rounded-full focus:outline-none focus:shadow-outline" onClick={() => handleViewTeam(team.id)}>View</button>
+          <button className="bg-linen hover:bg-green-200 text-grey font-nunito text-xs ml-2 py-2 px-2 md:text-lg md:px-6 md:py-3 border border-gray rounded-full focus:outline-none focus:shadow-outline" onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
+          </div>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+</div>
+
+
     </div>
   );
 }
