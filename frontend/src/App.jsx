@@ -16,6 +16,7 @@ import JoinLeague from './routes/JoinLeague'
 import CreateLeague from './routes/CreateLeague'
 import League from './routes/League'
 import Team from './routes/Team'
+import NavBar from './components/NavBar'
 
 
 
@@ -87,7 +88,8 @@ const getHighestBoulderGrade = async () => {
       }}>
     <Router>
       <ToastContainer />
-    <Header />
+    {/* <Header /> */}
+    <NavBar />
      <Routes >
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login handleToken={handleToken} />} />

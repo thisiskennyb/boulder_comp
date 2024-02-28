@@ -13,8 +13,8 @@ export default {
         night: "#0A0A0A", // Main — background, alternate logo
         white: "#FFFFFF", // Main — text, logo, icons
         jet: "#2D2D2A",   // Dark accent — misc.
-        gray: "#797979", // Light Accent -- misc
-        linen: "#F3E9DC", // Accent -- new hyperlinks
+        lightgray: "#D3D3D3", // Light Accent -- misc
+        linen: "#01A7C2", // Accent -- new hyperlinks
         isabel: "#FAF5F0" // followed hyperlinks
       },
       
