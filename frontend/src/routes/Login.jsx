@@ -26,11 +26,10 @@ export default function Login({ handleToken }) {
         toast.success(`Welcome, ${username}!`);
         handleToken(response.data.token);
         navigate("/dashboard");
-      } else {
-        toast.error('Something went wrong, please double check your information');
-      }
+      } 
     } catch (error) {
       console.error('User Login failed:', error.response?.data || 'An error occurred');
+      toast.error('Something went wrong, please double check your information');
     }
   };
 
@@ -55,10 +54,10 @@ export default function Login({ handleToken }) {
   const closeModal = () => setModalOpen(false);
 
   return (
-    <>
+    <div className='bg-night min-h-screen py-20'>
       <div className="flex flex-col items-center justify-center mt-20">
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <div className='font-nunito text-center'>
+          <div className='font-nunito text-center text-white'>
             Please enter your email address below, and we'll send you a link to reset your password
           </div>
           <div className="flex flex-col items-center">
@@ -77,7 +76,7 @@ export default function Login({ handleToken }) {
           </div>
         </Modal>
 
-        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-gray-100 rounded-md">
+        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-isabel rounded-xl">
           <label className="font-rubik font-black text-4xl">Login</label>
           <input
             id="example-input"
@@ -94,12 +93,12 @@ export default function Login({ handleToken }) {
             onChange={handlePasswordChange}
           />
           <a onClick={openModal} className="text-xs font-nunito my-3" href="">forgot password?</a>
-          <button onClick={handleLogin} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+          <button onClick={handleLogin} className="bg-night text-white font-nunito rounded-2xl border border-jet hover:bg-gray hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
             Submit
           </button>
         </div>
-        <div className="border-black width-3 font-nunito">Don't have and account? <Link to='/signup'>Sign Up</Link></div>
+        <div className="border-black width-3 font-nunito text-white">Don't have and account? <Link to='/signup' className="text-blue-500 hover:underline">Sign Up</Link></div>
       </div>
-    </>
+    </div>
   );
 }

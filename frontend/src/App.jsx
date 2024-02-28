@@ -88,7 +88,7 @@ const getHighestBoulderGrade = async () => {
     <Router>
       <ToastContainer />
     <Header />
-     <Routes>
+     <Routes >
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login handleToken={handleToken} />} />
       <Route path="/signup" element={<Signup />} />

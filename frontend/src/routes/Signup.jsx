@@ -94,14 +94,14 @@ export default function Signup() {
 
 
   return (
-    <>
+    <div className="bg-night min-h-screen py-5">
 <div className="mt-5">
 <div className="flex items-center justify-center mx-auto">
     <div className="flex flex-col items-start">
-          <div className="font-nunito">{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
-          <div className="font-nunito">{capitalValid ? '✅' : '❌'} At least one capital letter</div>
-          <div className="font-nunito">{numberValid ? '✅' : '❌'} At least one number</div>
-          <div className="font-nunito">{specialCharValid ? '✅' : '❌'} At least one special character</div>
+          <div className="font-nunito text-white">{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
+          <div className="font-nunito text-white">{capitalValid ? '✅' : '❌'} At least one capital letter</div>
+          <div className="font-nunito text-white">{numberValid ? '✅' : '❌'} At least one number</div>
+          <div className="font-nunito text-white">{specialCharValid ? '✅' : '❌'} At least one special character</div>
         </div>
       </div>
       </div>
@@ -119,12 +119,12 @@ export default function Signup() {
 
 
       <div className="flex items-center justify-center md:mt-10 mt-7">
-        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-gray-100 rounded-md">
-          <label className="font-rubik font-black text-4xl">Sign Up</label>
+        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-isabel rounded-md">
+          <label className="font-rubik text-jet text-4xl">Sign Up</label>
           <input
             id="example-input"
             type="text"
-            className="p-2 my-2 font-nunito border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            className="p-2 my-2 font-nunito border-2 border-gray rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Email"
             onChange={handleEmailChange}
           />
@@ -132,7 +132,7 @@ export default function Signup() {
           <input
             id="password"
             type="text"
-            className="p-2 border my-2 font-nunito border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            className="p-2 border-2 my-2 font-nunito border-gray rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Username"
             onChange={handleUsernameChange}
           />
@@ -141,7 +141,7 @@ export default function Signup() {
             <input
               id="signup-password"
               type={showPassword ? "text" : "password"}
-              className="p-2 border my-2 font-nunito border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="p-2 border-2 my-2 font-nunito border-gray rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Password"
               onChange={handlePasswordChange}
             />
@@ -154,7 +154,7 @@ export default function Signup() {
             <input
               id="confirm-password-input"
               type={showConfirmPassword ? "text" : "password"}
-              className="p-2 border my-2 font-nunito border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+              className="p-2 border-2 my-2 font-nunito border-gray rounded-md focus:outline-none focus:border-blue-500"
               placeholder="Confirm password"
               onChange={handleConfirmPasswordChange}
             />
@@ -163,12 +163,12 @@ export default function Signup() {
             </div>
           </div>
 
-          <button onClick={handleRegister} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+          <button onClick={handleRegister} className="bg-night text-white font-nunito rounded-2xl border border-jet hover:bg-gray hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
             Submit
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
