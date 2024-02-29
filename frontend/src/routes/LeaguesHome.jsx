@@ -23,7 +23,7 @@ export default function LeaguesHome() {
         {/* Button and icon for creating */}
         <div className="flex flex-col items-center">
           <img src={createLeagueIcon} alt="Create League Icon" className="h-24 mb-4" />
-          <button onClick={onCreateHandler} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg">
+          <button onClick={onCreateHandler} className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
             Create
           </button>
         </div>
@@ -31,7 +31,7 @@ export default function LeaguesHome() {
         {/* Button and icon for joining */}
         <div className="flex flex-col items-center">
           <img src={joinLeagueIcon} alt="Join League Icon" className="h-24 mb-4" />
-          <button onClick={onJoinHandler} className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg">
+          <button onClick={onJoinHandler} className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
             Join
           </button>
         </div>
