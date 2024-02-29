@@ -73,23 +73,25 @@ export default function Team() {
 
 
   return (
+    <div className="bg-night min-h-screen py-4">
     <div className="container mx-auto">
       {/* Team Information */}
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-bold">{team?.team_name}</h1>
+        <h1 className="text-white font-nunito text-2xl font-bold">{team?.team_name}</h1>
         <hr className="border-t-2 border-gray-300 my-2" />
         <div className="flex justify-around">
           <div>
-            <p>Team Score: {team?.score}</p>
+            <p className="text-white font-nunito text-xl">Team Score: {team?.score}</p>
           </div>
           <div>
-            <p>Rank: {team?.rank}</p>
+            <p className="text-white font-nunito text-xl">Rank: {team?.rank}</p>
           </div>
         </div>
       </div>
 
       {/* Render TeamSendTable component with sorted team send data */}
       <TeamSendTable teamSends={sortedTeamSends} />
+    </div>
     </div>
   );
 }
