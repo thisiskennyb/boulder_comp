@@ -66,10 +66,12 @@ const getNextDay = () => {
     
 
     return (
-      <div className="bg-night min-h-screen flex flex-col justify-center items-center">
+      <div className="bg-night min-h-screen">
+        <div className="flex flex-col justify-center items-center">
         <div className="text-white font-nunito text-xl text-center md:text-3xl my-5">Create a league by submitting name, dates, location, and team size of your league!</div>
-        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
-          <h4 className="text-white font-nunito text-xl">Starts</h4>
+        <div className="flex flex-col justify-center rounded-xl py-8 items-center bg-gray-800 border border-solid border-white w-11/12 md:w-1/3">
+        <div className="flex w-2/3 md:w-full justify-center items-center">
+          <h4 className="text-white font-nunito text-xl mr-4">Starts</h4>
        
         <input onChange={startDateHandler}
         className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -79,8 +81,8 @@ const getNextDay = () => {
         min={getNextDay()}/>
         </div>
 
-        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
-          <h4 className="text-white font-nunito text-xl">Ends</h4>
+        <div className="flex w-2/3 md:w-full justify-center items-center">
+          <h4 className="text-white font-nunito text-xl mr-4">Ends</h4>
         <input onChange={endDateHandler}
         className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
         type="date" 
@@ -90,8 +92,8 @@ const getNextDay = () => {
         />
         </div>
 
-        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
-          <h4 className="text-white font-nunito text-xl">Name</h4>
+        <div className="flex w-2/3 md:w-1/5 justify-center items-center">
+          <h4 className="text-white font-nunito text-xl mr-4">Name</h4>
         <input onChange={leagueNameHandler}
         className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400" 
         type="text" 
@@ -100,8 +102,8 @@ const getNextDay = () => {
         />
         </div>
 
-        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
-          <h4 className="text-white font-nunito text-xl">Area</h4>
+        <div className="flex w-2/3 md:w-1/5 justify-center items-center">
+          <h4 className="text-white font-nunito text-xl mr-4">Area</h4>
         <input onChange={locationNameHandler}
         className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400" 
         type="text" 
@@ -109,7 +111,7 @@ const getNextDay = () => {
         placeholder="location"
         />
         </div>
-        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
+        <div className="flex w-2/3 md:w-5/12 justify-between items-center">
           <h4 className="text-white font-nunito text-xl">Team Size</h4>
         <select onChange={teamSizeHandler}
         className="border border-gray-300 rounded-md px-3 py-2 mb-2 hover:bg-gray-600 hover:text-white mt-2 transition-colors duration-300" 
@@ -126,6 +128,11 @@ const getNextDay = () => {
         onClick={createLeagueHandler}
         >create
         </button>
+
+
+        </div>
+
+        </div>
       </div>
     );
   };
