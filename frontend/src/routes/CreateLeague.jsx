@@ -66,20 +66,66 @@ const getNextDay = () => {
     
 
     return (
-      <>
-        <div>This is create a league page</div>
-        <input onChange={startDateHandler} type="date" id="start_date" name="start_date" min={getNextDay()}/>
-        <input onChange={endDateHandler} type="date" id="end_date" name="end_date" min={startDate}/>
-        <input onChange={leagueNameHandler} type="text" id="league_name" placeholder="league name"/>
-        <input onChange={locationNameHandler} type="text" id="location" placeholder="location"/>
-        <select onChange={teamSizeHandler} id="numbers">
+      <div className="bg-night min-h-screen flex flex-col justify-center items-center">
+        <div className="text-white font-nunito text-xl text-center md:text-3xl my-5">Create a league by submitting name, dates, location, and team size of your league!</div>
+        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
+          <h4 className="text-white font-nunito text-xl">Starts</h4>
+       
+        <input onChange={startDateHandler}
+        className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        type="date"
+        id="start_date"
+        name="start_date"
+        min={getNextDay()}/>
+        </div>
+
+        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
+          <h4 className="text-white font-nunito text-xl">Ends</h4>
+        <input onChange={endDateHandler}
+        className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        type="date" 
+        id="end_date" 
+        name="end_date" 
+        min={startDate}
+        />
+        </div>
+
+        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
+          <h4 className="text-white font-nunito text-xl">Name</h4>
+        <input onChange={leagueNameHandler}
+        className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400" 
+        type="text" 
+        id="league_name" 
+        placeholder="league name"
+        />
+        </div>
+
+        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
+          <h4 className="text-white font-nunito text-xl">Area</h4>
+        <input onChange={locationNameHandler}
+        className="border border-gray-300 rounded-md px-3 py-2 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-400" 
+        type="text" 
+        id="location" 
+        placeholder="location"
+        />
+        </div>
+        <div className="flex w-2/3 md:w-1/5 justify-between items-center">
+          <h4 className="text-white font-nunito text-xl">Team Size</h4>
+        <select onChange={teamSizeHandler}
+        className="border border-gray-300 rounded-md px-3 py-2 mb-2 hover:bg-gray-600 hover:text-white mt-2 transition-colors duration-300" 
+        id="numbers">
           {numbers.map((number) => (
             <option key={number} value={number}>
               {number}
             </option>
           ))}
         </select>
-        <button onClick={createLeagueHandler} >create</button>
-      </>
+        </div>
+        <button 
+        className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-700 hover:text-white px-3 py-2 mt-2 transition-colors duration-300"
+        onClick={createLeagueHandler}
+        >create
+        </button>
+      </div>
     );
   };
