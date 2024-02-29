@@ -119,10 +119,10 @@ export default function Signup() {
 
 
       <div className="flex items-center justify-center md:mt-10 mt-7">
-        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-isabel rounded-md">
-          <label className="font-rubik text-jet text-4xl">Sign Up</label>
+        <div className="flex flex-col shadow-lg border-solid border-white border w-20px items-center max-w-md p-4 mb-4 bg-gray-800 rounded-md">
+          <label className="font-rubik text-white text-4xl">Sign Up</label>
           <input
-            id="example-input"
+            id="signup-input"
             type="text"
             className="p-2 my-2 font-nunito border-2 border-gray rounded-md focus:outline-none focus:border-blue-500"
             placeholder="Email"

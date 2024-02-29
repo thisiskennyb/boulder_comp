@@ -69,15 +69,15 @@ export default function Login({ handleToken }) {
               onChange={handleResetEmailChange}
             />
             <div>
-              <button onClick={handleResetPassword} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+              <button onClick={handleResetPassword} className="bg-gray-800 hover:bg-red-700 text-white font-nunito py-2 px-4 border border-white rounded-full">
                 Submit
               </button>
             </div>
           </div>
         </Modal>
 
-        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-isabel rounded-xl">
-          <label className="font-rubik font-black text-4xl">Login</label>
+        <div className="flex flex-col shadow-lg border-solid border-white border w-20px items-center max-w-md p-4 mb-4 bg-gray-800 rounded-xl">
+          <label className="font-rubik text-white text-4xl">Login</label>
           <input
             id="example-input"
             type="text"
@@ -92,12 +92,12 @@ export default function Login({ handleToken }) {
             placeholder="Password"
             onChange={handlePasswordChange}
           />
-          <a onClick={openModal} className="text-xs font-nunito my-3" href="">forgot password?</a>
-          <button onClick={handleLogin} className="bg-night text-white font-nunito rounded-2xl border border-jet hover:bg-gray hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
+          <a onClick={openModal} className="text-sm text-blue-500 font-nunito my-3 hover:text-purple-500" href="">forgot password?</a>
+          <button onClick={handleLogin} className="bg-night text-white font-nunito rounded-2xl border border-white hover:bg-gray-800 hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
             Submit
           </button>
         </div>
-        <div className="border-black width-3 font-nunito text-white">Don't have and account? <Link to='/signup' className="text-blue-500 hover:underline">Sign Up</Link></div>
+        <div className="font-nunito text-white">Don't have and account? <Link to='/signup' className="text-blue-500 hover:text-purple-500">Sign Up</Link></div>
       </div>
     </div>
   );
