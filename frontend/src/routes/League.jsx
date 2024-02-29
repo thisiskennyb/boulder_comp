@@ -99,34 +99,43 @@ export default function League() {
         <button onClick={openModal}>create team</button>
       )}
 
-<div className="flex justify-center mt-4">
-<table className="text-white font-nunito text-xl md:mt-6">
-  <thead>
-    <tr>
-      <th className="text-xs md:text-4xl">Rank</th>
-      <th className="text-xs md:text-4xl">Team Name</th>
-      <th className="text-xs md:text-4xl">Score</th>
-      <th className="text-xs md:text-4xl">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {Array.isArray(teamsData) && teamsData.map((team, index) => (
-      <tr key={team.id}>
-        <td className="text-xs md:text-4xl">{team.rank}</td>
-        <td className="text-xs md:text-4xl">{team.team_name}</td>
-        <td className="text-xs md:text-4xl">{team.score}</td>
-        <td>
-          <div className="flex justify-between my-0 py-0 md:my-3 md:py-3">
-          <button className="bg-linen hover:bg-green-200 text-grey font-nunito text-xs mr-2 py-2 px-2 md:text-lg md:px-6 md:py-3  border border-gray rounded-full focus:outline-none focus:shadow-outline" onClick={() => handleViewTeam(team.id)}>View</button>
-          <button className="bg-linen hover:bg-green-200 text-grey font-nunito text-xs ml-2 py-2 px-2 md:text-lg md:px-6 md:py-3 border border-gray rounded-full focus:outline-none focus:shadow-outline" onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
-          </div>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-</div>
+      <div className="flex bg-gray-800 w-11/12 md:w-4/5 mx-auto rounded-lg mt-8 items-center">
+        <h2 className="text-white text-base md:text-4xl font-nunito w-1/6 md:w-1/4 text-center">Rank</h2>
+        <h2 className="text-white text-base font-nunito md:text-3xl w-1/4 md:w-1/4 text-center">Team</h2>
+        <h2 className="text-white text-base font-nunito md:text-3xl w-1/6 md:w-1/4 text-center">Score</h2>
+        <div className="flex justify-end md:justify-evenly">
+        <h2 className="text-white text-base font-nunito md:text-3xl w-1/4 md:w-1/4 text-center">Actions</h2>
+        </div>
+      </div>
+      <div className="flex">
+        <hr className="w-11/12 md:w-4/5"></hr>
+      </div>
 
+      {teamsData?.length > 0 && (
+        teamsData.map((team, index) => (
+            <div key={team.id} className="flex flex-col">
+                <div className="flex bg-gray-700 w-11/12 md:w-4/5 mx-auto rounded-lg items-center">
+                <h2 className="text-white text-sm md:text-xl font-nunito w-1/6 md:w-1/4 text-center">{team.rank}</h2>
+                <p className="text-white text-sm md:text-xl font-nunito w-1/4 md:w-1/4 text-center">{team.team_name}</p>
+                <p className="text-white text-sm md:text-xl font-nunito w-1/6 md:w-1/4 text-center">{team.score}</p>
+                <div className="flex justify-between items-center w-1/4 md:w-1/4">
+                  <div className="flex items-center w-1/12 md:w-1/2">
+                    <button className=" bg-gray-800 min-w-min w-1/4 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300"
+                      onClick={() => handleViewTeam(team.id)}
+                      >View
+                    </button>
+                  </div>
+
+              <div className="flex items-center w-1/12 md:w-1/2">
+                <button className=" bg-gray-800 min-w-min w-1/3 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
+              </div> 
+            </div>
+
+                </div>
+                <hr className="w-11/12 md:w-4/5"></hr>
+            </div>            
+                ))
+            )}
 
     </div>
   );
