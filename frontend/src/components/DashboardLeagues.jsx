@@ -2,8 +2,6 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext"
 
-
-
 export default function DashboardLeagues(){
 
     const { usersTeams } = useContext(UserContext)
@@ -14,7 +12,9 @@ export default function DashboardLeagues(){
     };
 
     return (
-        <div className="bg-night">
+        <div className="bg-night min-h-screen">
+            {/* Set different widths for moble and web display
+            This div handles all of the table headers */}
              <div className="flex bg-gray-800 w-11/12 md:w-4/5 mx-auto rounded-lg">
             <h2 className="text-white text-sm font-nunito w-1/3 md:text-4xl  md:w-1/5 text-center">League</h2>
             <h2 className="text-white text-sm font-nunito w-1/4 md:text-4xl md:w-1/5 text-center">Dates</h2>
@@ -26,25 +26,25 @@ export default function DashboardLeagues(){
             </div>
         {usersTeams.length > 0 && (
                         usersTeams.map((team) => (
+                            
                             <div key={team.id} className="flex flex-col">
+                                {/* here we are iterating through team info, the outer div gets our rows stacked in a single column
+                                The row to be added is within the flex div below */}
                                 <div className="flex bg-gray-700 w-11/12 md:w-4/5 mx-auto rounded-lg">
                                 <p className="text-white text-xs w-1/3 md:text-xl font-nunito md:w-1/5 text-center">{team.league.league_name}</p>
                                 <p className="text-white text-xs w-1/4 md:text-xl font-nunito md:w-1/5 text-center">{team.league.start_date} to {team.league.end_date}</p>
                                 <p className="text-white text-xs w-1/6 md:text-xl font-nunito md:w-1/5 text-center">{team.team_name}</p>
                                 <p className="text-white text-xs w-1/12 md:text-xl font-nunito md:w-1/5 text-center">{team.rank}/{team.league.number_of_teams}</p>
+                                {/* This div helps us position our button for middle, but also gives us some control over the fractional widths
+                                With this we can use min-w-min to make minimum width the width the min width of our content, like View for example */}
                                 <div className="flex justify-center items-center w-1/12 md:w-1/5">
                                 <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs rounded-lg border border-white ml-5 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => handleViewLeague(team.league.id)}>view</button>
                                 </div>
-
                                 </div>
                                     <hr className="w-11/12 md:w-4/5"></hr>
                             </div>
                         ))
                     )}
-        </div>
-    
-       
-
-       
+        </div>      
     )
 }
