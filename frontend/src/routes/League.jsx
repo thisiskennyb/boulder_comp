@@ -16,8 +16,8 @@ export default function League() {
 
   const { userDashboard } = useContext(UserContext)
 
-// console.log(userDashboard.user, "this is whatever")
-// console.log(leagueData.moderator)
+
+
 
   useEffect(() => {
     const fetchLeague = async () => {
@@ -79,7 +79,6 @@ export default function League() {
     setModalOpen(true);
   };
 
-  console.log(teamsData, 'what do we have here')
 
   return (
     <div className="bg-night min-h-screen py-5">
@@ -107,8 +106,10 @@ export default function League() {
       </div>
       <div className="text-white font-nunito text-xs md:text-xl text-center">This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
       <div className="text-white font-nunito text-sm md:text-xl text-center">team size for this league is: {leagueData.team_size}</div>
-      {new Date() < new Date(leagueData.start_date) && (
-        <button onClick={openModal}>create team</button>
+      {new Date() < new Date(leagueData.start_date) && !leagueData.participants.includes(userDashboard.user) && (
+        <div className="flex flex-col items-center mt-4">
+        <button className="w-1/3 md:w-1/4 min-h-min text-white text-base md:text-xl font-nunito bg-gray-800 border border-white rounded-lg hover:bg-gray-700" onClick={openModal}>Create team</button>
+        </div>
       )}
 
       <div className="flex bg-gray-800 w-11/12 md:w-4/5 mx-auto rounded-lg mt-8 items-center">
@@ -139,7 +140,10 @@ export default function League() {
                   </div>
 
               <div className="flex items-center w-1/12 md:w-1/2">
-                <button className=" bg-gray-800 min-w-min w-1/3 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
+                {/* Checking that the user is not already in the league, and that the team is not already full */}
+              {team.members && leagueData.participants && team.members.length < team.league.team_size && !leagueData.participants.includes(userDashboard.user) && (
+                <button className="bg-gray-800 min-w-min w-1/3 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white transition-colors duration-300" onClick={() => handleJoinTeam(team.id, team.league.id)}>Join</button>
+          )}
               </div> 
             </div>
 
