@@ -121,20 +121,50 @@ class DashboardView(APIView):
         serializer = UserDashboardSerializer(user_dashboard)
         return Response(serializer.data)
 
-    def put(self, request, *args, **kwargs):
+    # def put(self, request, *args, **kwargs):
+    #     user = request.user
+    #     data = request.data
+    #     # print(user)
+    #     # print('above is user, below is data')
+    #     # print(data)
+    #     try:
+    #         user_dashboard = UserDashboard.objects.get(user=user.id)
+    #     except UserDashboard.DoesNotExist:
+    #         return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
+        
+    #     # Update only the fields provided in the request body
+    #     for field, value in data.items():
+    #         setattr(user_dashboard, field, value)
+        
+    #     user_dashboard.save()
+    #     serializer = UserDashboardSerializer(user_dashboard)
+
+        
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+    def put(self, request, pk):
         user = request.user
         data = request.data
-        print(user)
-        print('above is user, below is data')
-        print(data)
+        print(data, "weeeeeeee")
+
         try:
-            user_dashboard = UserDashboard.objects.get(user=user.id)
+            user_dashboard = UserDashboard.objects.get(user=pk)
         except UserDashboard.DoesNotExist:
             return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
         
-        # Update only the fields provided in the request body
-        for field, value in data.items():
-            setattr(user_dashboard, field, value)
+        # height = request.data.get('height')
+        # weight = request.data.get('weight')
+        # ape_index = request.data.get('ape_index')
+        # highest_boulder_grade = request.data.get('highest_boulder_grade')
+        avatar = request.data.get('avatar')
+      
+
+        # user_dashboard.height = height
+        # user_dashboard.weight = weight
+        # user_dashboard.ape_index = ape_index
+        # user_dashboard.highest_boulder_grade = highest_boulder_grade
+        user_dashboard.avatar = avatar
         
         user_dashboard.save()
         serializer = UserDashboardSerializer(user_dashboard)

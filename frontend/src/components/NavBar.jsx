@@ -3,6 +3,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useNavigate } from 'react-router-dom'
 import horizontalLogo from "../assets/horizOption3White.png"
+import { useContext } from 'react'
+import UserContext from "../contexts/UserContext";
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
@@ -25,6 +27,7 @@ export default function NavBar() {
 
     const navigate = useNavigate();
     const token = localStorage.getItem('token')
+    const { userDashboard } = useContext(UserContext)
     
     const handleLogout = () => {
         var keyToRemove = 'token';
@@ -32,7 +35,7 @@ export default function NavBar() {
       }
 
 
-
+console.log(userDashboard)
 
 
   return (
@@ -88,7 +91,7 @@ export default function NavBar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://placekitten.com/200/200"
+                        src={userDashboard?.avatar}
                         alt=""
                       />
                     </Menu.Button>

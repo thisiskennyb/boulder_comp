@@ -16,6 +16,7 @@ class UserDashboard(models.Model):
     ape_index = models.FloatField(null=True)
     highest_boulder_grade = models.CharField()
     highest_route_grade = models.CharField(null=True)
+    avatar = models.FileField(upload_to="useravatars/", blank=True, null=True)
 
     def __str__(self):
         return f"{self.user}"
