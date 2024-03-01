@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getSingleLeague } from "../api/League/backend_calls";
 import { createTeam, joinTeam, getTeamsByLeague } from "../api/Team/backend_calls";
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
+import UserContext from "../contexts/UserContext";
 
 export default function League() {
   const { leagueId } = useParams();
@@ -12,6 +13,11 @@ export default function League() {
   const [isModalOpen, setModalOpen] = useState(false);
   const [teamNameInput, setTeamNameInput] = useState("");
   const navigate = useNavigate();
+
+  const { userDashboard } = useContext(UserContext)
+
+// console.log(userDashboard.user, "this is whatever")
+// console.log(leagueData.moderator)
 
   useEffect(() => {
     const fetchLeague = async () => {
@@ -62,6 +68,10 @@ export default function League() {
     }
   };
 
+  const handleNavitageImageUpload = () => {
+    navigate(`/select-league-image/${leagueId}`)
+  }
+
   const closeModal = () => setModalOpen(false);
 
   const openModal = (event) => {
@@ -90,7 +100,9 @@ export default function League() {
       </Modal>
 
       <div className="flex items-center text-white font-nunito text-3xl justify-center">
-      <img src="https://placekitten.com/200/200" alt='placeholder for league' className="w-20 h-35 rounded-full mb-4 mx-4" />
+        {leagueData && userDashboard?.user == leagueData.moderator ? (<button onClick={handleNavitageImageUpload}>upload image</button>):(<></>)}
+        
+      <img src={leagueData.picture} alt='placeholder for league' className="w-20 h-35 rounded-full mb-4 mx-4" />
       <div className="text-white font-nunito text-base md:text-3xl">{leagueData.league_name}</div>
       </div>
       <div className="text-white font-nunito text-xs md:text-xl text-center">This league starts on {leagueData.start_date} and ends on {leagueData.end_date}</div>
