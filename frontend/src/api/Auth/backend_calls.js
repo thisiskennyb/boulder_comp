@@ -94,3 +94,23 @@ export async function getUserDashboard(){
         throw error
     }
   }
+
+
+  export async function uploadAvatar(context, userId) {
+  
+    let formData = new FormData();
+    formData.append("avatar", context.avatar);
+    try {
+      const response = axios.put(`http://${host}/api/v1/accounts/register/create_dashboard/${userId}`, formData, {
+        headers: {
+          
+          "Authorization": `Token ${localStorage.getItem('token')}`
+        }
+      })
+      return response
+    } catch (error) {
+      console.error('Something went wrong in createLeague')
+      throw error
+    }
+  
+  }

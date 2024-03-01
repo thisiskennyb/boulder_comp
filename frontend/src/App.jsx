@@ -19,6 +19,7 @@ import Team from './routes/Team'
 import NavBar from './components/NavBar'
 import SelectLeagueImage from './routes/SelectLeagueImage'
 import SelectTeamImage from './routes/SelectTeamImage'
+import SelectAvatar from './routes/SelectAvatar'
 
 
 
@@ -30,6 +31,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { getUserDashboard } from './api/Auth/backend_calls'
 import { teamsUserIsIn } from './api/League/backend_calls'
+
 
 
 
@@ -112,6 +114,7 @@ const getHighestBoulderGrade = async () => {
       <Route path="/rules-and-scoring" element={<RulesScoring />} />
       <Route path="/select-league-image/:leagueId" element={<SelectLeagueImage />} />
       <Route path="/select-team-image/:teamId" element={<SelectTeamImage />} />
+      <Route path="/select-avatar-image/:userId" element={<SelectAvatar />} />
      </Routes>
      </Router>
      </UserContext.Provider>
