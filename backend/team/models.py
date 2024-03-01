@@ -11,6 +11,7 @@ class Team(models.Model):
     team_name = models.CharField()
     score = models.IntegerField(default=0)
     rank = models.IntegerField(default=0)
+    team_picture = models.FileField(upload_to="teamphotos/", blank=True, null=True)
 
     def __str__(self):
         return f'Captain: {self.captain}, Team: {self.team_name}'
