@@ -84,7 +84,25 @@ class TeamView(APIView):
 
 
 
+    def put(self, request, pk):
+        user = request.user
+        data = request.data
+        print(data)
 
+        try:
+            team = Team.objects.get(id=pk)
+        except Team.DoesNotExist:
+            return Response({"error": "Team does not exist"}, status=status.HTTP_404_NOT_FOUND)
+
+        picture = request.data.get('team_picture')
+
+        team.team_picture = picture
+        
+        team.save()
+        serializer = TeamSerializer(team)
+
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 

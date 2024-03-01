@@ -1,7 +1,8 @@
-import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 import { getTeam } from "../api/Team/backend_calls";
 import TeamSendTable from "../components/TeamSendTable";
+import UserContext from "../contexts/UserContext";
 
 export default function Team() {
   let { teamId } = useParams();
@@ -11,6 +12,10 @@ export default function Team() {
   const [leagueEndDate, setLeagueEndDate] = useState('');
   const [members, setMembers] = useState([]);
 
+  const { userDashboard } = useContext(UserContext)
+
+  const navigate = useNavigate()
+  
   useEffect(() => {
     const fetchTeam = async () => {
       const team = await getTeam(teamId);
@@ -68,15 +73,22 @@ export default function Team() {
     });
   });
 
+  const handleNavitageImageUpload = () => {
+    navigate(`/select-team-image/${teamId}`)
+  }
+
   // Sort team send data by send date in descending order
   const sortedTeamSends = teamSendData.sort((a, b) => new Date(b.send_date) - new Date(a.send_date));
 
+  console.log(team)
 
   return (
     <div className="bg-night min-h-screen py-4">
     <div className="container mx-auto">
       {/* Team Information */}
       <div className="text-center mb-6">
+      {team && userDashboard?.user == team.captain.id ? (<button onClick={handleNavitageImageUpload}>upload image</button>):(<></>)}
+      <img src={team?.team_picture} alt='placeholder for league' className="w-20 h-35 rounded-full mb-4 mx-4" />
         <h1 className="text-white font-nunito text-2xl font-bold">{team?.team_name}</h1>
         <hr className="border-t-2 border-gray-300 my-2" />
         <div className="flex justify-around">

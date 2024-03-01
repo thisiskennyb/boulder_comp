@@ -74,3 +74,21 @@ export async function getTeamsByLeague(league_id) {
 
 
 
+      export async function uploadTeamImage(context, teamId) {
+  
+        let formData = new FormData();
+        formData.append("team_picture", context.team_picture);
+        try {
+          const response = axios.put(`http://${host}/api/v1/team/${teamId}`, formData, {
+            headers: {
+              
+              "Authorization": `Token ${localStorage.getItem('token')}`
+            }
+          })
+          return response
+        } catch (error) {
+          console.error('Something went wrong in createLeague')
+          throw error
+        }
+      
+      }
