@@ -184,3 +184,10 @@ EMAIL_HOST_PASSWORD = os.environ['GMAIL_APP_PASSWORD']
 RESET_PASSWORD_VERIFICATION_URL = 'http://localhost:5173/reset-password'
 
 # BASE_URL = 'http://localhost:8000'
+
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID") 
+AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY") 
+AWS_STORAGE_BUCKET_NAME = "kbbucket"
+AWS_QUERYSTRING_AUTH = False

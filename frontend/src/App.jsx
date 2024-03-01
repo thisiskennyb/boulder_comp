@@ -17,6 +17,7 @@ import CreateLeague from './routes/CreateLeague'
 import League from './routes/League'
 import Team from './routes/Team'
 import NavBar from './components/NavBar'
+import SelectLeagueImage from './routes/SelectLeagueImage'
 
 
 
@@ -105,6 +106,7 @@ const getHighestBoulderGrade = async () => {
       <Route path="/dashboard" element={<Dashboard  />} />
       <Route path="/leagues-home" element={<LeaguesHome />} />
       <Route path="/rules-and-scoring" element={<RulesScoring />} />
+      <Route path="/select-league-image" element={<SelectLeagueImage />} />
      </Routes>
      </Router>
      </UserContext.Provider>

@@ -13,6 +13,7 @@ class League(models.Model):
     team_size = models.IntegerField()
     location = models.CharField(null=True, blank=True)
     number_of_teams = models.IntegerField(default=0)
+    picture = models.FileField(upload_to="leaguephotos/", blank=True, null=True)
 
 
     def __str__(self):

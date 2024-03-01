@@ -29,19 +29,26 @@ class LeagueView(APIView):
     def post(self, request):
         user = request.user
         league_data = request.data
-        # Set the user field to the current user
         league_name = league_data['league_name']
-
         start_date = league_data['start_date']
         end_date = league_data['end_date']
         team_size = league_data['team_size']
         location = league_data['location']
-        
+
+        # Default value for picture if not provided in the request
+        picture = None
+
+        try:
+            # Attempt to access the 'picture' key in the request data
+            picture = league_data['picture']
+        except KeyError:
+            # Handle the case where 'picture' key is not present
+            pass
+
         if League.objects.filter(league_name=league_name).exists():
             return Response({'error': 'This league name has already been used'}, status=status.HTTP_400_BAD_REQUEST)
 
-        new_league = League.objects.create(moderator=user, league_name=league_name, start_date=start_date, end_date=end_date, team_size=team_size, location=location)
-        
+        new_league = League.objects.create(moderator=user, league_name=league_name, start_date=start_date, end_date=end_date, team_size=team_size, location=location, picture=picture)
 
         new_league.participants.add(user)
         new_league.save()
@@ -49,6 +56,39 @@ class LeagueView(APIView):
         serializer = LeagueSerializer(new_league)
 
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    
+    def put(self, request, pk):
+        user = request.user
+        data = request.data
+        print(data)
+
+        try:
+            league = League.objects.get(id=pk)
+        except League.DoesNotExist:
+            return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
+        
+        picture = request.data.get('picture')
+        # league_name = request.data.get('league_name')
+        # start_date = request.data.get('start_date')
+        # end_date = request.data.get('end_date')
+        # location = request.data.get('location')
+        # team_size = request.data.get('team_size')
+        
+
+        
+        league.picture = picture
+        # league.league_name = league_name
+        # league.start_date = start_date
+        # league.end_date = end_date
+        # league.location = location
+        # league.team_size = team_size
+        
+        league.save()
+        serializer = LeagueSerializer(league)
+
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
 
 
