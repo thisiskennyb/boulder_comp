@@ -37,6 +37,7 @@ function App() {
   const [userToken, setUserToken] = useState(null)
   const [usersTeams, setUsersTeams] = useState([]);
   const [highestBoulderGrade, setHighestBoulderGrade] = useState(null)
+  const [userDashboard, setUserDashboard] = useState(null)
 
 
  // This is here to be used in context from dashboard
@@ -57,6 +58,7 @@ function App() {
 // We use this to send a post request at dashboard
 const getHighestBoulderGrade = async () => {
   const userDashboard = await getUserDashboard()
+  setUserDashboard(userDashboard.data)
   if (userDashboard['data']['highest_boulder_grade']){
       setHighestBoulderGrade(userDashboard['data']['highest_boulder_grade'])
   }
@@ -77,7 +79,7 @@ const getHighestBoulderGrade = async () => {
     setUserToken(token)
   }
 
-
+   console.log(usersTeams)
   return (
     <div>
     <UserContext.Provider value={{
@@ -85,7 +87,8 @@ const getHighestBoulderGrade = async () => {
       usersTeams,
       fetchUserTeams,
       highestBoulderGrade,
-      setHighestBoulderGrade
+      setHighestBoulderGrade,
+      userDashboard
       }}>
     <Router>
       <ToastContainer />
@@ -106,7 +109,7 @@ const getHighestBoulderGrade = async () => {
       <Route path="/dashboard" element={<Dashboard  />} />
       <Route path="/leagues-home" element={<LeaguesHome />} />
       <Route path="/rules-and-scoring" element={<RulesScoring />} />
-      <Route path="/select-league-image" element={<SelectLeagueImage />} />
+      <Route path="/select-league-image/:leagueId" element={<SelectLeagueImage />} />
      </Routes>
      </Router>
      </UserContext.Provider>

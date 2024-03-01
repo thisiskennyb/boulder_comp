@@ -81,6 +81,35 @@ export async function getAllLeagues() {
   }
 }
 
+export async function uploadLeagueImage(context, leagueId) {
+  
+  let formData = new FormData();
+  formData.append("picture", context.picture);
+  try {
+    const response = axios.put(`http://${host}/api/v1/league/${leagueId}`, formData, {
+      headers: {
+        
+        "Authorization": `Token ${localStorage.getItem('token')}`
+      }
+    })
+    return response
+  } catch (error) {
+    console.error('Something went wrong in createLeague')
+    throw error
+  }
+
+}
+  
+  
+  // if (response.status === 400) {
+  //     console.log('you suck')
+  // } else {
+  //     console.log(body);
+  //     // navigate("/")
+  // }
+
+
+
 
 
 

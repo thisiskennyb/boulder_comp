@@ -1,10 +1,16 @@
 import React, { useState } from "react";
-// import { editLeague } from "../api/League/backend_calls";
-const host = import.meta.env.VITE_BASE_URL || "localhost:8000";
+import { uploadLeagueImage } from "../api/League/backend_calls";
+import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 export default function SelectLeagueImage() {
+
+    const { leagueId } = useParams();
     const [leagueObj, setLeagueObj] = useState('');
     const [picture, setPicture] = useState('');
+
+    const navigate = useNavigate()
     
 
     const handleUpload = (e) => {
@@ -13,26 +19,16 @@ export default function SelectLeagueImage() {
 
     const handleSubmit = async () => {
         let leagueObj = { picture: picture };
-        let formData = new FormData();
-        formData.append("picture", leagueObj.picture);
-        const context = {
-            method: "PUT",
-            body: formData,
-            
-            headers: {
-                'Authorization': `token ${localStorage.getItem('token')}`,
-      
-            },
-        };
-        const url = `http://${host}/api/v1/league/4`
-        const response = await fetch(url, context);
-        const body = await response.json();
-        if (response.status === 400) {
-            console.log('you suck')
-        } else {
-            console.log(body);
-            // navigate("/")
+        const response = await uploadLeagueImage(leagueObj, leagueId)
+        if (response.status == 200) {
+            toast.success(`image uploaded succussfully`);
+            navigate(`/league/${leagueId}`)
+
         }
+        else {
+            toast.error('something went wrong')
+        }
+        console.log(response.data)
     };
     console.log(picture)
 
