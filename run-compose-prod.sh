@@ -9,16 +9,17 @@ export SECRET_KEY=$1
 export DEBUG=$2
 export NEW_VERSION=$3
 export DOCKERHUB_UNAME=$4
-export EMAIL=$5
-export GMAIL_APP_PASSWORD=$6
-export DB_PORT=$7
-export HOST=$8
-export POSTGRES_DB=$9
-export POSTGRES_USER=${10}
-export POSTGRES_PASSWORD=${11}
+export HOST=$5
+export POSTGRES_DB=$6
+export POSTGRES_USER=$7
+export POSTGRES_PASSWORD=$8
+export DB_PORT=$9
+export EMAIL=${10}
+export GMAIL_APP_PASSWORD=${11}
 export AWS_ACCESS_KEY_ID=${12}
 export AWS_SECRET_ACCESS_KEY=${13}
-export BUCKET_NAEM=${14}
+export BUCKET_NAME=${14}
+
 
 
 
