@@ -10,11 +10,12 @@
 # instead of localhost
 ##############################
 
-# DOCKERHUB_UNAME=thisiskennyb
+DOCKERHUB_UNAME=successphil
 
 BASE_URL=$1
 NEW_VERSION=$2
 DOCKERHUB_UNAME=$3
+
 
 
 
