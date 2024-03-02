@@ -22,6 +22,7 @@ export BUCKET_NAME=${14}
 
 
 
+
 COMPOSE_DOCKER_CLI_BUILD=0 DOCKER_BUILDKIT=0 docker-compose -f docker-compose.prod.yml build --no-cache
 docker-compose -f docker-compose.prod.yml up -d
 
