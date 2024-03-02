@@ -18,6 +18,7 @@ export POSTGRES_USER=${10}
 export POSTGRES_PASSWORD=${11}
 export AWS_ACCESS_KEY_ID=${12}
 export AWS_SECRET_ACCESS_KEY=${13}
+export BUCKET_NAEM=${14}
 
 
 

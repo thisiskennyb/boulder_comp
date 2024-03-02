@@ -10,20 +10,23 @@
 # instead of localhost
 ##############################
 
-# DOCKERHUB_UNAME=thisiskennyb
+DOCKERHUB_UNAME=thisiskennyb
 
 BASE_URL=$1
 NEW_VERSION=$2
-DOCKERHUB_UNAME=$3
+# DOCKERHUB_UNAME=$3
 
 
-
-
+# Command if building images on a mac with an M chip
+docker buildx build --platform=linux/amd64 --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
+# Command for building images on all other platforms
 # docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
-# docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
 
-docker build -t VITE_BASE_URL=$BASE_URL $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
 docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
 
-docker build -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
+
+# Command if building images on a mac with an M chip
+docker buildx build --platform=linux/amd64 -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
+# Command for building images on all other platforms
+# docker build -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
 docker push $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION
