@@ -10,6 +10,9 @@ export GMAIL_APP_PASSWORD="vnhx rzwo owhq retc"
 export DB_NAME=db
 export DB_PORT=5432
 export HOST=localhost:80
+export BUCKET_NAME=kbbucket
+export AWS_ACCESS_KEY_ID=$1
+export AWS_SECRET_ACCESS_KEY=$2
 # export VITE_HOST=$1
 # export DJANGO_HOST=$2
 
