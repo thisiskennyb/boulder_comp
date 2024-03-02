@@ -21,7 +21,7 @@ export AWS_SECRET_ACCESS_KEY=${13}
 
 
 
-docker-compose -f docker-compose.prod.yml build --no-cache
+COMPOSE_DOCKER_CLI_BUILD=0 DOCKER_BUILDKIT=0 docker-compose -f docker-compose.prod.yml build --no-cache
 docker-compose -f docker-compose.prod.yml up -d
 
 # make sure the postgres container is ready, then run migrations
