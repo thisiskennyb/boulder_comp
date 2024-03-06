@@ -62,7 +62,7 @@ export default function Login({ handleToken }) {
           </div>
           <div className="flex flex-col items-center">
             <input
-              id="example-input"
+              id="login-input-one"
               type="text"
               className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500"
               placeholder="Email"
@@ -79,14 +79,14 @@ export default function Login({ handleToken }) {
         <div className="flex flex-col shadow-lg border-solid border-white border w-20px items-center max-w-md p-4 mb-4 bg-gray-800 rounded-xl">
           <label className="font-rubik text-white text-4xl">Login</label>
           <input
-            id="example-input"
+            id="login-input-two"
             type="text"
             className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500"
             placeholder="Username"
             onChange={handleUsernameChange}
           />
           <input
-            id="example-input"
+            id="login-input-three"
             type="password"
             className="p-2 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500"
             placeholder="Password"

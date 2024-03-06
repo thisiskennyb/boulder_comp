@@ -1,5 +1,5 @@
 import { logSend, getUserSends } from "../api/Send/backend_calls";
-import { createUserDashboard } from "../api/Auth/backend_calls";
+import { createUserDashboard, getUserDashboard } from "../api/Auth/backend_calls";
 import { useEffect, useState, useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import { toast } from "react-toastify";
@@ -27,6 +27,7 @@ export default function Dashboard() {
     const [boulderGrade, setBoulderGrade] = useState('');
     const [sendDate, setSendDate] = useState('');
     const [userSends, setUserSends] = useState([]);
+    const [userDashboard, setUserDashboard] = useState(null)
 
     const [selectedComponent, setSelectedComponent] = useState(null);
 
@@ -36,9 +37,14 @@ export default function Dashboard() {
 
     useEffect(() => {
         const fetchUserSend = async () => {
-            const send_data = await getUserSends()
-            if (send_data.status == 200){
-                setUserSends(send_data['data'])
+            const sendData = await getUserSends()
+            if (sendData.status == 200){
+                setUserSends(sendData['data'])
+            const userDashoardData = await getUserDashboard()
+            if (userDashoardData.status == 200) {
+                console.log(userDashoardData.data.highest_boulder_grade)
+                setBoulderGrade(userDashoardData.data.highest_boulder_grade)
+            }
             }
         }
         fetchUserSend()
@@ -141,7 +147,7 @@ export default function Dashboard() {
 
     return (
         <div className="bg-night min-h-screen">
-                        {!highestBoulderGrade ? (
+                        {!highestBoulderGrade && userDashboard ? (
                 <>
                     <div className="font-nunito text-center">
                         Please Enter your highest boulder grade
