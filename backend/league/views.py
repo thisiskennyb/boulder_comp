@@ -50,7 +50,7 @@ class LeagueView(APIView):
 
         new_league = League.objects.create(moderator=user, league_name=league_name, start_date=start_date, end_date=end_date, team_size=team_size, location=location, picture=picture)
 
-        new_league.participants.add(user)
+
         new_league.save()
 
         serializer = LeagueSerializer(new_league)
