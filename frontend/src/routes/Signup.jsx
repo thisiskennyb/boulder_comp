@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Eye, AlertCircle } from 'lucide-react';
+import { Eye } from 'lucide-react';
 import { signup } from "../api/Auth/backend_calls";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -15,8 +15,7 @@ export default function Signup() {
   const [specialCharValid, setSpecialCharValid] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [responseMsg, setResponseMsg] = useState(null)
-
+ 
 
   const navigate = useNavigate();
 
@@ -67,29 +66,14 @@ export default function Signup() {
 
     try {
       const response = await signup(context);
-      if (response.data == 201){
+      if (response.status == 201){
         toast.success('Please check your email to activate your account before logging in') // Should notify user to check email
-        console.log(response.username)
-        setResponseMsg(response);
-
-      }
-      if (response.data.username) {
         navigate("/signup-message")
       }
-      else if (response.data.non_field_errors) { //Not sure if needed? Should be able to handle redirect on success and just notify in case of failure
-        setResponseMsg(response.data.non_field_errors)
-        toast.error('Oops, something went wrong')
-      }
-      else if (response.data.unavailable) {
-        setResponseMsg(response.unavailable)
-        toast.error('Oops, something went wrong')
-      }
-      
     } catch (error) {
+      toast.error('Oops, something went wrong')
       console.error('User creation failed', error.response?.data || 'An error occurred')
     }
-    
-    
   };
 
 
@@ -107,17 +91,8 @@ export default function Signup() {
       </div>
 
       <div className="flex items-center justify-center mt-4 h-12">
-    {responseMsg ? (
-        <div className="font-nunito flex items-center max-w-xs">
-            <span className="mr-2"><AlertCircle /></span>
-            <span className="text-center text-red-600">{responseMsg}</span>
-        </div>
-    ) : (
-        <div></div>
-    )}
+    
       </div>
-
-
       <div className="flex items-center justify-center md:mt-10 mt-7">
         <div className="flex flex-col shadow-lg border-solid border-white border w-20px items-center max-w-md p-4 mb-4 bg-gray-800 rounded-md">
           <label className="font-rubik text-white text-4xl">Sign Up</label>
