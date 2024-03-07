@@ -23,8 +23,18 @@ export default function JoinLeague() {
     navigate(`/league/${league_id}`);
   };
 
+  const handleNavigateToCreateLeague = () => {
+    navigate("/create-league")
+  }
+
   if (!leaguesData || leaguesData.length === 0) {
-    return <div>Loading...</div>;
+    return(
+      <div className="bg-night min-h-screen pt-8">
+    <div className="flex flex-col items-center text-white">
+    <div className="font-nunito text-xl md:text3xl my-10">Create a League to get Started!</div>
+    <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavigateToCreateLeague} >Create</button>
+</div>
+</div>)
   }
 
   return (

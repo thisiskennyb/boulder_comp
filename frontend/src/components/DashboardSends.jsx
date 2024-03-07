@@ -5,7 +5,7 @@ export default function DashboardSends({userSends, handleLogSend}){
         <div>
         {userSends.length == 0 ? (
                         <div className="flex flex-col items-center text-white">
-                        <div className="font-nunito text-3xl my-10">Log a send!</div>
+                        <div className="font-nunito text-xl md:text-3xl my-10">Log a send!</div>
                         <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
                     </div>
         ):(
