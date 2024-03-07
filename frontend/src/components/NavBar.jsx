@@ -1,7 +1,6 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useNavigate } from 'react-router-dom'
+import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline'
 import horizontalLogo from "../assets/horizOption3White.png"
 import { useContext } from 'react'
 import UserContext from "../contexts/UserContext";
@@ -19,13 +18,9 @@ function classNames(...classes) {
 }
 
 
-
-
-
-
 export default function NavBar() {
 
-    const navigate = useNavigate();
+
     const token = localStorage.getItem('token')
     const { userDashboard } = useContext(UserContext)
     
@@ -35,7 +30,7 @@ export default function NavBar() {
       }
 
 
-console.log(userDashboard)
+
 
 
   return (
@@ -66,7 +61,10 @@ console.log(userDashboard)
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
-                    {navigation.map((item) => (
+                    {/* This is to check that they are logged in, need to make buttons for Nav Bar when they are not logged in */}
+
+                    {/* This stops the navbar from being mapped unless there is a token */}
+                    {token && navigation.map((item) => (
                       <a
                         key={item.name}
                         href={item.href}
@@ -147,7 +145,9 @@ console.log(userDashboard)
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
-              {navigation.map((item) => (
+              {/* This stops links from being rendered unless user has logged in */}
+              {/* Need to make buttons for login and sign up to show buttons in hamburger, right menu works for now */}
+              {token && navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as="a"
