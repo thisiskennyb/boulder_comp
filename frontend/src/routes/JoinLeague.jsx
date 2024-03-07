@@ -59,6 +59,7 @@ export default function JoinLeague() {
           <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.end_date}</p>
           {/* Div helps position button */}
           <div className="flex justify-center items-center w-1/12 md:w-1/5">
+         
           <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => viewHandler(league.id)}>View</button>
           </div>       
           </div>

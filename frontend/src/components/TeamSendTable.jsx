@@ -3,7 +3,7 @@ import React from "react";
 const TeamSendTable = ({ teamSends }) => {
   return (
 
-    <div className="">
+    <div key={teamSends.username}>
       <div className="flex bg-gray-800 w-11/12 md:w-4/5 mx-auto rounded-lg mt-8 items-center">
         <h2 className="text-white text-base md:text-4xl font-nunito w-1/5 text-center">Boulder</h2>
         <h2 className="text-white text-base font-nunito md:text-3xl w-1/5 text-center">Grade</h2>
