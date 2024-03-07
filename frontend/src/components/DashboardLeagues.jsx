@@ -11,8 +11,19 @@ export default function DashboardLeagues(){
         navigate(`/league/${league_id}`);
     };
 
+    const handleNavigateToLeaguesHome = () => {
+        navigate("/leagues-home")
+    }
+
     return (
-        <div className="bg-night min-h-screen">
+        <div>
+        { usersTeams.length == 0 ? (
+            <div className="flex flex-col items-center text-white">
+                <div className="font-nunito text-3xl my-10">Join a league to get started!</div>
+                <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavigateToLeaguesHome}>Leagues Home</button>
+            </div>
+        ):(
+            <div className="bg-night min-h-screen">
             {/* Set different widths for moble and web display
             This div handles all of the table headers */}
              <div className="flex bg-gray-800 w-11/12 md:w-4/5 mx-auto rounded-lg">
@@ -45,6 +56,9 @@ export default function DashboardLeagues(){
                             </div>
                         ))
                     )}
-        </div>      
+        </div>
+        )}
+  
+        </div>    
     )
 }
