@@ -21,7 +21,7 @@ export default function Home() {
         
         <img src={boulderCompVert} alt="Boulder Logo Isabel color" className="w-80 mt-5 h-auto" />
         
-        <h2 className="text-white font-nunito text-3xl">Climb. Compete. Conquer.</h2>
+        <h2 className="text-white font-nunito text-xl md:text-3xl">Climb. Compete. Conquer.</h2>
         <p className="text-white font-nunito text-lg text-center">Boulder Comp is the ultimate platform for climbers to join leagues, form teams, and compete in bouldering challenges both indoors and outdoors. </p>
         <p className="text-white font-nunito text-lg text-center">It brings climbers together by offering the opportunity to compete with friends or strangers, fostering a vibrant global community.</p>
         <hr className="w-3/4"></hr>
