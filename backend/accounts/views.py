@@ -174,11 +174,12 @@ class DashboardView(APIView):
 
     def post(self, request):
         dashboard_data = request.data
+        print(dashboard_data)
         # Set the user field to the current user
         dashboard_data['user'] = request.user.pk  # Assuming request.user is the authenticated user
         serializer = UserDashboardSerializer(data=dashboard_data)
         if serializer.is_valid(raise_exception=True):
             dashboard_saved = serializer.save()
-            return Response({"result": f"{dashboard_saved.highest_boulder_grade} saved"})
+            return Response({"result": f"{dashboard_saved.highest_boulder_grade} saved"}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
