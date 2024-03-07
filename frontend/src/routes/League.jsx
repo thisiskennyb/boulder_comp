@@ -12,12 +12,14 @@ export default function League() {
   const [teamsData, setTeamsData] = useState(null);
   const [isModalOpen, setModalOpen] = useState(false);
   const [teamNameInput, setTeamNameInput] = useState("");
+  const [ joinLeague , setJoinLeague ] = useState(false)
   const navigate = useNavigate();
 
   const { userDashboard } = useContext(UserContext)
 
-
-
+  const toggleJoinLeague = () =>{
+    setJoinLeague((prev)=> !prev)
+  }
 
   useEffect(() => {
     const fetchLeague = async () => {
@@ -31,7 +33,7 @@ export default function League() {
       }
     };
     fetchLeague();
-  }, [isModalOpen]);
+  }, [isModalOpen, joinLeague]);
 
   const handleViewTeam = (team_id) => {
     navigate(`/team/${team_id}`);
@@ -61,6 +63,7 @@ export default function League() {
       const response = await joinTeam({ league_id: leagueId, team_id: teamId });
       if (response.status === 200) {
         toast.success('You have joined the team!');
+        toggleJoinLeague()
       }
     } catch (error) {
       console.error('Something went wrong', error.response.status);
@@ -81,19 +84,19 @@ export default function League() {
 
 
   return (
-    <div className="bg-night min-h-screen py-5">
+    <div className="bg-night min-h-screen font-nunito text-white py-5">
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <div className="font-nunito text-center">Please enter team name</div>
+        <div className="font-nunito text-center w-min-w text-2xl py-4 border border-white">Please enter team name</div>
         <div className="flex flex-col items-center">
           <input
             id="team-name"
             type="text"
-            className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500"
+            className="p-2 my-3 rounded-md focus:outline-none focus:border-blue-500"
             placeholder="team name"
             onChange={handleTeamInput}
           />
           <div>
-            <button className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline" onClick={handleCreateTeam}>Submit</button>
+            <button className="bg-gray-800 hover:bg-gray-700  text-lg text-white font-nunito py-2 mt-2 px-4 border border-white rounded-full focus:outline-none focus:shadow-outline" onClick={handleCreateTeam}>Submit</button>
           </div>
         </div>
       </Modal>
@@ -116,7 +119,7 @@ export default function League() {
         </div>
       )}
 
-      <div className="flex bg-gray-800 w-11/12 md:w-4/5 mx-auto rounded-lg mt-8 items-center">
+      <div className="flex bg-gray-800 text-white text-base w-11/12 md:w-4/5 mx-auto rounded-lg mt-8 items-center">
         <h2 className="text-white text-base md:text-4xl font-nunito w-1/6 md:w-1/4 text-center">Rank</h2>
         <h2 className="text-white text-base font-nunito md:text-3xl w-1/4 md:w-1/4 text-center">Team</h2>
         <h2 className="text-white text-base font-nunito md:text-3xl w-1/6 md:w-1/4 text-center">Score</h2>
