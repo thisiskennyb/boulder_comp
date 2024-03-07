@@ -16,7 +16,7 @@ export default function LeaguesHome() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-night">
       {/* Text at the top */}
-      <h1 className="text-white font-nunito text-3xl my-8">Welcome to Leagues Home</h1>
+      <h1 className="text-white font-nunito text-xl md:text-3xl my-8">Welcome to Leagues Home!</h1>
       
       {/* Grid container for buttons and icons */}
       <div className="grid grid-cols-2 gap-24">
