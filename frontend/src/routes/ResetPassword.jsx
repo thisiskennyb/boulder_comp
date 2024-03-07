@@ -59,21 +59,21 @@ export default function ResetPassword() {
   };
 
   return (
-    <>
-      <div className="mt-5">
-        <div className="flex items-center justify-center mx-auto">
+    <div className="bg-night min-h-screen">
+      <div className="py-5">
+        <div className="flex items-center text-white font-nunito text-base justify-center mx-auto">
           <div className="flex flex-col items-start">
-            <div className="font-nunito">{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
-            <div className="font-nunito">{capitalValid ? '✅' : '❌'} At least one capital letter</div>
-            <div className="font-nunito">{numberValid ? '✅' : '❌'} At least one number</div>
-            <div className="font-nunito">{specialCharValid ? '✅' : '❌'} At least one special character</div>
+            <div>{lengthValid ? '✅' : '❌'} At least 8 characters long</div>
+            <div>{capitalValid ? '✅' : '❌'} At least one capital letter</div>
+            <div>{numberValid ? '✅' : '❌'} At least one number</div>
+            <div>{specialCharValid ? '✅' : '❌'} At least one special character</div>
           </div>
         </div>
       </div>
-
+      
       <div className="flex items-center justify-center md:mt-10 mt-7">
-        <div className="flex flex-col shadow-lg border-solid border w-20px items-center max-w-md p-4 mb-4 bg-gray-100 rounded-md">
-          <label className="font-rubik font-black text-4xl">Reset Password</label>
+        <div className="flex flex-col shadow-lg border-solid border-white w-2/3 md:w-1/3 items-center p-8 bg-gray-700 rounded-md">
+          <label className="font-nunito text-white font-black text-3xl md:text-4xl py-2">Reset Password</label>
 
           <div className="relative">
             <input
@@ -100,11 +100,11 @@ export default function ResetPassword() {
             </div>
           </div>
 
-          <button onClick={handleConfirmPassword} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+          <button onClick={handleConfirmPassword} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito mt-4 py-2 px-4 md:text-lg md:py-3 md:px-6 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
             Submit
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
