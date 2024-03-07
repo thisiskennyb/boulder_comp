@@ -228,7 +228,7 @@ export default function Dashboard() {
                 </button>
               </div>
               {selectedComponent === 'DashboardLeagues' && <DashboardLeagues />}
-              {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends}/>}
+              {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends} handleLogSend={handleLogSend} />}
               {selectedComponent === 'DashboardInfo' && <DashboardInfo />}
             </>
           ) : (
