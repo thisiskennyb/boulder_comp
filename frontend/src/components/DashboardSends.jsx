@@ -1,6 +1,6 @@
 export default function DashboardSends({userSends, handleLogSend}){
 
-    console.log(userSends)
+    
     return (
         <div>
         {userSends.length == 0 ? (

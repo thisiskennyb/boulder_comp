@@ -28,9 +28,9 @@ export default function SelectLeagueImage() {
         else {
             toast.error('something went wrong')
         }
-        console.log(response.data)
+        
     };
-    console.log(picture)
+    
 
     return (
         <div className="bg-night min-h-screen flex flex-col justify-center items-center">
