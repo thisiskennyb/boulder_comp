@@ -5,6 +5,8 @@ import { createTeam, joinTeam, getTeamsByLeague } from "../api/Team/backend_call
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
 import UserContext from "../contexts/UserContext";
+import defaultImage from "../assets/default_image.png";
+
 
 export default function League() {
   const { leagueId } = useParams();
@@ -103,15 +105,21 @@ export default function League() {
 
       <div className="flex items-center text-white font-nunito text-3xl justify-center">
         {leagueData && userDashboard?.user == leagueData.moderator ? (
-        <button className="mt-6 mr-10 bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavitageImageUpload}>upload image</button>
+        <button className="mt-6 ml-2 mr-10 bg-gray-800 font-nunito text-white text-sm md:text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavitageImageUpload}>upload image</button>
         ):(
         <></>
         )}
+                    {leagueData && leagueData.picture ? (
+              <img src={leagueData?.picture} className="w-40 h-45 rounded-full mx-2" />
+            ) : (
+              <img src={defaultImage} alt='placeholder for league' className="w-40 h-40 rounded-full mx-2" />
+            )}
         
-      <img src={leagueData.picture} alt='placeholder for league' className="w-20 h-35 rounded-full mb-4 mx-4" />
+        {/* <img src={leagueData.picture} alt="no image available" className="w-20 h-35 rounded-full mb-4 mx-4" /> */}
+     
       <div className="text-white font-nunito text-base md:text-3xl">{leagueData.league_name}</div>
       </div>
-      <div className="text-white font-nunito text-xs md:text-xl text-center">START DATE: {leagueData.start_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DATE: {leagueData.end_date}</div>
+      <div className="mt-5 text-white font-nunito text-xs md:text-xl text-center">START DATE: {leagueData.start_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DATE: {leagueData.end_date}</div>
       <div className="text-white font-nunito text-sm md:text-xl text-center">TEAM SIZE: {leagueData.team_size}</div>
       {new Date() < new Date(leagueData.start_date) && !leagueData.participants.includes(userDashboard.user) && (
         <div className="flex flex-col items-center mt-4">
