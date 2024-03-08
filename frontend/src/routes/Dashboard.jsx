@@ -31,7 +31,7 @@ export default function Dashboard() {
 
     const [promptToggle, setPromptToggle] = useState(true)
 
-    const [selectedComponent, setSelectedComponent] = useState(null);
+    const [selectedComponent, setSelectedComponent] = useState('DashboardLeagues');
 
     const handleButtonClick = (componentName) => {
         setSelectedComponent(componentName);
