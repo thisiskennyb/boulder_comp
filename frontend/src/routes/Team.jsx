@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { getTeam } from "../api/Team/backend_calls";
 import TeamSendTable from "../components/TeamSendTable";
 import UserContext from "../contexts/UserContext";
+import defaultImage from "../assets/default_image.png"
 
 export default function Team() {
   let { teamId } = useParams();
@@ -84,26 +85,39 @@ export default function Team() {
 
   return (
     <div className="bg-night min-h-screen py-4">
-    <div className="container mx-auto">
-      {/* Team Information */}
-      <div className="text-center mb-6">
-      {team && userDashboard?.user == team.captain.id ? (<button onClick={handleNavitageImageUpload}>upload image</button>):(<></>)}
-      <img src={team?.team_picture} alt='placeholder for league' className="w-20 h-35 rounded-full mb-4 mx-4" />
-        <h1 className="text-white font-nunito text-2xl font-bold">{team?.team_name}</h1>
-        <hr className="border-t-2 border-gray-300 my-2" />
-        <div className="flex justify-around">
-          <div>
-            <p className="text-white font-nunito text-xl">Team Score: {team?.score}</p>
+      <div className="container mx-auto">
+        {/* Team Information */}
+        <div className="text-center mb-6">
+          <div className="flex items-center justify-center mb-4">
+            {team && userDashboard?.user == team.captain.id ? (
+              <button className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mr-2" onClick={handleNavitageImageUpload}>
+                Upload Image
+              </button>
+            ) : (
+              <></>
+            )}
+            {team && team.team_picture ? (
+              <img src={team?.team_picture} alt='placeholder for league' className="w-40 h-45 rounded-full mx-2" />
+            ) : (
+              <img src={defaultImage} alt='placeholder for league' className="w-40 h-40 rounded-full mx-2" />
+            )}
           </div>
-          <div>
-            <p className="text-white font-nunito text-xl">Rank: {team?.rank}</p>
+  
+          <h1 className="text-white font-nunito text-3xl font-bold">{team?.team_name}</h1>
+          <hr className="border-t-2 border-gray-300 my-2" />
+          <div className="flex justify-around">
+            <div>
+              <p className="text-white font-nunito text-xl">Team Score: {team?.score}</p>
+            </div>
+            <div>
+              <p className="text-white font-nunito text-xl">Rank: {team?.rank}</p>
+            </div>
           </div>
         </div>
+  
+        {/* Render TeamSendTable component with sorted team send data */}
+        <TeamSendTable teamSends={sortedTeamSends} />
       </div>
-
-      {/* Render TeamSendTable component with sorted team send data */}
-      <TeamSendTable teamSends={sortedTeamSends} />
-    </div>
     </div>
   );
 }
