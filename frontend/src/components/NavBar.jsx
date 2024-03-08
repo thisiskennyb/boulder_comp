@@ -23,6 +23,8 @@ export default function NavBar() {
 
     const token = localStorage.getItem('token')
     const { userDashboard } = useContext(UserContext)
+
+   
     
     const handleLogout = () => {
         var keyToRemove = 'token';

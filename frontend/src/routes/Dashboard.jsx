@@ -55,7 +55,6 @@ export default function Dashboard() {
             try {
                 const userDashboardData = await getUserDashboard();
                 if (userDashboardData.status === 200) {
-                    console.log(userDashboardData.data.highest_boulder_grade);
                     setHighestBoulderGrade(userDashboardData.data.highest_boulder_grade);
                 } else {
                     console.error('Error fetching user dashboard data:', userDashboardData.statusText);

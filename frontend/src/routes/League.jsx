@@ -109,10 +109,10 @@ export default function League() {
         ):(
         <></>
         )}
-                    {leagueData && leagueData.picture ? (
+        {leagueData && leagueData?.picture ? (
               <img src={leagueData?.picture} className="w-40 h-45 rounded-full mx-2" />
             ) : (
-              <img src={defaultImage} alt='placeholder for league' className="w-40 h-40 rounded-full mx-2" />
+              <img src={defaultImage} className="w-40 h-40 rounded-full mx-2" />
             )}
         
         {/* <img src={leagueData.picture} alt="no image available" className="w-20 h-35 rounded-full mb-4 mx-4" /> */}
