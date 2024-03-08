@@ -43,6 +43,8 @@ function App() {
   const [userDashboard, setUserDashboard] = useState(null)
 
 
+
+
  // This is here to be used in context from dashboard
   const fetchUserTeams = async () => {
     const token = localStorage.getItem('token')
@@ -82,7 +84,7 @@ const getHighestBoulderGrade = async () => {
     setUserToken(token)
   }
 
-   console.log(usersTeams)
+  
   return (
     <div>
     <UserContext.Provider value={{
@@ -91,7 +93,8 @@ const getHighestBoulderGrade = async () => {
       fetchUserTeams,
       highestBoulderGrade,
       setHighestBoulderGrade,
-      userDashboard
+      userDashboard,
+      setUserDashboard
       }}>
     <Router>
       <ToastContainer />

@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { uploadAvatar } from "../api/Auth/backend_calls";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useContext } from 'react'
+import UserContext from "../contexts/UserContext";
 
 
 export default function SelectAvatar() {
 
+    const { setUserDashboard } = useContext(UserContext)
     const { userId } = useParams();
     // const [leagueObj, setLeagueObj] = useState('');
     const [picture, setPicture] = useState('');
@@ -21,8 +24,10 @@ export default function SelectAvatar() {
         let userDashboardObj = { avatar: picture };
         const response = await uploadAvatar(userDashboardObj, userId)
         if (response.status == 200) {
+            setUserDashboard(response.data)
             toast.success(`image uploaded succussfully`);
             navigate(`/dashboard`)
+            // window.location.reload();
 
         }
         else {
