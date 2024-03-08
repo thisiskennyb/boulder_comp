@@ -15,6 +15,21 @@ import boulderCompHome from '../assets/boulderCompHome.png'
 export default function Dashboard() {
     const { usersTeams, fetchUserTeams, highestBoulderGrade, setHighestBoulderGrade} = useContext(UserContext)
    
+   
+    function getTodayDate() {
+      const today = new Date();
+      const year = today.getFullYear();
+      let month = today.getMonth() + 1;
+      let day = today.getDate();
+  
+      // Add leading zero if month/day is less than 10
+      month = month < 10 ? '0' + month : month;
+      day = day < 10 ? '0' + day : day;
+  
+      return `${year}-${month}-${day}`;
+  }
+   
+   
     // usersTeams --> all of the teams a user is on
     // fetchUserTeams --> async function that fetches all of the teams a user is on, and updates state of usersTeams
     const [ selectDashboardGrade, setSelectDashboardGrade ] = useState("v3")
@@ -25,7 +40,7 @@ export default function Dashboard() {
     const [boulderName, setBoulderName] = useState('');
     const [areaName, setAreaName] = useState('');
     const [boulderGrade, setBoulderGrade] = useState('');
-    const [sendDate, setSendDate] = useState('');
+    const [sendDate, setSendDate] = useState(getTodayDate());
     const [userSends, setUserSends] = useState([]);
     const [userDashboard, setUserDashboard] = useState(null)
 
@@ -68,6 +83,8 @@ export default function Dashboard() {
                 }
             }
         };
+
+
     
         fetchUserSend();
         fetchUserDashboard();
@@ -191,7 +208,7 @@ export default function Dashboard() {
                   <select value={boulderGrade} onChange={handleBoulderGradeInput} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500">
                     {versionOptions}
                   </select>
-                  <input type="date" value={sendDate} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
+                  <input type="date" max={getTodayDate()} value={sendDate} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
                   <span className='font-nunito'>Flash</span>
                   <input
                     id="example-input"
