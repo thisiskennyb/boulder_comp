@@ -19,7 +19,6 @@ export default function JoinLeague() {
   }, []);
 
   const viewHandler = (league_id) => {
-    console.log(league_id);
     navigate(`/league/${league_id}`);
   };
 
