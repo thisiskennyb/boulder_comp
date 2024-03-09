@@ -213,7 +213,10 @@ export default function Dashboard() {
                   <select value={boulderGrade} onChange={handleBoulderGradeInput} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500">
                     {versionOptions}
                   </select>
-                  <input type="date" max={getTodayDate()} value={sendDate} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
+
+                {/* Removed maxvalue while people are testing in production */}
+
+                  <input type="date" value={sendDate} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500" placeholder="Email" onChange={handleSendDateInput}/>
                   <span className='font-nunito'>Flash</span>
                   <input
                     id="example-input"

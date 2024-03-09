@@ -27,12 +27,13 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     ));
     
     return (
-        <div className="h-screen w-full">
+        <div className="">
             <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
-            <div className="flex justify-center h-1/2 py-4 md:h-1/3 md:py-10">
-                <div className="flex min-w-min">
-           {!isModalOpen && gradeBars}</div>
-        </div>
+            <div className="flex justify-center">
+                
+           {!isModalOpen && gradeBars}
+           </div>
+      
         {userSends.length == 0 ? (
             
                         <div className="flex flex-col items-center text-white">
@@ -40,8 +41,8 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
                         <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
                     </div>
         ):(
-            <div className="bg-night">
-            <div className="flex bg-gray-800 w-4/5 mx-auto rounded-lg">
+            <div className="bg-night h-min-h py-2">
+            <div className="flex bg-gray-800 w-4/5 mx-auto rounded-lg mt-2">
             <h2 className="text-white text-base md:text-4xl font-nunito w-1/3 text-center">Boulder</h2>
             <h2 className="text-white text-base font-nunito md:text-4xl w-1/3 text-center">Grade</h2>
             <h2 className="text-white text-base font-nunito md:text-4xl w-1/3 text-center">Send Date</h2>
