@@ -5,11 +5,11 @@ const GradeBar = ({ grade, count, total, barColor }) => {
     const percentage = (count / total) * 100;
 
     return (
-        <div className="mb-2">
+        <div className="flex shrink-2">
             <div className="flex flex-col items-center mx-2 min-h-screen">
                 <div className="bg-gray-300 h-64 w-14 flex flex-col justify-end rounded-md relative">
                     <motion.div
-                        className="rounded-md "
+                        className="rounded-md"
                         style={{ height: `${percentage}%`, backgroundColor: barColor }} 
                         initial={{ height: 0 }}
                         animate={{ height: `${percentage}%` }}

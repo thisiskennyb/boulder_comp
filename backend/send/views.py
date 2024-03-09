@@ -49,6 +49,7 @@ class SendView(APIView):
             "v14": 14,
             "v15": 15,
             "v16": 16,
+            "v17": 17,
 
         }
         user = request.user
@@ -71,8 +72,8 @@ class SendView(APIView):
         # send_grade - (highestscore - 3)
         user_dashboard = UserDashboard.objects.get(user=user)
         user_highest_grade = user_dashboard.highest_boulder_grade #For getting users highest grade
-        boulder_grade = boulder.grade
-        score = grade_scoring[boulder_grade] - (grade_scoring[user_highest_grade.lower()] - 3)
+        # boulder_grade = boulder.grade
+        score = grade_scoring[grade] - (grade_scoring[user_highest_grade.lower()] - 3)
         ###### Prevent a negative score from being applied #########
         if score < 0:
              score = 0

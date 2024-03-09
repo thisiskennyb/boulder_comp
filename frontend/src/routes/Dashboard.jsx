@@ -46,7 +46,7 @@ export default function Dashboard() {
     const [isChecked, setIsChecked] = useState(false);
     const [boulderName, setBoulderName] = useState('');
     const [areaName, setAreaName] = useState('');
-    const [boulderGrade, setBoulderGrade] = useState('');
+    const [boulderGrade, setBoulderGrade] = useState('v1');
     const [sendDate, setSendDate] = useState(getTodayDate());
     const [userSends, setUserSends] = useState([]);
     const [userDashboard, setUserDashboard] = useState(null)
@@ -124,9 +124,9 @@ export default function Dashboard() {
         setModalOpen(false);
         //Resets the state for modal on close
         setBoulderName('');
-        setBoulderGrade('');
+        setBoulderGrade('v1');
         setAreaName('');
-        setSendDate('');
+        setSendDate(getTodayDate());
         setIsChecked(false);
         }
     // Updates Teams User is on each time the modal for log send opens/closes
@@ -135,9 +135,6 @@ export default function Dashboard() {
             fetchUserTeams()
     
     }, [isModalOpen]);
-
-
-
 
 
     const handleLogSend = () => {
@@ -252,7 +249,7 @@ export default function Dashboard() {
                 </button>
               </div>
               {selectedComponent === 'DashboardLeagues' && <DashboardLeagues />}
-              {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends} handleLogSend={handleLogSend} />}
+              {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends} handleLogSend={handleLogSend} isModalOpen={isModalOpen} />}
               {selectedComponent === 'DashboardInfo' && <DashboardInfo />}
             </>
           ) : (

@@ -1,6 +1,6 @@
 import GradeBar from "./GradeBar";
 
-export default function DashboardSends({userSends, handleLogSend}){
+export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     // This function updates the frequency for user sends
     // Creates a object with {grade: frequency}
 
@@ -17,16 +17,21 @@ export default function DashboardSends({userSends, handleLogSend}){
     // Sorting gradeCounts by grade before mapping
     //Map bars in order to give proper pyramid
     const gradeBars = Object.entries(gradeCounts)
-    .sort(([gradeA], [gradeB]) => gradeA.localeCompare(gradeB)) // Sort the grade keys
+    .sort(([gradeA], [gradeB]) => {
+        const gradeNumberA = parseInt(gradeA.slice(1));
+        const gradeNumberB = parseInt(gradeB.slice(1));
+        return gradeNumberA - gradeNumberB;
+    })
     .map(([grade, count]) => (
         <GradeBar key={grade} grade={grade} count={count} total={totalSends} barColor={"#F4AC45"} />
     ));
     
     return (
-        <div className="h-screen">
+        <div className="h-screen w-full">
             <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
             <div className="flex justify-center h-1/2 py-4 md:h-1/3 md:py-10">
-           {gradeBars}
+                <div className="flex min-w-min">
+           {!isModalOpen && gradeBars}</div>
         </div>
         {userSends.length == 0 ? (
             
