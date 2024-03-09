@@ -44,8 +44,6 @@ export default function NavBar() {
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 bg-gray-700 text-white hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
@@ -86,11 +84,9 @@ export default function NavBar() {
     
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-700 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
+                    <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12">
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="h-8 w-8 mt-1 rounded-full"
                         src={userDashboard?.avatar}
                         alt=""
                       />

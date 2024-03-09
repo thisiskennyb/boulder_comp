@@ -232,14 +232,14 @@ export default function Dashboard() {
             </>
           ) : (
             <>
-              <div className="font-nunito text-center">
+              <div className="font-nunito text-center text-white text-lg md:text-4xl py-8">
                 Please Enter your highest boulder grade
               </div>
               <div className="flex flex-col items-center">
-                <select value={selectDashboardGrade} onChange={handleHighestBoulderInput} className="p-2 my-3 border border-gray-300 rounded-md font-nunito focus:outline-none focus:border-blue-500">
+                <select value={selectDashboardGrade} onChange={handleHighestBoulderInput} className="p-2 my-3 border border-gray-500 rounded-md font-nunito focus:outline-none focus:border-blue-500">
                   {versionOptions}
                 </select> 
-                <button onClick={handleSubmitHighestGrade} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
+                <button onClick={handleSubmitHighestGrade} className="bg-gray-800 hover:bg-gray-700 text-white font-nunito mt-2 py-2 px-4 border border-gray-700 rounded-full focus:outline-none focus:shadow-outline">
                   Submit
                 </button>
               </div>

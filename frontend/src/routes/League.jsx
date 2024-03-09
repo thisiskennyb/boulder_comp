@@ -103,32 +103,29 @@ export default function League() {
         </div>
       </Modal>
 
-      <div className="flex items-center text-white font-nunito text-3xl justify-center">
-        {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
-        {leagueData && userDashboard?.user == leagueData.moderator && (
-        <button className="mt-6 ml-2 mr-10 bg-gray-800 font-nunito text-white text-sm md:text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavitageImageUpload}>upload image</button>
-        )}
+      <div className="flex flex-col py-4 items-center text-white font-nunito text-3xl justify-center">
+      
         {/* When we have league data but no picture is available */}
        {leagueData && !leagueData.picture && (
-         <img src={defaultImage} alt="no image available" className="w-20 h-35 rounded-full mb-4 mx-4" />
+         <img src={defaultImage} alt="no image available" className=" size-32 md:size-40 rounded-full my-6" />
        )}
       {/* When we have league data and picture is not null */}
       {leagueData && leagueData.picture && (
-         <img src={leagueData.picture} alt="no image available" className="w-20 h-35 rounded-full mb-4 mx-4" />
+         <img src={leagueData.picture} alt="no image available" className="size-32 md:size-40 rounded-full my-4" />
        )}
+         {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
+         {leagueData && userDashboard?.user == leagueData.moderator && (
+        <button className="my-4 bg-gray-800 font-nunito text-white text-lg md:text-2xl rounded-md border border-white hover:bg-gray-600 hover:text-white transition-colors duration-300" onClick={handleNavitageImageUpload}>UPLOAD</button>
+        )}
        
-       
-        
-        
-     
-      <div className="text-white font-nunito text-base md:text-3xl">{leagueData.league_name}</div>
       </div>
-      <div className="mt-5 text-white font-nunito text-xs md:text-xl text-center">START DATE: {leagueData.start_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DATE: {leagueData.end_date}</div>
+      <div className="text-white text-center text-2xl font-nunito md:text-3xl">{leagueData.league_name}</div>
+      <div className="my-4 text-white font-nunito text-xs md:text-xl text-center">START DATE: {leagueData.start_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DATE: {leagueData.end_date}</div>
       <div className="text-white font-nunito text-sm md:text-xl text-center">TEAM SIZE: {leagueData.team_size}</div>
       {/* Check that the date today is before the league start date, and that user is not already participating in the league */}
       {new Date() < new Date(leagueData.start_date) && !leagueData.participants.includes(userDashboard.user) && (
         <div className="flex flex-col items-center mt-4">
-        <button className="w-1/3 md:w-1/4 min-h-min text-white text-base md:text-xl font-nunito bg-gray-800 border border-white rounded-lg hover:bg-gray-700" onClick={openModal}>Create team</button>
+        <button className="mt-4 min-w-min text-white text-base md:text-xl font-nunito bg-gray-800 border border-white rounded-lg hover:bg-gray-700" onClick={openModal}>CREATE TEAM</button>
         </div>
       )}
 
@@ -153,9 +150,9 @@ export default function League() {
                 <p className="text-white text-sm md:text-xl font-nunito w-1/6 md:w-1/4 text-center">{team.score}</p>
                 <div className="flex justify-between items-center w-1/4 md:w-1/4">
                   <div className="flex items-center w-1/12 md:w-1/2">
-                    <button className=" bg-gray-800 min-w-min w-1/4 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300"
+                    <button className=" bg-gray-800 min-w-min w-1/4 font-nunito text-white text-xs md:text-2xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300"
                       onClick={() => handleViewTeam(team.id)}
-                      >View
+                      >VIEW
                     </button>
                   </div>
 
