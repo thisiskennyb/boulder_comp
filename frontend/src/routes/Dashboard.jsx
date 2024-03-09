@@ -14,6 +14,13 @@ import boulderCompHome from '../assets/boulderCompHome.png'
 
 export default function Dashboard() {
     const { usersTeams, fetchUserTeams, highestBoulderGrade, setHighestBoulderGrade} = useContext(UserContext)
+
+
+    
+
+    // usersTeams will get us all the teams a user is a part of
+
+    // For each Team, we want to check the 
    
    
     function getTodayDate() {
@@ -46,7 +53,8 @@ export default function Dashboard() {
 
     const [promptToggle, setPromptToggle] = useState(true)
 
-    const [selectedComponent, setSelectedComponent] = useState('DashboardLeagues');
+    const [selectedComponent, setSelectedComponent] = useState('DashboardSends');
+   
 
     const handleButtonClick = (componentName) => {
         setSelectedComponent(componentName);
