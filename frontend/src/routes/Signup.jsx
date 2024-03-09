@@ -95,7 +95,7 @@ export default function Signup() {
       </div>
       <div className="flex items-center justify-center md:mt-10 mt-7">
         <div className="flex flex-col shadow-lg border-solid border-white border w-20px items-center max-w-md p-4 mb-4 bg-gray-800 rounded-md">
-          <label className="font-rubik text-white text-4xl">Sign Up</label>
+          <label className="font-nunito-black font-extrabold text-white text-4xl">Sign Up</label>
           <input
             id="signup-input"
             type="text"
@@ -138,8 +138,8 @@ export default function Signup() {
             </div>
           </div>
 
-          <button onClick={handleRegister} className="bg-night text-white font-nunito rounded-2xl border border-jet hover:bg-gray hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
-            Submit
+          <button onClick={handleRegister} className="bg-night text-white font-nunito-black font-extrabold text-base rounded-2xl border border-jet hover:bg-gray hover:text-white min-h-min px-3 my-2 transition-colors duration-300">
+            SUBMIT
           </button>
         </div>
       </div>

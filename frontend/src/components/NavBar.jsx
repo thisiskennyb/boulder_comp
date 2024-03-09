@@ -4,6 +4,7 @@ import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline'
 import horizontalLogo from "../assets/horizOption3White.png"
 import { useContext } from 'react'
 import UserContext from "../contexts/UserContext";
+import default_img from "../assets/default_image.png"
 
 const navigation = [
   { name: 'Home', href: '/', current: false },
@@ -87,7 +88,7 @@ export default function NavBar() {
                     <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12">
                       <img
                         className="h-8 w-8 mt-1 rounded-full"
-                        src={userDashboard?.avatar}
+                        src={userDashboard?.avatar || default_img}
                         alt=""
                       />
                     </Menu.Button>
