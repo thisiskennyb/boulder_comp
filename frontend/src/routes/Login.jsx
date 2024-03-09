@@ -77,7 +77,7 @@ export default function Login({ handleToken }) {
         </Modal>
 
         <div className="flex flex-col shadow-lg border-solid border-white border w-20px items-center max-w-md p-4 mb-4 bg-gray-800 rounded-xl">
-          <label className="font-rubik text-white text-4xl">Login</label>
+          <label className="font-nunito-black font-extrabold text-white text-4xl">Login</label>
           <input
             id="login-input-two"
             type="text"
@@ -93,8 +93,8 @@ export default function Login({ handleToken }) {
             onChange={handlePasswordChange}
           />
           <a onClick={openModal} className="text-sm text-blue-500 font-nunito my-3 hover:text-purple-500" href="">forgot password?</a>
-          <button onClick={handleLogin} className="bg-night text-white font-nunito rounded-2xl border border-white hover:bg-gray-800 hover:text-white px-4 py-2 mt-2 transition-colors duration-300">
-            Submit
+          <button onClick={handleLogin} className="bg-night min-w-min px-3 my-3 text-white text-base font-nunito-black font-extrabold rounded-2xl border border-white hover:bg-gray-800 hover:text-white transition-colors duration-300">
+            SUBMIT
           </button>
         </div>
         <div className="font-nunito text-white">Don't have and account? <Link to='/signup' className="text-blue-500 hover:text-purple-500">Sign Up</Link></div>

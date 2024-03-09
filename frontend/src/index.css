@@ -12,3 +12,9 @@ body {
     padding: 0;
 }
 
+/* This gives us access to all of the different weights of Nunito */
+@font-face {
+    font-family: 'Nunito';
+    src: url('./fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+  }
+

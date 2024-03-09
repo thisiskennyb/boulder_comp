@@ -26,9 +26,9 @@ export default function Home() {
         <p className="text-white font-nunito text-lg text-center">It brings climbers together by offering the opportunity to compete with friends or strangers, fostering a vibrant global community.</p>
         <hr className="w-3/4"></hr>
         <h4 className="text-white font-nunito text-xl">Join Today!</h4>
-        <button className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleSignUpNavigate}>Sign Up</button>
+        <button className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleSignUpNavigate}>SIGN UP</button>
         <h4 className="text-white font-nunito text-xl">More about rules and scoring</h4>
-        <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleScoringNavigate}>Scoring</button>
+        <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleScoringNavigate}>SCORING</button>
             </div>
         </div>
     )

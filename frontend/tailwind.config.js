@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: { 
         "nunito": ['Nunito', 'sans-serif'],
+        "nunito-black": ['Nunito Black', 'sans-serif'],
         "rubik": ['Rubik Scribble', 'sans-serif']
       },
       colors: {
