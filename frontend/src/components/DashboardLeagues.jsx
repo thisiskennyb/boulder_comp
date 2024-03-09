@@ -49,7 +49,7 @@ export default function DashboardLeagues(){
                                 {/* This div helps us position our button for middle, but also gives us some control over the fractional widths
                                 With this we can use min-w-min to make minimum width the width the min width of our content, like View for example */}
                                 <div className="flex justify-center items-center w-1/12 md:w-1/5">
-                                <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs rounded-lg border border-white ml-5 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => handleViewLeague(team.league.id)}>view</button>
+                                <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs md:text-lg rounded-lg border border-white ml-5 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => handleViewLeague(team.league.id)}>VIEW</button>
                                 </div>
                                 </div>
                                     <hr className="w-11/12 md:w-4/5"></hr>

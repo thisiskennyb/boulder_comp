@@ -87,20 +87,21 @@ export default function Team() {
     <div className="bg-night min-h-screen py-4">
       <div className="container mx-auto">
         {/* Team Information */}
-        <div className="text-center mb-6">
-          <div className="flex items-center justify-center mb-4">
-            {team && userDashboard?.user == team.captain.id ? (
-              <button className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mr-2" onClick={handleNavitageImageUpload}>
-                Upload Image
-              </button>
-            ) : (
-              <></>
-            )}
+        <div className="text-center">
+          <div className="flex flex-col items-center justify-center">
+            {/* Check for picture, render placeholder if not picture */}
             {team && team.team_picture ? (
-              <img src={team?.team_picture} alt='placeholder for league' className="w-40 h-45 rounded-full mx-2" />
+              <img src={team?.team_picture} alt='placeholder for league' className="size-32 rounded-full my-4" />
             ) : (
-              <img src={defaultImage} alt='placeholder for league' className="w-40 h-40 rounded-full mx-2" />
+              <img src={defaultImage} alt='placeholder for league' className="size-32 rounded-full my-4" />
             )}
+
+            {team && userDashboard?.user == team.captain.id && (
+              <button className="bg-gray-800 font-nunito min-w-min text-white text-lg md:text-xl rounded-md border border-white hover:bg-gray-600 hover:text-white" onClick={handleNavitageImageUpload}>
+                UPLOAD
+              </button>
+            )}
+            
           </div>
   
           <h1 className="text-white font-nunito text-3xl font-bold">{team?.team_name}</h1>
