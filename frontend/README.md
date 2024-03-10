@@ -1,3 +1,24 @@
+
+# Run Frontend Local
+
+1. Install Dependencies
+
+Make sure you are in your `boulder_comp/frontend` folder
+
+Run the following command
+```
+npm install
+```
+
+2. Run the development server
+
+```
+npm run dev
+```
+
+[Back to Table of Contents](../README.md#table-of-contents)
+
+
 # React Toastify Setup
 
 To get started, you will need to install:
