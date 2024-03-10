@@ -1,17 +1,47 @@
 ## Boulder Comp
 
-Visit: [here](https://www.google.com/search?q=google&oq=google++&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIMCAEQIxgnGIAEGIoFMg4IAhBFGCcYOxiABBiKBTIGCAMQRRg8MgYIBBBFGDwyBggFEEUYQTIGCAYQRRhBMgYIBxBFGEHSAQg1MDc3ajBqN6gCALACAA&sourceid=chrome&ie=UTF-8)
+Visit: [here](http://3.143.247.65/)
 
 ---
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+    - [Setting Up Your Own Dockerized Version](#setting-up-your-own-dockerized-version)
+    - [Using the App](#using-the-app)
+        - [Purpose](#purpose)
+        - [Pages](#pages)
+            - [Dashboard](#dashboard)
+            - [Leagues](#leagues)
+            - [Scoring](#scoring)
+
+- [Rock Climbing](#rock-climbing)
+    - [What is Rock Climbing?](#what-is-rock-climbing)
+    - [Grading System](#grading-system)
+    - [Competition Scoring](#competition-scoring)
+- [Contributions](#contributions)
+
 
 ### Purpose
 The purpose for this project is to serve my friends in the rock climbing community to help organize bouldering competitions
 
 #### Pages
-Dashboard - displays users stats along with all of the leagues they are a participant in along with their place and team name for the given league
-Leagues - gives the user the option to join or create a league
+
+## Dashboard
+
+Displays users stats along with all of the leagues they are a participant in along with their place and team name for the given league
+
+Back to [Table of Contents](#table-of-contents)
+
+## Leagues
+
+Gives the user the option to join or create a league
 	- Leagues will require a start and end date along with a name
  	- Users can join a league by either creating a team within the league or joining an already existing team
+
+Back to [Table of Contents](#table-of-contents)
+
+## Scoring
 
 The rules are simple:
 - Scoring is based on the grade of the hardest boulder the user has sent
@@ -21,7 +51,48 @@ The rules are simple:
     - grade/points: v7/3points v6/2points v5/1point
     - v7 flash = 6points
   
+Back to [Table of Contents](#table-of-contents)
 
+## Rock Climbing
+What is Rock Climbing? In its simplest form its the act of moving across rocky terrain or artificially 'rocky' terrain.
+
+To provide some additional context you can watch a short video on the history of climbing [here](https://www.youtube.com/watch?v=uUrrOdzKB3Q)
+
+If you enjoyed the context of the above video, you can get a quick explaination of competition climbing history [here](https://www.youtube.com/watch?v=ik9WkEEkLW4)
+
+Back to [Table of Contents](#table-of-contents)
+
+## Grading System
+
+In present day bouldering the V-scale, named after climber John Vermin Sherman, is used to grade the difficulty of a boulder
+
+The scale ranges from V0 to V17 with V17 being the hardest grade currently established.
+
+Back to [Table of Contents](#table-of-contents)
+
+## Competition Scoring
+
+Scoring for this competition is intended to be adjusted upon your current highest grade acheived.
+
+The highest boulder grade can only be changed or edited while you are not in a active league
+
+You should adjust your score to accurately reflect your highest boulder grade before signing up to any leagues
+
+
+When properly filled out, this data levels the playing field for climbers of varying experience competing together
+
+We would like teams to be able to fairly compete no matter the skill composition
+
+
+When completing a climb, you will get 3 points for climbs at your highest difficulty level, losing 1 point for each level below your highest grade.
+
+If your climb was a flash attempt, you will receive double the amount of points
+
+Climbs that are far below your highest difficulty level will be scored as 0, but will still appear in your send feed
+
+To see an example of scoring click [here](#scoring)
+
+Back to [Table of Contents](#table-of-contents)
 
 ---
 
@@ -325,6 +396,8 @@ change
 
 
 ### Contributions
+
+This is a placeholder for contributor information
 
 #### To run local
 All from the backend directory
