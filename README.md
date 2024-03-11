@@ -1,11 +1,27 @@
-## Boulder Comp
+# :climbing: Boulder Comp :climbing:
 
-Want to try the app? Click [here](http://3.143.247.65/)
+Check out Boulder Comp [here](http://3.143.247.65/)!
 
 ---
 
-## Table of Contents
+Welcome to Boulder Comp! The premier platform for climbers to join leagues, form teams, and compete in bouldering challenges, both indoors and outdoors. But first, let's get acquainted with some climbing lingo:
 
+**BOULDERING** is a form of rock climbing that is performed on a boulder or artificial rock walls without the use of ropes or harnesses. Compared to other forms of climbing, bouldering usually involves harder moves for a shorter duration.
+
+**SEND**  a term used by rock climbers, "send" is an abbreviation of the word "ascend." It refers to successfully climbing a route or boulder from start to finish without falling, done cleanly and without any assistance.
+
+Now, let's dive into what Boulder Comp is all about:
+
+Whether you're a seasoned climber or just starting out, Boulder Comp offers an inclusive environment for climbers of all levels. Here's how it works:
+
+- **Join or Create Leagues:** Users have the flexibility to either join existing leagues or create their own. There's no limit to the number of leagues you can participate in. Each league has a defined start and end date, along with a specified team size.
+    
+- **Log Your Sends:** After completing a climb, users can simply navigate to their dashboard and log a send. Users must specify the date of the send to track progress accurately. Sends that fall within the league dates will count for points in that league.
+    
+- **Scoring:** Points are awarded based on the difficulty of your climbs. The Users hardest completed bouldering grade determines their score, ensuring a fair and competitive playing field for participants of all skill levels. Click [here](http://3.143.247.65/rules-and-scoring) to learn more about scoring.
+
+## Table of Contents
+- [What is bouldering?](#what-is-bouldering)
 - [Using the App](#using-the-app)
     - [Purpose](#purpose)
     - [Pages](#pages)
@@ -19,6 +35,9 @@ Want to try the app? Click [here](http://3.143.247.65/)
     - [Competition Scoring](#competition-scoring)
 
 - [Contributions](#contributions)
+
+
+### What is bouldering?
 
 
 
