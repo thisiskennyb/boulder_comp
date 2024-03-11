@@ -7,6 +7,27 @@ from team.models import Team
 from django.db.models import Sum, Count
 from send.models import Send
 
+# Unused imports... Sum, Count, Send
+
+# Not sure if we use this, but set up poorly
+
+## Need to protect queries in try/except
+
+# Response If.. 200 OK and Else... 200 OK is confusing written without the try/excepts
+
+###
+### if pk
+     ##### Try
+              ##### Query league where id = pk
+     ##### Except
+        ##### Pass (Or return a useful status, in this case we want to pass to let the Else handle the case of no pk)
+    #Else
+    #####  Try
+            ###### Query leagues where user is a particpant
+    ###### Except
+    ###### Return 204 No Content if empty? 404 if no leagues with user? status can tell us something if we use it
+
+
 class LeagueView(APIView):
 
     def get(self, request, pk=None):
@@ -24,6 +45,9 @@ class LeagueView(APIView):
             user_leagues = League.objects.filter(participants=user)
             serializer = LeagueSerializer(user_leagues, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
+        
+
+    #### Same as above, Make
 
     #Creates a league, requires league_name, start_date, end_date, team_size, location
     def post(self, request):
@@ -167,6 +191,10 @@ class CreateLeagueTeamView(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)     
   
 
+
+
+#### Whats going on with this?
+### Leagues not getting used, Response?
 
 
 class LeagueStatsView(APIView):

@@ -1,3 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
+### One Day ###
+#####TheDB#####
+#Will Be Ours!#

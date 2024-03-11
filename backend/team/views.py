@@ -15,16 +15,30 @@ class TeamsInLeagueView(APIView):
         serializer = TeamSerializer(league_teams, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+
+
+##### Not Sure this is being used very much? ##########
+##### Cases for needing all teams... stats? ##########
+    
 class AllTeamsView(APIView):
     #Gets all teams
     def get(self, request):
         all_teams = Team.objects.all()
         serializer = TeamSerializer(all_teams, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+##### Not Sure this is being used very much? ##########
+##### Cases for needing all teams... stats? ##########
+
 class TeamView(APIView):
     #Get specific team with team_id
     def get(self, request, pk):
-        #Get a specific team, requires id
+        """
+        Gets a specific team
+        Needs: team_id, expected in url (pk)
+        """
+        #CAN REFACTOR, DATA NOT USED? NEED TRY CATCH, QUERY COULD FAIL
         data = request.data
         team = Team.objects.get(id=pk)
         serializer = TeamSerializer(team)
@@ -32,24 +46,20 @@ class TeamView(APIView):
         return Response(serializer.data)
 
 
-##### Needs some validation or logic in add_team_member method
-## Probably can query League to check team_size and only allow add_team_member to function when members <= team_size
-
     def post(self, request):
         user = request.user
         data = request.data
 
-
-        #Query inside of try
-
         try:
-
-
         # Get the team and league objects
+
+        #DO WE NEED LEAGUE?
+        #TEAM IS HAS ACCESS TO LEAGUE
+        #CAN MAYBE CHECK IF USER ID NOT IN TEAM.LEAGUE.PARTICIPANTS
+
+
             team = Team.objects.get(id=data['team_id'], league_id=data['league_id'])
             league = League.objects.get(id=data['league_id'])
-            print(league.team_size)
-
         # Check if the user is already a member of any other team in the league
             other_teams_in_league = Team.objects.filter(league=league).exclude(id=team.id)
             for other_team in other_teams_in_league:
@@ -87,7 +97,7 @@ class TeamView(APIView):
     def put(self, request, pk):
         user = request.user
         data = request.data
-        print(data)
+       ###USER AND DATA EVEN USED HERE?
 
         try:
             team = Team.objects.get(id=pk)
