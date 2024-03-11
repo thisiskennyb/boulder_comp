@@ -9,6 +9,8 @@ export HOST=localhost:80
 export DB_NAME=db
 export DB_PORT=5432
 
+
+
 ### The Above variables are not necessarily sensitive ###
 ###     So you may leave some values hard coded       ###
 ### In production, you will need to pass all of these ###

@@ -10,6 +10,7 @@ export POSTGRES_DB=boulder_comp
 export POSTGRES_USER=postgres
 export DB_NAME=db
 export DB_PORT=5432
+export PRODUCTION=true
 
 ## Less sensitive variables above
 
