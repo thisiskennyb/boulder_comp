@@ -159,18 +159,44 @@ Now that you know how to Create or Join a League, Log a Send, you are ready to s
 [Back to Table Of Contents](#table-of-contents)
 
 
-### Purpose
-The purpose for this project is to serve my friends in the rock climbing community to help organize bouldering competitions
+## Purpose
+Bouldering Comp is a practical tool designed to organize bouldering competitions for the rock climbing community. The idea for this app originated from a group of friends who annually organize a competition and track all the details using Google Sheets. This app provides a more efficient way to manage leagues and access competition details. It aims to simplify the process for both organizers and participants, offering a user-friendly platform for league organization and information dissemination.
 
-#### Pages
+## Pages
 
-## Dashboard
+#### <ins>Dashboard</ins>
+- The dashboard provides users with a centralized view of their active leagues, a complete list of their overall sends, access to account settings, and the ability to log recent sends
+<br></br>
+**Leagues**
+The leagues tab displays all currently active leagues, including league name, start and end dates, the user's team name within each league, and the team's ranking out of the total number of teams. Users can easily access additional league details by clicking on the 'View' button associated with each league.
+<br></br>
+**Sends**
+The sends tab displays all of the sends the user has logged since they have been a registered app user. Each send include the name of the climb, where the climb is, the difficulty, and the date sent. Once users begin to log climbs a graph will appear showing a breakdown of what they have logged in the last thirty days.
+<br></br>
+**Info**
+This is where the user can upload their avatar image or change any account settings.
+<br></br>
+**Log Send**
+When the user clicks the `log send` tab, a modal pops up prompting the user to enter the name of the climb, area of the climb, date sent, and if they completed the climb on their first go (flash)
 
 Displays users stats along with all of the leagues they are a participant in along with their place and team name for the given league
 
-[Back to Table Of Contents](#table-of-contents)
 
-## Leagues
+#### <ins>Leagues Home</ins>
+
+**Join**
+**Create**
+
+#### <ins>League Page</ins>
+#### <ins>Team Page</ins>
+
+#### <ins>Scoring</ins>
+
+
+
+
+
+
 
 Gives the user the option to join or create a league
 	- Leagues will require a start and end date along with a name
