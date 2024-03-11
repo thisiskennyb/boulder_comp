@@ -114,36 +114,18 @@ def change_password(request):
 
 
 class DashboardView(APIView):
-
+#### MYID NOT BEING USED?? TRY EXCEPT FOR QUERIES
     def get(self, request, pk=None):
         myid = request.user.id
         user_dashboard = get_object_or_404(UserDashboard, user=request.user)
         serializer = UserDashboardSerializer(user_dashboard)
         return Response(serializer.data)
 
-    # def put(self, request, *args, **kwargs):
-    #     user = request.user
-    #     data = request.data
-    #     # print(user)
-    #     # print('above is user, below is data')
-    #     # print(data)
-    #     try:
-    #         user_dashboard = UserDashboard.objects.get(user=user.id)
-    #     except UserDashboard.DoesNotExist:
-    #         return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
-        
-    #     # Update only the fields provided in the request body
-    #     for field, value in data.items():
-    #         setattr(user_dashboard, field, value)
-        
-    #     user_dashboard.save()
-    #     serializer = UserDashboardSerializer(user_dashboard)
-
-        
-    #     return Response(serializer.data, status=status.HTTP_200_OK)
+  
     
 
     def put(self, request, pk):
+        ##### WHAT ARE WE DOING HERE?? USE THE DATA YES OR NO?
         user = request.user
         data = request.data
         print(data, "weeeeeeee")
@@ -174,7 +156,6 @@ class DashboardView(APIView):
 
     def post(self, request):
         dashboard_data = request.data
-        print(dashboard_data)
         # Set the user field to the current user
         dashboard_data['user'] = request.user.pk  # Assuming request.user is the authenticated user
         serializer = UserDashboardSerializer(data=dashboard_data)

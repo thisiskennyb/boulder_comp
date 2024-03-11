@@ -17,20 +17,6 @@ class SendView(APIView):
          return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-
-
-#     Query user to get highest grade
-# Use dictionary for scoring (Compare dictionary of appropriate grade for scoring?)
-# We will check the send grade, against their highest grade
-# If send grade > highest grade, we need to add the difference to 3
-# If send grade <= highest grade, send_grade - (highestscore - 3) where highest score is the key of the users highest grade
-# { 
-# V1: 1,
-# V2: 2,
-# …
-# }
-
-
     def post(self, request):
         grade_scoring = {
             "v1": 1,
@@ -101,7 +87,7 @@ class ValidSendView(APIView):
     def post(self, request):
         user = request.user
         data = request.data
-        print(request.data, 'this is data')
+     
         
         start_date = data['start_date']
         end_date = data['end_date']
@@ -110,27 +96,15 @@ class ValidSendView(APIView):
         total = 0
         for member_id in data['member_ids']:
             member_user = User.objects.get(id=member_id)
-            print(member_user, 'THIS IS A MEMBER OR SOMETHING')
             member_sends = Send.objects.filter(user=member_user, send_date__range=[start_date, end_date])
             score = 0
             for send in member_sends:
                  score += send.score
             total += score
 
-            print(total, 'THIS IS A TOTAL')
-            
-        ##
-
-
-        print(Send.objects.filter(user=user), 'original list of send objects before filter')
-        print(start_date, 'this is start')
-        print(end_date, 'this is end')
-
         filtered_user_sends = Send.objects.filter(user=user, send_date__range=[start_date, end_date])
-        print(filtered_user_sends, 'THIS IS OUR NEW VIEW')
-
+       
         # Convert start and end dates to datetime objects and make them timezone-aware
-        print(filtered_user_sends, 'if something did not break')
         serializer = SendSerializer(filtered_user_sends, many=True)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 

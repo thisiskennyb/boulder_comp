@@ -5,18 +5,45 @@
 - [Docker](#docker)
 - [Email config](#email-setup)
 - [S3 Storage Config ](#aws-s3-setup)
+- [Set up env](#make-env)
 - [ Go to frontend instructions ](../frontend/README.md#run-frontend-local)
 
-
+[Return to Main Table of Contents](../README.md#table-of-contents)
 
 # Endpoints
 
-- [Sign Up](#sign-up)
-- [Sign In ](#sign-in)
-- [Password / Reset ](#resetforgot-password)
+- Authentication
+    - [Sign Up](#sign-up)
+    - [Sign In ](#sign-in)
+    - [Password / Reset ](#resetforgot-password)
+    - [Change Password](#change-password)
+    - [Create User Dashboard](#create-user-dashboard)
+    - [Retrieve User Dashboard](#retrieve-user-dashboard)
+    - [Change User Dashboard](#change-user-dashboard)
+- League
+    - [Create League](#create-league)
+    - [ Get All Leagues User is in](#get-all-leagues-user-is-in)
+    - [Get All Leagues](#get-all-leagues)
+    - [ Get Specific League](#get-specific-league)
+
+- Send
+    - [All Sends for User](#all-sends-for-user)
+    - [Log Send](#log-send)
+
+- Team
+    - [ Create Team in League](#create-team-in-league)
+    - [ Get All Teams User is in](#get-all-leagues-user-is-in)
+    - [ Get All Teams in League](#get-all-teams-in-league)
+    - [ Get Specific Team ](#get-specific-team)
 
 
-[Return to Main Table of Contents](../README.md#table-of-contents)
+
+
+
+
+
+
+
 [Backend Table of contents](#table-of-contents)
 
 # Run Local Backend
@@ -48,7 +75,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-[Return to Main Table of Contents](../README.md#table-of-contents)
+
 [Backend Table of contents](#table-of-contents)
 
 
@@ -75,6 +102,7 @@ EMAIL='example@gmail.com'
 Note: This project is configured to work with gmail only but can be changed in the `settings.py` file in the project directory
 
 [Return to Main Table of Contents](../README.md#table-of-contents)
+
 [Backend Table of contents](#table-of-contents)
 
 
@@ -130,21 +158,11 @@ At this point you should be able to run your code locally, but be sure not to le
 For help with `setting up a script` or `handling environment variables` click [here](#run-local)
 
 [Return to Main Table of Contents](../README.md#table-of-contents)
+
 [Backend Table of contents](#table-of-contents)
 
 
-
-
-# Run Frontend Local
-Steps for running front end here
----
-
-[Run Frontend Local](../frontend/README.md#run-frontend-local)
-
-
-
-
-## make Env
+## make env
 Navigate to `boulder_comp/backend`
 
 Create a .env file
@@ -178,12 +196,10 @@ Inside your .env file update the following variables:
 
 Navigate to your `boulder_comp/backend` directory
 
-
-
-
-[Return to Main Table of Contents](../README.md#table-of-contents)
 [Backend Table of contents](#table-of-contents)
-  
+
+
+
 ### Backend Endpoints
 
 
@@ -210,7 +226,7 @@ localhost:8000/api/v1/accounts/register/signup
 <br><br>
 Note: the redirect route can be specified within the `accounts` app directory in the `activate.py` file
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
 
 
@@ -249,7 +265,7 @@ localhost:8000/api/v1/accounts/register/get-token
 }
 ```
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
 
 ### Reset/Forgot Password
@@ -292,7 +308,7 @@ localhost:8000/password_reset/confirm/
 ```
 ---
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
 
 ### Change Password
@@ -304,7 +320,10 @@ localhost:8000/password_reset/confirm/
 }
 ```
 
-[Back to Table Of Contents](#table-of-contents)
+
+[All Endpoints](#endpoints)
+
+
 ### Create User Dashboard
 - Make a POST request to `localhost:8000/api/v1/accounts/register/create_dashboard/` with the folowing data:
 
@@ -315,7 +334,7 @@ Don't forget to put Authorization Header with Token
     "highest_boulder_grade": "V7"
 }
 ```
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 ### Retrieve User Dashboard
 
 - Make a GET request to `localhost:8000/api/v1/accounts/register/create_dashboard/` with the folowing data:
@@ -336,8 +355,8 @@ Returns something like:
 }
 ```
 
-[Back to Table Of Contents](#table-of-contents)
-### Make Changes to User Dashboard
+[All Endpoints](#endpoints)
+### Change User Dashboard
 
 - Make PUT request to `localhost:8000/api/v1/accounts/register/create_dashboard/` with the following data:
 
@@ -366,8 +385,8 @@ Returns: Updated User Dashboard Info
     "user": 6
 }
 ```
-[Back to Table Of Contents](#table-of-contents)
-### Log a Send
+[All Endpoints](#endpoints)
+### Log Send
 
 - Make POST request to `localhost:8000/api/v1/send/` with the following data:
 
@@ -399,8 +418,10 @@ Which should return something like:
     "user": 6
 }
 ```
-[Back to Table Of Contents](#table-of-contents)
-### View all sends for a user
+[All Endpoints](#endpoints)
+
+
+### All Sends for User
 
 - Make GET request to `localhost:8000/api/v1/send/` , no data needed for GET
 
@@ -422,7 +443,7 @@ Returns something like:
     },]
 ```
 
-### Create a League
+### Create League
 
 - Make a post request to `localhost:8000/api/v1/league/` with the following data:
 
@@ -436,24 +457,26 @@ Returns something like:
 }
 ```
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
 ### Get all Leagues
 
 - Make a GET request to `localhost:8000/api/v1/league/all/` no data needed.
 
-[Back to Table Of Contents](#table-of-contents)
-### Get all leagues that a user is in
+[All Endpoints](#endpoints)
+
+### Get all leagues user is in
 
 - Make a GET request to `localhost:8000/api/v1/league/` no data is needed
 
-[Back to Table Of Contents](#table-of-contents)
-### Get a specific league
+[All Endpoints](#endpoints)
+
+### Get specific league
 
 - Make a GET request to `localhost:8000/api/v1/league/1` where the number after league/ is the league_id you wish to retrieve
 
-[Back to Table Of Contents](#table-of-contents)
-### Create a Team in a league
+[All Endpoints](#endpoints)
+### Create Team in league
 
 - Make a POST request `localhost:8000/api/v1/league/create_team/` with the following data:
 
@@ -463,28 +486,30 @@ Returns something like:
     "team_name": "chiparroo"
 }
 ```
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
-### Get all of a Users Teams
+### Get All Teams User is in
+
 - Make a GET request to `localhost:8000/api/v1/league/create_team/`
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
-### Get all Teams in a League
+### Get all Teams in League
 
 - Make a GET request to `localhost:8000/api/v1/team/league/1` include league pk
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
-### Get a specific Team
+### Get specific Team
 
 - Make GET request to `localhost:8000/api/v1/team/7` include team pk:
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
 
-### Add user to a Team in a league
+### Add user to Team in league
 
 - Make a POST request `localhost:8000/api/v1/team/` with the following data:
+
 
 ```json
 {
@@ -492,6 +517,7 @@ Returns something like:
     "team_id": 1
 }
 ```
+
 change
 
-[Back to Table Of Contents](#table-of-contents)
+[All Endpoints](#endpoints)
