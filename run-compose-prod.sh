@@ -5,9 +5,11 @@
 
 # These environment variables come from command line arguments.
 # They are consumed by the docker-compose file.
-export SECRET_KEY=abc123
-export DEBUG=False
+
 export POSTGRES_DB=boulder_comp
+export POSTGRES_USER=postgres
+export DB_NAME=db
+export DB_PORT=5432
 
 ## Less sensitive variables above
 
@@ -16,16 +18,13 @@ export POSTGRES_DB=boulder_comp
 export DOCKERHUB_UNAME=$1
 export NEW_VERSION=$2
 export HOST=$3
+export POSTGRES_PASSWORD=$4
 
-export POSTGRES_USER=$4
-export POSTGRES_PASSWORD=$5
-export DB_PORT=$6
-
-export EMAIL=$7
-export GMAIL_APP_PASSWORD=$8
-export AWS_ACCESS_KEY_ID=$9
-export AWS_SECRET_ACCESS_KEY=${10}
-export BUCKET_NAME=${11}
+export EMAIL=$5
+export GMAIL_APP_PASSWORD=$6
+export AWS_ACCESS_KEY_ID=$7
+export AWS_SECRET_ACCESS_KEY=$8
+export BUCKET_NAME=$9
 
 
 

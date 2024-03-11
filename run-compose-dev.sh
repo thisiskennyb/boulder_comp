@@ -2,8 +2,6 @@
 ##########################################################################
 ##########################################################################
 ### These are the environment variables docker-compose.dev.yml expects ###
-export SECRET_KEY=abc123
-export DEBUG=True
 export POSTGRES_DB=boulder_comp
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=postgres

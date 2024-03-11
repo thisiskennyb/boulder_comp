@@ -15,7 +15,7 @@ export default function Home() {
     }
     
     return (
-        <div className="bg-white min-h-screen">
+        <div className="bg-night min-h-screen">
             <div className="flex flex-col items-center">
         
         

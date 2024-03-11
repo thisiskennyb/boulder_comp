@@ -5,14 +5,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - SECRET_KEY=$SECRET_KEY
-      - DEBUG=$DEBUG
       - DB_NAME=$POSTGRES_DB
-      - DB_USER=$POSTGRES_USER
-      - DB_PASS=$POSTGRES_PASSWORD
+      - DB_PORT=$DB_PORT
       - EMAIL=$EMAIL
       - GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD
-      - DB_PORT=$DB_PORT
       - HOST=$HOST
       - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
