@@ -82,6 +82,20 @@ python manage.py runserver
 
 ### Quick Start
 
+Thanks for coming to check out our app! There are a few things you will need to get started
+
+If you are interested in running the app because you would like to `contribute` to boulder_comp
+Please check out our [contributors](#contributors) section!
+
+- Check that you have properly completed these steps:
+    - [ ] Install Docker Desktop [help with docker](#docker)
+    - [ ] Create AWS S3 File Storage [help with aws s3](#aws-s3-setup)
+    - [ ] Create Email for App [help with app email setup](#email-setup)
+    - [ ] Create .env to separately store sensitive variables [help with env setup](#make-env)
+    - [ ] Follow Instructions for running backend locally [instructions to run backend local](#run-local-backend)
+    - [ ] Follow Instructions for running frontend locally [instructions to run frontend local](../frontend/README.md#run-frontend-local)
+
+
 ## Docker
 This project has an integrated dockerized Postgres database and will require `Docker Desktop` to be installed
 - Click [here](https://www.docker.com/products/docker-desktop/) to download docker desktop
@@ -197,6 +211,89 @@ Inside your .env file update the following variables:
 Navigate to your `boulder_comp/backend` directory
 
 [Backend Table of contents](#table-of-contents)
+
+
+
+### Contributors
+
+In this section we will describe how to run our scripts and make changes
+
+Welcome! We are glad you are interested in contributing to the boulder comp
+
+Similar to running the app locally there are some things you will want to complete before getting started
+
+- Contributor Checklist
+    - [ ] Create App Email [How to set up App Email](#email-setup)
+    - [ ] Create AWS S3 Storage [How to set up S3 Storage](#aws-s3-setup)
+    - [ ] Install Docker Desktop [How to install Docker](#docker)
+    - [ ] Set up env file for credentials [How to make env file](#make-env)
+    - [ ] Run Appropriate Script [How our scripts work](#contributor-scripts)
+
+
+
+
+### Contributor Scripts
+
+- Here we will talk about our different scripts:
+    1. run-compose-dev.sh
+    2. build-and-push.sh
+    3. run-compose-prod.sh
+
+This list is ordered because this is the general workflow:
+1. Run containers locally to recreate a production like environment
+If local containers work, and all tests pass, then we should be good to push images
+
+This is because to run the `run-compose-dev` your code must successfully get containerized from running the `docker-compose.dev.yml`
+
+2. Build and Push Images
+This takes the same code we successfully ran in our `run-compose-dev.sh` and pushes Images to docker
+
+- There are a few things to update to properly use the script
+    - [ ] Update `DOCKERHUB_UNAME` to your Dockerhub Username
+    - [ ] Update `BASE_URL` to the address of your EC2 Container
+    - [ ] Update `NEW_VERSION` to the appropriate version of your images
+
+This will ensure that your code is pushed to your dockerhub, which means you can pull that code down to another machine, or your own EC2
+
+3. Run containers in production
+This step runs a script, that will run `docker-compose.prod.yml`
+
+The `docker-compose.prod.yml` consumes the images built in the `build-and-push.sh`
+
+- When running the `run-compose-prod.sh` you will need to provide the following environment variables:
+    - [ ] Django Secret Key
+    - [ ] Debug
+    - [ ] Version of Docker Images
+    - [ ] Dockerhub Username
+    - [ ] Host or address of container
+    - [ ] Postgres DB name
+    - [ ] Postgres DB user
+    - [ ] Postgres DB password
+    - [ ] DB_PORT
+    - [ ] Email for App Email
+    - [ ] Credentials for App Email
+    - [ ] S3 Access Credentials
+    - [ ] S3 Secret Credentials
+    - [ ] S3 Bucket Name
+
+While this may seem like a lot, don't worry this is a lot of the sensitive data usually kept in your .env
+
+In production, and when we push changes up, we don't share any of these credentials
+
+Our `docker-compose.dev.yml` and `docker-compose.prod.yml` are configured to run easily with both `run-compose` scripts
+
+The `run compose` scripts should be executed with the appropriate environment variable arguments supplied at runntime
+
+In other words:
+
+you will run you compose scripts like:
+```
+./run-compose-prod arg1 arg2 arg3 ...
+```
+
+Where arg1 and arg2 are the values for variables with $1 and $2
+
+If we export a variable in a `run-compose` script, we can either assign it a value or assign it an argument number $1, $2..
 
 
 

@@ -1,20 +1,31 @@
-# Need to add api key and url environment variables?
 
+##########################################################################
+##########################################################################
+### These are the environment variables docker-compose.dev.yml expects ###
 export SECRET_KEY=abc123
 export DEBUG=True
 export POSTGRES_DB=boulder_comp
 export POSTGRES_USER=postgres
 export POSTGRES_PASSWORD=postgres
-export EMAIL=kendbonnette@gmail.com
-export GMAIL_APP_PASSWORD="vnhx rzwo owhq retc"
+export HOST=localhost:80
 export DB_NAME=db
 export DB_PORT=5432
-export HOST=localhost:80
-export BUCKET_NAME=kbbucket
-export AWS_ACCESS_KEY_ID=$1
-export AWS_SECRET_ACCESS_KEY=$2
-# export VITE_HOST=$1
-# export DJANGO_HOST=$2
+
+### The Above variables are not necessarily sensitive ###
+###     So you may leave some values hard coded       ###
+### In production, you will need to pass all of these ###
+
+### So you may consider making your dev and prod scripts match ###
+## The prod script will additionally need the container address and image version ###
+#####################################################################################
+### These are sensitive and should get injected at runtime and shared with no one ###
+export EMAIL=$1
+export GMAIL_APP_PASSWORD=$2
+export AWS_ACCESS_KEY_ID=$3
+export AWS_SECRET_ACCESS_KEY=$4
+export BUCKET_NAME=$5
+
+
 
 
 
