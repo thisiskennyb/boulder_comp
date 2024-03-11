@@ -4,7 +4,7 @@ Check out Boulder Comp [here](http://3.143.247.65/)!
 
 ---
 
-Welcome to Boulder Comp! The premier platform for climbers to join leagues, form teams, and compete in bouldering challenges, both indoors and outdoors. But first, let's get acquainted with some climbing lingo:
+<ins>**Welcome to Boulder Comp!**</ins> The premier platform for climbers to join leagues, form teams, and compete in bouldering challenges, both indoors and outdoors. But first, let's get acquainted with some climbing lingo:
 
 **BOULDERING** is a form of rock climbing that is performed on a boulder or artificial rock walls without the use of ropes or harnesses. Compared to other forms of climbing, bouldering usually involves harder moves for a shorter duration.
 
@@ -16,9 +16,44 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
 
 - **Join or Create Leagues:** Users have the flexibility to either join existing leagues or create their own. There's no limit to the number of leagues you can participate in. Each league has a defined start and end date, along with a specified team size.
     
-- **Log Your Sends:** After completing a climb, users can simply navigate to their dashboard and log a send. Users must specify the date of the send to track progress accurately. Sends that fall within the league dates will count for points in that league.
+- **Log Sends:** After completing a climb, users can simply navigate to their dashboard and log a send. Users must specify the date of the send to track progress accurately. Sends that fall within the league dates will count for points in that league.
     
 - **Scoring:** Points are awarded based on the difficulty of your climbs. The Users hardest completed bouldering grade determines their score, ensuring a fair and competitive playing field for participants of all skill levels. Click [here](http://3.143.247.65/rules-and-scoring) to learn more about scoring.
+
+### Technology Used
+
+**Frontend**
+- Languages - Javascript, Bash
+- Framework and Libraries - React, React-Toastify, React Router, Tailwind, Framermotion
+
+**Backend** 
+- Languages - Python
+- Framework and Libraries - Django
+
+**Database**
+- PostgreSQL
+
+**CI**
+- GitHub Actions
+
+**Other**
+- Docker, AWS(EC2, S3)
+
+<br></br>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg"/>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"/>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"/>
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" />
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" />
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg" />
+<img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" />
+          
+<br></br>
+
 
 ## Table of Contents
 - [What is bouldering?](#what-is-bouldering)
@@ -39,17 +74,17 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
 
 ### What is bouldering?
 
+**BOULDERING** is a form of rock climbing that is performed on a boulder or artificial rock walls without the use of ropes or harnesses. Compared to other forms of climbing, bouldering usually involves harder moves for a shorter duration.
+
+Watch the video below to understand the basics of bouldering or click [here](https://en.wikipedia.org/wiki/Bouldering):
+<br></br>
+[<img src="https://img.youtube.com/vi/u8F11DGPggs/0.jpg" width="400">](https://www.youtube.com/watch?v=u8F11DGPggs)
+
+Watch the video below starting at `4:42` to learn more about the grading scale for bouldering or click [here](https://hardclimbs.info/bouldering-grades-explained/)
+<br></br>
+[<img src="https://img.youtube.com/vi/cD4XHKBwe3I/0.jpg" width="400">](https://www.youtube.com/watch?v=cD4XHKBwe3I)
 
 
-### Getting Started
-
-This project project uses:
-- Email: An email for account activation and reset password features [How to set up Email](backend/README.md#email-setup)
-- AWS S3 Storage: Blob storage used for handling files in the application [How to set up S3 Storage](backend/README.md#aws-s3-setup)
-- Docker: To support infrastructure and deployment capabilities [How to set up Docker](backend/README.md#docker)
-- A local development script: Runs your project locally in a docker container [How to run local script ](backend/README.md#run-local)
-
-[Back to Table Of Contents](#table-of-contents)
 
 ## Using the App
 
@@ -155,46 +190,14 @@ The rules are simple:
   
 [Back to Table Of Contents](#table-of-contents)
 
-## Rock Climbing
 
-### What Is Rock Climbing
-What is Rock Climbing? In its simplest form its the act of moving across rocky terrain or artificially 'rocky' terrain.
+### Getting Started
 
-To provide some additional context you can watch a short video on the history of climbing [here](https://www.youtube.com/watch?v=uUrrOdzKB3Q)
-
-If you enjoyed the context of the above video, you can get a quick explaination of competition climbing history [here](https://www.youtube.com/watch?v=ik9WkEEkLW4)
-
-[Back to Table Of Contents](#table-of-contents)
-
-### Grading System
-
-In present day bouldering the V-scale, named after climber John Vermin Sherman, is used to grade the difficulty of a boulder
-
-The scale ranges from V0 to V17 with V17 being the hardest grade currently established.
-
-[Back to Table Of Contents](#table-of-contents)
-
-### Competition Scoring
-
-Scoring for this competition is intended to be adjusted upon your current highest grade acheived.
-
-The highest boulder grade can only be changed or edited while you are not in a active league
-
-You should adjust your score to accurately reflect your highest boulder grade before signing up to any leagues
-
-
-When properly filled out, this data levels the playing field for climbers of varying experience competing together
-
-We would like teams to be able to fairly compete no matter the skill composition
-
-
-When completing a climb, you will get 3 points for climbs at your highest difficulty level, losing 1 point for each level below your highest grade.
-
-If your climb was a flash attempt, you will receive double the amount of points
-
-Climbs that are far below your highest difficulty level will be scored as 0, but will still appear in your send feed
-
-To see an example of scoring click [here](#scoring)
+This project project uses:
+- Email: An email for account activation and reset password features [How to set up Email](backend/README.md#email-setup)
+- AWS S3 Storage: Blob storage used for handling files in the application [How to set up S3 Storage](backend/README.md#aws-s3-setup)
+- Docker: To support infrastructure and deployment capabilities [How to set up Docker](backend/README.md#docker)
+- A local development script: Runs your project locally in a docker container [How to run local script ](backend/README.md#run-local)
 
 [Back to Table Of Contents](#table-of-contents)
 
