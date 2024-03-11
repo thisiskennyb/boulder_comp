@@ -23,12 +23,12 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
 ### Technology Used
 
 **Frontend**
-- Languages - Javascript, Bash
-- Framework and Libraries - React, React-Toastify, React Router, Tailwind, Framermotion
+- Languages - JavaScript, Bash
+- Frameworks and Libraries - React, React-Toastify, React Router, Tailwind, Framermotion
 
 **Backend** 
 - Languages - Python
-- Framework and Libraries - Django
+- Frameworks and Libraries - Django
 
 **Database**
 - PostgreSQL
@@ -37,9 +37,10 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
 - GitHub Actions
 
 **Other**
-- Docker, AWS(EC2, S3)
+- Docker, AWS (EC2, S3), Git
 
 <br></br>
+
 <img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"/>
 <img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"/>
 <img align="left" alt="name_here" width="30px" style="padding-right:10px;" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"/>
@@ -65,6 +66,7 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
         - [League Page](#League-Page)
         - [Team Page](#Team-Page)
         - [Scoring](#Scoring)
+- [Quick Start](#quickstarthere)
 - [Contributions](#contributions)
 
 
@@ -85,12 +87,19 @@ Watch the video below starting at `4:42` to learn more about the grading scale f
 ## Using the App
 
 #### Signup
+- To begin a user must first create an account in order to access the app's features. When a user signs up they must verify their email address to activate their account. Click [here](http://3.143.247.65/signup) to sign up.
+
+#### Login
+- On the first login the user will be prompted to submit the highest grade they have sent to date (this can be edited as it changes). Click [here](http://3.143.247.65/login) to login.
 
 #### Create or Join a League
+- The purpose of the app is to compete so joining or creating a league would be the next step. This page requires a login to access. Click [here](http://3.143.247.65/leagues-home) to navigate to leagues home.
 
 #### Log Sends
+- Once the user is a member of a league they can start logging sends to earn points in any active league. The send date must occur during the league dates to be valid in any given league. Log a send by [navigating](http://3.143.247.65/dashboard) to the user dashboard.
 
 #### View Current Standings
+- The user can view their current standing in any active league they are a member of by navigating to their dashboard. In addition the dashboard displays all of the user's past sends and account settings.
 
 
 ## Purpose
@@ -152,12 +161,6 @@ The team page gives a detailed view of the members activity. The details include
 
 #### <ins>Scoring</ins>
 Click [here](http://3.143.247.65/rules-and-scoring) to learn more about the scoring
-
-
-
-
-[Back to Table Of Contents](#table-of-contents)
-
 
 
 [Back to Table Of Contents](#table-of-contents)
