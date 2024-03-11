@@ -13,7 +13,7 @@ export DB_PORT=5432
 
 ### The Above variables are not necessarily sensitive ###
 ###     So you may leave some values hard coded       ###
-### In production, you will need to pass all of these ###
+### In production, you will need to pass most of these ###
 
 ### So you may consider making your dev and prod scripts match ###
 ## The prod script will additionally need the container address and image version ###

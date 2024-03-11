@@ -261,20 +261,23 @@ This step runs a script, that will run `docker-compose.prod.yml`
 The `docker-compose.prod.yml` consumes the images built in the `build-and-push.sh`
 
 - When running the `run-compose-prod.sh` you will need to provide the following environment variables:
-    - [ ] Django Secret Key
-    - [ ] Debug
-    - [ ] Version of Docker Images
-    - [ ] Dockerhub Username
-    - [ ] Host or address of container
-    - [ ] Postgres DB name
-    - [ ] Postgres DB user
-    - [ ] Postgres DB password
-    - [ ] DB_PORT
+    - [ ] Docker Username
+    - [ ] Version of Docker Images to use
+    - [ ] password for db
+    - [ ] Address for container
     - [ ] Email for App Email
     - [ ] Credentials for App Email
     - [ ] S3 Access Credentials
     - [ ] S3 Secret Credentials
     - [ ] S3 Bucket Name
+
+- You still need to ensure that the following variables are declared in your script
+    - [ ] database name
+    - [ ] database user
+    - [ ] production
+    - [ ] conditional variable for "db" we use db in containers and localhost for local
+    - [ ] conditional variable for port, 5432 when in a container, else 5454
+    
 
 While this may seem like a lot, don't worry this is a lot of the sensitive data usually kept in your .env
 
