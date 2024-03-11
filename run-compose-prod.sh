@@ -7,23 +7,24 @@
 # They are consumed by the docker-compose file.
 export SECRET_KEY=abc123
 export DEBUG=False
-# export HOST=${BASE_URL}
 export POSTGRES_DB=boulder_comp
 
 
 export DOCKERHUB_UNAME=$1
 export NEW_VERSION=$2
-
-export POSTGRES_USER=$3
-export POSTGRES_PASSWORD=$4
-export DB_PORT=$5
+export BASE_URL=$3
 
 
-export EMAIL=$6
-export GMAIL_APP_PASSWORD=$7
-export AWS_ACCESS_KEY_ID=$8
-export AWS_SECRET_ACCESS_KEY=$9
-export BUCKET_NAME=${10}
+export POSTGRES_USER=$4
+export POSTGRES_PASSWORD=$5
+export DB_PORT=$6
+
+
+export EMAIL=$7
+export GMAIL_APP_PASSWORD=$8
+export AWS_ACCESS_KEY_ID=$9
+export AWS_SECRET_ACCESS_KEY=${10}
+export BUCKET_NAME=${11}
 
 
 
