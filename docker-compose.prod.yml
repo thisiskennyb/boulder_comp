@@ -16,7 +16,7 @@ services:
       - EMAIL=$EMAIL
       - GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD
       - DB_PORT=$DB_PORT
-      - HOST=${BASE_URL}
+      - HOST=$HOST
       - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
     depends_on:

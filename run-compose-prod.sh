@@ -9,16 +9,17 @@ export SECRET_KEY=abc123
 export DEBUG=False
 export POSTGRES_DB=boulder_comp
 
+## Less sensitive variables above
+
+## Sensitive variables that should be injected and shared with no one
 
 export DOCKERHUB_UNAME=$1
 export NEW_VERSION=$2
-export BASE_URL=$3
-
+export HOST=$3
 
 export POSTGRES_USER=$4
 export POSTGRES_PASSWORD=$5
 export DB_PORT=$6
-
 
 export EMAIL=$7
 export GMAIL_APP_PASSWORD=$8
