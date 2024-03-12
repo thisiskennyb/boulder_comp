@@ -23,12 +23,12 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
 ### Technology Used
 
 **Frontend**
-- Languages - JavaScript, Bash
+- Languages - JavaScript
 - Frameworks and Libraries - React, React-Toastify, React Router, Tailwind, Framermotion
 
 **Backend** 
 - Languages - Python
-- Frameworks and Libraries - Django
+- Framework - Django
 
 **Database**
 - PostgreSQL
@@ -37,7 +37,7 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
 - GitHub Actions
 
 **Other**
-- Docker, AWS (EC2, S3), Git
+- Docker, AWS (EC2, S3), Git, Bash
 
 <br></br>
 
