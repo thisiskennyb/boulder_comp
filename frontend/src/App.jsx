@@ -4,7 +4,6 @@ import Login from './routes/Login'
 import Home from './routes/Home'
 import EmailReset from './routes/EmailReset'
 import EmailVerification from './routes/EmailVerification'
-import Header from './components/Header';
 import Signup from './routes/Signup'
 import ResetPassword from './routes/ResetPassword'
 import SignupMessage from './routes/SignupMessage'
