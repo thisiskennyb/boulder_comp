@@ -565,10 +565,65 @@ Which should return something like:
 ```
 [All Endpoints](#endpoints)
 
+### All Sends Feed
+
+- Make a GET request to `localhost:8000/api/v1/send/all-sends-feed`, no BODY needed for GET
+
+Copy to make request
+```
+localhost:8000/api/v1/send/all-sends-feed
+```
+
+
+Your response should include up to 10 of the most recent Send Objects
+```json
+[
+    {
+        "id": 3,
+        "boulder": {
+            "id": 3,
+            "name": "Slider",
+            "grade": "v9",
+            "crag": "Horspens"
+        },
+        "send_date": "2024-03-15",
+        "flash": true,
+        "score": 14,
+        "user": 1
+    },
+    {
+        "id": 5,
+        "boulder": {
+            "id": 5,
+            "name": "Breaking and Entering",
+            "grade": "v5",
+            "crag": "Rocktown"
+        },
+        "send_date": "2024-03-13",
+        "flash": false,
+        "score": 3,
+        "user": 1
+    },
+    {
+        "id": 2,
+        "boulder": {
+            "id": 2,
+            "name": "Paint Can",
+            "grade": "v2",
+            "crag": "Rock Town"
+        },
+        "send_date": "2024-03-13",
+        "flash": true,
+        "score": 0,
+        "user": 1
+    }, ...
+]
+```
+
 
 ### All Sends for User
 
-- Make GET request to `localhost:8000/api/v1/send/` , no data needed for GET
+- Make GET request to `localhost:8000/api/v1/send/` , no BODY needed for GET
 
 Returns something like:
 ```json
