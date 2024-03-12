@@ -20,6 +20,9 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
     
 - **Scoring:** Points are awarded based on the difficulty of your climbs. The Users hardest completed bouldering grade determines their score, ensuring a fair and competitive playing field for participants of all skill levels. Click [here](http://3.143.247.65/rules-and-scoring) to learn more about scoring.
 
+### Purpose
+Bouldering Comp is a practical tool designed to organize bouldering competitions for the rock climbing community. The idea for this app originated from a group of friends who annually organize a competition and track all the details using Google Sheets. This app provides a more efficient way to manage leagues and access competition details. It aims to simplify the process for both organizers and participants, offering a user-friendly platform for league organization and information dissemination.
+
 ### Technology Used
 
 **Frontend**
@@ -101,9 +104,6 @@ Watch the video below starting at `4:42` to learn more about the grading scale f
 #### View Current Standings
 - The user can view their current standing in any active league they are a member of by navigating to their dashboard. In addition the dashboard displays all of the user's past sends and account settings.
 
-
-## Purpose
-Bouldering Comp is a practical tool designed to organize bouldering competitions for the rock climbing community. The idea for this app originated from a group of friends who annually organize a competition and track all the details using Google Sheets. This app provides a more efficient way to manage leagues and access competition details. It aims to simplify the process for both organizers and participants, offering a user-friendly platform for league organization and information dissemination.
 
 ## Pages
 
