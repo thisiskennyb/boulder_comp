@@ -27,9 +27,9 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     ));
     
     return (
-        <div className="">
+        <>
             <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
-            <div className="flex justify-center">
+            <div className="flex flex-wrap justify-center w-11/12 md:w-2/3 mx-auto">
                 
            {!isModalOpen && gradeBars}
            </div>
@@ -66,6 +66,6 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
         </div>
         )}
 
-        </div>
+        </>
     )
 }

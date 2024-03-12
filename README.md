@@ -66,8 +66,8 @@ Whether you're a seasoned climber or just starting out, Boulder Comp offers an i
         - [League Page](#League-Page)
         - [Team Page](#Team-Page)
         - [Scoring](#Scoring)
-- [Quick Start](#quickstarthere)
-- [Contributions](#contributions)
+- [Quick Start](./backend/README.md#quickstart)
+- [Contributions](./backend/README.md#contributors)
 
 
 ### What is bouldering?

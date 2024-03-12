@@ -6,11 +6,13 @@ import { useContext } from 'react'
 import UserContext from "../contexts/UserContext";
 import default_img from "../assets/default_image.png"
 
+import { Link } from 'react-router-dom'
+
 const navigation = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Dashboard', href: '/dashboard', current: false },
-  { name: 'Leagues', href: '/leagues-home', current: false },
-  { name: 'Scoring', href: '/rules-and-scoring', current: false },
+  { name: 'Home', to: '/', current: false },
+  { name: 'Dashboard', to: '/dashboard', current: false },
+  { name: 'Leagues', to: '/leagues-home', current: false },
+  { name: 'Scoring', to: '/rules-and-scoring', current: false },
  
 ]
 
@@ -22,14 +24,15 @@ function classNames(...classes) {
 export default function NavBar() {
 
 
-    const token = localStorage.getItem('token')
-    const { userDashboard } = useContext(UserContext)
+    // const token = localStorage.getItem('token')
+    const { userDashboard, userToken, setUserToken } = useContext(UserContext)
 
    
     
     const handleLogout = () => {
         var keyToRemove = 'token';
         localStorage.removeItem(keyToRemove);
+        setUserToken(null)
       }
 
 
@@ -65,10 +68,10 @@ export default function NavBar() {
                     {/* This is to check that they are logged in, need to make buttons for Nav Bar when they are not logged in */}
 
                     {/* This stops the navbar from being mapped unless there is a token */}
-                    {token && navigation.map((item) => (
-                      <a
+                    {userToken && navigation.map((item) => (
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.to}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-nunito'
@@ -76,7 +79,7 @@ export default function NavBar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -104,16 +107,16 @@ export default function NavBar() {
                   >
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-full bg-gray-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {/* Conditionally render login or logout based on if we have token */}
-                      {token ? (
+                      {userToken ? (
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             onClick={handleLogout}
-                            href="/"
+                            to="/"
                             className={classNames(active ? 'bg-gray-600 rounded-full' : '', 'block px-4 py-2 text-lg text-center text-white font-nunito')}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                         )
@@ -122,14 +125,14 @@ export default function NavBar() {
                       
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <Link
                             
-                            href="/login"
+                            to="/login"
                             className={classNames(active ? 'bg-gray-600 rounded-full' : '', 'block px-4 py-2 text-lg text-white text-center font-nunito')}
                             
                           >
                             Login
-                          </a>
+                          </Link>
 
                           
                         )}
@@ -146,11 +149,11 @@ export default function NavBar() {
             <div className="space-y-1 px-2 pb-3 pt-2">
               {/* This stops links from being rendered unless user has logged in */}
               {/* Need to make buttons for login and sign up to show buttons in hamburger, right menu works for now */}
-              {token && navigation.map((item) => (
+              {userToken && navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as={Link}
+                  to={item.to}
                   className={classNames(
                     item.current ? 'bg-white text-white' : 'text-lightgray font-nunito hover:bg-gray-700 hover:text-white text-center',
                     'block rounded-md px-3 py-2 text-base font-nunito'

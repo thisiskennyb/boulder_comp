@@ -37,63 +37,43 @@
     - [ Get Specific Team ](#get-specific-team)
 
 
-
-
-
-
-
-
-
 [Backend Table of contents](#table-of-contents)
 
-# Run Local Backend
-
-
-In your `boulder_comp/backend` directory, create a `venv` with the commands below:
-1. Create `venv`
-```
-python -m venv venv
-```
-2. Activate `venv`
-```
-source venv/bin/activate
-```
-3. Install the dependencies in your `venv` with the following command:
-```
-pip install -r requirements.txt
-```
-4. Start your `Docker container` with the Postgres database: See [Docker](#docker)
-```
-docker compose up -d
-```
-5. Make migrations
-```
-python manage.py migrate
-```
-6. Run the server
-```
-python manage.py runserver
-```
-
-
-[Backend Table of contents](#table-of-contents)
 
 
 
 ### Quick Start
 
-Thanks for coming to check out our app! There are a few things you will need to get started
+Thanks for coming to check out our app! 
+
 
 If you are interested in running the app because you would like to `contribute` to boulder_comp
 Please check out our [contributors](#contributors) section!
 
-- Check that you have properly completed these steps:
-    - [ ] Install Docker Desktop [help with docker](#docker)
-    - [ ] Create AWS S3 File Storage [help with aws s3](#aws-s3-setup)
-    - [ ] Create Email for App [help with app email setup](#email-setup)
-    - [ ] Create .env to separately store sensitive variables [help with env setup](#make-env)
-    - [ ] Follow Instructions for running backend locally [instructions to run backend local](#run-local-backend)
-    - [ ] Follow Instructions for running frontend locally [instructions to run frontend local](../frontend/README.md#run-frontend-local)
+
+
+- Check to make sure you have the following installed:
+    - [ ] Python
+    - [ ] Node
+    - [ ] Email App Name [app email setup](#email-setup)
+    - [ ] Email App Credentials [app email setup](#email-setup)
+    - [ ] S3 Bucket credentials [setting up s3 storage](#aws-s3-setup)
+    - [ ] .env file configured properly [ setting up .env ](#make-env)
+
+If you have properly configured your env, and installed both python and node you should be able to run the project locally!
+
+** You made need to give permissions to execute the file **
+
+For permission:
+
+```bash
+chmod +x ./run-local.sh
+```
+
+To run Project locally:
+```bash
+./run-local.sh
+```
 
 
 ## Docker
@@ -154,6 +134,8 @@ This is a service provided by AWS, to get started, create an account and login
 
 Python Libraries to update
 
+** Note installing from the requirements.txt will ensure you have boto3 **
+
 Navigate to your boulder_comp/backend, and ensure your venv is activated and up to date with the current policies
 For more information on your python virtual environment, click [here](#python-venv)
 
@@ -169,7 +151,7 @@ If you want to know more about the boto3 library, click [here](https://django-st
 
 At this point you should be able to run your code locally, but be sure not to leave hardcoded information
 
-For help with `setting up a script` or `handling environment variables` click [here](#run-local)
+For help with `setting up a script` or `handling environment variables` click [here](#make-env)
 
 [Return to Main Table of Contents](../README.md#table-of-contents)
 
@@ -179,7 +161,7 @@ For help with `setting up a script` or `handling environment variables` click [h
 ## make env
 Navigate to `boulder_comp/backend`
 
-Create a .env file
+Create a `.env` file
 
 - Command to create a file named
 
@@ -187,7 +169,7 @@ Create a .env file
 touch .env
 ```
 
-Inside your .env file update the following variables:
+Inside your `.env` file update the following variables:
 
 - env checklist
     - [ ] S3 Access
@@ -234,18 +216,70 @@ Similar to running the app locally there are some things you will want to comple
 
 ### Contributor Scripts
 
-- Here we will talk about our different scripts:
-    1. run-compose-dev.sh
-    2. build-and-push.sh
-    3. run-compose-prod.sh
+- This is a list of our scripts for developing:
+    1. run-local.sh
+    2. run-compose-dev.sh
+    3. build-and-push.sh
+    4. run-compose-prod.sh
+    5. stop-compose-dev.sh
+
+
 
 This list is ordered because this is the general workflow:
-1. Run containers locally to recreate a production like environment
-If local containers work, and all tests pass, then we should be good to push images
+1. Run locally to make changes quickly
 
-This is because to run the `run-compose-dev` your code must successfully get containerized from running the `docker-compose.dev.yml`
+In the `root` of the project:
 
-2. Build and Push Images
+If you have not updated permissions for your scripts click [here](#permissions)
+
+```sh
+./run-local.sh
+```
+
+- If local development works, run the dev compose to ensure it works in a container
+- Run tests before trying to build containers
+
+2. Run your code inside docker containers locally
+This helps mimic the production environment of an EC2 Container
+
+When you run the run-compose, for dev or production
+
+You should use the variables from your .env to help you pass the correct arguments for your script.
+
+Inside the `run-compose-dev.sh` script, we export many variables. Some are hard coded, and are not sensitive.
+
+However other variables may be assigned a `$1` or `$2`..
+This indicates that it can be assigned through an argument.
+
+These arguments are needed for consumption by our `docker-compose.dev.yml`
+
+
+
+```
+./run-compose-dev.sh yourarg1 yourarg2 yourarg3...
+```
+
+Note that yourarg1, yourarg2, yourarg3... are placeholders for your credentials
+
+Make sure your credentials are correctly passed `order` matters for the arguments.
+
+
+- We need to provide
+    - [ ] app email [help](#email-setup)
+    - [ ] app email credentials [help](#email-setup)
+    - [ ] aws s3 access credentials [help](#aws-s3-setup)
+    - [ ] aws s3 secret credentials [help](#aws-s3-setup)
+    - [ ] aws bucket name [help](#aws-s3-setup)
+
+Make sure you are passing the above `credentials` in the correct `order`.
+
+You should also verify that what is exported in `run-compose-dev.sh` is used in `docker-compose.dev.yml`
+
+
+3. Build and Push
+** Note this is only necessary if running the `run-compose-prod.sh` **
+
+
 This takes the same code we successfully ran in our `run-compose-dev.sh` and pushes Images to docker
 
 - There are a few things to update to properly use the script
@@ -256,15 +290,15 @@ This takes the same code we successfully ran in our `run-compose-dev.sh` and pus
 This will ensure that your code is pushed to your dockerhub, which means you can pull that code down to another machine, or your own EC2
 
 3. Run containers in production
-This step runs a script, that will run `docker-compose.prod.yml`
 
 The `docker-compose.prod.yml` consumes the images built in the `build-and-push.sh`
 
+
 - When running the `run-compose-prod.sh` you will need to provide the following environment variables:
-    - [ ] Docker Username
-    - [ ] Version of Docker Images to use
+    - [ ] Docker Username *Only in Prod*
+    - [ ] Version of Docker Images to use *Only in Prod*
+    - [ ] Address for container *Only in Prod*
     - [ ] password for db
-    - [ ] Address for container
     - [ ] Email for App Email
     - [ ] Credentials for App Email
     - [ ] S3 Access Credentials
@@ -274,12 +308,19 @@ The `docker-compose.prod.yml` consumes the images built in the `build-and-push.s
 - You still need to ensure that the following variables are declared in your script
     - [ ] database name
     - [ ] database user
-    - [ ] production
-    - [ ] conditional variable for "db" we use db in containers and localhost for local
-    - [ ] conditional variable for port, 5432 when in a container, else 5454
+    - [ ] production *Only in Prod*
     
 
 While this may seem like a lot, don't worry this is a lot of the sensitive data usually kept in your .env
+
+```
+./run-compose-prod.sh yourarg1 yourarg2 yourarg3...
+```
+
+Note that yourarg1, yourarg2, yourarg3... are placeholders for your credentials
+
+Make sure your credentials are correctly passed `order` matters for the arguments.
+
 
 In production, and when we push changes up, we don't share any of these credentials
 
@@ -287,18 +328,22 @@ Our `docker-compose.dev.yml` and `docker-compose.prod.yml` are configured to run
 
 The `run compose` scripts should be executed with the appropriate environment variable arguments supplied at runntime
 
-In other words:
 
-you will run you compose scripts like:
+
+
+#### Permissions
+
+To Execute any of the scripts in the project, you may need to update the permissions.
+
+Here is an example of doing this for the `run-local.sh` script:
+
+```sh
+chmod +x run-local.sh
 ```
-./run-compose-prod arg1 arg2 arg3 ...
-```
 
-Where arg1 and arg2 are the values for variables with $1 and $2
+So to grant similar permissions to other scripts:
 
-If we export a variable in a `run-compose` script, we can either assign it a value or assign it an argument number $1, $2..
-
-
+You can follow the same syntax and replace `run-local.sh` with `run-compose-dev.sh` for example.
 
 ### Backend Endpoints
 
