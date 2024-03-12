@@ -25,12 +25,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = getenv('DJANGO_SECRET_KEY', get_random_secret_key)
-# 'django-insecure-_*o!a=!-ro8zx@n1vusm+_pidbl=!vwpumb26!n@ku)#2gz^hi'
+SECRET_KEY = getenv('DJANGO_SECRET_KEY', get_random_secret_key) #Generates random secret key if DJANGO_SECRET_KEY is not present
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-PRODUCTION = os.getenv("PRODUCTION", "False").lower() == "true"
+PRODUCTION = os.getenv("PRODUCTION", "False").lower() == "true" 
+
+# If Production is not true, debug is true
+# If Production is true, debug is false
 
 DEBUG = not PRODUCTION
 
@@ -103,11 +105,8 @@ DATABASES = {
 "NAME": "boulder_comp", 
 "USER": "postgres",
 "PASSWORD": "postgres",
-
-"HOST": "db" if os.getenv("DB_NAME") else "localhost",
-"PORT": os.getenv("DB_PORT") if os.getenv("DB_PORT") else 5454, 
-
-
+"HOST": "db" if os.getenv("DB_PASS") else "localhost",
+"PORT": 5432 if os.getenv("DB_PASS") else 5454, 
 }
 }
 

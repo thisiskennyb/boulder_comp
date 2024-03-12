@@ -5,13 +5,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - DB_NAME=$POSTGRES_DB
-      - DB_PORT=$DB_PORT
+      - DB_PASS=$DB_PASS
       - EMAIL=$EMAIL
       - GMAIL_APP_PASSWORD=$GMAIL_APP_PASSWORD
       - HOST=$HOST
       - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
       - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+      - BUCKET_NAME=$BUCKET_NAME
     depends_on:
       - db
   nginx:
@@ -28,7 +28,7 @@ services:
     environment:
       - POSTGRES_DB=$POSTGRES_DB
       - POSTGRES_USER=$POSTGRES_USER
-      - POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+      - POSTGRES_PASSWORD=$DB_PASS
 
 
 volumes:
