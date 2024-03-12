@@ -6,28 +6,32 @@
 # These environment variables come from command line arguments.
 # They are consumed by the docker-compose file.
 
+#####################################
 export POSTGRES_DB=boulder_comp
 export POSTGRES_USER=postgres
-export DB_NAME=db
-export DB_PORT=5432
 export PRODUCTION=true
+#####################################
 
 ## Less sensitive variables above
 
 ## Sensitive variables that should be injected and shared with no one
 
+#################################
+#################################
 export DOCKERHUB_UNAME=$1
 export NEW_VERSION=$2
 export HOST=$3
-export POSTGRES_PASSWORD=$4
+
+export DB_PASS=$4
 
 export EMAIL=$5
 export GMAIL_APP_PASSWORD=$6
+
 export AWS_ACCESS_KEY_ID=$7
 export AWS_SECRET_ACCESS_KEY=$8
 export BUCKET_NAME=$9
-
-
+#################################
+#################################
 
 
 COMPOSE_DOCKER_CLI_BUILD=0 DOCKER_BUILDKIT=0 docker-compose -f docker-compose.prod.yml build --no-cache
