@@ -62,7 +62,6 @@ Bouldering Comp is a practical tool designed to organize bouldering competitions
 ## Table of Contents
 - [What is bouldering?](#what-is-bouldering)
 - [Using the App](#using-the-app)
-    - [Purpose](#purpose)
     - [Pages](#pages)
         - [Dashboard](#dashboard)
         - [Leagues](#Leagues-Home)
