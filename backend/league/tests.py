@@ -6,35 +6,37 @@ from accounts.models import UserDashboard
 from rest_framework.test import APITestCase
 from rest_framework.authtoken.models import Token
 from rest_framework import status
+from send.models import Boulder, Send
+
 
 
 class LeagueViewTest(APITestCase):
     def setUp(self):
         # create user
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.user_two = User.objects.create(
+        self.user1 = User.objects.create_user(username='testuser', password='testpassword')
+        self.user2 = User.objects.create(
             username='testuser2',
             password='Testpassword123!'
         )
 
         # Initialize user dashboard
         UserDashboard.objects.create(
-            user=self.user,
+            user=self.user1,
             highest_boulder_grade='v7'
         )
 
         UserDashboard.objects.create(
-            user=self.user_two,
+            user=self.user2,
             highest_boulder_grade='v5'
         )
         
         # Activate the user's account
-        self.user.is_active = True
-        self.user_two.is_active = True
-        self.user.save()
-        self.user_two.save()
-        self.token = Token.objects.create(user=self.user)
-        self.token_two = Token.objects.create(user=self.user_two)
+        self.user1.is_active = True
+        self.user2.is_active = True
+        self.user1.save()
+        self.user2.save()
+        self.token = Token.objects.create(user=self.user1)
+        self.token_two = Token.objects.create(user=self.user2)
 
     def test_create_league(self):
         url = '/api/v1/league/'
@@ -85,7 +87,7 @@ class LeagueViewTest(APITestCase):
 
     def test_create_team(self):
 
-        league = League.objects.create(moderator=self.user, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
+        league = League.objects.create(moderator=self.user1, league_name='test_league', start_date='2024-02-20', end_date='2024-03-20', team_size=4)
 
         league_id = league.id
 
@@ -101,6 +103,140 @@ class LeagueViewTest(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(response.data['team_name'], team_data['team_name'])
 
+    def test_update_rank_and_score(self):
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+
+        # Create a league
+        create_league_url = '/api/v1/league/'
+        league_data = {
+            "league_name": "kens league",
+            "start_date": "2024-02-28",
+            "end_date": "2024-04-28",
+            "team_size": 4,
+            "location": "Chattanooga"
+        }
+
+        create_league_post_response = self.client.post(create_league_url, league_data, format='json')
+        league_id = create_league_post_response.data['id']
+
+        # Create a team
+        create_team_url = '/api/v1/league/create_team/'
+        team1_data = {
+            "league_id": league_id,
+            "team_name": "team1"
+        }
+        create_team_post_response = self.client.post(create_team_url, team1_data, format='json')
+
+
+        # Log send for user1
+        log_send_url = '/api/v1/send/'
+        send_data = {
+            "name": "golden throttle",
+            "grade": "v5",
+            "crag": "rocktown",
+            "flash": False,
+            "send_date": "2024-03-19"
+        }
+        log_send_post_response = self.client.post(log_send_url, send_data, format='json')
+       
+       # Test that team score and rank are equal to zero
+        self.assertEqual(create_team_post_response.data['score'], 0)
+        self.assertEqual(create_team_post_response.data['rank'], 0)
+
+        # Make a get request to fetch all of the users teams they are a member of
+        # When the request is made the logic to update the team's rank and score is performed in the views.py file in the leagues directory
+        get_all_teams_url = '/api/v1/league/create_team/'
+        get_all_users_teams_response = self.client.get(get_all_teams_url, format='json')
+        
+        # The score should now be updated with the send logged by user1
+        self.assertEqual(get_all_users_teams_response.data[0]['score'], 1)
+        self.assertEqual(get_all_users_teams_response.data[0]['rank'], 1)
+  
+    def test_two_teams_update_rank_and_score(self):
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+
+        # Create a league
+        create_league_url = '/api/v1/league/'
+        league_data = {
+            "league_name": "kens league",
+            "start_date": "2024-02-28",
+            "end_date": "2024-04-28",
+            "team_size": 4,
+            "location": "Chattanooga"
+        }
+
+        create_league_post_response = self.client.post(create_league_url, league_data, format='json')
+        league_id = create_league_post_response.data['id']
+
+        # Create team1 and team2
+        create_team_url = '/api/v1/league/create_team/'
+        
+        team1_data = {
+            "league_id": league_id,
+            "team_name": "team1"
+        }
+
+        team2_data = {
+            "league_id": league_id,
+            "team_name": "team2"
+        }
+        
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        create_team1_post_response = self.client.post(create_team_url, team1_data, format='json')
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_two.key)
+        create_team2_post_response = self.client.post(create_team_url, team2_data, format='json')
+
+        # Log send for user1 and user2
+        log_send_url = '/api/v1/send/'
+        
+        send_data_user1 = {
+            "name": "golden throttle",
+            "grade": "v5",
+            "crag": "rocktown",
+            "flash": False,
+            "send_date": "2024-03-19"
+        }
+
+        send_data_user2 = {
+            "name": "art of the vogi",
+            "grade": "v4",
+            "crag": "stone fort",
+            "flash": False,
+            "send_date": "2024-03-19"
+        }
+        
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        log_send_post_response_user1 = self.client.post(log_send_url, send_data_user1, format='json')
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_two.key)
+        log_send_post_response_user2 = self.client.post(log_send_url, send_data_user2, format='json')
+       
+       # Test that team score and rank are equal to zero
+        self.assertEqual(create_team1_post_response.data['score'], 0)
+        self.assertEqual(create_team1_post_response.data['rank'], 0)
+        self.assertEqual(create_team2_post_response.data['score'], 0)
+        self.assertEqual(create_team2_post_response.data['rank'], 0)
+
+        # Make a get request to fetch all of the users teams they are a member of
+        # When the request is made the logic to update the team's rank and score is performed in the view
+        # Check that user team1 and team2 scores and ranks have been updated correctly
+        get_all_teams_url = '/api/v1/league/create_team/'
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token.key)
+        get_all_users_teams_response = self.client.get(get_all_teams_url, format='json')
+
+        
+        self.assertEqual(get_all_users_teams_response.data[0]['score'], 1)
+        self.assertEqual(get_all_users_teams_response.data[0]['rank'], 2)
+
+        self.client.credentials(HTTP_AUTHORIZATION='Token ' + self.token_two.key)
+        get_all_users_teams_response = self.client.get(get_all_teams_url, format='json')
+
+        self.assertEqual(get_all_users_teams_response.data[0]['score'], 2)
+        self.assertEqual(get_all_users_teams_response.data[0]['rank'], 1)
 
 
 # Unit Testing
@@ -206,7 +342,6 @@ class TestLeague(TestCase):
 
         self.assertEqual(team1.members.all().count(), 2)
 
-        # print(team1.members.all())
 
     def test_add_multiple_teams_to_league(self):
 

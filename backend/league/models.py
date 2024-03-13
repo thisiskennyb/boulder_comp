@@ -49,6 +49,7 @@ class League(models.Model):
 
             # Increment rank
             rank += 1
+            team.save()
 
 
 

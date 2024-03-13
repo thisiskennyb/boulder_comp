@@ -139,6 +139,8 @@ class CreateLeagueTeamView(APIView):
                 # update and save each teams score
                 t.score = team_score
                 t.save()
+        
+        
 
         # query all leagues that the user is in
         users_leagues = League.objects.filter(participants=user)
@@ -154,12 +156,13 @@ class CreateLeagueTeamView(APIView):
             # update each teams rank by calling the league method 'update_team_ranks' and save
             league.update_team_ranks(all_teams)
             league.save()
-              
         
+              
+        updated_teams = Team.objects.filter(members=user)
                 
 
         # serialize the output
-        serializer = TeamSerializer(teams, many=True)
+        serializer = TeamSerializer(updated_teams, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
