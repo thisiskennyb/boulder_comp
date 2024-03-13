@@ -135,6 +135,11 @@ class AllLeagueView(APIView):
 class CreateLeagueTeamView(APIView):
 
     def get(self, request):
+        """
+        This view returns all of the teams that the user is currently a member of
+        Before the data is returned all of the team's scores and ranks are updated
+        Two model methods are called within this view to calculate a teams score and update a teams rank
+        """
 
         # Get the teams a user is on
         user = request.user
@@ -176,10 +181,9 @@ class CreateLeagueTeamView(APIView):
             league.update_team_ranks(all_teams)
             league.save()
         
-              
+        # Query the team objects again to get the updated data        
         updated_teams = Team.objects.filter(members=user)
-                
-        updated_teams = Team.objects.filter(members=user)
+        
         # serialize the output
         serializer = TeamSerializer(updated_teams, many=True)
 
