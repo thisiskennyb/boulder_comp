@@ -22,7 +22,10 @@ export default function League() {
   const toggleJoinLeague = () =>{
     setJoinLeague((prev)=> !prev)
   }
-
+  console.log(leagueId, 'this is league id')
+  // fetchLeague func sets the state of leagueData and teamsData
+  // leagueResponse gets the data for a single league
+  // teamsResponse gets all of the Teams within a League
   useEffect(() => {
     const fetchLeague = async () => {
       try {
@@ -123,7 +126,7 @@ export default function League() {
       <div className="my-4 text-white font-nunito text-xs md:text-xl text-center">START DATE: {leagueData.start_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DATE: {leagueData.end_date}</div>
       <div className="text-white font-nunito text-sm md:text-xl text-center">TEAM SIZE: {leagueData.team_size}</div>
       {/* Check that the date today is before the league start date, and that user is not already participating in the league */}
-      {new Date() < new Date(leagueData.start_date) && !leagueData.participants.includes(userDashboard.user) && (
+      {leagueData && new Date() < new Date(leagueData.start_date) && !leagueData.participants.includes(userDashboard.user) && (
         <div className="flex flex-col items-center mt-4">
         <button className="mt-4 min-w-min text-white text-base md:text-xl font-nunito bg-gray-800 border border-white rounded-lg hover:bg-gray-700" onClick={openModal}>CREATE TEAM</button>
         </div>
