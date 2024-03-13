@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getSingleLeague } from "../api/League/backend_calls";
 import { createTeam, getTeamsByLeague } from "../api/Team/backend_calls";
+
 import Modal from "../components/Modal";
 import { toast } from "react-toastify";
 import UserContext from "../contexts/UserContext";
@@ -31,9 +32,8 @@ export default function League() {
     const fetchLeague = async () => {
       try {
         const leagueResponse = await getSingleLeague(leagueId); // Gets a Single League
-        
-        
         const teamsResponse = await getTeamsByLeague(leagueId); // Gets all the teams in a League
+       
         setLeagueData(leagueResponse.data);
         setLeagueParticipants(leagueResponse.data.participants.map(participant => participant.id)) //Saving list of ids
         // Simplifies logic to extract participant ids to pass as props

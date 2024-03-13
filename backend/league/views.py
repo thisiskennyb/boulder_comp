@@ -95,7 +95,14 @@ class LeagueView(APIView):
     
     def put(self, request, pk):
         """
-        This view takes in request data, picture, and updates league picture field
+        This view lets the user update their league picture
+
+        Request Data: picture, pk --> included in request url
+
+        Tries to query league with pk from request
+        Exception handled by with 400 if bad pk, and 404 if not found
+
+        Return: 201 Created, serialized League object updated with picture
         """
         try:
             picture = request.data.get('picture')
@@ -107,7 +114,7 @@ class LeagueView(APIView):
             league.picture = picture
             league.save()
             serializer = LeagueSerializer(league)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
         except League.DoesNotExist:
             return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
         

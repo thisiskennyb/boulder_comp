@@ -20,6 +20,7 @@ class TeamsInLeagueView(APIView):
     #Gets all teams for a specific league, requires league_id
     def get(self, request, pk):
         try:
+            print('Is this the get being called?')
             league_teams = Team.objects.filter(league=pk)
             serializer = TeamSerializer(league_teams, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
@@ -36,6 +37,7 @@ class AllTeamsView(APIView):
         Returns: 200 OK and serialized List of Team objects, or Empty list and 200 OK if no teams
         """
         try:
+            
             all_teams = Team.objects.all()
             serializer = TeamSerializer(all_teams, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)

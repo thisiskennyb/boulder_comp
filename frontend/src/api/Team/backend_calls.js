@@ -1,7 +1,7 @@
 import axios from 'axios'
 const host = import.meta.env.VITE_BASE_URL || "localhost:8000";
 
-
+// Gets all the teams in a specific league
 // This gets used in the following component: League.jsx
 export async function getTeamsByLeague(league_id) {
     try {
@@ -18,7 +18,7 @@ export async function getTeamsByLeague(league_id) {
     }
   }
 
-
+  // Gets a specific team
   // This gets used in the following component: Team.jsx
   export async function getTeam(team_id) {
     try {
@@ -35,7 +35,7 @@ export async function getTeamsByLeague(league_id) {
     }
   }
 
-    // This gets used in the following component: Team.jsx
+    // This gets used in the following component: components/TeamSendTable.jsx
     export async function joinTeam(context) {
         try {
           const response = axios.post(`http://${host}/api/v1/team/join-team`, context, {
@@ -52,7 +52,8 @@ export async function getTeamsByLeague(league_id) {
       }
 
 
-
+      // Used in League.jsx
+      // Creates a team in a league
       export async function createTeam(context){
         try {
           const response = await axios.post(`http://${host}/api/v1/league/create_team/`, context, {

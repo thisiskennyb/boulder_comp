@@ -80,22 +80,6 @@ export async function createUserDashboard(context){
 
 
 
-export async function getUserDashboard(){
-    try {
-        const response = axios.get(`http://${host}/api/v1/accounts/register/create_dashboard/`, {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Token ${localStorage.getItem("token")}`
-            }
-        })
-        return response
-    } catch (error) {
-        console.error("Something went wrong in getUserDashboard")
-        throw error
-    }
-  }
-
-
   export async function uploadAvatar(context, userId) {
   
     let formData = new FormData();

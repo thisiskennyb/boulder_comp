@@ -3,7 +3,6 @@ import GradeBar from "./GradeBar";
 export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     // This function updates the frequency for user sends
     // Creates a object with {grade: frequency}
-
     const gradeCounts = userSends.reduce((acc, send) => {
         const grade = send.boulder.grade;
         // accumulate the grade if it exist + 1 or 0 if it does not exist
@@ -51,7 +50,7 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
                 <hr className="w-4/5"></hr>
             </div>
                             {userSends.length > 0 && (
-                        userSends.map((send, index) => (
+                        userSends.map((send) => (
                             <div key={send.id} className="flex flex-col">
                                 <div className="flex bg-gray-700 w-4/5 mx-auto rounded-lg">
                                 <h2 className="text-white text-base md:text-xl font-nunito w-1/3 text-center">{send.boulder.name}</h2>

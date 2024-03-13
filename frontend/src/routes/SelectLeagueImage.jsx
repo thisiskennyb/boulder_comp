@@ -20,7 +20,7 @@ export default function SelectLeagueImage() {
     const handleSubmit = async () => {
         let leagueObj = { picture: picture };
         const response = await uploadLeagueImage(leagueObj, leagueId)
-        if (response.status == 200) {
+        if (response.status == 201) {
             toast.success(`image uploaded succussfully`);
             navigate(`/league/${leagueId}`)
 

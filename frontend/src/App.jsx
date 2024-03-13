@@ -28,24 +28,21 @@ import 'react-toastify/dist/ReactToastify.css';
 // For Context
 // Gets teams user is a part of, and dashboard info for user
 
-import { getUserDashboard } from './api/Auth/backend_calls'
-import { teamsUserIsIn } from './api/League/backend_calls'
-
-
-
+import { getUserDashboard } from './api/UserContext/backend_calls' // Gets us Highest Boulder Grade for user
+import { teamsUserIsIn } from './api/UserContext/backend_calls' // Gets all the teams a user is in
+import { getUserSends } from './api/UserContext/backend_calls' // Gets all the users sends
 
 
 function App() {
   const [userToken, setUserToken] = useState(null)
-  const [usersTeams, setUsersTeams] = useState([]);
+  const [ usersTeams, setUsersTeams ] = useState([]);
+  const [ userSends , setUserSends ] = useState([])
   const [highestBoulderGrade, setHighestBoulderGrade] = useState(null)
   const [userDashboard, setUserDashboard] = useState(null)
 
 
-
-
- // This is here to be used in context from dashboard
-  const fetchUserTeams = async () => {
+ // Gets user Teams for context
+  const contextFetchUserTeams = async () => {
     const token = localStorage.getItem('token')
     if (token){
         try {
@@ -57,26 +54,39 @@ function App() {
     }
 }
 
-// This gets highest boulder grade or lets us know the user needs to update it at dashboard
-// if highest_boulder_grade is not present, highestBoulderGrade will stay null
-// We use this to send a post request at dashboard
-const getHighestBoulderGrade = async () => {
-  const userDashboard = await getUserDashboard()
-  setUserDashboard(userDashboard.data)
-  if (userDashboard['data']['highest_boulder_grade']){
-      setHighestBoulderGrade(userDashboard['data']['highest_boulder_grade'])
+// Gets user sends for context
+const contextUserSendData = async () => {
+  if (userToken){
+    try {
+      const sendData = await getUserSends()
+      setUserSends(sendData.data)
+    } catch (error) {
+      console.error("Error fetching send data:", error)
+    }
   }
 }
+
+// Gets userDashboard for context and highestBoulderGrade
+const contextUserDashboard = async () => {
+  const response = await getUserDashboard()
+  setUserDashboard(response.data)
+  setHighestBoulderGrade(response.data.highest_boulder_grade)
+  const sendData = awa
+}
+
   
   useEffect( () => {
     const token = localStorage.getItem("token")
     if(token) {
-      setUserToken(token)
-      fetchUserTeams()
-      getHighestBoulderGrade()
+      setUserToken(token) // sets token in context
+      contextFetchUserTeams() // Sets teams that user is in context
+      contextUserSendData() // Sets user sends in context
+      contextUserDashboard() // Sets user dashboard and highest boulder grade in context
     }
 
-  }, [])
+  }, [userToken]) // Fixes issue of needing to update after we get token
+  // Should set the token, trigger re-render, but this time token won't change
+
 
   const handleToken = (token) => {
     localStorage.setItem("token", token)
@@ -87,17 +97,20 @@ const getHighestBoulderGrade = async () => {
   return (
     <div>
     <UserContext.Provider value={{
+      contextFetchUserTeams,
+      contextUserDashboard,
+      contextUserSendData,
       userToken,
       usersTeams,
-      fetchUserTeams,
       highestBoulderGrade,
       setHighestBoulderGrade,
       userDashboard,
-      setUserDashboard
+      setUserDashboard,
+      userSends,
+      setUserSends
       }}>
     <Router>
       <ToastContainer />
-    {/* <Header /> */}
     <NavBar />
      <Routes >
       <Route path="/" element={<Home />} />

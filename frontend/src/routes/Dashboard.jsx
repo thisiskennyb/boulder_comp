@@ -1,6 +1,7 @@
-import { logSend, getUserSends } from "../api/Send/backend_calls";
-import { createUserDashboard, getUserDashboard } from "../api/Auth/backend_calls";
-import { useEffect, useState, useContext } from "react";
+import { logSend } from "../api/Send/backend_calls";
+import { createUserDashboard } from "../api/Auth/backend_calls";
+import { getTodayDate } from "../utils/utils";
+import {  useState, useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import { toast } from "react-toastify";
 import Modal from "../components/Modal";
@@ -12,104 +13,38 @@ import dashboardLogSend from "../assets/dashboardLogSend.png"
 import dashboardProfileIcon from "../assets/dashboardProfileIcon.png"
 import boulderCompHome from '../assets/boulderCompHome.png'
 
+
 export default function Dashboard() {
-    const { usersTeams, fetchUserTeams, highestBoulderGrade, setHighestBoulderGrade} = useContext(UserContext)
-
-    // usersTeams will get us all the teams a user is a part of
-
-    // For each Team, we want to check the 
-   
-   
-    function getTodayDate() {
-      const today = new Date();
-      const year = today.getFullYear();
-      let month = today.getMonth() + 1;
-      let day = today.getDate();
-  
-      // Add leading zero if month/day is less than 10
-      month = month < 10 ? '0' + month : month;
-      day = day < 10 ? '0' + day : day;
-  
-      return `${year}-${month}-${day}`;
-  }
-   
-   
-    // usersTeams --> all of the teams a user is on
-    // fetchUserTeams --> async function that fetches all of the teams a user is on, and updates state of usersTeams
-    const [ selectDashboardGrade, setSelectDashboardGrade ] = useState("v3")
-    // Will get used if highestBoulderGrade is not available in context
+    const { contextFetchUserTeams, highestBoulderGrade, setHighestBoulderGrade, userSends, contextUserSendData} = useContext(UserContext)
     
-    const [isModalOpen, setModalOpen] = useState(false);
-    const [isChecked, setIsChecked] = useState(false);
-    const [boulderName, setBoulderName] = useState('');
-    const [areaName, setAreaName] = useState('');
-    const [boulderGrade, setBoulderGrade] = useState('v1');
+   // Above function is used to set initial state for sendDate
+   // State variables start here
+    const [ selectDashboardGrade, setSelectDashboardGrade ] = useState("v3") // For setting highest boulder grade
+    const [isModalOpen, setModalOpen] = useState(false); // for modal
+    const [isChecked, setIsChecked] = useState(false); // for modal
+    const [boulderName, setBoulderName] = useState(''); // for modal
+    const [areaName, setAreaName] = useState(''); // for modal
+    const [boulderGrade, setBoulderGrade] = useState('v1'); // for modal
     const [sendDate, setSendDate] = useState(getTodayDate());
-    const [userSends, setUserSends] = useState([]);
-    const [userDashboard, setUserDashboard] = useState(null)
-
-    const [promptToggle, setPromptToggle] = useState(true)
-
-    const [selectedComponent, setSelectedComponent] = useState('DashboardSends');
+    const [selectedComponent, setSelectedComponent] = useState('DashboardSends'); // Filtering
    
-
+    
     const handleButtonClick = (componentName) => {
         setSelectedComponent(componentName);
     };
 
-    useEffect(() => {
-        const fetchUserSend = async () => {
-            try {
-                const sendData = await getUserSends();
-                if (sendData.status === 200) {
-                    setUserSends(sendData.data);
-                } else {
-                    console.error('Error fetching user sends:', sendData.statusText);
-                }
-            } catch (error) {
-                console.error('Error fetching user sends:', error.message);
-            }
-        };
-    
-        const fetchUserDashboard = async () => {
-            try {
-                const userDashboardData = await getUserDashboard();
-                if (userDashboardData.status === 200) {
-                    setHighestBoulderGrade(userDashboardData.data.highest_boulder_grade);
-                } else {
-                    console.error('Error fetching user dashboard data:', userDashboardData.statusText);
-                }
-            } catch (error) {
-                if (error.response && error.response.status === 404) {
-                    console.error('User dashboard data not found:', error.response.data);
-                    setUserDashboard(error.response.data)
-                } else {
-                    console.error('Error fetching user dashboard data:', error.message);
-                }
-            }
-        };
-
-
-    
-        fetchUserSend();
-        fetchUserDashboard();
-    }, [usersTeams, selectDashboardGrade, promptToggle, highestBoulderGrade]);
-    
-    
-    
     const updateHighestBoulderGrade = async () => {
-        if (userDashboard.detail) {
+        try {
             const data = {
                 "highest_boulder_grade": selectDashboardGrade
             }
             const response = await createUserDashboard(data)
-            if (response.status == 200){
-                setHighestBoulderGrade(selectDashboardGrade)
-                
+            if (response.status == 201){
+                setHighestBoulderGrade(selectDashboardGrade)                
             }
-
+        } catch (error){
+          console.error("Error in update highest boulder grade", error)
         }
-
     }
 
     // For log send form
@@ -126,13 +61,7 @@ export default function Dashboard() {
         setSendDate(getTodayDate());
         setIsChecked(false);
         }
-    // Updates Teams User is on each time the modal for log send opens/closes
-    useEffect(() => {
-            // Gets all the teams user is on
-            fetchUserTeams()
     
-    }, [isModalOpen]);
-
 
     const handleLogSend = () => {
         openModal()
@@ -150,12 +79,14 @@ export default function Dashboard() {
             
             if (response.status == 201){
                 toast.success('Successfully Logged')
+                contextFetchUserTeams();
+                contextUserSendData();
                 //Update usersTeams when a Send is submitted
-                fetchUserTeams()
                 
-            }
-        }
-        catch (error) {
+              }
+      
+              
+        }  catch (error) {
             //Error messages for if fetch fails
             toast.error('Thats not a good send, check your data again!')
             console.error('User Login failed:', error.response?.data || 'An error occurred')
@@ -165,8 +96,7 @@ export default function Dashboard() {
 
     const handleSubmitHighestGrade = async () => {
         await updateHighestBoulderGrade() // This sends a post request with selectDashboardGrade
-        setPromptToggle(false)
-        window.location.reload();
+        
     }
 
     const handleBoulderNameInput = (e) => {
