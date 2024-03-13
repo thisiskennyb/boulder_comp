@@ -38,7 +38,7 @@ export async function getTeamsByLeague(league_id) {
     // This gets used in the following component: Team.jsx
     export async function joinTeam(context) {
         try {
-          const response = axios.post(`http://${host}/api/v1/team/`, context, {
+          const response = axios.post(`http://${host}/api/v1/team/join-team`, context, {
             headers: {
               "Content-Type": "application/json",
               "Authorization": `Token ${localStorage.getItem('token')}`

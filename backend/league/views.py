@@ -9,7 +9,8 @@ from team.models import Team
 
 
 class LeagueView(APIView):
-    """
+    def get(self, request, pk=None):
+        """
     This view will get a specific league if a league id is included in the request url
     Otherwise it will get all of the leagues a user is in
 
@@ -22,8 +23,6 @@ class LeagueView(APIView):
     Exception is handled by returning a 200 status and an empty list
 
     """
-
-    def get(self, request, pk=None):
         #Gets a specific league, if league id is in url
         if pk:
 
@@ -124,6 +123,7 @@ class AllLeagueView(APIView):
         Exception handled by Returning empty list, status 200 OK
         Returns: 200 OK, serialized list of League Objects (all existing leagues)
         """
+      
         try:
             all_leagues = League.objects.all()
             serializer = LeagueSerializer(all_leagues, many=True)
@@ -191,6 +191,23 @@ class CreateLeagueTeamView(APIView):
 
 
     def post(self, request):
+        """
+        This view lets a user create a team in a league
+
+        Request Data: league_id, team_name required
+
+        league_id: int, id of league to add team
+        team_name: string, name of Team to be created
+
+        Checks that the league_id does not have a team created by the user (captain)
+
+        Uses League method add_team providing the instance of user, team_name, and the league instance
+
+        Gets the team in the case of joining
+        Or Creates the team in the case of creating a Team
+
+        Returns: 201 Created, serialized Team Object with updated user
+        """
         user = request.user
         team_data = request.data
 
@@ -205,15 +222,18 @@ class CreateLeagueTeamView(APIView):
         # Call the add_team method on the league_instance
         league_instance.add_team(user, team_data['team_name'], league_instance)
 
-        # Get or create the team
+        # Get or create the team -- Helps handle multiple requests from react
+        # Cannot accidently create Team twice, because it will be queried if it exists
         team, created = Team.objects.get_or_create(league=league_instance, team_name=team_data['team_name'], captain=user)
 
         # Add the user who created the team to the league participants
         league_instance.participants.add(user)
         # Add user to the members for easier calculation
         team.add_team_member(user)
-
         serializer = TeamSerializer(team)
+
+        # Handle appropriate code, 201 for new created team
+        
         return Response(serializer.data, status=status.HTTP_201_CREATED)     
   
 

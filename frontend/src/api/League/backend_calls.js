@@ -100,15 +100,6 @@ export async function uploadLeagueImage(context, leagueId) {
 
 }
   
-  
-  // if (response.status === 400) {
-  //     console.log('you suck')
-  // } else {
-  //     console.log(body);
-  //     // navigate("/")
-  // }
-
-
 
 
 
