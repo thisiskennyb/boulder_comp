@@ -47,13 +47,19 @@ export default function NavBar() {
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 bg-gray-700 text-white hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                {userToken && (
+                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 bg-gray-700 text-white hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
                   ) : (
                     <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
+
+                )}
+                
+
+
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
@@ -144,12 +150,12 @@ export default function NavBar() {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
+          {userToken && (
+            <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 px-2 pb-3 pt-2">
               {/* This stops links from being rendered unless user has logged in */}
               {/* Need to make buttons for login and sign up to show buttons in hamburger, right menu works for now */}
-              {userToken && navigation.map((item) => (
+              {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
                   as={Link}
@@ -165,6 +171,10 @@ export default function NavBar() {
               ))}
             </div>
           </Disclosure.Panel>
+
+          )}
+
+   
         </>
       )}
     </Disclosure>

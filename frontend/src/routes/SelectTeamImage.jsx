@@ -19,7 +19,7 @@ export default function SelectTeamImage() {
     const handleSubmit = async () => {
         let teamObj = { team_picture: picture };
         const response = await uploadTeamImage(teamObj, teamId)
-        if (response.status == 200) {
+        if (response.status == 201) {
             toast.success(`image uploaded succussfully`);
             navigate(`/team/${teamId}`)
 
@@ -27,9 +27,9 @@ export default function SelectTeamImage() {
         else {
             toast.error('something went wrong')
         }
-        console.log(response.data)
+        
     };
-    console.log(picture)
+   
 
     return (
         <div className="bg-night min-h-screen flex flex-col justify-center items-center">

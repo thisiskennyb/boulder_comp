@@ -6,15 +6,13 @@ import UserContext from "../contexts/UserContext";
 export default function DashboardInfo ( ) {
 
     const { userDashboard } = useContext(UserContext)
-
     const navigate = useNavigate()
 
-
+    // Need to fix spelling errors
     const handleNavitageImageUpload = () => {
         navigate(`/select-avatar-image/${userDashboard.user}`)
       }
 
-    console.log('userdashboard', userDashboard)
 
     return (
         <div className="bg-night min-h-screen">
