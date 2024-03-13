@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Team
-from league.serializers import TeamSerializer
+from team.serializers import TeamSerializer
 from league.models import League
 
 

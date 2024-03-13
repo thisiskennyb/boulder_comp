@@ -7,7 +7,6 @@ import defaultImage from "../assets/default_image.png"
 
 export default function Team() {
   let { teamId } = useParams();
-
   const [team, setTeam] = useState(null);
   const [leagueStartDate, setLeagueStartDate] = useState('');
   const [leagueEndDate, setLeagueEndDate] = useState('');
@@ -17,6 +16,31 @@ export default function Team() {
 
   const navigate = useNavigate()
   
+
+  //////////////   fetchTeam and useEffect   //////////////
+
+  // Calls getTeam func with the id extracted from useParams
+
+  // Puts team info into state
+  // teamInfo : All team information including, league name, members, sends for each member
+  // leagueStartDate : League start date tracked in state
+  // leageEndDate : League end date tracked in state
+  // members : All members of a team, includes list of Send objects
+
+  // Uses helper function calculateUserScore to calculate the score for each team member
+  // When we iterate over each member we use calculateScore to calculate the valid boulders based on start_date and end_date
+  // While iterating we update the score for that member
+  
+  // When we finish Iterating we update the state of members to the resulting list
+
+  // Returns: This function/ useEffect does not return anything! It sets the state of teamInfo, leagueStartDate, leagueEndDate, and members
+  // It Also only runs once and has no dependencies
+
+
+  // We may want to extract the fetchTeam function out of the useEffect.
+  // This would let us still call the function again to get a team, and update scores for the members of it
+
+
   useEffect(() => {
     const fetchTeam = async () => {
       const team = await getTeam(teamId);
@@ -26,7 +50,9 @@ export default function Team() {
         setLeagueStartDate(teamInfo.league['start_date']);
         setLeagueEndDate(teamInfo.league['end_date']);
         const updatedMembers = teamInfo.members.map(member => ({
+    
           ...member, score: calculateUserScore(member.sends) //When we map over members, we use calculateUserScore to add score to member object
+          
         }))
         setMembers(updatedMembers); // updatedMembers have their individual score
       }
@@ -36,6 +62,9 @@ export default function Team() {
 
 
   function isDateInRange(dateToCheck, startDate = leagueStartDate, endDate = leagueEndDate) {
+    /// This function checks that league dates are valid
+    /// Returns: Boolean, True if current date is within league start and end dates
+    // leagueStartDate and leagueEndDate are stored in state and can easily be accessed
     const date = new Date(dateToCheck);
     const start = new Date(startDate);
     const end = new Date(endDate);
@@ -43,22 +72,35 @@ export default function Team() {
     return start <= date && date <= end;
   }
 
-
-
-
   const calculateUserScore = (send_arr) => {
+    //This function takes in a list of Send Objects and returns a score
+    // Uses isDateInRange to filter boulders that were sent within league dates
+    // The Send Objects have scores, so we can just add the valid send scores
+    // Returns score, an integer representing the total score for an individual member
     let score = 0;
-
+    
     for (let send of send_arr) {
       if (isDateInRange(send.send_date)) {
+       //Update Score if valid
         score += send.score;
       }
     }
-
+    // Score of valid sends from a user
     return score;
   };
 
-  const teamSendData = [];
+
+
+
+
+const teamSendData = []
+//teamSendData is all of the valid send objects for a team
+  // This forEach iterates over each member
+  // And forEach member we check each Send
+  // If send is within league start dates
+  // We add it to teamSendData
+
+  
   members.forEach(member => { // For each member, for each send
     member.sends.forEach(send => {
       if (isDateInRange(send.send_date)) { // Check the date of each send
@@ -74,14 +116,16 @@ export default function Team() {
     });
   });
 
+
+//////// Spelling Errors fix Later ////////
+////////////////////////////////////////
+
   const handleNavitageImageUpload = () => {
     navigate(`/select-team-image/${teamId}`)
   }
 
-  // Sort team send data by send date in descending order
-  const sortedTeamSends = teamSendData.sort((a, b) => new Date(b.send_date) - new Date(a.send_date));
-
-  console.log(team)
+ 
+  
 
   return (
     <div className="bg-night min-h-screen py-4">
@@ -117,7 +161,7 @@ export default function Team() {
         </div>
   
         {/* Render TeamSendTable component with sorted team send data */}
-        <TeamSendTable teamSends={sortedTeamSends} />
+        <TeamSendTable teamSends={teamSendData} />
       </div>
     </div>
   );

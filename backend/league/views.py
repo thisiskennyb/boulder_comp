@@ -2,70 +2,92 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from league.models import League
-from .serializers import LeagueSerializer, TeamSerializer
+from .serializers import LeagueSerializer
+from team.serializers import TeamSerializer
 from team.models import Team
-from django.db.models import Sum, Count
-from send.models import Send
 
-# Unused imports... Sum, Count, Send
-
-# Not sure if we use this, but set up poorly
-
-## Need to protect queries in try/except
-
-# Response If.. 200 OK and Else... 200 OK is confusing written without the try/excepts
-
-###
-### if pk
-     ##### Try
-              ##### Query league where id = pk
-     ##### Except
-        ##### Pass (Or return a useful status, in this case we want to pass to let the Else handle the case of no pk)
-    #Else
-    #####  Try
-            ###### Query leagues where user is a particpant
-    ###### Except
-    ###### Return 204 No Content if empty? 404 if no leagues with user? status can tell us something if we use it
 
 
 class LeagueView(APIView):
+    """
+    This view will get a specific league if a league id is included in the request url
+    Otherwise it will get all of the leagues a user is in
+
+    pk: league_id that will be present in url if specific league is desired
+
+    If we have a pk, we try to query that league_id
+    Exception is handled by returning a 400 status code and an empty list
+
+    If there is no pk, we try to query all of the leagues that include the user
+    Exception is handled by returning a 200 status and an empty list
+
+    """
 
     def get(self, request, pk=None):
         #Gets a specific league, if league id is in url
         if pk:
-            league = League.objects.get(id=pk)
+
+            try:
+                league = League.objects.get(id=pk)
+                serializer = LeagueSerializer(league)
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            # Handles the case of an incorrect pk
+            # Will only be able to run if a bad pk is provided
+            except League.DoesNotExist:
+                return Response([], status=status.HTTP_400_BAD_REQUEST)
             
-            serializer = LeagueSerializer(league)
-            return Response(serializer.data, status=status.HTTP_200_OK)
         #Gets all the leagues the user is part of
         else:
             user = request.user
+
             # Filter leagues based on the user
-            # We want Team where members = user
-            user_leagues = League.objects.filter(participants=user)
-            serializer = LeagueSerializer(user_leagues, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        
+            try:
+            # We want Leagues where participants = user
+                user_leagues = League.objects.filter(participants=user)
+                
+                serializer = LeagueSerializer(user_leagues, many=True)
 
-    #### Same as above, Make
+                return Response(serializer.data, status=status.HTTP_200_OK)
+            # If user is not in any leagues we just return an empty list
+            except League.DoesNotExist:
+                return Response([], status=status.HTTP_200_OK)
+            
 
-    #Creates a league, requires league_name, start_date, end_date, team_size, location
+           
+   
+
+    
     def post(self, request):
+        """
+        This view creates and returns a League
+
+        Request Data: league_name, start_date, end_date, team_size, location required
+
+        Try to query League with league_name=league_name
+        If league exists return 400 Bad Request
+
+        Otherwise create a new league with valid fields from Request Data
+
+        Return: 201 Created, serialized League object
+        """
+
         user = request.user
         league_data = request.data
-        league_name = league_data['league_name']
-        start_date = league_data['start_date']
-        end_date = league_data['end_date']
-        team_size = league_data['team_size']
-        location = league_data['location']
-
+        try:
+            league_name = league_data['league_name']
+            start_date = league_data['start_date']
+            end_date = league_data['end_date']
+            team_size = league_data['team_size']
+            location = league_data['location']
+        # Handle if these are not all found in the request data
+        except KeyError as e:
+            return Response({"message": f'One or more fields was missing, check {e}'}, status=status.HTTP_400_BAD_REQUEST)
+        
         if League.objects.filter(league_name=league_name).exists():
             return Response({'error': 'This league name has already been used'}, status=status.HTTP_400_BAD_REQUEST)
 
         new_league = League.objects.create(moderator=user, league_name=league_name, start_date=start_date, end_date=end_date, team_size=team_size, location=location)
-
-
-        new_league.save()
+        new_league.save() # Save league after creating
 
         serializer = LeagueSerializer(new_league)
 
@@ -73,45 +95,42 @@ class LeagueView(APIView):
 
     
     def put(self, request, pk):
-        user = request.user
-        data = request.data
-        print(data)
-
+        """
+        This view takes in request data, picture, and updates league picture field
+        """
+        try:
+            picture = request.data.get('picture')
+        except KeyError as e:
+            return Response({"message": f'There was an issue with one or more fields, chec {e}'}, status=status.HTTP_400_BAD_REQUEST)
+            
         try:
             league = League.objects.get(id=pk)
+            league.picture = picture
+            league.save()
+            serializer = LeagueSerializer(league)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         except League.DoesNotExist:
             return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
         
-        picture = request.data.get('picture')
-        # league_name = request.data.get('league_name')
-        # start_date = request.data.get('start_date')
-        # end_date = request.data.get('end_date')
-        # location = request.data.get('location')
-        # team_size = request.data.get('team_size')
-        
-
-        
-        league.picture = picture
-        # league.league_name = league_name
-        # league.start_date = start_date
-        # league.end_date = end_date
-        # league.location = location
-        # league.team_size = team_size
-        
-        league.save()
-        serializer = LeagueSerializer(league)
-
-        
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    
 
 
 class AllLeagueView(APIView):
     #Returns all leagues
     def get(self, request):
-        all_leagues = League.objects.all()
-        serializer = LeagueSerializer(all_leagues, many=True)
-        return Response(serializer.data)
+        """
+        This view returns all existing leagues
+        Tries to query all leagues
+
+        Exception handled by Returning empty list, status 200 OK
+        Returns: 200 OK, serialized list of League Objects (all existing leagues)
+        """
+        try:
+            all_leagues = League.objects.all()
+            serializer = LeagueSerializer(all_leagues, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except League.DoesNotExist:
+            return Response([], status=status.HTTP_200_OK)
+
     
 class CreateLeagueTeamView(APIView):
 
@@ -157,7 +176,7 @@ class CreateLeagueTeamView(APIView):
               
         
                 
-
+        updated_teams = Team.objects.filter(members=user)
         # serialize the output
         serializer = TeamSerializer(teams, many=True)
 
@@ -192,25 +211,6 @@ class CreateLeagueTeamView(APIView):
   
 
 
-
-#### Whats going on with this?
-### Leagues not getting used, Response?
-
-
-class LeagueStatsView(APIView):
-
-    def get(self, request):
-        user = request.user
-        leagues = League.objects.filter(participants=user)
-        
-        teams = Team.objects.filter(members=user)
-        print(teams)
-
-        for team in teams:
-            print(team.members)
-   
-
-        return Response({"message": "you suck"})
 
 
 

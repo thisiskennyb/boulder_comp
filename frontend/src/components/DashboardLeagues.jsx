@@ -14,6 +14,7 @@ export default function DashboardLeagues(){
     const handleNavigateToLeaguesHome = () => {
         navigate("/leagues-home")
     }
+    console.log(usersTeams, 'lets look at this')
 
     return (
         <div>

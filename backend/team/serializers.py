@@ -1,11 +1,17 @@
 from rest_framework import serializers
-from league.serializers import UserSerializer
+from league.serializers import UserSerializer 
 from team.models import Team
+from league.models import League
 
-
+class TeamLeagueSerializer(serializers.ModelSerializer):
+    participants = UserSerializer(many=True)
+    class Meta:
+        model = League
+        fields = '__all__'
 
 class TeamSerializer(serializers.ModelSerializer):
     members = serializers.SerializerMethodField()
+    league = TeamLeagueSerializer()
     
     class Meta:
         model = Team
