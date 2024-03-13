@@ -124,7 +124,6 @@ const teamSendData = []
     navigate(`/select-team-image/${teamId}`)
   }
 
- 
   
 
   return (
@@ -140,7 +139,7 @@ const teamSendData = []
               <img src={defaultImage} alt='placeholder for league' className="size-32 rounded-full my-4" />
             )}
 
-            {team && userDashboard?.user == team.captain.id && (
+            {team && userDashboard?.user == team.captain && (
               <button className="bg-gray-800 font-nunito min-w-min text-white text-lg md:text-xl rounded-md border border-white hover:bg-gray-600 hover:text-white" onClick={handleNavitageImageUpload}>
                 UPLOAD
               </button>

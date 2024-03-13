@@ -40,7 +40,7 @@ export default function SelectTeamImage() {
             type="file"
         />
         <button
-            className="mt-6 bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300"
+            className=" bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300"
             onClick={handleSubmit}
         >
             Submit
