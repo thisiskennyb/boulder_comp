@@ -27,14 +27,18 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     
     return (
         <>
+        {userSends.length != 0 ? (
             <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
+        ):(
+            <div></div>
+        )}    
             <div className="flex flex-wrap justify-center w-11/12 md:w-2/3 mx-auto">
                 
            {!isModalOpen && gradeBars}
            </div>
       
         {userSends.length == 0 ? (
-            
+                    
                         <div className="flex flex-col items-center text-white">
                         <div className="font-nunito text-xl md:text-3xl my-10">Log a send!</div>
                         <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
