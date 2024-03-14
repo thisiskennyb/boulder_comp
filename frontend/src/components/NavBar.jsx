@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import UserContext from "../contexts/UserContext";
 import default_img from "../assets/default_image.png"
 
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Home', to: '/', current: false },
@@ -26,7 +26,6 @@ export default function NavBar() {
 
     // const token = localStorage.getItem('token')
     const { userDashboard, userToken, setUserToken } = useContext(UserContext)
-    const navigate = useNavigate()
 
    
     
@@ -37,9 +36,7 @@ export default function NavBar() {
       }
 
 
-    const handleNavigateHome = () => {
-      navigate('/')
-    }
+
 
 
   return (
@@ -48,24 +45,25 @@ export default function NavBar() {
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
-                {userToken && (
-                  <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 bg-gray-700 text-white hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+              {userToken ? (
+                  <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                  {/* Mobile menu button*/}
+                  {userToken && (
+                    <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 bg-gray-700 text-white hover:bg-gray-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                    {open ? (
+                      <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    ) : (
+                      <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    )}
+                  </Disclosure.Button>
                   )}
-                </Disclosure.Button>
+                </div>
+              ):(
+                <div></div>
+              )}
 
-                )}
-                
-
-
-              </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center cursor-pointer" onClick={handleNavigateHome}>
+                <div className="flex flex-shrink-0 items-center">
                   <img
                     className="h-12 w-auto"
                     src={horizontalLogo}
@@ -97,7 +95,7 @@ export default function NavBar() {
     
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12 cursor-pointer">
+                    <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12">
                       <img
                         className="h-8 w-8 mt-1 rounded-full"
                         src={userDashboard?.avatar || default_img}
