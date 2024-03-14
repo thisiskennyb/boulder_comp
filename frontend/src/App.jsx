@@ -34,45 +34,51 @@ import { getUserSends } from './api/UserContext/backend_calls' // Gets all the u
 
 
 function App() {
-  const [userToken, setUserToken] = useState(null)
+  const [ userToken, setUserToken ] = useState(null)
   const [ usersTeams, setUsersTeams ] = useState([]);
-  const [ userSends , setUserSends ] = useState([])
+  const [ userSends, setUserSends ] = useState([])
   const [highestBoulderGrade, setHighestBoulderGrade] = useState(null)
   const [userDashboard, setUserDashboard] = useState(null)
 
 
+// We have try/catch on all of our backend fetches
+// Can access status after await with .status, data with .data
+
  // Gets user Teams for context
+ 
   const contextFetchUserTeams = async () => {
     const token = localStorage.getItem('token')
     if (token){
-        try {
-            const teamData = await teamsUserIsIn();
-            setUsersTeams(teamData.data);
-        } catch (error) {
-            console.error("Error fetching leagues:", error)
-        }
-    }
-}
-
-// Gets user sends for context
-const contextUserSendData = async () => {
-  if (userToken){
-    try {
-      const sendData = await getUserSends()
-      setUserSends(sendData.data)
-    } catch (error) {
-      console.error("Error fetching send data:", error)
+      const teamData = await teamsUserIsIn();
+      if (teamData.status == 200){
+        setUsersTeams(teamData.data);
+      }
     }
   }
-}
+  
+
+// Gets user sends for context
+  const contextUserSendData = async () => {
+    const token = localStorage.getItem('token')
+    if (token){
+        const sendData = await getUserSends()
+        if (sendData.status == 200){
+          setUserSends(sendData.data)
+        }
+      }
+    }
+
 
 // Gets userDashboard for context and highestBoulderGrade
-const contextUserDashboard = async () => {
-  const response = await getUserDashboard()
-  setUserDashboard(response.data)
-  setHighestBoulderGrade(response.data.highest_boulder_grade)
-  const sendData = awa
-}
+  const contextUserDashboard = async () => {
+    if (userToken){
+      const response = await getUserDashboard()
+      if (response.status == 200){
+        setUserDashboard(response.data)
+        setHighestBoulderGrade(response.data.highest_boulder_grade)
+      }
+    }
+  }
 
   
   useEffect( () => {
@@ -94,47 +100,47 @@ const contextUserDashboard = async () => {
   }
 
   
-  return (
-    <div>
-    <UserContext.Provider value={{
-      contextFetchUserTeams,
-      contextUserDashboard,
-      contextUserSendData,
-      userToken,
-      usersTeams,
-      highestBoulderGrade,
-      setHighestBoulderGrade,
-      userDashboard,
-      setUserDashboard,
-      userSends,
-      setUserSends
-      }}>
-    <Router>
-      <ToastContainer />
-    <NavBar />
-     <Routes >
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login handleToken={handleToken} />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/email-reset" element={<EmailReset />} />
-      <Route path="/email-verification" element={<EmailVerification />} />
-      <Route path="/join-league" element={<JoinLeague />} />
-      <Route path="/create-league" element={<CreateLeague />} />
-      <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
-      <Route path="/signup-message" element={<SignupMessage />} />
-      <Route path="/league/:leagueId" element={<League />} />
-      <Route path="/team/:teamId" element={<Team />} />
-      <Route path="/dashboard" element={<Dashboard  />} />
-      <Route path="/leagues-home" element={<LeaguesHome />} />
-      <Route path="/rules-and-scoring" element={<RulesScoring />} />
-      <Route path="/select-league-image/:leagueId" element={<SelectLeagueImage />} />
-      <Route path="/select-team-image/:teamId" element={<SelectTeamImage />} />
-      <Route path="/select-avatar-image/:userId" element={<SelectAvatar />} />
-     </Routes>
-     </Router>
-     </UserContext.Provider>
-     </div>
-  )
-}
+    return (
+      <div>
+      <UserContext.Provider value={{
+        contextFetchUserTeams,
+        contextUserDashboard,
+        contextUserSendData,
+        userToken,
+        usersTeams,
+        highestBoulderGrade,
+        setHighestBoulderGrade,
+        userDashboard,
+        setUserDashboard,
+        userSends,
+        setUserSends
+        }}>
+      <Router>
+        <ToastContainer />
+      <NavBar />
+      <Routes >
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login handleToken={handleToken} />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/email-reset" element={<EmailReset />} />
+        <Route path="/email-verification" element={<EmailVerification />} />
+        <Route path="/join-league" element={<JoinLeague />} />
+        <Route path="/create-league" element={<CreateLeague />} />
+        <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
+        <Route path="/signup-message" element={<SignupMessage />} />
+        <Route path="/league/:leagueId" element={<League />} />
+        <Route path="/team/:teamId" element={<Team />} />
+        <Route path="/dashboard" element={<Dashboard  />} />
+        <Route path="/leagues-home" element={<LeaguesHome />} />
+        <Route path="/rules-and-scoring" element={<RulesScoring />} />
+        <Route path="/select-league-image/:leagueId" element={<SelectLeagueImage />} />
+        <Route path="/select-team-image/:teamId" element={<SelectTeamImage />} />
+        <Route path="/select-avatar-image/:userId" element={<SelectAvatar />} />
+      </Routes>
+      </Router>
+      </UserContext.Provider>
+      </div>
+    )
+  }
 
 export default App

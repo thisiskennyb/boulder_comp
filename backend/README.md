@@ -186,7 +186,7 @@ Inside your `.env` file update the following variables:
     - [ ] Assign S3 variable in env to S3 Bucket name
     - [ ] Assign email variable in env  to email
     - [ ] Assign email variable in env to email credentials
-    - [ ] Check that variables in ENV are properly used in `boulder_comp/backend/roll_tracker/settings.py`
+    - [ ] Check that variables in ENV are properly used in `boulder_comp/backend/boulder_comp/settings.py`
 - Do not hard code credentials for security purposes
 
 
