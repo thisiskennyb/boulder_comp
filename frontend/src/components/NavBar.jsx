@@ -6,7 +6,7 @@ import { useContext } from 'react'
 import UserContext from "../contexts/UserContext";
 import default_img from "../assets/default_image.png"
 
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const navigation = [
   { name: 'Home', to: '/', current: false },
@@ -26,6 +26,7 @@ export default function NavBar() {
 
     // const token = localStorage.getItem('token')
     const { userDashboard, userToken, setUserToken } = useContext(UserContext)
+    const navigate = useNavigate()
 
    
     
@@ -36,7 +37,9 @@ export default function NavBar() {
       }
 
 
-
+    const handleNavigateHome = () => {
+      navigate('/')
+    }
 
 
   return (
@@ -62,7 +65,7 @@ export default function NavBar() {
 
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center cursor-pointer" onClick={handleNavigateHome}>
                   <img
                     className="h-12 w-auto"
                     src={horizontalLogo}
@@ -94,7 +97,7 @@ export default function NavBar() {
     
                 <Menu as="div" className="relative ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12">
+                    <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12 cursor-pointer">
                       <img
                         className="h-8 w-8 mt-1 rounded-full"
                         src={userDashboard?.avatar || default_img}
