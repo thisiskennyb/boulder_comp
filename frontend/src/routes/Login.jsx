@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Modal from '../components/Modal';
+import Modal from '../Features/Utils/Modal';
 import { XSquare } from 'lucide-react';
 import { login, emailResetLink } from '../api/Auth/backend_calls';
 import { useNavigate, Link } from 'react-router-dom';

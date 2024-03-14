@@ -1,4 +1,4 @@
-import GradeBar from "./GradeBar";
+import GradeBar from "../Utils/GradeBar";
 
 export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     // This function updates the frequency for user sends

@@ -1,6 +1,6 @@
 import {useNavigate} from 'react-router-dom'
 import { toast } from "react-toastify";
-import { joinTeam } from '../api/Team/backend_calls';
+import { joinTeam } from '../../api/Team/backend_calls';
 
 export default function LeagueTeamDisplay({teamsData, leagueParticipants, userDashboardID, toggleJoinLeague}){
 // This component takes in 

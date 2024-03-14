@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router-dom"
 import { useContext } from "react";
-import UserContext from "../contexts/UserContext";
+import UserContext from "../../contexts/UserContext";
 
 
 export default function DashboardInfo ( ) {
 
     const { userDashboard } = useContext(UserContext)
+    console.log(userDashboard, 'this is users dashboard')
     const navigate = useNavigate()
 
     // Need to fix spelling errors
     const handleNavitageImageUpload = () => {
-        navigate(`/select-avatar-image/${userDashboard.user}`)
+        navigate(`/upload-image/profile/${userDashboard.id}`)
       }
 
 

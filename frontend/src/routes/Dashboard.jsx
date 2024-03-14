@@ -4,10 +4,10 @@ import { getTodayDate } from "../utils/utils";
 import {  useState, useContext } from "react";
 import UserContext from "../contexts/UserContext";
 import { toast } from "react-toastify";
-import Modal from "../components/Modal";
-import DashboardLeagues from "../components/DashboardLeagues";
-import DashboardInfo from "../components/DashboardInfo";
-import DashboardSends from "../components/DashboardSends";
+import Modal from "../Features/Utils/Modal";
+import DashboardLeagues from "../Features/Dashboard/DashboardLeagues";
+import DashboardInfo from "../Features/Dashboard/DashboardInfo";
+import DashboardSends from "../Features/Dashboard/DashboardSends";
 import dashboardLeagueIcon from "../assets/dashboardLeagueIcon.png"
 import dashboardLogSend from "../assets/dashboardLogSend.png"
 import dashboardProfileIcon from "../assets/dashboardProfileIcon.png"
@@ -15,7 +15,7 @@ import boulderCompHome from '../assets/boulderCompHome.png'
 
 
 export default function Dashboard() {
-    const { contextFetchUserTeams, highestBoulderGrade, setHighestBoulderGrade, userSends, contextUserSendData} = useContext(UserContext)
+    const { contextFetchUserTeams, highestBoulderGrade, userSends, contextUserSendData, contextUserDashboard} = useContext(UserContext)
     
    // Above function is used to set initial state for sendDate
    // State variables start here
@@ -40,13 +40,13 @@ export default function Dashboard() {
             }
             const response = await createUserDashboard(data)
             if (response.status == 201){
-                setHighestBoulderGrade(selectDashboardGrade)                
+              contextUserDashboard()
             }
         } catch (error){
           console.error("Error in update highest boulder grade", error)
         }
     }
-
+  
     // For log send form
     const openModal = () => {
         setModalOpen(true);
