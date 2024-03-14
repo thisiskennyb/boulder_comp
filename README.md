@@ -89,10 +89,10 @@ Watch the video below starting at `4:42` to learn more about the grading scale f
 ## Using the App
 
 #### Signup
-- To begin a user must first create an account in order to access the app's features. When a user signs up they must verify their email address to activate their account. Click [here](http://3.143.247.65/signup) to sign up.
+- To begin a user must first create an account to access the app's features. When a user signs up they must verify their email address to activate their account. Click [here](http://3.143.247.65/signup) to sign up.
 
 #### Login
-- On the first login the user will be prompted to submit the highest grade they have sent to date (this can be edited as it changes). Click [here](http://3.143.247.65/login) to login.
+- On the first login the user will be prompted to submit the highest grade they have sent to date (this can be edited as it changes). This will be used for scoring purposes once the user joins a league. Click [here](http://3.143.247.65/login) to login.
 
 #### Create or Join a League
 - The purpose of the app is to compete so joining or creating a league would be the next step. This page requires a login to access. Click [here](http://3.143.247.65/leagues-home) to navigate to leagues home.
@@ -101,7 +101,7 @@ Watch the video below starting at `4:42` to learn more about the grading scale f
 - Once the user is a member of a league they can start logging sends to earn points in any active league. The send date must occur during the league dates to be valid in any given league. Log a send by [navigating](http://3.143.247.65/dashboard) to the user dashboard.
 
 #### View Current Standings
-- The user can view their current standing in any active league they are a member of by navigating to their dashboard. In addition the dashboard displays all of the user's past sends and account settings.
+- The user can view their current team's standing in any active league they are a member of by navigating to their dashboard. In addition the dashboard displays all of the user's past sends and account settings.
 
 
 ## Pages
