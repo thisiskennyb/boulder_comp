@@ -3,11 +3,11 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getSingleLeague } from "../api/League/backend_calls";
 import { createTeam, getTeamsByLeague } from "../api/Team/backend_calls";
 
-import Modal from "../components/Modal";
+import Modal from "../Features/Utils/Modal";
 import { toast } from "react-toastify";
 import UserContext from "../contexts/UserContext";
 import defaultImage from "../assets/default_image.png";
-import LeagueTeamDisplay from "../components/LeagueTeamDisplay";
+import LeagueTeamDisplay from "../Features/League/LeagueTeamDisplay";
 
 export default function League() {
   const { leagueId } = useParams();
@@ -69,7 +69,7 @@ export default function League() {
 
 // OnClick for Image upload 
   const handleNavitageImageUpload = () => {
-    navigate(`/select-league-image/${leagueId}`)
+    navigate(`/upload-image/league/${leagueId}`)
   }
   // Triggers useEffect when modal Opens/Closes
   const closeModal = () => setModalOpen(false);

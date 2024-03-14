@@ -129,9 +129,10 @@ class DashboardView(APIView):
         user = request.user
         data = request.data
         print(data, "weeeeeeee")
+    
 
         try:
-            user_dashboard = UserDashboard.objects.get(user=pk)
+            user_dashboard = UserDashboard.objects.get(user=user)
         except UserDashboard.DoesNotExist:
             return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
         

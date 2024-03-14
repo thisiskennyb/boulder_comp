@@ -15,10 +15,9 @@ import JoinLeague from './routes/JoinLeague'
 import CreateLeague from './routes/CreateLeague'
 import League from './routes/League'
 import Team from './routes/Team'
-import NavBar from './components/NavBar'
-import SelectLeagueImage from './routes/SelectLeagueImage'
-import SelectTeamImage from './routes/SelectTeamImage'
-import SelectAvatar from './routes/SelectAvatar'
+import NavBar from './Features/Utils/NavBar'
+
+import UploadImage from './Features/Utils/UploadImage'
 
 
 
@@ -31,6 +30,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getUserDashboard } from './api/UserContext/backend_calls' // Gets us Highest Boulder Grade for user
 import { teamsUserIsIn } from './api/UserContext/backend_calls' // Gets all the teams a user is in
 import { getUserSends } from './api/UserContext/backend_calls' // Gets all the users sends
+
 
 
 function App() {
@@ -130,12 +130,12 @@ function App() {
         <Route path="/signup-message" element={<SignupMessage />} />
         <Route path="/league/:leagueId" element={<League />} />
         <Route path="/team/:teamId" element={<Team />} />
+
+        <Route path="/upload-image/:type/:id?" element={<UploadImage />} />
+        
         <Route path="/dashboard" element={<Dashboard  />} />
         <Route path="/leagues-home" element={<LeaguesHome />} />
         <Route path="/rules-and-scoring" element={<RulesScoring />} />
-        <Route path="/select-league-image/:leagueId" element={<SelectLeagueImage />} />
-        <Route path="/select-team-image/:teamId" element={<SelectTeamImage />} />
-        <Route path="/select-avatar-image/:userId" element={<SelectAvatar />} />
       </Routes>
       </Router>
       </UserContext.Provider>

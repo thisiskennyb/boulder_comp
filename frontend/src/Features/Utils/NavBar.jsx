@@ -1,10 +1,10 @@
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon,  XMarkIcon } from '@heroicons/react/24/outline'
-import horizontalLogo from "../assets/horizOption3White.png"
+import horizontalLogo from "../../assets/horizOption3White.png"
 import { useContext } from 'react'
-import UserContext from "../contexts/UserContext";
-import default_img from "../assets/default_image.png"
+import UserContext from "../../contexts/UserContext";
+import default_img from "../../assets/default_image.png"
 
 import { Link } from 'react-router-dom'
 

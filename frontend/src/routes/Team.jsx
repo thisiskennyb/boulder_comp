@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { getTeam } from "../api/Team/backend_calls";
-import TeamSendTable from "../components/TeamSendTable";
+import TeamSendTable from "../Features/Team/TeamSendTable";
 import UserContext from "../contexts/UserContext";
 import defaultImage from "../assets/default_image.png"
 
@@ -121,7 +121,7 @@ const teamSendData = []
 ////////////////////////////////////////
 
   const handleNavitageImageUpload = () => {
-    navigate(`/select-team-image/${teamId}`)
+    navigate(`/upload-image/team/${teamId}`)
   }
 
   
