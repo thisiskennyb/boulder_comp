@@ -37,7 +37,7 @@ export async function getUserSends() {
 // Gets all of the teams a user is on
 export async function teamsUserIsIn() {
     try {
-      const response = axios.get(`http://${host}/api/v1/league/create_team/`, {
+      const response = axios.get(`http://${host}/api/v1/league/get-user-teams/`, {
         headers: {
           "Content-Type": "application/json",
           "Authorization": `Token ${localStorage.getItem('token')}`

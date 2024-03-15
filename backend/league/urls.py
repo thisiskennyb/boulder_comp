@@ -5,6 +5,7 @@ from league.views import LeagueView, CreateLeagueTeamView, AllLeagueView
 urlpatterns = [
     
     path('', LeagueView.as_view(), name='league'),
+    path('get-user-teams/', CreateLeagueTeamView.as_view(), name='get-user-teams'),
     path('<int:pk>', LeagueView.as_view(), name='league'),
     path('all/', AllLeagueView.as_view(), name='league'),
     path('create_team/', CreateLeagueTeamView.as_view(), name='create-team'),

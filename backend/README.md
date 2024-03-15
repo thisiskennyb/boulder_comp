@@ -690,7 +690,7 @@ Returns something like:
 
 ### Get All Teams User is in
 
-- Make a GET request to `localhost:8000/api/v1/league/create_team/`
+- Make a GET request to `localhost:8000/api/v1/league/get-user-teams/`
 
 [All Endpoints](#endpoints)
 
