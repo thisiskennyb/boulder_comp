@@ -37,22 +37,31 @@ export default function CreateLeague() {
 
     const createLeagueHandler = async() => {
         try {
-          const response = await createLeague({league_name: leagueName, location: location, team_size: parseInt(teamSize), start_date: startDate, end_date: endDate })
+          // List of fields that we are tracking in state
+          // Must be filled out to not be null
+          const requiredFields = [leagueName, location, startDate, endDate, teamSize]
+          // Every will return True if all values are True
+          // This means if one of the fields is not filled out, every() will return False
+          if (requiredFields.every(field => field)){
+            const response = await createLeague({league_name: leagueName, location: location, team_size: parseInt(teamSize), start_date: startDate, end_date: endDate })
         
-          if (response.status == 201){
-            toast.success("You have created a league")
-            navigate(`/league/${response.data.id}`);
-
-          }
+            if (response.status == 201){
+              toast.success("You have created a league")
+              navigate(`/league/${response.data.id}`);
+            }
+        } else {
+          // Handles when requiredFields not present
+          toast.error("You must fill out all of the required fields")
+        }
         } catch (error) {
           console.error('Something went wrong', error.response.status)
-          console.log(error.response.status, 'this is error')
+          // Handles a league name that already exists
           if (error.response.status == 400){
             toast.error("A league with that name already exists")
+            // Any other error that causes createLeague to fail
           } else {
             toast.error("Check your details for league, something went wrong")
           }
-          
         }
     }
 
