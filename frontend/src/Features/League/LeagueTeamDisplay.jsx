@@ -1,6 +1,8 @@
 import {useNavigate} from 'react-router-dom'
 import { toast } from "react-toastify";
 import { joinTeam } from '../../api/Team/backend_calls';
+import { useContext } from 'react';
+import UserContext from '../../contexts/UserContext';
 
 export default function LeagueTeamDisplay({teamsData, leagueParticipants, userDashboardID, toggleJoinLeague}){
 // This component takes in 
@@ -10,7 +12,7 @@ export default function LeagueTeamDisplay({teamsData, leagueParticipants, userDa
 // toggleJoinLeague, a function that triggers the useEffect in League.jsx
 
 // Create Team and Join buttons are conditionally rendered, showing if the user is NOT a participant in the league already
-
+    const {contextFetchUserTeams } = useContext(UserContext)
     const navigate = useNavigate()
 
         // OnClick for view team
@@ -28,6 +30,7 @@ export default function LeagueTeamDisplay({teamsData, leagueParticipants, userDa
         if (response.status === 200) {
             toast.success('You have joined the team!');
             toggleJoinLeague()
+            contextFetchUserTeams()
         }
         } catch (error) {
         console.error('Something went wrong', error.response.status);

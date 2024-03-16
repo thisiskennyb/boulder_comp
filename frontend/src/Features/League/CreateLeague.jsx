@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom"
 
 
+
 export default function CreateLeague() {    
   const navigate = useNavigate();
 
@@ -47,6 +48,7 @@ export default function CreateLeague() {
         
             if (response.status == 201){
               toast.success("You have created a league")
+              
               navigate(`/league/${response.data.id}`);
             }
         } else {
