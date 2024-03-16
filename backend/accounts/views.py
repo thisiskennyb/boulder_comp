@@ -124,36 +124,38 @@ class DashboardView(APIView):
   
     
 
-    def put(self, request, pk):
-        ##### WHAT ARE WE DOING HERE?? USE THE DATA YES OR NO?
+    def put(self, request):
+        """
+        This view takes in optional fields and updates a users Dashboard with the provided info
+
+        Request Data: height, weight, ape_index, highest_boulder_grade, highest_route_grade, and avatar. All optional
+
+        Frontend will verify at least 1 argument is sent
+        highest_route_grade currently not implemented on frontend
+
+        Returns: 201 Created, updated serialized UserDashboard Object
+        """
         user = request.user
         data = request.data
-        print(data, "weeeeeeee")
+      
     
-
         try:
             user_dashboard = UserDashboard.objects.get(user=user)
         except UserDashboard.DoesNotExist:
             return Response({"error": "UserDashboard does not exist"}, status=status.HTTP_404_NOT_FOUND)
         
-        # height = request.data.get('height')
-        # weight = request.data.get('weight')
-        # ape_index = request.data.get('ape_index')
-        # highest_boulder_grade = request.data.get('highest_boulder_grade')
-        avatar = request.data.get('avatar')
       
 
-        # user_dashboard.height = height
-        # user_dashboard.weight = weight
-        # user_dashboard.ape_index = ape_index
-        # user_dashboard.highest_boulder_grade = highest_boulder_grade
-        user_dashboard.avatar = avatar
+        for key, value in data.items():
+            if hasattr(user_dashboard, key):
+                setattr(user_dashboard, key, value)
+        
         
         user_dashboard.save()
         serializer = UserDashboardSerializer(user_dashboard)
 
         
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def post(self, request):
         dashboard_data = request.data
