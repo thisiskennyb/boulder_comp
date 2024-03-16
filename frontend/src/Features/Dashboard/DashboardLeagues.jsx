@@ -47,12 +47,15 @@ export default function DashboardLeagues(){
     return (
         <div>
        
-        { !usersTeams && (
+        { !usersTeams.length && (
             <div className="flex flex-col items-center text-white">
                 <div className="font-nunito text-3xl my-10">Join a league to get started!</div>
                 <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavigateToLeague}>Leagues Home</button>
             </div>
         )}
+        {/* Displays the search bar, select, and header columns */}
+        { usersTeams.length && (
+            <>
 
             <div className="grid grid-cols-11 py-4">
                 <div className="col-start-2 grid-span-3 md:col-start-5">
@@ -73,8 +76,11 @@ export default function DashboardLeagues(){
             <div className="flex">
                 <hr className="w-11/12 md:w-4/5"></hr>
             </div>
+            </>
+        )}
 
-        {!searchQuery && usersTeams && (
+
+        {!searchQuery && usersTeams.length && (
                         usersTeams.map((team) => (
                             
                             <div key={team.id} className="flex flex-col">
@@ -97,7 +103,7 @@ export default function DashboardLeagues(){
                     )}
 
 
-            {searchQuery && selectedOption && formattedUserTeams && filterSendData(formattedUserTeams, selectedOption, searchQuery).map((team => (
+            {searchQuery && selectedOption && formattedUserTeams.length && filterSendData(formattedUserTeams, selectedOption, searchQuery).map((team => (
 
                     <div key={team.id} className="flex flex-col">
                         {/* here we are iterating through team info, the outer div gets our rows stacked in a single column
