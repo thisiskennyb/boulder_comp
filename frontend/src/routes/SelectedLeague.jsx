@@ -19,7 +19,7 @@ export default function League() {
   const [ joinLeague , setJoinLeague ] = useState(false)
   const navigate = useNavigate();
 
-  const { userDashboard } = useContext(UserContext)
+  const { userDashboard, contextFetchUserTeams } = useContext(UserContext)
   // Used as prop to trigger useEffect for conditional rendering
   const toggleJoinLeague = () =>{
     setJoinLeague((prev)=> !prev)
@@ -54,12 +54,12 @@ export default function League() {
   const handleCreateTeam = async () => {
     try {
       const response = await createTeam({ league_id: leagueId, team_name: teamNameInput });
-      if (response.status === 201 || response.status == 200) {
-        console.log(response.status)
+      if (response.status === 201) {
         toast.success('Team successfully created');
         const updatedTeams = await getTeamsByLeague(leagueId);
         setTeamsData(updatedTeams.data);
         closeModal();
+        contextFetchUserTeams()
       }
     } catch (error) {
       console.error('Something went wrong', error.response.status);
