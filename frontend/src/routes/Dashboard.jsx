@@ -17,7 +17,7 @@ import boulderCompHome from '../assets/boulderCompHome.png'
 
 
 export default function Dashboard() {
-    const { contextFetchUserTeams, highestBoulderGrade, userSends, contextUserSendData, contextUserDashboard} = useContext(UserContext)
+    const { contextFetchUserTeams, highestBoulderGrade, contextUserSendData, contextUserDashboard} = useContext(UserContext)
     
    // Above function is used to set initial state for sendDate
    // State variables start here
@@ -162,7 +162,6 @@ export default function Dashboard() {
                   </div>
                 </div>
               </Modal>
-              {/* className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" */}
               <div className="flex justify-around md:justify-around py-4">
                 <button className="text-nunito bg-gray-800 text-white font-nunito rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2  hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={() => handleButtonClick('DashboardLeagues')}>
                   <span><img src={dashboardLeagueIcon} alt="League Icon" className="h-8 md:h12 px-2"/></span>
@@ -182,7 +181,7 @@ export default function Dashboard() {
                 </button>
               </div>
               {selectedComponent === 'DashboardLeagues' && <DashboardLeagues />}
-              {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends} handleLogSend={handleLogSend} isModalOpen={isModalOpen} />}
+              {selectedComponent === 'DashboardSends' && <DashboardSends handleLogSend={handleLogSend} isModalOpen={isModalOpen} />}
               {selectedComponent === 'DashboardFeed' && <DashboardFeed />}
             </>
           ) : (
