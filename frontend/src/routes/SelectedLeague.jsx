@@ -68,7 +68,7 @@ export default function League() {
   };
 
 // OnClick for Image upload 
-  const handleNavitageImageUpload = () => {
+  const handleNavigateImageUpload = () => {
     navigate(`/upload-image/league/${leagueId}`)
   }
   // Triggers useEffect when modal Opens/Closes
@@ -110,7 +110,7 @@ export default function League() {
        )}
          {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
          {leagueData && userDashboard?.user == leagueData.moderator && (
-        <button className="my-4 bg-gray-800 font-nunito text-white text-lg md:text-2xl rounded-md border border-white hover:bg-gray-600 hover:text-white transition-colors duration-300" onClick={handleNavitageImageUpload}>UPLOAD</button>
+        <button className="my-4 bg-gray-800 font-nunito text-white text-lg md:text-2xl rounded-md border border-white hover:bg-gray-600 hover:text-white transition-colors duration-300" onClick={handleNavigateImageUpload}>UPLOAD</button>
         )}
       </div>
 
