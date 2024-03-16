@@ -50,7 +50,7 @@ export default function UploadImage(){
     const handleSubmitDashboard = async () => {
         let userDashboardObj = { avatar: picture };
         const response = await uploadAvatar(userDashboardObj, id)
-        if (response.status == 200) {
+        if (response.status == 201) {
             setUserDashboard(response.data)
             toast.success(`image uploaded succussfully`);
             navigate(`/dashboard`)
