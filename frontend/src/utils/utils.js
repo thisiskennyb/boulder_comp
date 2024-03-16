@@ -11,6 +11,11 @@ export function getTodayDate() {
     return `${year}-${month}-${day}`;
 }
 
+
+// This function is generic and reuseable, not just for send data
+// Currently used for Send and League Objects
+
+
 export function filterSendData(sendData, selectedProperty, searchQuery){
     /// This function takes in:
     // sendData: A List of Send Objects

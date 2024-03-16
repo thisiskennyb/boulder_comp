@@ -1,11 +1,12 @@
 
 import searchIconWhite from "../../assets/searchIconWhite.png"
 
-export default function SearchbarSelect({searchQuery, onSearchQueryChange, selectedOption, onSelectChange}){
+export default function SearchbarSelect({searchQuery, onSearchQueryChange, selectedOption, onSelectChange, options}){
 
     /// These are the options for filtering a send
 
-    const options = ['username', 'boulder', 'grade', 'send_date', 'score']
+    // const options = ['username', 'boulder', 'grade', 'send_date', 'score']
+    
 
 
     return (
