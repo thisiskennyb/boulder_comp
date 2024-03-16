@@ -8,6 +8,7 @@ import Signup from './routes/Signup'
 import ResetPassword from './Features/Login/ResetPassword'
 import SignupMessage from './Features/Login/SignupMessage'
 import Dashboard from './routes/Dashboard'
+import DashboardInfo from './Features/Dashboard/DashboardInfo'
 import Leagues from './routes/Leagues'
 import RulesScoring from './routes/RulesScoring'
 import UserContext from './contexts/UserContext'
@@ -141,6 +142,8 @@ function App() {
         <Route path="/signup-message" element={<SignupMessage />} />
         {/* Handles Avatar, Team and League Image Uploads */}
         <Route path="/upload-image/:type/:id?" element={<UploadImage />} />
+        <Route path="/edit-profile" element={<DashboardInfo />} />
+        
       </Routes>
       </Router>
       </UserContext.Provider>

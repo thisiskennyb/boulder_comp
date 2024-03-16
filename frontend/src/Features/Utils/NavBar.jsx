@@ -23,20 +23,14 @@ function classNames(...classes) {
 
 export default function NavBar() {
 
-
     // const token = localStorage.getItem('token')
     const { userDashboard, userToken, setUserToken } = useContext(UserContext)
-
-   
     
     const handleLogout = () => {
         var keyToRemove = 'token';
         localStorage.removeItem(keyToRemove);
         setUserToken(null)
       }
-
-
-
 
 
   return (
@@ -97,7 +91,7 @@ export default function NavBar() {
                   <div>
                     <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12">
                       <img
-                        className="h-8 w-8 mt-1 rounded-full"
+                        className="h-10 w-10 -mx-1 rounded-full"
                         src={userDashboard?.avatar || default_img}
                         alt=""
                       />
@@ -112,9 +106,10 @@ export default function NavBar() {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-full bg-gray-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-32 origin-top-right rounded-lg bg-gray-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {/* Conditionally render login or logout based on if we have token */}
                       {userToken ? (
+                        <div>
                       <Menu.Item>
                         {({ active }) => (
                           <Link
@@ -126,10 +121,22 @@ export default function NavBar() {
                           </Link>
                         )}
                       </Menu.Item>
+
+                      <Menu.Item>
+                    {({ active }) => (
+                    <Link
+                      to="/edit-profile"
+                      className={classNames(active ? 'bg-gray-600 rounded-full' : '', 'block p-2 text-base md:px-4 md:py-2 md:text-lg text-center text-white font-nunito')}
+                    >
+                      Edit Profile
+                    </Link>
+                  )}
+                  </Menu.Item>
+                      </div>
                         )
                         :
                         (                      
-                      
+                       
                       <Menu.Item>
                         {({ active }) => (
                           <Link
@@ -144,8 +151,14 @@ export default function NavBar() {
                           
                         )}
                       </Menu.Item>
+
+               
                         )}
+
+                    
+
                     </Menu.Items>
+                    
                   </Transition>
                 </Menu>
               </div>

@@ -6,11 +6,13 @@ import UserContext from "../contexts/UserContext";
 import { toast } from "react-toastify";
 import Modal from "../Features/Utils/Modal";
 import DashboardLeagues from "../Features/Dashboard/DashboardLeagues";
-import DashboardInfo from "../Features/Dashboard/DashboardInfo";
+
 import DashboardSends from "../Features/Dashboard/DashboardSends";
+import DashboardFeed from "../Features/Dashboard/DashboardFeed";
 import dashboardLeagueIcon from "../assets/dashboardLeagueIcon.png"
 import dashboardLogSend from "../assets/dashboardLogSend.png"
-import dashboardProfileIcon from "../assets/dashboardProfileIcon.png"
+
+import dashboardFeed from "../assets/dashboardFeed.png"
 import boulderCompHome from '../assets/boulderCompHome.png'
 
 
@@ -33,6 +35,7 @@ export default function Dashboard() {
         setSelectedComponent(componentName);
     };
 
+    
     const updateHighestBoulderGrade = async () => {
         try {
             const data = {
@@ -169,9 +172,9 @@ export default function Dashboard() {
                   <span><img src={boulderCompHome} alt="League Icon" className="h-8 md:h12 px-2"/></span>
                   Sends
                 </button>
-                <button className="text-nunito bg-gray-800 text-white font-nunito rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2  hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={() => handleButtonClick('DashboardInfo')}>
-                  <span><img src={dashboardProfileIcon} alt="League Icon" className="h-8 md:h12 px-2"/></span>
-                  Info
+                <button className="text-nunito bg-gray-800 text-white font-nunito rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2  hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={() => handleButtonClick('DashboardFeed')}>
+                  <span><img src={dashboardFeed} alt="League Icon" className="h-8 md:h12 px-2"/></span>
+                  Feed
                 </button>
                 <button className="text-nunito bg-gray-800 text-white font-nunito rounded-lg flex flex-col items-center justify-center md:px-3 md:py-2  hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>
                   <span><img src={dashboardLogSend} alt="League Icon" className="h-8 md:h12 px-2"/></span>
@@ -180,7 +183,7 @@ export default function Dashboard() {
               </div>
               {selectedComponent === 'DashboardLeagues' && <DashboardLeagues />}
               {selectedComponent === 'DashboardSends' && <DashboardSends userSends={userSends} handleLogSend={handleLogSend} isModalOpen={isModalOpen} />}
-              {selectedComponent === 'DashboardInfo' && <DashboardInfo />}
+              {selectedComponent === 'DashboardFeed' && <DashboardFeed />}
             </>
           ) : (
             <>
