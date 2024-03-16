@@ -78,7 +78,7 @@ export default function Dashboard() {
         closeModal()
         
         try {
-            const requiredFields = [boulderName, areaName, isChecked, sendDate]
+            const requiredFields = [boulderName, areaName,  sendDate] // Requires all fields besides flash
             if (requiredFields.every(field => field)){
 
               const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});

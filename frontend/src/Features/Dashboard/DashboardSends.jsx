@@ -32,6 +32,9 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
         send_date: send.send_date
 
     }))
+
+    console.log(userSends, 'should be empty')
+
     
     // We should monitor where we need to do this, it would make a lot of sense to store our information like this before setting it into state
 
@@ -61,16 +64,15 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
     
     return (
         <>
-            {!userSends && (           
+            {!userSends.length && (           
             <div className="flex flex-col items-center text-white">
                 <div className="font-nunito text-xl md:text-3xl my-10">Log a send!</div>
                 <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
             </div>
             )}
-            {userSends && (
+            {userSends.length && (<>
                 <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
-                )}    
-            <div className="flex flex-wrap justify-center w-11/12 md:w-2/3 mx-auto">
+                <div className="flex flex-wrap justify-center w-11/12 md:w-2/3 mx-auto">
            {!isModalOpen && gradeBars}
            </div>
            <div className="grid grid-cols-11 pt-4">
@@ -78,7 +80,11 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
                     <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange} options={options}/>
                     </div>
                     </div>
-           {!searchQuery && userSends && formattedUserSends &&  (
+
+                </>
+                )}    
+           
+           {!searchQuery && userSends.length && formattedUserSends &&  (
             <TeamSendTable teamSends={formattedUserSends} />
            )}
 
