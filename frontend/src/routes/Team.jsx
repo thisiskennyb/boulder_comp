@@ -124,7 +124,6 @@ const teamSendData = []
     navigate(`/upload-image/team/${teamId}`)
   }
 
-  
 
   return (
     <div className="bg-night min-h-screen py-4">

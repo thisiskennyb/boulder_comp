@@ -17,3 +17,19 @@ export async function logSend(context){
     }
   }
 
+
+export async function getAllSends(){
+    try {
+        const response = axios.get(`http://${host}/api/v1/send/all-sends-feed/`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Token ${localStorage.getItem("token")}`
+            }
+        })
+        return response
+    } catch (error) {
+        console.error("Something went wrong in getAllSends", error.response.status)
+        throw error
+    }
+}
+
