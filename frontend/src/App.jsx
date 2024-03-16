@@ -34,11 +34,12 @@ import { getUserSends } from './api/UserContext/backend_calls' // Gets all the u
 
 
 function App() {
+  /////////// All of this state is stored in app and passed through context //////////////////////
   const [ userToken, setUserToken ] = useState(null)
-  const [ usersTeams, setUsersTeams ] = useState([]);
-  const [ userSends, setUserSends ] = useState([])
-  const [highestBoulderGrade, setHighestBoulderGrade] = useState(null)
-  const [userDashboard, setUserDashboard] = useState(null)
+  const [ usersTeams, setUsersTeams ] = useState([]); 
+  const [ userSends, setUserSends ] = useState([]) 
+  const [highestBoulderGrade, setHighestBoulderGrade] = useState(null) 
+  const [userDashboard, setUserDashboard] = useState(null) 
 
 
 // We have try/catch on all of our backend fetches

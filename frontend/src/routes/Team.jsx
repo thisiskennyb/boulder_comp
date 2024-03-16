@@ -130,12 +130,7 @@ const teamSendData = []
 
 
  
-  if (selectedOption && searchQuery) {
-    const filteredTeamData = filterSendData(teamSendData, selectedOption, searchQuery)
-    console.log(filteredTeamData, 'maybe this')
-  }
-
-  console.log(selectedOption, searchQuery, '1 is option, 2 is query')
+ 
 
 
 //////// Spelling Errors fix Later ////////

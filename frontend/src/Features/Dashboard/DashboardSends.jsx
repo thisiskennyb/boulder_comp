@@ -1,7 +1,40 @@
 import GradeBar from "../Utils/GradeBar";
+import TeamSendTable from "../Team/TeamSendTable"
+import UserContext from "../../contexts/UserContext";
+import { useContext, useState } from "react";
+import SearchbarSelect from "../Utils/SearchbarSelect";
+import { filterSendData } from "../../utils/utils";
+export default function DashboardSends({ handleLogSend, isModalOpen}){
+    const {userSends} = useContext(UserContext)
+    const [ selectedOption, setSelectedOption ] = useState("") // Used for Search Select state
+    const [ searchQuery, setSearchQuery ] = useState(""); // Used for Search Input state
 
-export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
-    // This function updates the frequency for user sends
+    // For filter Select
+    const onSelectChange = (e) => {
+        setSelectedOption(e.target.value)
+        }
+    // For filter Search
+    const onSearchQueryChange = (e) => {
+        setSearchQuery(e.target.value)
+        }
+
+    // This is how we handle having list with objects that have objects inside of them
+    // Like for example a send has a boulder object inside of it
+
+    const formattedUserSends = userSends.map(send => ({
+        id: send.id,
+        boulder: send.boulder.name,
+        grade: send.boulder.grade,
+        crag: send.boulder.crag,
+        username: send.username,
+        score: send.score,
+        send_date: send.send_date
+
+    }))
+    
+    // We should monitor where we need to do this, it would make a lot of sense to store our information like this before setting it into state
+
+     // This function updates the frequency for user sends
     // Creates a object with {grade: frequency}
     const gradeCounts = userSends.reduce((acc, send) => {
         const grade = send.boulder.grade;
@@ -27,47 +60,32 @@ export default function DashboardSends({userSends, handleLogSend, isModalOpen}){
     
     return (
         <>
-        {userSends.length != 0 ? (
-            <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
-        ):(
-            <div></div>
-        )}    
+            {!userSends && (           
+            <div className="flex flex-col items-center text-white">
+                <div className="font-nunito text-xl md:text-3xl my-10">Log a send!</div>
+                <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
+            </div>
+            )}
+            {userSends && (
+                <div className="flex justify-center text-white font-nunito-black font-extrabold text-xl py-2 md:py-4 md:text-3xl">Total Sends within 30 Days!</div>
+                )}    
             <div className="flex flex-wrap justify-center w-11/12 md:w-2/3 mx-auto">
-                
            {!isModalOpen && gradeBars}
            </div>
-      
-        {userSends.length == 0 ? (
-                    
-                        <div className="flex flex-col items-center text-white">
-                        <div className="font-nunito text-xl md:text-3xl my-10">Log a send!</div>
-                        <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
+           <div className="grid grid-cols-11 pt-4">
+                <div className="col-start-2 grid-span-3 md:col-start-5">
+                    <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange}/>
                     </div>
-        ):(
-            <div className="bg-night h-min-h py-2">
-            <div className="flex bg-gray-800 w-4/5 mx-auto rounded-lg mt-2">
-            <h2 className="text-white text-base md:text-4xl font-nunito w-1/3 text-center">Boulder</h2>
-            <h2 className="text-white text-base font-nunito md:text-4xl w-1/3 text-center">Grade</h2>
-            <h2 className="text-white text-base font-nunito md:text-4xl w-1/3 text-center">Send Date</h2>
-            </div>
-            <div className="flex">
-                <hr className="w-4/5"></hr>
-            </div>
-                            {userSends.length > 0 && (
-                        userSends.map((send) => (
-                            <div key={send.id} className="flex flex-col">
-                                <div className="flex bg-gray-700 w-4/5 mx-auto rounded-lg">
-                                <h2 className="text-white text-base md:text-xl font-nunito w-1/3 text-center">{send.boulder.name}</h2>
-                                <p className="text-white text-base md:text-xl font-nunito w-1/3 text-center">{send.boulder.grade}</p>
-                                <p className="text-white text-base md:text-xl font-nunito w-1/3 text-center">{send.send_date}</p>
-                                </div>
-                                <hr className="w-4/5"></hr>
-                            </div>
-                            
-                        ))
-                    )}
-        </div>
-        )}
+                    </div>
+           {!searchQuery && userSends && formattedUserSends &&  (
+            <TeamSendTable teamSends={formattedUserSends} />
+           )}
+
+            {searchQuery && selectedOption && userSends && formattedUserSends &&  (
+            <TeamSendTable teamSends={filterSendData(formattedUserSends, selectedOption, searchQuery)} />
+           )}
+           
+      
 
         </>
     )
