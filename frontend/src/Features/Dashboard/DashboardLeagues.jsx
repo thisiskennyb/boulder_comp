@@ -11,8 +11,8 @@ export default function DashboardLeagues(){
         navigate(`/league/${league_id}`);
     };
 
-    const handleNavigateToLeaguesHome = () => {
-        navigate("/leagues-home")
+    const handleNavigateToLeague = () => {
+        navigate("/leagues")
     }
 
     return (
@@ -20,7 +20,7 @@ export default function DashboardLeagues(){
         { usersTeams.length == 0 ? (
             <div className="flex flex-col items-center text-white">
                 <div className="font-nunito text-3xl my-10">Join a league to get started!</div>
-                <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavigateToLeaguesHome}>Leagues Home</button>
+                <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleNavigateToLeague}>Leagues Home</button>
             </div>
         ):(
             <div className="bg-night min-h-screen">

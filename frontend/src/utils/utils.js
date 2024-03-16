@@ -10,3 +10,20 @@ export function getTodayDate() {
 
     return `${year}-${month}-${day}`;
 }
+
+export function filterSendData(sendData, selectedProperty, searchQuery){
+    /// This function takes in:
+    // sendData: A List of Send Objects
+    // selectedProperty: A property to search for i.e username, boulder, grade
+    // searchQuery: The string the user is searching for
+
+    // Return: List of Send Objects that match selectedProperty and searchQuery
+
+    return sendData.filter(send => {
+        // We cast to string and lowercase to handle integers and upper/lowercase issues
+        const selected = send[selectedProperty].toString().toLowerCase();
+
+        const query = searchQuery.toLowerCase();
+        return selected.includes(query);
+    })
+}

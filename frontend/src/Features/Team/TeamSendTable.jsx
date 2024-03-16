@@ -3,6 +3,7 @@ import React from "react";
 const TeamSendTable = ({ teamSends }) => {
   // Sort team send data by date
   const sortedTeamSends = teamSends.sort((a, b) => new Date(b.send_date) - new Date(a.send_date));
+
   
   return (
 

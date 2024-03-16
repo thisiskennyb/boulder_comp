@@ -4,6 +4,8 @@ import { getTeam } from "../api/Team/backend_calls";
 import TeamSendTable from "../Features/Team/TeamSendTable";
 import UserContext from "../contexts/UserContext";
 import defaultImage from "../assets/default_image.png"
+import { filterSendData } from "../utils/utils";
+import SearchbarSelect from "../Features/Utils/SearchbarSelect";
 
 export default function Team() {
   let { teamId } = useParams();
@@ -11,11 +13,21 @@ export default function Team() {
   const [leagueStartDate, setLeagueStartDate] = useState('');
   const [leagueEndDate, setLeagueEndDate] = useState('');
   const [members, setMembers] = useState([]);
+  const [ selectedOption, setSelectedOption ] = useState("") // Used for Search Select state
+  const [ searchQuery, setSearchQuery ] = useState(""); // Used for Search Input state
 
   const { userDashboard } = useContext(UserContext)
 
   const navigate = useNavigate()
   
+  const onSelectChange = (e) => {
+    setSelectedOption(e.target.value)
+  }
+
+  const onSearchQueryChange = (e) => {
+    setSearchQuery(e.target.value)
+  }
+
 
   //////////////   fetchTeam and useEffect   //////////////
 
@@ -117,10 +129,19 @@ const teamSendData = []
   });
 
 
+ 
+  if (selectedOption && searchQuery) {
+    const filteredTeamData = filterSendData(teamSendData, selectedOption, searchQuery)
+    console.log(filteredTeamData, 'maybe this')
+  }
+
+  console.log(selectedOption, searchQuery, '1 is option, 2 is query')
+
+
 //////// Spelling Errors fix Later ////////
 ////////////////////////////////////////
 
-  const handleNavitageImageUpload = () => {
+  const handleNavigateImageUpload = () => {
     navigate(`/upload-image/team/${teamId}`)
   }
 
@@ -139,7 +160,7 @@ const teamSendData = []
             )}
 
             {team && userDashboard?.user == team.captain && (
-              <button className="bg-gray-800 font-nunito min-w-min text-white text-lg md:text-xl rounded-md border border-white hover:bg-gray-600 hover:text-white" onClick={handleNavitageImageUpload}>
+              <button className="bg-gray-800 font-nunito min-w-min text-white text-lg md:text-xl rounded-md border border-white hover:bg-gray-600 hover:text-white" onClick={handleNavigateImageUpload}>
                 UPLOAD
               </button>
             )}
@@ -157,9 +178,22 @@ const teamSendData = []
             </div>
           </div>
         </div>
-  
+       <div className="grid grid-cols-11">
+        <div className="col-start-2 grid-span-3 md:col-start-5">
+        <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange}/>
+        </div>
+        </div>
         {/* Render TeamSendTable component with sorted team send data */}
-        <TeamSendTable teamSends={teamSendData} />
+
+              {/* This is what is displayed when nothing is typed in or the searchQuery field has been cleared */}
+        {!searchQuery && (
+          <TeamSendTable teamSends={teamSendData} />
+        )}
+        {selectedOption && searchQuery && (
+          <TeamSendTable teamSends={filterSendData(teamSendData, selectedOption, searchQuery)} />
+        )}
+
+
       </div>
     </div>
   );
