@@ -78,15 +78,21 @@ export default function Dashboard() {
         closeModal()
         
         try {
-            const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
-            
-            if (response.status == 201){
-                toast.success('Successfully Logged')
-                contextFetchUserTeams();
-                contextUserSendData();
-                //Update usersTeams when a Send is submitted
-                
-              }
+            const requiredFields = [boulderName, areaName, isChecked, sendDate]
+            if (requiredFields.every(field => field)){
+
+              const response = await logSend({name: boulderName, grade: boulderGrade, crag: areaName, flash: isChecked, send_date: sendDate});
+              
+              if (response.status == 201){
+                  toast.success('Successfully Logged')
+                  contextFetchUserTeams();
+                  contextUserSendData();
+                  //Update usersTeams when a Send is submitted
+                  
+                }
+            } else {
+              toast.error("You must fill out all of the required fields")
+            }
       
               
         }  catch (error) {
