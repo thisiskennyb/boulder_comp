@@ -1,6 +1,6 @@
 import { Eye } from 'lucide-react';
 import { useState } from "react";
-import { emailResetConfirm } from '../api/Auth/backend_calls';
+import { emailResetConfirm } from '../../api/Auth/backend_calls';
 import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
