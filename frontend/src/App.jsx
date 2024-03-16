@@ -8,15 +8,14 @@ import Signup from './routes/Signup'
 import ResetPassword from './Features/Login/ResetPassword'
 import SignupMessage from './Features/Login/SignupMessage'
 import Dashboard from './routes/Dashboard'
-import LeaguesHome from './routes/LeaguesHome'
+import Leagues from './routes/Leagues'
 import RulesScoring from './routes/RulesScoring'
 import UserContext from './contexts/UserContext'
-import JoinLeague from './routes/JoinLeague'
-import CreateLeague from './routes/CreateLeague'
-import League from './routes/League'
+import JoinLeague from './Features/League/JoinLeague'
+import CreateLeague from './Features/League/CreateLeague'
+import SelectedLeague from './routes/SelectedLeague'
 import Team from './routes/Team'
 import NavBar from './Features/Utils/NavBar'
-
 import UploadImage from './Features/Utils/UploadImage'
 
 
@@ -119,23 +118,29 @@ function App() {
         <ToastContainer />
       <NavBar />
       <Routes >
-        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login handleToken={handleToken} />} />
         <Route path="/signup" element={<Signup />} />
+        {/* Line up with navbar links */}
+        <Route path="/" element={<Home />} />
+        <Route path="/dashboard" element={<Dashboard  />} />
+        <Route path="/leagues" element={<Leagues />} />
+        <Route path="/rules-and-scoring" element={<RulesScoring />} />
+        {/* Paths available from League Page */}
+        {/* Displays all leagues */}
+        <Route path="/join-league" element={<JoinLeague />} />
+        {/* Creates a League */}
+        <Route path="/create-league" element={<CreateLeague />} />
+        {/* Looking at a specific League */}
+        <Route path="/league/:leagueId" element={<SelectedLeague />} />
+        {/* Looking at a specific team */}
+        <Route path="/team/:teamId" element={<Team />} />
+        {/* Login / Signup Related */}
         <Route path="/email-reset" element={<EmailReset />} />
         <Route path="/email-verification" element={<EmailVerification />} />
-        <Route path="/join-league" element={<JoinLeague />} />
-        <Route path="/create-league" element={<CreateLeague />} />
         <Route path="/reset-password/:reset_token" element={<ResetPassword />} />
         <Route path="/signup-message" element={<SignupMessage />} />
-        <Route path="/league/:leagueId" element={<League />} />
-        <Route path="/team/:teamId" element={<Team />} />
-
+        {/* Handles Avatar, Team and League Image Uploads */}
         <Route path="/upload-image/:type/:id?" element={<UploadImage />} />
-        
-        <Route path="/dashboard" element={<Dashboard  />} />
-        <Route path="/leagues-home" element={<LeaguesHome />} />
-        <Route path="/rules-and-scoring" element={<RulesScoring />} />
       </Routes>
       </Router>
       </UserContext.Provider>

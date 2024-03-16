@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 const navigation = [
   { name: 'Home', to: '/', current: false },
   { name: 'Dashboard', to: '/dashboard', current: false },
-  { name: 'Leagues', to: '/leagues-home', current: false },
+  { name: 'Leagues', to: '/leagues', current: false },
   { name: 'Scoring', to: '/rules-and-scoring', current: false },
  
 ]

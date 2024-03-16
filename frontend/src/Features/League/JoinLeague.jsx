@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getAllLeagues } from "../api/League/backend_calls";
+import { getAllLeagues } from "../../api/League/backend_calls";
 import { useNavigate } from "react-router-dom";
 
 export default function JoinLeague() {
