@@ -6,24 +6,23 @@ import UserContext from "../../contexts/UserContext";
 export default function DashboardInfo ( ) {
 
     const { userDashboard } = useContext(UserContext)
-    console.log(userDashboard, 'this is users dashboard')
     const navigate = useNavigate()
 
     // Need to fix spelling errors
-    const handleNavitageImageUpload = () => {
+    const handleNavigateImageUpload = () => {
         navigate(`/upload-image/profile/${userDashboard.id}`)
       }
 
 
     return (
-        <div className="bg-night min-h-screen">
+        <div className="bg-night min-h-screen py-10">
         <div className="bg-gray-700 border  w-5/6 md:w-1/2 mx-auto rounded-lg py-4 md:py-8">
         <div className="flex flex-col items-center">
         <div className="text-white font-nunito text-lg text-center md:text-3xl md:py-4">Customize your Profile Information Below!</div>
 
         <div className="flex py-4">
             <div className="font-nunito text-white text-xl md:text-2xl">Edit my Avatar: 
-            <button className="ml-6 md:ml-8 px-2 md:px-4 min-w-min bg-night font-nunito-black font-extrabold border border-white text-white text-base md:text-lg rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-300" onClick={handleNavitageImageUpload}>UPLOAD</button>
+            <button className="ml-6 md:ml-8 px-2 md:px-4 min-w-min bg-night font-nunito-black font-extrabold border border-white text-white text-base md:text-lg rounded-full hover:bg-gray-700 hover:text-white transition-colors duration-300" onClick={handleNavigateImageUpload}>UPLOAD</button>
             </div>
         </div>
 
