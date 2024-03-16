@@ -8,6 +8,7 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
     const {userSends} = useContext(UserContext)
     const [ selectedOption, setSelectedOption ] = useState("") // Used for Search Select state
     const [ searchQuery, setSearchQuery ] = useState(""); // Used for Search Input state
+    const options = ['username', 'boulder', 'grade', 'send_date', 'score'] // Field values for SearchbarSelect
 
     // For filter Select
     const onSelectChange = (e) => {
@@ -74,7 +75,7 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
            </div>
            <div className="grid grid-cols-11 pt-4">
                 <div className="col-start-2 grid-span-3 md:col-start-5">
-                    <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange}/>
+                    <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange} options={options}/>
                     </div>
                     </div>
            {!searchQuery && userSends && formattedUserSends &&  (

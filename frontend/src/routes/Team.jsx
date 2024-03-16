@@ -15,6 +15,8 @@ export default function Team() {
   const [members, setMembers] = useState([]);
   const [ selectedOption, setSelectedOption ] = useState("") // Used for Search Select state
   const [ searchQuery, setSearchQuery ] = useState(""); // Used for Search Input state
+  const options = ['username', 'boulder', 'grade', 'send_date', 'score'] // Field values for SearchbarSelect
+
 
   const { userDashboard } = useContext(UserContext)
 
@@ -175,7 +177,7 @@ const teamSendData = []
         </div>
        <div className="grid grid-cols-11">
         <div className="col-start-2 grid-span-3 md:col-start-5">
-        <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange}/>
+        <SearchbarSelect searchQuery={searchQuery} onSearchQueryChange={onSearchQueryChange} selectedOption={selectedOption} onSelectChange={onSelectChange} options={options}/>
         </div>
         </div>
         {/* Render TeamSendTable component with sorted team send data */}
