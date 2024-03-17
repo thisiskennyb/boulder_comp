@@ -1,11 +1,16 @@
 import {useNavigate} from 'react-router-dom'
+import { useEffect } from 'react'
 
 export default function EmailVerification() {
     const navigate = useNavigate()
 
-    setTimeout(()=> {
-        navigate('/login')
-    }, 4000)
+    useEffect(()=>{
+        setTimeout(()=> {
+            navigate('/login')
+        }, 4000)
+
+    },[])
+
 
 
     return (
