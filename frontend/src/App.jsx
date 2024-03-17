@@ -12,7 +12,7 @@ import DashboardInfo from './Features/Dashboard/DashboardInfo'
 import Leagues from './routes/Leagues'
 import RulesScoring from './routes/RulesScoring'
 import UserContext from './contexts/UserContext'
-import JoinLeague from './Features/League/JoinLeague'
+import LeagueDisplay from "./Features/League/LeagueDisplay"
 import CreateLeague from './Features/League/CreateLeague'
 import SelectedLeague from './routes/SelectedLeague'
 import Team from './routes/Team'
@@ -129,7 +129,7 @@ function App() {
         <Route path="/rules-and-scoring" element={<RulesScoring />} />
         {/* Paths available from League Page */}
         {/* Displays all leagues */}
-        <Route path="/join-league" element={<JoinLeague />} />
+        <Route path="/all-leagues" element={<LeagueDisplay />} />
         {/* Creates a League */}
         <Route path="/create-league" element={<CreateLeague />} />
         {/* Looking at a specific League */}
