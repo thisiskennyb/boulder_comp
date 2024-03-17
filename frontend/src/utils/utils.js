@@ -32,3 +32,4 @@ export function filterSendData(sendData, selectedProperty, searchQuery){
         return selected.includes(query);
     })
 }
+
