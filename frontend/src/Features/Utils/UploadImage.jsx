@@ -5,8 +5,7 @@ import { uploadTeamImage } from '../../api/Team/backend_calls'
 import { uploadAvatar } from '../../api/Auth/backend_calls'
 import { toast } from "react-toastify";
 import UserContext from '../../contexts/UserContext'
-
-
+import FileUpload from './FileUpload'
 
 export default function UploadImage(){
     const navigate = useNavigate()
@@ -19,8 +18,6 @@ export default function UploadImage(){
         setPicture(e.target.files[0]);
     };
 
-    
-
     const handleSubmitLeague = async () => {
         let leagueObj = { picture: picture };
         const response = await uploadLeagueImage(leagueObj, id)
@@ -31,8 +28,7 @@ export default function UploadImage(){
         }
         else {
             toast.error('something went wrong')
-        }
-        
+        }        
     };
 
     const handleSubmitTeam = async () => {
@@ -66,51 +62,9 @@ export default function UploadImage(){
     return (
         <div className="bg-night min-h-screen flex flex-col justify-center items-center">
             <h2 className="font-nunito text-white">Please Choose your image</h2>
-            {type === 'league' && (<>
-        <input
-            className="text-white font-nunito file:bg-gray-800 file:font-nunito file:text-white file:text-lg file:rounded-md file:border file:border-white file:hover:bg-gray-600 file:hover:text-white file:px-4 file:py-2 file:mt-2 file:transition-colors file:duration-300"
-            onChange={handleUpload}
-            type="file"
-        />
-        <button
-            className=" bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-6 transition-colors duration-300"
-            onClick={handleSubmitLeague}
-        >
-            Submit
-        </button></>
-
-            )}
-
-        {type === 'team' && (<>
-        <input
-            className="text-white font-nunito file:bg-gray-800 file:font-nunito file:text-white file:text-lg file:rounded-md file:border file:border-white file:hover:bg-gray-600 file:hover:text-white file:px-4 file:py-2 file:mt-2 file:transition-colors file:duration-300"
-            onChange={handleUpload}
-            type="file"
-        />
-        <button
-            className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-6 transition-colors duration-300"
-            onClick={handleSubmitTeam}
-        >
-            Submit
-        </button></>
-
-            )}
-
-        {type === 'profile' && (<>
-        <input
-            className="text-white font-nunito file:bg-gray-800 file:font-nunito file:text-white file:text-lg file:rounded-md file:border file:border-white file:hover:bg-gray-600 file:hover:text-white file:px-4 file:py-2 file:mt-2 file:transition-colors file:duration-300"
-            onChange={handleUpload}
-            type="file"
-        />
-        <button
-            className="bg-gray-800 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-6 transition-colors duration-300"
-            onClick={handleSubmitDashboard}
-        >
-            Submit
-        </button></>
-
-            )}
-
+        {type === 'league' && (<FileUpload handleUpload={handleUpload} handleSubmit={handleSubmitLeague} />) }
+        {type === 'team' && (<FileUpload handleUpload={handleUpload} handleSubmit={handleSubmitTeam} /> )}
+        {type === 'profile' && ( <FileUpload handleUpload={handleUpload} handleSubmit={handleSubmitDashboard} /> )}
         </div>
     );
 }
