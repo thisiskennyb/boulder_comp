@@ -10,7 +10,7 @@ export default function LeaguesHome() {
   };
 
   const onJoinHandler = () => {
-    navigate("/join-league");
+    navigate("/all-leagues");
   };
 
   return (
