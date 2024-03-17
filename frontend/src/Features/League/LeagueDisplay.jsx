@@ -6,6 +6,8 @@ import { filterSendData } from "../../utils/utils";
 import { getTodayDate } from "../../utils/utils";
 import ActiveCheckbox from "./ActiveCheckbox";
 
+import LeagueInfoCard from "./LeagueInfoCard";
+
 export default function JoinLeague() {
   const [leaguesData, setLeaguesData] = useState([]);
   const [ leaguesNotStarted, setLeaguesNotStarted ] = useState([])
@@ -48,7 +50,6 @@ export default function JoinLeague() {
   }
 
 
-  
   useEffect(() => {
     const fetchAllLeagues = async () => {
       try {
@@ -76,8 +77,6 @@ export default function JoinLeague() {
   
   
 
-
-
   return (
     <div className="bg-night min-h-screen pt-8">
       {!leaguesData && (
@@ -89,7 +88,6 @@ export default function JoinLeague() {
   </div>
       )}
 
-
       <h1 className="text-white font-nunito text-3xl text-center">Click View to find out more about a League!</h1>
       <div className="grid grid-cols-11">
         <div className="col-start-2 grid-span-3 md:col-start-5">
@@ -98,81 +96,33 @@ export default function JoinLeague() {
       </div>
         
         <ActiveCheckbox showActive={showActive} toggleActiveFilter={toggleActiveFilter} />
+
+        {searchQuery && !selectedOption && <p className="text-white text-xl font-nunito text-center">Please select a category to search by</p>}
       
 
+    {/* When nothing is being searched for and the user wants ALL leagues */}
+      {!searchQuery && !showActive && leaguesData && (
+        <LeagueInfoCard leagues={leaguesData} viewHandler={viewHandler} />
+      )}
 
 
-      <div className="flex w-11/12 rounded-lg md:w-4/5 mx-auto text-center bg-gray-800 mt-8">
-        <h2 className="text-white w-1/4 text-base font-nunito md:text-2xl md:w-1/5">League</h2>
-        <h2 className="text-white w-1/4 text-base font-nunito md:text-2xl md:w-1/5">City</h2>
-        <h2 className="text-white w-1/6 text-base font-nunito md:text-2xl md:w-1/5">Start Date</h2>
-        <h2 className="text-white w-1/6 text-base font-nunito md:text-2xl md:w-1/5">End Date</h2>
-      </div>
-      {/* Creates divider, make sure to place outside of header data */}
-      <div>
-        <hr className="w-11/12 md:w-4/5"></hr>
-      </div>
-    
-      {!searchQuery && !showActive && leaguesData.map((league) => (
-        <div key={league.id} className="flex flex-col text-center">
-          <div className="flex w-11/12 md:w-4/5 mx-auto bg-gray-700 rounded-lg">
-          <h2 className="text-white truncate text-sm font-nunito md:text-xl w-1/4 md:w-1/5">{league.league_name}</h2> {/*Added truncate to handle long league names*/}
-          <p className="text-white text-sm font-nunito md:text-xl w-1/4 md:w-1/5">{league.location}</p>
-          <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.start_date}</p>
-          <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.end_date}</p>
-          {/* Div helps position button */}
-          <div className="flex justify-center items-center w-1/12 md:w-1/5">
-         
-          <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => viewHandler(league.id)}>View</button>
-          </div>       
-          </div>
-          {/* Flex data ends here */}
-          <div>
-          <hr className="w-11/12 md:w-4/5"></hr>
-          </div>
-        </div>
-      ))}
+{/* This is when a search is not being made and we want to display
+All Leagues that have not started yet */}
+{!searchQuery && showActive && leaguesNotStarted && (
+        <LeagueInfoCard leagues={leaguesNotStarted} viewHandler={viewHandler} />
+      )}
 
-{!searchQuery && showActive && leaguesNotStarted.map((league) => (
-        <div key={league.id} className="flex flex-col text-center">
-          <div className="flex w-11/12 md:w-4/5 mx-auto bg-gray-700 rounded-lg">
-          <h2 className="text-white truncate text-sm font-nunito md:text-xl w-1/4 md:w-1/5">{league.league_name}</h2> {/*Added truncate to handle long league names*/}
-          <p className="text-white text-sm font-nunito md:text-xl w-1/4 md:w-1/5">{league.location}</p>
-          <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.start_date}</p>
-          <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.end_date}</p>
-          {/* Div helps position button */}
-          <div className="flex justify-center items-center w-1/12 md:w-1/5">
-         
-          <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => viewHandler(league.id)}>View</button>
-          </div>       
-          </div>
-          {/* Flex data ends here */}
-          <div>
-          <hr className="w-11/12 md:w-4/5"></hr>
-          </div>
-        </div>
-      ))}
+        {/* This is when the user is searching through ALL leagues */}
+    {searchQuery && !showActive && selectedOption && formattedLeagueData && (
+      <LeagueInfoCard leagues={filterSendData(formattedLeagueData, selectedOption, searchQuery)} isSearchQuery={true} viewHandler={viewHandler} />)}
 
-        {/* This logic can get cleaned up when we make components for the league tables */}
-    {searchQuery && selectedOption && formattedLeagueData && filterSendData(formattedLeagueData, selectedOption, searchQuery).map((league) => (
-      <div key={league.id} className="flex flex-col text-center">
-        <div className="flex w-11/12 md:w-4/5 mx-auto bg-gray-700 rounded-lg">
-        <h2 className="text-white truncate text-sm font-nunito md:text-xl w-1/4 md:w-1/5">{league.league}</h2> {/*Added truncate to handle long league names*/}
-        <p className="text-white text-sm font-nunito md:text-xl w-1/4 md:w-1/5">{league.city}</p>
-        <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.start_date}</p>
-        <p className="text-white text-sm font-nunito md:text-xl w-1/6 md:w-1/5">{league.end_date}</p>
-        {/* Div helps position button */}
-        <div className="flex justify-center items-center w-1/12 md:w-1/5">
-      
-        <button className=" bg-gray-800 min-w-min w-1/12 font-nunito text-white text-xs md:text-xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300" onClick={() => viewHandler(league.id)}>View</button>
-        </div>       
-        </div>
-        {/* Flex data ends here */}
-        <div>
-        <hr className="w-11/12 md:w-4/5"></hr>
-        </div>
-      </div>
-          ))}
+{/* This is when the user is searching for something AND only wants leagues that haven't started
+We have an issue with filtering/mapping that causes our cards to have to be remapped
+this is why we have isSearchQuery as a prop for now */}
+{searchQuery && showActive && selectedOption && formattedLeagueData && (
+      <LeagueInfoCard leagues={filterSendData(formattedLeagueData, selectedOption, searchQuery)} isSearchQuery={true} viewHandler={viewHandler} />)}
     </div>
+
+    
   );
 }
