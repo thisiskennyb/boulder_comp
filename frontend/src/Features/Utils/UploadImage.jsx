@@ -60,11 +60,8 @@ export default function UploadImage(){
         else {
             toast.error('something went wrong')
         }
-        console.log(response.data)
     };
-    console.log(id)
-    console.log(type)
-
+   
 
     return (
         <div className="bg-night min-h-screen flex flex-col justify-center items-center">

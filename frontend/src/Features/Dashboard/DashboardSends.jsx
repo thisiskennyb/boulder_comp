@@ -30,12 +30,8 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
         username: send.username,
         score: send.score,
         send_date: send.send_date
-
     }))
 
-    console.log(userSends, 'should be empty')
-
-    
     // We should monitor where we need to do this, it would make a lot of sense to store our information like this before setting it into state
 
      // This function updates the frequency for user sends
