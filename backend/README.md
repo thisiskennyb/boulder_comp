@@ -3,9 +3,9 @@
 # Table of Contents
 - [Quickstart](#quick-start)
 - [Docker](#docker)
+- [Set up env](#make-env)
 - [Email config](#email-setup)
 - [S3 Storage Config ](#aws-s3-setup)
-- [Set up env](#make-env)
 - [ Go to frontend instructions ](../frontend/README.md#run-frontend-local)
 
 [Return to Main Table of Contents](../README.md#table-of-contents)
@@ -44,36 +44,54 @@
 
 ### Quick Start
 
-Thanks for coming to check out our app! 
+Follow the instructions below to run boulder comp on your local machine
 
-
-If you are interested in running the app because you would like to `contribute` to boulder_comp
-Please check out our [contributors](#contributors) section!
-
-
-
-- Check to make sure you have the following installed:
-    - [ ] Python
-    - [ ] Node
-    - [ ] Email App Name [app email setup](#email-setup)
-    - [ ] Email App Credentials [app email setup](#email-setup)
+- Complete the quickstart checklist before executing the run scripts:
+    - [ ] Python3<br>
+          - Run the command below to check if installed<br>
+	```bash
+	python3
+	```
+    - [ ] Node<br>
+          - Run the command below to check if installed<br>
+	```bash
+	node -v
+	```
+    - [ ] Docker [docker installation](#Docker)
+    - [ ] GMAIL Account [app email setup](#email-setup)
     - [ ] S3 Bucket credentials [setting up s3 storage](#aws-s3-setup)
     - [ ] .env file configured properly [ setting up .env ](#make-env)
 
-If you have properly configured your env, and installed both python and node you should be able to run the project locally!
+Once you have completed the above checklist follow the steps below:
 
-** You made need to give permissions to execute the file **
+1. Navigate to the `backend` directory:
 
-For permission:
-
+2. Activate python's virtual environment and install dependencies:
 ```bash
-chmod +x ./run-local.sh
+source venv/bin/activate
+```
+```bash
+pip install -r requirements.txt
 ```
 
-To run Project locally:
+3. Give the run file 'execute' permissions
 ```bash
-./run-local.sh
+chmod +x ./run-local-backend.sh
 ```
+4. Run the file to start the backend server with the postgres database
+```bash
+./run-local-backend.sh
+```
+5. Open a new terminal (without closing the backend terminal) and navigate to the `frontend` directory
+
+6. Install and run
+```bash
+npm install
+```
+```bash
+npm run dev
+```
+7. Navigate to `localhost:5173/` in your browser
 
 
 ## Docker
@@ -81,10 +99,10 @@ This project has an integrated dockerized Postgres database and will require `Do
 - Click [here](https://www.docker.com/products/docker-desktop/) to download docker desktop
 
 
-# Email Setup
+## Email Setup
 
 
-This project is designed to send emails and will need to be configured with email account credentials.
+When a user signs up they are required to activate their account through email. When running locally you can choose to use an email as a means of activating an account or you can use Django's built in admin portal to create and activate a user. 
 <br><br>
 Complete the steps below:
 1. Create a `.env` file in the root directory and add the email address you would like to use along with the app password
@@ -102,14 +120,10 @@ Note: This project is configured to work with gmail only but can be changed in t
 
 
 ## AWS S3 Setup
-This project has file storage set up to use AWS S3 bucket storage. To properly handle images in the application
+This project has file storage set up through an AWS S3 bucket to properly handle images in the application. Setting this up will allow access to upload images for a user avatar, league image, and team image. The app will still run without access to an S3 bucket but the user will be unable to upload any images.
 
 This is a service provided by AWS, to get started, create an account and login
 - Click [here](https://aws.amazon.com/free/?gclid=CjwKCAiA0bWvBhBjEiwAtEsoW6CceEBLLkMr_4_vTAO2PTn3y-aLEu0V9fuZs8e514idfAa1maElpxoCIi8QAvD_BwE&trk=6a4c3e9d-cdc9-4e25-8dd9-2bd8d15afbca&sc_channel=ps&ef_id=CjwKCAiA0bWvBhBjEiwAtEsoW6CceEBLLkMr_4_vTAO2PTn3y-aLEu0V9fuZs8e514idfAa1maElpxoCIi8QAvD_BwE:G:s&s_kwcid=AL!4422!3!651751059780!e!!g!!aws!19852662197!145019195897&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all)
-
-
-
-
 
 - [ ] Go to AWS and Create a S3 Bucket
     - [ ] Give bucket a name
@@ -131,25 +145,15 @@ This is a service provided by AWS, to get started, create an account and login
     - [ ] Create Access Key, Do not share with anyone
     - [ ] Store Generated Access Key credentials somewhere securely, again do not share
 
-
-Python Libraries to update
-
-** Note installing from the requirements.txt will ensure you have boto3 **
-
-Navigate to your boulder_comp/backend, and ensure your venv is activated and up to date with the current policies
-For more information on your python virtual environment, click [here](#python-venv)
+- [ ] Configuration for django:
+    - [ ] Install the boto 3 library, Note this will be included in the requirements.txt
+    - [ ] Update Django to use your s3 bucket (the following can be stored and exported from `.env` as environmental variables)
+        - [ ] Provide Access Key in `settings.py`
+        - [ ] Provide Secret Key in `settings.py`
+        - [ ] Provide Bucket Name in `settings.py`
 
 
 If you want to know more about the boto3 library, click [here](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html)
-- Configuration for django:
-    - [ ] Install the boto 3 library, Note this will be included in the requirements.txt
-    - [ ] Update Django to use your s3 bucket
-        - [ ] Provide Access Key in settings, these are sensitive, best not to hard code exposed to github or other version control
-        - [ ] Provide Secret Key in settings, these are sensitive, best not to hard code exposed to github or other version control
-        - [ ] Provide Bucket Name in settings, these are sensitive, best not to hard code exposed to github or other version control
-
-
-At this point you should be able to run your code locally, but be sure not to leave hardcoded information
 
 For help with `setting up a script` or `handling environment variables` click [here](#make-env)
 
@@ -162,35 +166,22 @@ For help with `setting up a script` or `handling environment variables` click [h
 Navigate to `boulder_comp/backend`
 
 Create a `.env` file
-
-- Command to create a file named
-
 ```
 touch .env
 ```
 
 Inside your `.env` file update the following variables:
 
-- env checklist
-    - [ ] S3 Access
-    - [ ] S3 Secret
-    - [ ] S3 Bucket
-    - [ ] email for account activation/password reset
-    - [ ] credentials for email
+NOTE: It is important to use the exact variable names given below within the `.env` file
 
-- You need to provide these credentials to run the application. 
-
-- You may use the same format for your environment variables, but still must use your credentials
-    - [ ] Assign S3 variable in env to S3 Access key
-    - [ ] Assign S3 variable in env to S3 Secret key
-    - [ ] Assign S3 variable in env to S3 Bucket name
-    - [ ] Assign email variable in env  to email
-    - [ ] Assign email variable in env to email credentials
-    - [ ] Check that variables in ENV are properly used in `boulder_comp/backend/boulder_comp/settings.py`
-- Do not hard code credentials for security purposes
-
-
-Navigate to your `boulder_comp/backend` directory
+- `.env` checklist
+    - [ ] S3 Access (assign to variable `AWS_ACCESS_KEY_ID`)
+    - [ ] S3 Secret (assign to variable `AWS_SECRET_ACCESS_KEY`)
+    - [ ] S3 Bucket Name (assign to variable `BUCKET_NAME`)
+    - [ ] Gmail account for activation/password reset (assign to variable `EMAIL`)
+    - [ ] Email app password (assign to variable `GMAIL_APP_PASSWORD`)
+ 
+- [ ] Check that variables in ENV are properly used in `boulder_comp/backend/boulder_comp/settings.py`
 
 [Backend Table of contents](#table-of-contents)
 
