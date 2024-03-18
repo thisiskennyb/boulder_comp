@@ -185,7 +185,16 @@ NOTE: It is important to use the exact variable names given below within the `.e
 
 [Backend Table of contents](#table-of-contents)
 
+## Django Admin Setup
 
+1. Navigate to the `backend` directory
+2. Make sure the server is not running and run the following command:
+```bash
+python manage.py createsuperuser
+```
+This will prompt you to create a username and a password that will be used to access the portal
+3. Navigate to `localhost:8000/admin` in your browser and enter your credentials
+4. Once you are in the portal you have access to create and delete information (If you use this to create a user make sure to check the `is_active` box to allow user access to website
 
 ### Contributors
 
@@ -208,29 +217,16 @@ Similar to running the app locally there are some things you will want to comple
 ### Contributor Scripts
 
 - This is a list of our scripts for developing:
-    1. run-local.sh
-    2. run-compose-dev.sh
-    3. build-and-push.sh
-    4. run-compose-prod.sh
-    5. stop-compose-dev.sh
+    1. run-compose-dev.sh
+    2. build-and-push.sh
+    3. run-compose-prod.sh
+    4. stop-compose-dev.sh
 
 
 
 This list is ordered because this is the general workflow:
-1. Run locally to make changes quickly
 
-In the `root` of the project:
-
-If you have not updated permissions for your scripts click [here](#permissions)
-
-```sh
-./run-local.sh
-```
-
-- If local development works, run the dev compose to ensure it works in a container
-- Run tests before trying to build containers
-
-2. Run your code inside docker containers locally
+1. Run your code inside docker containers locally
 This helps mimic the production environment of an EC2 Container
 
 When you run the run-compose, for dev or production
@@ -267,7 +263,7 @@ Make sure you are passing the above `credentials` in the correct `order`.
 You should also verify that what is exported in `run-compose-dev.sh` is used in `docker-compose.dev.yml`
 
 
-3. Build and Push
+2. Build and Push
 ** Note this is only necessary if running the `run-compose-prod.sh` **
 
 
