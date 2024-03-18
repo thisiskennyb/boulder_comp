@@ -66,32 +66,24 @@ Once you have completed the above checklist follow the steps below:
 
 1. Navigate to the `backend` directory:
 
-2. Activate python's virtual environment and install dependencies:
-```bash
-source venv/bin/activate
-```
-```bash
-pip install -r requirements.txt
-```
-
-3. Give the run file 'execute' permissions
+2. Give the run file 'execute' permissions
 ```bash
 chmod +x ./run-local-backend.sh
 ```
-4. Run the file to start the backend server with the postgres database
+3. Run the file to start the backend server with the postgres database
 ```bash
 ./run-local-backend.sh
 ```
-5. Open a new terminal (without closing the backend terminal) and navigate to the `frontend` directory
+4. Open a new terminal (without closing the backend terminal) and navigate to the `frontend` directory
 
-6. Install and run
+5. Install and run
 ```bash
 npm install
 ```
 ```bash
 npm run dev
 ```
-7. Navigate to `localhost:5173/` in your browser
+6. Navigate to `localhost:5173/` in your browser
 
 
 ## Docker
