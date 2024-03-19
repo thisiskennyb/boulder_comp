@@ -63,10 +63,10 @@ class SignupView(CreateAPIView):
 
         # Create the user if the password is valid
         user = User.objects.create_user(username=username, email=email, password=password)
-        user.is_active = False
+        user.is_active = True
         user.save()
 
-        self._send_email_verification(user)
+        # self._send_email_verification(user)
 
         return Response({'message': 'User created successfully'}, status=status.HTTP_201_CREATED)
 
