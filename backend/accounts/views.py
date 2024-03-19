@@ -78,7 +78,7 @@ class SignupView(CreateAPIView):
         verification_token = email_verification_token.make_token(user)
         verification_url = reverse('activate', kwargs={'uidb64': urlsafe_base64_encode(force_bytes(user.pk)), 'token': verification_token})
         absolute_verification_url = f'http://{domain}{verification_url}'
-        email_plaintext_message = f"Click the following link to activate your account: {absolute_verification_url}"
+        email_plaintext_message = f"Hello {user.username},\n Click the following link to activate your account: {absolute_verification_url}"
 
         
         send_mail(

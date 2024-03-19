@@ -11,7 +11,7 @@
 ##############################
 
 
-DOCKERHUB_UNAME=successphil
+DOCKERHUB_UNAME=thisiskennyb
 
 
 BASE_URL=$1
@@ -25,16 +25,16 @@ NEW_VERSION=$2
 ############################################################
 ######################## Build API #########################
 
-# docker buildx build --platform=linux/amd64 --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
+docker buildx build --platform=linux/amd64 --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
 
-# docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
+docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
 
 ############################################################
 ####################### Build Webserver ####################
 
-# docker buildx build --platform=linux/amd64 -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
+docker buildx build --platform=linux/amd64 -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
 
-# docker push $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION
+docker push $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION
 
 ############################################################
 
@@ -52,9 +52,9 @@ NEW_VERSION=$2
 ###############################################################
 ###############################################################
 
-docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
+# docker build --build-arg VITE_BASE_URL=$BASE_URL -t $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION -f webserver/Dockerfile . --no-cache
 
-docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
+# docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
 
 ###############################################################
 ###############################################################
@@ -62,9 +62,9 @@ docker push $DOCKERHUB_UNAME/boulder_comp_webserver-prod:$NEW_VERSION
 ###############################################################
 ###############################################################
 
-docker build -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
+# docker build -t $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION -f backend/Dockerfile ./backend --no-cache
 
-docker push $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION
+# docker push $DOCKERHUB_UNAME/boulder_comp_api-prod:$NEW_VERSION
 
 ###############################################################
 ###############################################################
