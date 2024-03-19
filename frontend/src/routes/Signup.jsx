@@ -67,8 +67,8 @@ export default function Signup() {
     try {
       const response = await signup(context);
       if (response.status == 201){
-        toast.success('Please check your email to activate your account before logging in') // Should notify user to check email
-        navigate("/signup-message")
+        toast.success('Thanks For signing up! You should now be able to login') // Should notify user to check email
+        navigate("/login")
       }
     } catch (error) {
       toast.error('Oops, something went wrong')
