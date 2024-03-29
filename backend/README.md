@@ -36,6 +36,10 @@
     - [ Get All Teams in League](#get-all-teams-in-league)
     - [ Get Specific Team ](#get-specific-team)
 
+- Boulder
+    - [ Get List of All Crags ](#crag-list)
+    - [ Get All Boulders for a Crag](#crag-boulders)
+
 
 [Backend Table of contents](#table-of-contents)
 
@@ -698,5 +702,22 @@ Returns something like:
 ```
 
 change
+
+
+### Crag List
+
+- Make GET request to `localhost:8000/api/v1/boulders/crags-list/` 
+
+
+
+### Crag Boulders
+
+- Make GET request to `localhost:8000/api/v1/boulders/crag-boulders/` with the following data:
+
+```json
+{
+    "crag": "obed"
+}
+```
 
 [All Endpoints](#endpoints)

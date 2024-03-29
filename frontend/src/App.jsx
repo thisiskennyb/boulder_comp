@@ -30,6 +30,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getUserDashboard } from './api/UserContext/backend_calls' // Gets us Highest Boulder Grade for user
 import { teamsUserIsIn } from './api/UserContext/backend_calls' // Gets all the teams a user is in
 import { getUserSends } from './api/UserContext/backend_calls' // Gets all the users sends
+import { getAllCrags } from './api/Boulders/backend_calls'
 
 
 
@@ -40,12 +41,14 @@ function App() {
   const [ userSends, setUserSends ] = useState([]) 
   const [highestBoulderGrade, setHighestBoulderGrade] = useState(null) 
   const [userDashboard, setUserDashboard] = useState(null) 
+  const [ cragsList, setCragsList ] = useState([]);
 
 
 // We have try/catch on all of our backend fetches
 // Can access status after await with .status, data with .data
 
  // Gets user Teams for context
+
  
   const contextFetchUserTeams = async () => {
     const token = localStorage.getItem('token')
@@ -70,6 +73,18 @@ function App() {
     }
 
 
+// Gets list of crags for context
+  const contextCragsList = async () => {
+    const token = localStorage.getItem('token')
+    if (token){
+        const cragNames = await getAllCrags()
+        if (cragNames.status == 200){
+          setCragsList(cragNames.data)
+        }
+      }
+    }
+
+
 // Gets userDashboard for context and highestBoulderGrade
   const contextUserDashboard = async () => {
     if (userToken){
@@ -89,6 +104,7 @@ function App() {
       contextFetchUserTeams() // Sets teams that user is in context
       contextUserSendData() // Sets user sends in context
       contextUserDashboard() // Sets user dashboard and highest boulder grade in context
+      contextCragsList() // Sets list of crags in context for choosing sends
     }
 
   }, [userToken]) // Fixes issue of needing to update after we get token
@@ -107,6 +123,7 @@ function App() {
         contextFetchUserTeams,
         contextUserDashboard,
         contextUserSendData,
+        cragsList,
         userToken,
         usersTeams,
         highestBoulderGrade,
