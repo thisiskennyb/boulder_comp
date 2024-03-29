@@ -4,11 +4,116 @@ import UserContext from "../../contexts/UserContext";
 import { useContext, useState } from "react";
 import SearchbarSelect from "../Utils/SearchbarSelect";
 import { filterSendData } from "../../utils/utils";
+
+
+
+
+//////////////////////////////////////////////////////
+//// Need to refactor this component    /////////////
+///// To use postgres data from backend    /////////
+////////////////////////////////////////////////////
+/////// Need to make user select Crag /////////////
+//// Selection should query for all Boulders /////
+//////////////////////////////////////////////////
+//// Again make them choose an existing boulder //
+/// Only let them log if all fields are not blank //
+////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////
+
+/// Till refactor.. calling function to ensure /////
+// Data can be retrieved on page                ///
+
+import { getCragBoulders } from "../../api/Boulders/backend_calls";
+
+import Select from 'react-select'
+
+
+
+
 export default function DashboardSends({ handleLogSend, isModalOpen}){
-    const {userSends} = useContext(UserContext)
+    const {userSends, cragsList} = useContext(UserContext)
     const [ selectedOption, setSelectedOption ] = useState("") // Used for Search Select state
     const [ searchQuery, setSearchQuery ] = useState(""); // Used for Search Input state
     const options = ['username', 'boulder', 'grade', 'send_date', 'score'] // Field values for SearchbarSelect
+    ///////////////////////////////////////////////////
+    // Needs to be refactored to be used right
+    ///////////////////////////////////////////////////
+    const [selectedCrag, setSelectedCrag ] = useState("")
+    const [boulderOptions, setBoulderOptions ] = useState([])
+
+    // console.log(cragsList, 'WOW HAHAHAHAHAHA')
+    console.log(selectedCrag, 'lets see')
+    const cragOptions = cragsList.map(crag => ({value:crag, label:crag}));
+    
+    const handleCragChange = selected => {
+        setSelectedCrag(selected)
+    }
+
+    const customStyles = {
+        control: (provided, state) => ({
+            ...provided,
+            backgroundColor: 'white',
+            color: 'white',
+            borderColor: state.isFocused ? '#7C3AED' : '#4A5568',
+            boxShadow: state.isFocused ? '0 0 0 1px #7C3AED' : 'none',
+            '&:hover': {
+                borderColor: state.isFocused ? '#7C3AED' : '#4A5568'
+            }
+        }),
+        menu: provided => ({
+            ...provided,
+            backgroundColor: '#4B5563',
+            color: 'white',
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected ? '#7C3AED' : state.isFocused ? '#9CA3AF' : 'transparent',
+            color: state.isSelected ? 'white' : 'inherit',
+            '&:hover': {
+                backgroundColor: '#7C3AED',
+                color: 'white'
+            }
+        }),
+        indicatorSeparator: () => ({
+            display: 'none' // Remove the indicator separator
+        }),
+        dropdownIndicator: (provided, state) => ({
+            ...provided,
+            color: 'white',
+            '&:hover': {
+                color: 'white'
+            }
+        }),
+        clearIndicator: (provided, state) => ({
+            ...provided,
+            color: 'white',
+            '&:hover': {
+                color: 'white'
+            }
+        }),
+        indicatorContainer: (provided, state) => ({
+            ...provided,
+            color: 'white'
+        })
+    };
+
+    const CombinedSelect = () => {
+        return(
+            <div className="text-white bg-red-500">
+            <Select
+            options={cragOptions}
+            isSearchable={true}
+            placeholder="Select a crag..."
+            value={selectedCrag}
+            onChange={handleCragChange}
+            styles={customStyles}
+            
+            /></div>
+        )
+    }
+
 
     // For filter Select
     const onSelectChange = (e) => {
@@ -63,6 +168,7 @@ export default function DashboardSends({ handleLogSend, isModalOpen}){
             {!userSends.length && (           
             <div className="flex flex-col items-center text-white">
                 <div className="font-nunito text-xl md:text-3xl my-10">Log a send!</div>
+                <CombinedSelect/>
                 <button className="bg-gray-800 mb-5 font-nunito text-white text-lg rounded-md border border-white hover:bg-gray-600 hover:text-white px-4 py-2 mt-2 transition-colors duration-300" onClick={handleLogSend}>Log</button>
             </div>
             )}

@@ -55,3 +55,14 @@ toast.success('This will be a green notification with this message')
 ```
 
 and inside the catch you can similarly put a message, with perhaps toast.error to make it easier to distinguish
+
+
+# React Select
+Helps with searchable input combined with select
+
+```
+npm install react-select
+```
+
+# Tailwind Forms
+Helps make styling for inputs and form elements easier with 
