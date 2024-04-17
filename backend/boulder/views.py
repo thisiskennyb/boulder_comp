@@ -29,18 +29,13 @@ class CragBouldersView(APIView):
     """
     This view gets all of the boulders for a crag
 
-    Request Data: crag: string, required
+    Request Data: crag: str: param (included in request)
     
     Returns: List of Boulder objects associated with crag, 200 OK
     
     """
     
-    def get(self, request):
-        
-        try:
-            crag = request.data['crag']
-        except KeyError:
-            return Response({"error": "Crag data missing"}, status=status.HTTP_400_BAD_REQUEST)
+    def get(self, request, crag):
         
         try:
             boulders = Boulder.objects.filter(crag=crag)

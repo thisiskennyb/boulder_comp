@@ -4,7 +4,7 @@
 # You could also skip this part and just run "npm run build" and copy over the output manually like some kind of barbarian
 ###########################
 
-FROM node:16 as builder
+FROM node:20 as builder
 
 WORKDIR /frontend
 

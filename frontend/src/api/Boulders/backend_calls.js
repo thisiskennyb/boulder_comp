@@ -22,10 +22,10 @@ export async function getAllCrags(){
 
 export async function getCragBoulders(context){
     try {
-        const response = axios.get(`http://${host}/api/v1/boulders/crag-boulders/`,{
-        params: {
-            crag: context.crag
-        },
+        const response = axios.get(`http://${host}/api/v1/boulders/crag-boulders/${context.name}`,{
+        // params: {
+        //     crag: context.name
+        // },
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Token ${localStorage.getItem("token")}`
