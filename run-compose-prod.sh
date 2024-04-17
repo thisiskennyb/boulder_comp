@@ -41,3 +41,4 @@ docker-compose -f docker-compose.prod.yml up -d
 sleep 10 
 docker exec boulder_comp-api-1 python /src/manage.py makemigrations 
 docker exec boulder_comp-api-1 python /src/manage.py migrate
+docker exec boulder_comp-api-1 python /src/manage.py loaddata boulders_usa

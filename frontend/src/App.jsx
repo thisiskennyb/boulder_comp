@@ -30,7 +30,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import { getUserDashboard } from './api/UserContext/backend_calls' // Gets us Highest Boulder Grade for user
 import { teamsUserIsIn } from './api/UserContext/backend_calls' // Gets all the teams a user is in
 import { getUserSends } from './api/UserContext/backend_calls' // Gets all the users sends
-import { getAllCrags } from './api/Boulders/backend_calls'
+import { getAllCrags } from './api/Boulders/backend_calls' // Gets all the crag names from our db
+import { getCragBoulders } from './api/Boulders/backend_calls' // Gets all the boulders for a selected crag name
+
 
 
 
@@ -42,6 +44,10 @@ function App() {
   const [highestBoulderGrade, setHighestBoulderGrade] = useState(null) 
   const [userDashboard, setUserDashboard] = useState(null) 
   const [ cragsList, setCragsList ] = useState([]);
+  const [selectedCrag, setSelectedCrag ] = useState("")
+  const [selectedBoulder, setSelectedBoulder ] = useState("")
+  const [ bouldersList, setBoulderList ] = useState([]);
+  
 
 
 // We have try/catch on all of our backend fetches
@@ -83,7 +89,18 @@ function App() {
         }
       }
     }
+  
+// Get list of boulders for context, this should depend on the select crag from the list of selected crags
 
+  const contextBouldersList = async (crag) => {
+    const token = localStorage.getItem('token')
+    if (token){
+      const boulderNames = await getCragBoulders(crag)
+      if (boulderNames.status === 200){
+        setBoulderList(boulderNames.data)
+      }
+    }
+  }
 
 // Gets userDashboard for context and highestBoulderGrade
   const contextUserDashboard = async () => {
@@ -95,6 +112,13 @@ function App() {
       }
     }
   }
+
+  useEffect(()=>{
+    const token = localStorage.getItem("token")
+    if (token && selectedCrag) {
+      contextBouldersList(selectedCrag)
+    }
+  }, [selectedCrag] )
 
   
   useEffect( () => {
@@ -116,6 +140,13 @@ function App() {
     setUserToken(token)
   }
 
+  const handleCragChange = selected => {
+    setSelectedCrag(selected)
+  }
+  const handleBoulderChange = selected => {
+    setSelectedBoulder(selected)
+  }
+
   
     return (
       <div>
@@ -124,6 +155,11 @@ function App() {
         contextUserDashboard,
         contextUserSendData,
         cragsList,
+        selectedCrag,
+        bouldersList,
+        selectedBoulder,
+        handleCragChange,
+        handleBoulderChange,
         userToken,
         usersTeams,
         highestBoulderGrade,

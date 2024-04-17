@@ -108,11 +108,12 @@ class SendView(APIView):
         #Try to get Boulder, or create one if it does not exist
 
         try:
-            if Boulder.objects.get(name=name):
-                boulder = Boulder.objects.get(name=name)
+            if Boulder.objects.filter(name=name).exists():
+                boulder = Boulder.objects.filter(name=name, grade=grade).order_by('-ascents').first()
         except Boulder.DoesNotExist:
                 boulder = Boulder(name=name, grade=grade, crag=crag)
                 boulder.save()
+        
        
         # Try to access Users Dashboard and Highest Boulder Grade
         try:
