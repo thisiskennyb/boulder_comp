@@ -108,10 +108,10 @@ export default function League() {
         <div className="flex justify-center items-center flex-col">
             <div className="relative w-45 h-45 border border-gray-300 rounded-full overflow-hidden flex justify-center items-center mt-5">
                 <img src={defaultImage} alt="no image available" className="size-40 md:size-50 rounded-full mt-1rem mb-0rem p-1 object-center" style={{ objectFit: 'cover' }} />
-                <div className="absolute bottom-3 right-3">
+                <div className="absolute bottom-4 right-4">
                     {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
                     {leagueData && userDashboard?.user == leagueData.moderator && (
-                        <div className="w-8 h-8 bg-black rounded-full flex justify-center items-center cursor-pointer" onClick={handleNavigateImageUpload}>
+                        <div className="w-8 h-8 bg-gray-800 rounded-full flex justify-center items-center cursor-pointer" onClick={handleNavigateImageUpload}>
                             <div className="text-white text-lg font-bold">+</div>
                         </div>
                     )}
@@ -127,22 +127,23 @@ export default function League() {
     {/* When we have league data and picture is not null */}
     {leagueData && leagueData.picture && (
         <div className="flex justify-center items-center flex-col">
-            <div className="relative w-45 h-45 border border-gray-300 rounded-full overflow-hidden">
-                <img src={leagueData.picture} alt="no image available" className="size-40 md:size-50 rounded-full mt-1rem mb-0rem p-1" style={{ objectFit: 'cover' }} />
-                <div className="absolute bottom-3 right-3">
-                    {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
-                    {leagueData && userDashboard?.user == leagueData.moderator && (
-                        <div className="w-8 h-8 bg-black rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-700" onClick={handleNavigateImageUpload}>
-                            <div className="text-white text-lg font-bold">+</div>
-                        </div>
-                    )}
-                </div>
-            </div>
-            {/* Display league name below the image */}
-            <div className="text-white text-center text-2xl font-nunito md:text-3xl underline font-extrabold mt-4 p-4">
-                {leagueData.league_name.toUpperCase()}
+        <div className="relative w-45 h-45 border border-gray-300 rounded-full overflow-hidden flex justify-center items-center mt-5">
+            <img src={leagueData.picture} alt="no image available" className="size-40 md:size-50 rounded-full mt-1rem mb-0rem p-1 object-center" style={{ objectFit: 'cover' }} />
+            <div className="absolute bottom-4 right-4">
+                {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
+                {leagueData && userDashboard?.user == leagueData.moderator && (
+                    <div className="w-8 h-8 bg-gray-800 rounded-full flex justify-center items-center cursor-pointer" onClick={handleNavigateImageUpload}>
+                        <div className="text-white text-lg font-bold">+</div>
+                    </div>
+                )}
             </div>
         </div>
+        {/* Display league name below the image */}
+        <div className="text-white text-center text-2xl font-nunito md:text-3xl underline font-extrabold py-5">
+            {leagueData.league_name.toUpperCase()}
+        </div>
+    </div>
+
     )}
 </div>
 
