@@ -7,6 +7,7 @@ import Modal from "../Features/Utils/Modal";
 import { toast } from "react-toastify";
 import UserContext from "../contexts/UserContext";
 import defaultImage from "../assets/default_image.png";
+import whiteBoulder from "../assets/boulderWhite.png";
 import LeagueTeamDisplay from "../Features/League/LeagueTeamDisplay";
 
 export default function League() {
@@ -99,25 +100,56 @@ export default function League() {
         </div>
       </Modal>
 
-      <div className="flex flex-col py-4 items-center text-white font-nunito text-3xl justify-center">
-        {/* When we have league data but no picture is available */}
-       {leagueData && !leagueData.picture && (
-         <img src={defaultImage} alt="no image available" className=" size-32 md:size-40 rounded-full my-6" />
-       )}
-      {/* When we have league data and picture is not null */}
-      {leagueData && leagueData.picture && (
-         <img src={leagueData.picture} alt="no image available" className="size-32 md:size-40 rounded-full my-4" />
-       )}
-         {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
-         {leagueData && userDashboard?.user == leagueData.moderator && (
-        <button className="my-4 bg-gray-800 font-nunito text-white text-lg md:text-2xl rounded-md border border-white hover:bg-gray-600 hover:text-white transition-colors duration-300" onClick={handleNavigateImageUpload}>UPLOAD</button>
-        )}
-      </div>
 
 
-      <div className="text-white text-center text-2xl font-nunito md:text-3xl">{leagueData.league_name}</div>
-      <div className="my-4 text-white font-nunito text-xs md:text-xl text-center">START DATE: {leagueData.start_date} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; END DATE: {leagueData.end_date}</div>
+<div className="flex items-center text-white font-nunito text-3xl justify-center h-10 my-20 md:flex-col">
+    {/* When we have league data but no picture is available */}
+    {leagueData && !leagueData.picture && (
+        <div className="flex justify-center items-center flex-col">
+            <div className="relative w-45 h-45 border border-gray-300 rounded-full overflow-hidden flex justify-center items-center mt-5">
+                <img src={defaultImage} alt="no image available" className="size-40 md:size-50 rounded-full mt-1rem mb-0rem p-1 object-center" style={{ objectFit: 'cover' }} />
+                <div className="absolute bottom-3 right-3">
+                    {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
+                    {leagueData && userDashboard?.user == leagueData.moderator && (
+                        <div className="w-8 h-8 bg-black rounded-full flex justify-center items-center cursor-pointer" onClick={handleNavigateImageUpload}>
+                            <div className="text-white text-lg font-bold">+</div>
+                        </div>
+                    )}
+                </div>
+            </div>
+            {/* Display league name below the image */}
+            <div className="text-white text-center text-2xl font-nunito md:text-3xl underline font-extrabold py-5">
+                {leagueData.league_name.toUpperCase()}
+            </div>
+        </div>
+    )}
+
+    {/* When we have league data and picture is not null */}
+    {leagueData && leagueData.picture && (
+        <div className="flex justify-center items-center flex-col">
+            <div className="relative w-45 h-45 border border-gray-300 rounded-full overflow-hidden">
+                <img src={leagueData.picture} alt="no image available" className="size-40 md:size-50 rounded-full mt-1rem mb-0rem p-1" style={{ objectFit: 'cover' }} />
+                <div className="absolute bottom-3 right-3">
+                    {/* When we have league data, if user is the moderator, show them the button to edit league photo */}
+                    {leagueData && userDashboard?.user == leagueData.moderator && (
+                        <div className="w-8 h-8 bg-black rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-700" onClick={handleNavigateImageUpload}>
+                            <div className="text-white text-lg font-bold">+</div>
+                        </div>
+                    )}
+                </div>
+            </div>
+            {/* Display league name below the image */}
+            <div className="text-white text-center text-2xl font-nunito md:text-3xl underline font-extrabold mt-4 p-4">
+                {leagueData.league_name.toUpperCase()}
+            </div>
+        </div>
+    )}
+</div>
+
+  
+      <div className="flex justify-center text-white font-nunito text-xs md:text-xl text-center p-2"><p className="font-extrabold">START DATE: {leagueData.start_date}</p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <p className="font-extrabold">END DATE: {leagueData.end_date}</p></div>
       <div className="text-white font-nunito text-sm md:text-xl text-center">TEAM SIZE: {leagueData.team_size}</div>
+      
       {/* Check that the date today is before the league start date, and that user is not already participating in the league */}
       {/* This check is simply ensuring that the user is not already a participant, and the league has not already started */}
       {leagueData && userDashboard && new Date() < new Date(leagueData.start_date) && !leagueParticipants.includes(userDashboard.user) && (

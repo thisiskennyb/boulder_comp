@@ -5,6 +5,7 @@ import horizontalLogo from "../../assets/horizOption3White.png"
 import { useContext } from 'react'
 import UserContext from "../../contexts/UserContext";
 import default_img from "../../assets/default_image.png"
+import whiteBoulder from "../../assets/boulderWhite.png";
 
 import { Link } from 'react-router-dom'
 
@@ -92,7 +93,7 @@ export default function NavBar() {
                     <Menu.Button className="relative flex rounded-full bg-gray-700 h-12 w-12">
                       <img
                         className="h-10 w-10 -mx-1 rounded-full"
-                        src={userDashboard?.avatar || default_img}
+                        src={userDashboard?.avatar || whiteBoulder}
                         alt=""
                       />
                     </Menu.Button>

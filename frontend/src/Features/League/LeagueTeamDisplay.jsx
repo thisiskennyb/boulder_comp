@@ -69,7 +69,7 @@ export default function LeagueTeamDisplay({teamsData, leagueParticipants, userDa
                   <div className="flex items-center w-1/12 md:w-1/2">
                     <button className=" bg-gray-800 min-w-min w-1/4 font-nunito text-white text-xs md:text-2xl rounded-lg border border-white ml-3 md:ml-0 md:w-4/5 md:h-1/2 hover:bg-gray-600 hover:text-white  transition-colors duration-300"
                       onClick={() => handleViewTeam(team.id)}
-                      >VIEW
+                      >View
                     </button>
                   </div>
 

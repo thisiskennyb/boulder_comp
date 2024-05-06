@@ -18,6 +18,7 @@ import SelectedLeague from './routes/SelectedLeague'
 import Team from './routes/Team'
 import NavBar from './Features/Utils/NavBar'
 import UploadImage from './Features/Utils/UploadImage'
+import TestDjoser from './routes/TestDjoser'
 
 
 
@@ -197,6 +198,7 @@ function App() {
         {/* Handles Avatar, Team and League Image Uploads */}
         <Route path="/upload-image/:type/:id?" element={<UploadImage />} />
         <Route path="/edit-profile" element={<DashboardInfo />} />
+        <Route path="/test" element={<TestDjoser />} />
         
       </Routes>
       </Router>
