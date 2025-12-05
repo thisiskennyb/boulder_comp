@@ -1,6 +1,5 @@
 # :climbing: Boulder Comp :climbing:
 
-Check out Boulder Comp [here](http://www.bouldercomp.com)!
 
 ---
 
